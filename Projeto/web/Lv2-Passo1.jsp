@@ -11,9 +11,21 @@
 <%@page import="modelo.Lv2p1"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
+    
     Usuario u = new Usuario();
-    Passos p = new Passos();
-    Propriedade pro = new Propriedade();
+    Passos p;
+    if (session.getAttribute("Passos") != null) {
+        p = (Passos)session.getAttribute("Passos");
+    }
+    else
+    {
+        p = new Passos();
+        p.setAno(request.getParameter("data"));
+        session.setAttribute("Passos", p);
+        
+    }
+    
+    Propriedade pro = new Propriedade ();
     if (session.getAttribute("Usuario") != null) {
         u = (Usuario) session.getAttribute("Usuario");
         p = (Passos) session.getAttribute("Passos");
@@ -21,6 +33,10 @@
     } else {
         response.sendRedirect("index.jsp");
     }
+    
+    
+    
+  
 %>
 <!DOCTYPE html>
 <html>

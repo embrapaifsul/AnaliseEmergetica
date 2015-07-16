@@ -19,7 +19,7 @@
     Usuario u = new Usuario();
     Passos p = new Passos();
     Propriedade pro = new Propriedade();
-if(session.getAttribute("Usuario")!=null)
+if (session.getAttribute("Usuario") != null && session.getAttribute("Passos") != null && session.getAttribute("Propriedade") != null  )
 {
      u = (Usuario)session.getAttribute("Usuario");
      p = (Passos)session.getAttribute("Passos");
