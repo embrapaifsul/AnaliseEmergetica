@@ -8,33 +8,31 @@
 <%@page import="modelo.Lv1p4"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    
+
     Usuario u = new Usuario();
     Passos p = new Passos();
     Propriedade pro = new Propriedade();
-    if (session.getAttribute("Usuario") != null && session.getAttribute("Passos") != null && session.getAttribute("Propriedade") != null  ){
+    if (session.getAttribute("Usuario") != null && session.getAttribute("Passos") != null && session.getAttribute("Propriedade") != null) {
         u = (Usuario) session.getAttribute("Usuario");
         p = (Passos) session.getAttribute("Passos");
         pro = (Propriedade) session.getAttribute("Propriedade");
     } else {
         response.sendRedirect("index.jsp");
     }
-    
-   GraficosDAO daog = new GraficosDAO ();
+
+    GraficosDAO daog = new GraficosDAO();
     Lv1p4 graf = daog.graficolv1p4(pro);
-   
 
 
 %>
-<%
-        Lv1p3 lv1p3 = new Lv1p3();
-        lv1p3.setReceita_anual(Double.parseDouble(request.getParameter("bovinosanual")));
-        lv1p3.setPropiedade_id(pro.getId());
-        lv1p3.setAno(p.getAno());
+<%    Lv1p3 lv1p3 = new Lv1p3();
+    lv1p3.setReceita_anual(Double.parseDouble(request.getParameter("bovinosanual")));
+    lv1p3.setPropiedade_id(pro.getId());
+    lv1p3.setAno(p.getAno());
 
-        Lv1p3DAO dao = new Lv1p3DAO();
-        dao.inserir(lv1p3);
-        p.setLv1p3(lv1p3);
+    Lv1p3DAO dao = new Lv1p3DAO();
+    dao.inserir(lv1p3);
+    p.setLv1p3(lv1p3);
 %>
 <!DOCTYPE html>
 <html>
@@ -53,62 +51,61 @@
         <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
         <script type="text/javascript" src="bootstrap/TesteJavaScript.js"></script>
         <%
-         String exibegraf = "none";
-         if(graf!=null)
-    {
-        exibegraf="block";
-%>
+            String exibegraf = "none";
+            if (graf != null) {
+                exibegraf = "block";
+        %>
         <style type="text/css">
-${demo.css}
-		</style>
+            ${demo.css}
+        </style>
 
 
-		<script type="text/javascript">
-$(function () {
-    $('#container').highcharts({
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false
-        },
-        title: {
-            text: 'Percentual dos Custos'
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                    style: {
-                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                    }
-                }
+        <script type="text/javascript">
+            $(function() {
+                $('#container').highcharts({
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false
+                    },
+                    title: {
+                        text: 'Percentual dos Custos'
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                style: {
+                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                }
+                            }
+                        }
+                    },
+                    series: [{
+                            type: 'pie',
+                            name: 'Custos',
+                            data: [
+                                ['Medicamentos', <%=graf.getMadicamento()%>],
+                                ['Mão-de-obra', <%=graf.getMao_de_obra()%>],
+                                ['Maquinas', <%=graf.getMaquinas()%>],
+                                ['Pastagem', <%=graf.getPastagem()%>],
+                                ['Outros', <%=graf.getOutros()%>]
+                            ]
+                        }]
+                });
+            });
+
+
+        </script>
+        <%
             }
-        },
-        series: [{
-            type: 'pie',
-            name: 'Custos',
-            data: [
-                ['Medicamentos',  <%=graf.getMadicamento()%> ],
-                    ['Mão-de-obra',   <%=graf.getMao_de_obra()%>],                    
-                    ['Maquinas',   <%=graf.getMaquinas()%>],
-                    ['Pastagem',   <%=graf.getPastagem()%>],
-                    ['Outros',   <%=graf.getOutros()%>]
-            ]
-        }]
-    });
-});
-
-
-		</script>
-<%
-    }
-%>
+        %>
     </head>
     <body>
 
@@ -184,7 +181,7 @@ $(function () {
         <div class="container-fluid">
             <div class="row-fluid">
 
-                
+
 
                 <aside class="span6">
 
@@ -197,7 +194,7 @@ $(function () {
                             <div class="controls">
                                 <input type="text" name="medicamentos">
                                 <span>
-                                <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Medicamento: Vacinas, carrapaticidas, Vermífugos e outros medicamentos;"><i class="icon-info-sign"></i></button>
+                                    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Medicamento: Vacinas, carrapaticidas, Vermífugos e outros medicamentos;"><i class="icon-info-sign"></i></button>
                                 </span>
                             </div>
                         </div>
@@ -239,36 +236,110 @@ $(function () {
 
                 </aside>
 
-               <aside class="span6">
+
+       
+                  
                     
+                   
+                       
+                        
+                       
+
+                
+
+
+                                <aside class="span2">
+                                     <header class="page-header">
+                       <a href="#MeuModal" class="btn btn-primary btn-large" role="button" data-toggle="modal"> Graficos </a>
+                   </header>
+                                    <div class="panel-group">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                <h5 class="panel-title">Passo 1</h5>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="control-group">
+                                                    <label class="control-label"><h6><b>Área média da Pecuária Aproveitavel: </b><span id="a"><%=p.getLv1p1().getArea_apro()%></span><span class="help-inline">Hectares</span></h6>
+                                                </div>
+                                                <br/><br/><br/><br/><br/>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-success">
+                                            <div class="panel-heading">
+                                                <h5 class="panel-title">Passo 3</h5>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="control-group">
+                                                    <label class="control-label"><h6><b>Receita por Hectare: </b><span id="c"><%=p.getLv1p3().getReceita_anual()%></span><span class="help-inline">R$/Hectare</span></h6>
+                                                </div>
+                                                <br/><br/><br/><br/><br/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </aside>
+                                <aside class="span2">
+                                    <br/><br/><br/><br/><br/>
+                                    <div>
+                                        <div class="panel-group">
+                                            <div class="panel panel-warning">
+                                                <div class="panel-heading">
+                                                    <h5 class="panel-title">Passo 2</h5>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="panel-body">
+                                                        <div class="control-group">
+                                                            <label class="control-label"><h6><b>Rebanho com atividade de Cria: </b><span id="a"><%=p.percentualcria()%></span><span class="help-inline">%</span></h6>
+                                                        </div>
+                                                        <div class="control-group">
+                                                            <label class="control-label"><h6><b>Lotação Média da Propriedade: </b><span id="b"><%=p.lotacaomedia()%></span><span class="help-inline">Cabeça(s) por hectare</span></h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-danger">
+                                                <div class="panel-heading">
+                                                    <h5 class="panel-title">Passo 4</h5>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="control-group">
+                                                        <label class="control-label"><h6><b>Total dos Custos de Produção: </b><span id="d"></span><span class="help-inline">R$</span></h6>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label"><h6><b>Custo de Atividade de Cria: </b><span id="e"></span><span class="help-inline">R$</span></h6>
+                                                    </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label"><h6><b>Custo de Produção por Hectar: </b><span id="f"></span><span class="help-inline">R$/Hectare</span></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </aside>
+                            
                     
-                    <div class="tabbable tabs-left">
-                            <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1" data-toggle="tab"> Resultados </a></li>
-                            <li style="display:<%=exibegraf%>"><a href="#tab2" data-toggle="tab"> Greficos </a></li>                            
-                        </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="tab1">
-                                 <jsp:include page="bootstrap/resultado.jsp" >
-                                <jsp:param name="passo" value="4" />
-                                </jsp:include>
-                            </div>
-                            <div class="tab-pane" id="tab2">
+
+                    
+
+
+                
+                   <section id="MeuModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="meuModelLabel" aria-hidden="true">
+                             <header class="modal-header">
+                                 <button class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                                 <h3 id="meuModelLabel"> Custos</h3>
+                             </header>
+                             <section class="modal-body">
+                                 
                                 <script src="js/highcharts.js"></script>
                                  <script src="js/modules/exporting.js"></script>                                 
-                                <div id="container" style="min-width: 310px; height: 200px; max-width: 300px; margin: 0 auto"></div>
-                            </div>
-                           
-                        </div>
-                        </div>
-                                                  
+                                <div id="container" style="min-width: 410px; height: 300px; max-width: 400px; margin: 0 auto"></div>
+                            
+                             </section>
+                        </section>                      
                      
-                    
-                </aside>
-
             </div>
         </div>
 
     </body>
-    
+
 </html>

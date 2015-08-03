@@ -4,6 +4,8 @@
     Author     : Aluno
 --%>
 
+<%@page import="modelo.Lv1p4"%>
+<%@page import="dao.GraficosDAO"%>
 <%@page import="modelo.Propriedade"%>
 <%@page import="modelo.Passos"%>
 <%@page import="modelo.Usuario"%>
@@ -34,8 +36,9 @@
         response.sendRedirect("index.jsp");
     }
     
-    
-    
+       GraficosDAO daog = new GraficosDAO ();
+     Lv2p1 graf = daog.graficolv2p1(pro);
+     
   
 %>
 <!DOCTYPE html>
@@ -51,9 +54,165 @@
         <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css">
         <link rel="stylesheet" href="bootstrap/style.css">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
         <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
         <script type="text/javascript" src="bootstrap/TesteJavaScript.js"></script>
+        
+         <%
+         String exibegraf = "none";
+         if(graf!=null)
+    {
+        exibegraf="block";
+%>
+        <style type="text/css">
+#container,#container2{
+	min-width: 300px;
+	max-width: 600px;
+	margin: 0 auto;
+}
+		</style>
+		<script type="text/javascript">
+$(function () {
+	var data = {
+		"Area da Pecuária": {
+			"Pastagem Nativa": {
+				"Quantidade": "<%=graf.getPastagemnativa()%>"
+					
+			},
+				"Pastagem Nativa Melhorada": {
+				"Quantidade": "<%=graf.getPastagemnativamelhorada()%>"
+					
+			},
+                          "Pastagem Cultivada Perene": {
+				"Quantidade": "<%=graf.getPastagemcultivadaperene()%>"
+					
+			},
+                        "Pastagem Anuais": {
+				"Quantidade": "<%=graf.getPastagemanuaisdeinverno() + graf.getPastagemanuaisdeverao ()%>"
+					
+			}
+		},
+			
+			"Área Inaproveitável": {
+			"Matas Nativas": {				
+			"Quantidade": "<%=graf.getMatasnativas()%>"
+                        
+			},
+				"Sede,Estradas,Açudes": {
+			"Quantidade": "<%=graf.getSea()%>"
+			},
+				"Inaproveitável (Banhados, pedrais, Etc)": {
+			"Quantidade": "<%=graf.getInaproveitavel()%>"
+			}
+		},
+                    "Área da Aproveitável": {
+			"Agricultura": {
+				"Quantidade": "<%=graf.getAgriculturai() + graf.getAgriculturav ()%>"					
+			},
+				"Floresta Plantadas": {
+				
+					"Quantidade": "<%=graf.getFlorestaplantadas()%>"
+			},
+				"Outras Culturas": {			
+					"Quantidade": "<%=graf.getOutrasplantadas()%>"
+			}
+		}
+			
+		
+			
+		
+	};
+	var points = [],
+		region_p,
+		region_val,
+		region_i,
+		country_p,
+		country_i,
+		cause_p,
+		cause_i,
+		cause_name = [];
+	cause_name['Communicable & other Group I'] = 'Communicable diseases';
+	cause_name['Noncommunicable diseases'] = 'Non-communicable diseases';
+	cause_name['Injuries'] = 'Injuries';
+	region_i = 0;
+	for (var region in data) {
+		region_val = 0;
+		region_p = {
+			id: "id_" + region_i,
+			name: region,
+			color: Highcharts.getOptions().colors[region_i]
+		};
+		country_i = 0;
+		for (var country in data[region]) {
+			country_p = {
+				id: region_p.id + "_" + country_i,
+				name: country,
+				parent: region_p.id
+			};
+			points.push(country_p);
+			cause_i = 0;
+			for (var cause in data[region][country]) {
+				cause_p = {
+					id: country_p.id + "_" + cause_i,
+					name: cause_name[cause],
+					parent: country_p.id,
+					value: Math.round(+data[region][country][cause])
+				};
+				region_val += cause_p.value;
+				points.push(cause_p);
+				cause_i++;
+			}
+			country_i++;
+		}
+		region_p.value = Math.round(region_val );
+		points.push(region_p);
+		region_i++;
+	}
+	var chart = new Highcharts.Chart({
+		chart: {
+			renderTo: 'container'
+		},
+		series: [{
+			type: "treemap",
+			layoutAlgorithm: 'squarified',
+			allowDrillToNode: true,
+			dataLabels: {
+				enabled: false
+			},
+			levelIsConstant: false,
+			levels: [{
+				level: 1,
+				dataLabels: {
+					enabled: true
+				},
+				borderWidth: 3
+			}],
+			data: points
+		}],
+		subtitle: {
+			text: ''
+		},
+		title: {
+			text: 'Area da Fazenda'
+		}
+	});
+        
+        
+        
+        
+        
+        
+
+});
+
+
+
+		</script>
+
+		
+                <%
+    }
+%>
         <script>
             function calcularPastagem()
             {
@@ -210,9 +369,9 @@
         <div class="container-fluid">
             <div class="row-fluid">
 
-                <aside class="span1"></aside>
+               
 
-                <aside class="span11">
+                <aside class="span8">
                     <h2> Informações </h2>
                     <br/>
                     <form name="Passo1" action="Lv2-Passo2.jsp" class="form-horizontal" method ="post" onSubmit="return passo1();">
@@ -316,6 +475,16 @@
                     </form>               
 
                 </aside>
+                <asidde class="span4">
+                    <div style="display:<%=exibegraf%>">
+                    <script src="js/highcharts.js"></script>
+                    <script src="js/modules/heatmap.js"></script>
+                    <script src="js/modules/treemap.js"></script>
+                    <div id="container"></div>
+                    </div>
+                    
+                   
+                </asidde>
 
             </div>
         </div>

@@ -1,104 +1,20 @@
 <%-- 
-    Document   : Lv1-Passo3
-    Created on : 28/04/2015, 16:03:33
+    Document   : Lv1-Passo1
+    Created on : 28/04/2015, 16:00:56
     Author     : Aluno
 --%>
 
 <%@page import="modelo.Propriedade"%>
-<%@page import="modelo.Calculos"%>
 <%@page import="modelo.Passos"%>
-<%@page import="dao.Lv1p2DAO"%>
-<%@page import="modelo.Lv1p2"%>
 <%@page import="modelo.Usuario"%>
-<%@page import="dao.Lv1p3DAO"%>
-<%@page import="modelo.Lv1p3"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-    Usuario u = new Usuario();
-    Passos p = new Passos();
-    Propriedade pro = new Propriedade();
-    if (session.getAttribute("Usuario") != null && session.getAttribute("Passos") != null && session.getAttribute("Propriedade") != null  ){
-        u = (Usuario) session.getAttribute("Usuario");
-        p = (Passos) session.getAttribute("Passos");
-        pro = (Propriedade) session.getAttribute("Propriedade");
-    } else {
-        response.sendRedirect("index.jsp");
-    }
-    
-%>
+<%@page import="java.util.List"%>
+<%@page import="dao.Lv1p1DAO"%>
+<%@page import="modelo.Lv1p1"%>
 
-<%    Lv1p2 e = new Lv1p2();
-    Lv1p2DAO dao = new Lv1p2DAO();
-    
-    e.setPropiedade_id(pro.getId());
-    
-    if (request.getParameter("vacasdecria").equals("")) {
-        
-        e.setVacadecria(00);
-    } else {
-        e.setVacadecria(Integer.parseInt(request.getParameter("vacasdecria")));
-    }
-    
-    if (request.getParameter("vacasdedescarte").equals("")) {
-        e.setVacadedescarte(00);
-    } else {
-        e.setVacadedescarte(Integer.parseInt(request.getParameter("vacasdedescarte")));
-    }
-    
-    if (request.getParameter("terneiros").equals("")) {
-        e.setTerneiro(0);
-    } else {
-        e.setTerneiro(Integer.parseInt(request.getParameter("terneiros")));
-    }
-    
-    if (request.getParameter("terneiras").equals("")) {
-        e.setTerneira(0);
-    } else {
-        e.setTerneira(Integer.parseInt(request.getParameter("terneiras")));
-    }
-    
-    if (request.getParameter("novilhos1").equals("")) {
-        e.setNovilho1324(00);
-    } else {
-        e.setNovilho1324(Integer.parseInt(request.getParameter("novilhos1")));
-    }
-    
-    if (request.getParameter("novilhas1").equals("")) {
-        e.setNovilha1324(00);
-    } else {
-        e.setNovilha1324(Integer.parseInt(request.getParameter("novilhas1")));
-    }
-    
-    if (request.getParameter("novilhos2").equals("")) {
-        e.setNovilho2536(00);
-    } else {
-        e.setNovilho2536(Integer.parseInt(request.getParameter("novilhos2")));
-    }
-    
-    if (request.getParameter("novilhas2").equals("")) {
-        e.setNovilha2536(00);
-    } else {
-        e.setNovilha2536(Integer.parseInt(request.getParameter("novilhas2")));
-    }
-    
-    if (request.getParameter("novilhos3").equals("")) {
-        e.setNovilho36(0);
-    } else {
-        e.setNovilho36(Integer.parseInt(request.getParameter("novilhos3")));
-    }
-    
-    if (request.getParameter("touros").equals("")) {
-        e.setTouro(00);
-    } else {
-        e.setTouro(Integer.parseInt(request.getParameter("touros")));
-    }    
-    
-    e.setAno(p.getAno());
-    
-    dao.inserirNao(e);
-    p.setLv1p2(e);
 
-%>
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -121,7 +37,7 @@
         <nav class="navbar navbar-fixed-top navbar-inverse">
             <div class="navbar-inner">
                 <div class="container">
-                    <!-- .btn-navbar est√° classe √© usada como alternador para o conteudo coplapsavel-->
+                    <!-- .btn-navbar est· classe È usada como alternador para o conteudo coplapsavel-->
                     <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -135,7 +51,7 @@
                             <li><a></a></li>
                             <li><a></a></li>
                             <li><a></a></li>
-                            <li><a>Propriedade: <%=pro.getNome()%></a></li>
+                            <li><a>Propriedade: S„o JosÈ</a></li>
                             <li><a></a></li>
                             <li><a></a></li>
                             <li><a></a></li>
@@ -148,7 +64,7 @@
                             <li><a></a></li>
                             <li><a></a></li>
                             <li><a></a></li>
-                            <li><a href="index.jsp">Usuario: <%=u.getLogin()%></a></li>
+                            <li><a href="index.jsp">Usuario: Renan</a></li>
                         </ul>
                     </div>
                 </div>
@@ -160,25 +76,26 @@
         <div class="container-fluid">
             <div class="row-fluid">
 
-                <aside class="span11">
+                <aside class="span10">
                     <section id="breadcrumbs">
                         <header class="page-header">
                             <h3> Progresso </h3>
 
                             <ul class="breadcrumb">
                                 <li><a href="AnoLv1.jsp"> Data </a><span class="divider"> / </span></li>
-                                <li><a href="Lv1-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
+                                <li class="alert-error"> Passo 1 </li><span class="divider"> / </span>
                                 <li><a href="Lv1-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
-                                <li class="alert-error"> Passo 3 </li><span class="divider"> / </span>
+                                <li><a href="Lv1-Passo3.jsp"> Passo 3 </a><span class="divider"> / </span></li>
                                 <li><a href="Lv1-Passo4.jsp"> Passo 4 </a><span class="divider"> / </span></li>
                                 <li><a href="Lv1-Saida.jsp"> Resultados </a></li>
                             </ul>
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                                    <span class="sr-only">60% Completo</span>
+                                <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
+                                    <span class="sr-only">20% Completo</span>
                                 </div>
                             </div>
                         </header>
+
                     </section><br/><br/>
                 </aside>
 
@@ -193,19 +110,17 @@
                 <aside class="span1"></aside>
 
                 <aside class="span6">
-
-                    <h2> Receitas Anuais </h2>
+                    <h2> InformaÁıes </h2>
                     <br/>
-
-                    <form name="Passo3" action="Lv1-Passo4.jsp" class="form-horizontal" method ="post" onSubmit="return passo3();">
+                    <form name="Passo1" action="Lv1-Passo2.jsp" class="form-horizontal" method ="post" onSubmit="return passo1();">
                         <div class="control-group">
-                            <label class="control-label">Receita Anual de Bovinos:</label>
+                            <label class="control-label">¡rea mÈdia da Pecu·ria Aproveitavel:</label>
                             <div class="controls">
                                 <br/>
-                                <input type="text" name="bovinosanual">
+                                <input type="text" name="areapecuaria">
+                                <span class="help-inline">Hectares</span>
                             </div>
                         </div>
-
                         <div class="control-group">
                             <div class="controls">
                                 <input type="submit" class="btn" value="Proximo Passo" />
@@ -215,6 +130,8 @@
 
                 </aside>
 
+
+
                 <aside class="span2">
                     <div class="panel-group">
                         <div class="panel panel-info">
@@ -223,7 +140,7 @@
                             </div>
                             <div class="panel-body">
                                 <div class="control-group">
-                                    <label class="control-label"><h6><b>√Årea m√©dia da Pecu√°ria Aproveitavel: </b><span id="a"><%=p.getLv1p1().getArea_apro()%></span><span class="help-inline">Hectares</span></h6>
+                                    <label class="control-label"><h6><b>¡rea mÈdia da Pecu·ria Aproveitavel: </b><span id="a">1.200</span><span class="help-inline">Hectares</span></h6>
                                 </div>
                                 <br/><br/><br/><br/><br/>
                             </div>
@@ -234,7 +151,7 @@
                             </div>
                             <div class="panel-body">
                                 <div class="control-group">
-                                    <label class="control-label"><h6><b>Receita por Hectare: </b><span id="c"></span><span class="help-inline">R$/Hectare</span></h6>
+                                    <label class="control-label"><h6><b>Receita por Hectare: </b><span id="c">2.500</span><span class="help-inline">R$/Hectare</span></h6>
                                 </div>
                                 <br/><br/><br/><br/><br/>
                             </div>
@@ -250,10 +167,10 @@
                             <div class="panel-body">
                                 <div class="panel-body">
                                     <div class="control-group">
-                                        <label class="control-label"><h6><b>Rebanho com atividade de Cria: </b><span id="a"><%=p.percentualcria()%></span><span class="help-inline">%</span></h6>
+                                        <label class="control-label"><h6><b>Rebanho com atividade de Cria: </b><span id="a">42</span><span class="help-inline">%</span></h6>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label"><h6><b>Lota√ß√£o M√©dia da Propriedade: </b><span id="b"><%=p.lotacaomedia()%></span><span class="help-inline">Cabe√ßa(s) por hectare</span></h6>
+                                        <label class="control-label"><h6><b>LotaÁ„o MÈdia da Propriedade: </b><span id="b">50</span><span class="help-inline">CabeÁa(s) por hectare</span></h6>
                                     </div>
                                 </div>
                             </div>
@@ -264,13 +181,13 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="control-group">
-                                        <label class="control-label"><h6><b>Total dos Custos de Produ√ß√£o: </b><span id="d"></span><span class="help-inline">R$</span></h6>
+                                        <label class="control-label"><h6><b>Total dos Custos de ProduÁ„o: </b><span id="d">96.000</span><span class="help-inline">R$</span></h6>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label"><h6><b>Custo de Atividade de Cria: </b><span id="e"></span><span class="help-inline">R$</span></h6>
+                                        <label class="control-label"><h6><b>Custo de Atividade de Cria: </b><span id="e">42.500</span><span class="help-inline">R$</span></h6>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label"><h6><b>Custo de Produ√ß√£o por Hectar: </b><span id="f"></span><span class="help-inline">R$/Hectare</span></h6>
+                                        <label class="control-label"><h6><b>Custo de ProduÁ„o por Hectar: </b><span id="f">53.500</span><span class="help-inline">R$/Hectare</span></h6>
                                     </div>
                                 </div>
                             </div>

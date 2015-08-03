@@ -4,6 +4,7 @@
     Author     : Aluno
 --%>
 
+<%@page import="dao.GraficosDAO"%>
 <%@page import="modelo.Propriedade"%>
 <%@page import="modelo.Passos"%>
 <%@page import="dao.Lv2p1DAO"%>
@@ -48,6 +49,23 @@ else
         Lv2p1DAO dao = new Lv2p1DAO();
         dao.inserir(a);
         p.setLv2p1(a);
+        
+        
+        
+        
+        GraficosDAO daog = new GraficosDAO ();
+    Lv2p2 graf = daog.graficolv2p2(pro);
+    
+    Integer janmar = graf.getVacadecriajanmar() + graf.getVacadedescartejanmar() + graf.getTerneirasjanmar() + graf.getTerneirosjanmar() + graf.getNovilho1324janmar() + graf.getNovilha1324janmar() + graf.getNovilho2536janmar() + graf.getNovilha2536janmar() + graf.getNovilho36janmar() + graf.getTourojanmar();
+    Integer abrjun = graf.getVacadecriaabrjun() + graf.getVacadedescarteabrjun() + graf.getTerneirasabrjun() + graf.getTerneirosabrjun() + graf.getNovilho1324abrjun() + graf.getNovilha1324abrjun() + graf.getNovilho2536abrjun() + graf.getNovilha2536abrjun() + graf.getNovilho36abrjun() + graf.getTouroabrjun();
+    Integer julset = graf.getVacadecriajulset() + graf.getVacadedescartejulset() + graf.getTerneirasjulset() + graf.getTerneirosjulset() + graf.getNovilho1324julset() + graf.getNovilha1324julset() + graf.getNovilho2536julset() + graf.getNovilha2536julset() + graf.getNovilho36julset() + graf.getTourojulset();
+    Integer outdez = graf.getVacadecriaoutdez() + graf.getVacadedescarteoutdez() + graf.getTerneirasoutdez() + graf.getTerneirosoutdez() + graf.getNovilho1324outdez() + graf.getNovilha1324outdez() + graf.getNovilho2536outdez() + graf.getNovilha2536outdez() + graf.getNovilho36outdez() + graf.getTourooutdez();
+    
+        
+        
+      
+        
+        
 %>
 <!DOCTYPE html>
 <html>
@@ -62,9 +80,61 @@ else
 	<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css">
 	<link rel="stylesheet" href="bootstrap/style.css">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
         <script type="text/javascript" src="bootstrap/TesteJavaScript.js"></script>
+        
+          <%
+         String exibegraf = "none";
+         if(graf!=null)
+    {
+        exibegraf="block";
+%>
+        <style type="text/css">
+
+		</style>
+		<script type="text/javascript">
+                    
+                    
+$(function () {
+    $('#container').highcharts({
+        title: {
+            text: 'Rebanho Bovino 2012',
+            x: -20 //center
+        },        
+        xAxis: {
+            categories: ['Jan-Mar', 'Apr-Jun',
+                'Jul-Set', 'Out-Dez']
+        },
+        yAxis: {
+            title: {
+                text: 'Cabeças'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: ' Cabeças'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'Rebanho',
+            data: [312, 321, 341, 351]
+        }]
+    });
+});
+		</script>
+                             <%
+    }
+%>
         <script>
             function calcularJanMar()
             {
@@ -279,6 +349,7 @@ else
                                    parseInt(touros4.value);
             }
         </script>
+    
     </head>
     <body>
         
@@ -354,9 +425,9 @@ else
         <div class="container-fluid">
             <div class="row-fluid">
                  
-                <aside class="span1"></aside>
                 
-                <aside class="span11">
+                
+                <aside class="span8">
                     <h2> Rebanho Bovino </h2>
                     <br/>
                     
@@ -467,7 +538,13 @@ else
                 	</div>   
                     </form>
                 </aside>
-                 
+                <aside>
+                   <div style="display:<%=exibegraf%>">
+                        <script src="js/highcharts.js"></script>
+                         <script src="js/modules/exporting.js"></script>
+                          <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                    </div>
+                </aside>
             </div>
         </div>
         <footer class="footer">

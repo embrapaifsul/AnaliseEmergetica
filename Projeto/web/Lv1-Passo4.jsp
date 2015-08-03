@@ -236,17 +236,22 @@
 
                 </aside>
 
-                <aside class="span6">
+
+       
+                  
+                    
+                   
+                       
+                        
+                       
+
+                
 
 
-                    <div class="tabbable tabs-left">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1" data-toggle="tab"> Resultados </a></li>
-                            <li style="display:<%=exibegraf%>"><a href="#tab2" data-toggle="tab"> Greficos </a></li>                            
-                        </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="tab1">
                                 <aside class="span2">
+                                     <header class="page-header">
+                       <a href="#MeuModal" class="btn btn-primary btn-large" role="button" data-toggle="modal"> Graficos </a>
+                   </header>
                                     <div class="panel-group">
                                         <div class="panel panel-info">
                                             <div class="panel-heading">
@@ -257,6 +262,7 @@
                                                     <label class="control-label"><h6><b>Área média da Pecuária Aproveitavel: </b><span id="a"><%=p.getLv1p1().getArea_apro()%></span><span class="help-inline">Hectares</span></h6>
                                                 </div>
                                                 <br/><br/><br/><br/><br/>
+                                                
                                             </div>
                                         </div>
                                         <div class="panel panel-success">
@@ -273,6 +279,7 @@
                                     </div>
                                 </aside>
                                 <aside class="span2">
+                                    <br/><br/><br/><br/><br/>
                                     <div>
                                         <div class="panel-group">
                                             <div class="panel panel-warning">
@@ -309,20 +316,27 @@
                                         </div>
                                     </div>
                                 </aside>
-                            </div>
-                            <div class="tab-pane" id="tab2">
-                                <script src="js/highcharts.js"></script>
-                                <script src="js/modules/exporting.js"></script>                                 
-                                <div id="container" style="min-width: 310px; height: 200px; max-width: 300px; margin: 0 auto"></div>
-                            </div>
+                            
+                    
 
-                        </div>
-                    </div>
                     
 
 
-                </aside>
-
+                
+                   <section id="MeuModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="meuModelLabel" aria-hidden="true">
+                             <header class="modal-header">
+                                 <button class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                                 <h3 id="meuModelLabel"> Custos</h3>
+                             </header>
+                             <section class="modal-body">
+                                 
+                                <script src="js/highcharts.js"></script>
+                                 <script src="js/modules/exporting.js"></script>                                 
+                                <div id="container" style="min-width: 410px; height: 300px; max-width: 400px; margin: 0 auto"></div>
+                            
+                             </section>
+                        </section>                      
+                     
             </div>
         </div>
 
