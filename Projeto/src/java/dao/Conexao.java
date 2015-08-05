@@ -19,8 +19,8 @@ public class Conexao {
      * Para se trabalhar com outros bancos criados no postgresql 
      * muda-se somente o nome do banco
      */
-    private static final String banco = 
-            "jdbc:postgresql://localhost:5432/bancofazenda";
+    //private static final String banco = "jdbc:postgresql://192.168.0.33:5432/bancofazenda";
+    private static final String banco = "jdbc:postgresql://localhost:5432/bancofazenda";
     /**
      * O atributo driver representa a classe do Driver JDBC que será usada na 
      * conexão. Quando se utiliza outros bancos usa-se a classe apropriada a 
@@ -32,8 +32,8 @@ public class Conexao {
      * Os atributos usuario e senha representam usuario e senha do 
      * SGBD a ser usado na conexão
      */
-    private static final String usuario = "postgres";
-    private static final String senha = "postgres";  
+    private static final String usuario = "marcelo";
+    private static final String senha = "siedler@2015";  
     /**
      * O atributo con representa um objeto que 
      * contém a conexão com o banco de dados em si

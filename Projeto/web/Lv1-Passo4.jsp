@@ -151,7 +151,7 @@
         <div class="container-fluid">
             <div class="row-fluid">
 
-                <aside class="span10">
+                <aside class="span11">
                     <section id="breadcrumbs">
                         <header class="page-header">
                             <h3> Progresso </h3>
@@ -173,7 +173,7 @@
                     </section><br/><br/>
                 </aside>
 
-                <aside class="span2"></aside>
+                <aside class="span1"></aside>
 
             </div>
         </div>
@@ -181,7 +181,7 @@
         <div class="container-fluid">
             <div class="row-fluid">
 
-
+                <aside class="span1"></aside>
 
                 <aside class="span6">
 
