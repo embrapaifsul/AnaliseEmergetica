@@ -259,16 +259,16 @@ public class GraficosDAO {
     
     
     
-    public Lv1p4 graficolv1p4(Propriedade propriedade) {
+    public Lv1p4 graficolv1p4(Propriedade propriedade, String ano) {
       Lv1p4 lv1p4 = null;
         //crio a lista de jogadores
         List<Lv1p4> lista = null;
-        String sql = "SELECT * FROM lv1p4 WHERE propriedade_id = ?";
+        String sql = "SELECT * FROM lv1p4 WHERE propriedade_id = ? AND ano =?";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
 
         try {
             pst.setInt(1, propriedade.getId());
-          
+            pst.setString(2, ano);
             //Executo o aql e jogo em um resultSet
             ResultSet res = pst.executeQuery();
              

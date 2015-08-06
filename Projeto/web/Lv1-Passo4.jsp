@@ -21,7 +21,8 @@
     }
 
     GraficosDAO daog = new GraficosDAO();
-    Lv1p4 graf = daog.graficolv1p4(pro);
+    String ano = p.getAno();
+    Lv1p4 graf = daog.graficolv1p4(pro,ano);
 
 
 %>
