@@ -36,6 +36,8 @@
         response.sendRedirect("index.jsp");
     }
     
+    p.setAno(request.getParameter("data"));
+    
        GraficosDAO daog = new GraficosDAO ();
      Lv2p1 graf = daog.graficolv2p1(pro);
      

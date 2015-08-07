@@ -35,6 +35,7 @@
         response.sendRedirect("index.jsp");
     }
     
+    p.setAno(request.getParameter("data"));
 
 %>
 
