@@ -161,9 +161,9 @@
                             <li><a></a></li>
                             <li><a>Propriedade: <%=pro.getNome()%></a></li>
                             <li><a></a></li>
+                            <li><a>Ano: <%=p.getAno()%></a></li>
                             <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
+                            <li><a>Nivel: 1</a></li>
                             <li><a></a></li>
                             <li><a></a></li>
                             <li><a></a></li>
@@ -227,7 +227,7 @@
                             <div class="controls">
                                 <input type="text" name="medicamentos" value="<%=medicamentos%>">
                                 <span>
-                                    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Medicamento: Vacinas, carrapaticidas, Vermífugos e outros medicamentos;"><i class="icon-info-sign"></i></button>
+                                    <button type="button" class="btn btn-default btn-link" data-toggle="tooltip" data-placement="right" title="Medicamento: Vacinas, carrapaticidas, Vermífugos e outros medicamentos;"><i class="icon-info-sign"></i></button>
                                 </span>
                             </div>
                         </div>
@@ -235,14 +235,14 @@
                             <label class="control-label">Mão-De-Obra:</label>
                             <div class="controls">
                                 <input type="text" name="maodeobra" value="<%=maodeobra%>">
-                                <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Mão de obra: Mão de obra fixa e variável;"><i class="icon-info-sign"></i></button>
+                                <button type="button" class="btn btn-default btn-link" data-toggle="tooltip" data-placement="right" title="Mão de obra: Mão de obra fixa e variável;"><i class="icon-info-sign"></i></button>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Maquinas e Benfeitorias:</label>
                             <div class="controls">
                                 <input type="text" name="maquinas" value="<%=maquinas%>">
-                                <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Máquinas: Reparos, combustíveis e lubrificantes;"><i class="icon-info-sign"></i></button>
+                                <button type="button" class="btn btn-default btn-link" data-toggle="tooltip" data-placement="right" title="Máquinas: Reparos, combustíveis e lubrificantes;"><i class="icon-info-sign"></i></button>
                             </div>
                         </div>
                         <div class="control-group">
@@ -250,14 +250,14 @@
                             <div class="controls">
                                 <br/>
                                 <input type="text" name="dispesas" value="<%=dispesas%>">
-                                <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Pastagens: Sal comum e mineral, rações, sementes, calcário, adubo e defensivos agrícolas;"><i class="icon-info-sign"></i></button>
+                                <button type="button" class="btn btn-default btn-link" data-toggle="tooltip" data-placement="right" title="Pastagens: Sal comum e mineral, rações, sementes, calcário, adubo e defensivos agrícolas;"><i class="icon-info-sign"></i></button>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Outras Dispesas:</label>
                             <div class="controls">
                                 <input type="text" name="outros" value="<%=outros%>">
-                                <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Outros: arrendamento, sêmen, utensílios em geral, fretes, taxas e comissões;"><i class="icon-info-sign"></i></button>
+                                <button type="button" class="btn btn-default btn-link" data-toggle="tooltip" data-placement="right" title="Outros: arrendamento, sêmen, utensílios em geral, fretes, taxas e comissões;"><i class="icon-info-sign"></i></button>
                             </div>
                         </div>
                         <div class="control-group">

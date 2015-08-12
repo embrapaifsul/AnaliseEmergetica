@@ -90,7 +90,7 @@ else
                     <table class="table table-bordered table-hover">
                 	<thead>
                 		<tr>
-                		   <th>Identificação</th>
+                		   <th>Identificação<button type="button" class="btn btn-default btn-link" data-toggle="tooltip" data-placement="right" title="Identificar sua propriedade no sistema."><i class="icon-info-sign"></i></button></th>
                 		   <th>Cidade</th>
                                    <th>UF</th>
                 		   <th>Ações</th>

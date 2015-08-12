@@ -152,9 +152,9 @@
                             <li><a></a></li>
                             <li><a>Propriedade: <%=pro.getNome()%></a></li>
                             <li><a></a></li>
+                           <li><a>Ano: <%=p.getAno()%></a></li>
                             <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
+                            <li><a>Nivel: 1</a></li>
                             <li><a></a></li>
                             <li><a></a></li>
                             <li><a></a></li>
@@ -305,7 +305,7 @@
                                 <div class="control-group">
                                     <label class="control-label"><h6><b>Área média da Pecuária Aproveitavel: </b><span id="a"><%=p.getLv1p1().getArea_apro()%></span><span class="help-inline">Hectares</span></h6>
                                 </div>
-                                <br/><br/><br/><br/>
+                                <br/><br/><br/><br/><br/>
                             </div>
                         </div>
                         <div class="panel panel-success">

@@ -154,9 +154,9 @@
                             <li><a></a></li>
                             <li><a>Propriedade: <%=pro.getNome()%></a></li>
                             <li><a></a></li>
+                            <li><a>Ano: <%=p.getAno()%></a></li>
                             <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
+                            <li><a>Nivel: 1</a></li>
                             <li><a></a></li>
                             <li><a></a></li>
                             <li><a></a></li>
