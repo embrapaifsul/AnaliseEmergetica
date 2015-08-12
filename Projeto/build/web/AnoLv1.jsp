@@ -17,6 +17,22 @@
     Passos p = new Passos();
     Propriedade pro = new Propriedade();
     
+    String ano="";
+    if (session.getAttribute("Passos") != null) {
+        p = (Passos)session.getAttribute("Passos");
+        if(p.getAno() !=null)
+        {
+            ano = p.getAno().toString();
+        }
+    }
+    else
+    {
+        p = new Passos();
+        p.setAno(request.getParameter("data"));
+        session.setAttribute("Passos", p);
+        
+    }
+    
     if (session.getAttribute("Usuario") != null) 
     {
         u = (Usuario) session.getAttribute("Usuario");
@@ -127,7 +143,7 @@
                             <label class="control-label">Ano das Informações:</label>
                             <div class="controls">
                                 
-                                <input type="text" name="data">
+                                <input type="text" name="data" value="<%=ano%>">
                             </div>
                         </div>
                         <div class="control-group">

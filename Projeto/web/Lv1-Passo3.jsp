@@ -17,87 +17,104 @@
     Usuario u = new Usuario();
     Passos p = new Passos();
     Propriedade pro = new Propriedade();
-    if (session.getAttribute("Usuario") != null && session.getAttribute("Passos") != null && session.getAttribute("Propriedade") != null  ){
+
+    String custo = "";
+    if (session.getAttribute("Passos") != null) {
+        p = (Passos) session.getAttribute("Passos");
+        if (p.getLv1p3() != null) {
+            custo = p.getLv1p3().getReceita_anual().toString();
+        }
+    } else {
+        p = new Passos();
+        p.setAno(request.getParameter("data"));
+        session.setAttribute("Passos", p);
+
+    }
+
+    if (session.getAttribute("Usuario") != null && session.getAttribute("Passos") != null && session.getAttribute("Propriedade") != null) {
         u = (Usuario) session.getAttribute("Usuario");
         p = (Passos) session.getAttribute("Passos");
         pro = (Propriedade) session.getAttribute("Propriedade");
     } else {
         response.sendRedirect("index.jsp");
     }
-    
+
 %>
 
 <%    Lv1p2 e = new Lv1p2();
     Lv1p2DAO dao = new Lv1p2DAO();
-    
-    e.setPropiedade_id(pro.getId());
-    
-    if (request.getParameter("vacasdecria").equals("")) {
-        
-        e.setVacadecria(00);
-    } else {
-        e.setVacadecria(Integer.parseInt(request.getParameter("vacasdecria")));
-    }
-    
-    if (request.getParameter("vacasdedescarte").equals("")) {
-        e.setVacadedescarte(00);
-    } else {
-        e.setVacadedescarte(Integer.parseInt(request.getParameter("vacasdedescarte")));
-    }
-    
-    if (request.getParameter("terneiros").equals("")) {
-        e.setTerneiro(0);
-    } else {
-        e.setTerneiro(Integer.parseInt(request.getParameter("terneiros")));
-    }
-    
-    if (request.getParameter("terneiras").equals("")) {
-        e.setTerneira(0);
-    } else {
-        e.setTerneira(Integer.parseInt(request.getParameter("terneiras")));
-    }
-    
-    if (request.getParameter("novilhos1").equals("")) {
-        e.setNovilho1324(00);
-    } else {
-        e.setNovilho1324(Integer.parseInt(request.getParameter("novilhos1")));
-    }
-    
-    if (request.getParameter("novilhas1").equals("")) {
-        e.setNovilha1324(00);
-    } else {
-        e.setNovilha1324(Integer.parseInt(request.getParameter("novilhas1")));
-    }
-    
-    if (request.getParameter("novilhos2").equals("")) {
-        e.setNovilho2536(00);
-    } else {
-        e.setNovilho2536(Integer.parseInt(request.getParameter("novilhos2")));
-    }
-    
-    if (request.getParameter("novilhas2").equals("")) {
-        e.setNovilha2536(00);
-    } else {
-        e.setNovilha2536(Integer.parseInt(request.getParameter("novilhas2")));
-    }
-    
-    if (request.getParameter("novilhos3").equals("")) {
-        e.setNovilho36(0);
-    } else {
-        e.setNovilho36(Integer.parseInt(request.getParameter("novilhos3")));
-    }
-    
-    if (request.getParameter("touros").equals("")) {
-        e.setTouro(00);
-    } else {
-        e.setTouro(Integer.parseInt(request.getParameter("touros")));
-    }    
-    
-    e.setAno(p.getAno());
-    
-    dao.inserirNao(e);
-    p.setLv1p2(e);
 
+    if (request.getParameter("vacasdecria") != null) {
+
+        e.setPropiedade_id(pro.getId());
+
+        if (request.getParameter("vacasdecria").equals("")) {
+
+            e.setVacadecria(00);
+        } else {
+            e.setVacadecria(Integer.parseInt(request.getParameter("vacasdecria")));
+        }
+
+        if (request.getParameter("vacasdedescarte").equals("")) {
+            e.setVacadedescarte(00);
+        } else {
+            e.setVacadedescarte(Integer.parseInt(request.getParameter("vacasdedescarte")));
+        }
+
+        if (request.getParameter("terneiros").equals("")) {
+            e.setTerneiro(0);
+        } else {
+            e.setTerneiro(Integer.parseInt(request.getParameter("terneiros")));
+        }
+
+        if (request.getParameter("terneiras").equals("")) {
+            e.setTerneira(0);
+        } else {
+            e.setTerneira(Integer.parseInt(request.getParameter("terneiras")));
+        }
+
+        if (request.getParameter("novilhos1").equals("")) {
+            e.setNovilho1324(00);
+        } else {
+            e.setNovilho1324(Integer.parseInt(request.getParameter("novilhos1")));
+        }
+
+        if (request.getParameter("novilhas1").equals("")) {
+            e.setNovilha1324(00);
+        } else {
+            e.setNovilha1324(Integer.parseInt(request.getParameter("novilhas1")));
+        }
+
+        if (request.getParameter("novilhos2").equals("")) {
+            e.setNovilho2536(00);
+        } else {
+            e.setNovilho2536(Integer.parseInt(request.getParameter("novilhos2")));
+        }
+
+        if (request.getParameter("novilhas2").equals("")) {
+            e.setNovilha2536(00);
+        } else {
+            e.setNovilha2536(Integer.parseInt(request.getParameter("novilhas2")));
+        }
+
+        if (request.getParameter("novilhos3").equals("")) {
+            e.setNovilho36(0);
+        } else {
+            e.setNovilho36(Integer.parseInt(request.getParameter("novilhos3")));
+        }
+
+        if (request.getParameter("touros").equals("")) {
+            e.setTouro(00);
+        } else {
+            e.setTouro(Integer.parseInt(request.getParameter("touros")));
+        }
+
+        e.setAno(p.getAno());
+
+        dao.inserirNao(e);
+        p.setLv1p2(e);
+
+    }
 %>
 <!DOCTYPE html>
 <html>
@@ -202,7 +219,7 @@
                             <label class="control-label">Receita Anual de Bovinos:</label>
                             <div class="controls">
                                 <br/>
-                                <input type="text" name="bovinosanual">
+                                <input type="text" name="bovinosanual" value="<%=custo%>">
                             </div>
                         </div>
 
@@ -258,23 +275,23 @@
                                 </div>
                             </div>
                         </div>
-                            <div class="panel panel-danger">
-                                <div class="panel-heading">
-                                    <h5 class="panel-title">Passo 4</h5>
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">
+                                <h5 class="panel-title">Passo 4</h5>
+                            </div>
+                            <div class="panel-body">
+                                <div class="control-group">
+                                    <label class="control-label"><h6><b>Total dos Custos de Produção: </b><span id="d"></span><span class="help-inline">R$</span></h6>
                                 </div>
-                                <div class="panel-body">
-                                    <div class="control-group">
-                                        <label class="control-label"><h6><b>Total dos Custos de Produção: </b><span id="d"></span><span class="help-inline">R$</span></h6>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label"><h6><b>Custo de Atividade de Cria: </b><span id="e"></span><span class="help-inline">R$</span></h6>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label"><h6><b>Custo de Produção por Hectar: </b><span id="f"></span><span class="help-inline">R$/Hectare</span></h6>
-                                    </div>
+                                <div class="control-group">
+                                    <label class="control-label"><h6><b>Custo de Atividade de Cria: </b><span id="e"></span><span class="help-inline">R$</span></h6>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label"><h6><b>Custo de Produção por Hectar: </b><span id="f"></span><span class="help-inline">R$/Hectare</span></h6>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </aside>
             </div>
         </div>

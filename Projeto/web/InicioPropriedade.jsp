@@ -9,11 +9,11 @@
 
 <%
    Usuario u = new Usuario();
-    Passos p = new Passos();
+   
 if(session.getAttribute("Usuario")!=null)
 {
      u = (Usuario)session.getAttribute("Usuario");
-     p = (Passos)session.getAttribute("Passos");
+    
     
 }
 else
@@ -22,6 +22,9 @@ else
 }   
 %>
 <%
+
+    session.setAttribute("Passos", null);
+
     PropriedadeDAO dao = new PropriedadeDAO();
     
     List<Propriedade> lista;
@@ -99,10 +102,10 @@ else
                                   {
                                 %>
                 		<tr class="success">                                  
-                	            <td><%=registro.getNome()%></td>
+                	            <td><a class="btn btn-link" href="EscolhaNiveis.jsp?pid=<%=registro.getId()%>"><%=registro.getNome()%></a></td>
                 		    <td><%=registro.getCidade()%></td>
                                     <td><%=registro.getUf()%></td>
-                		    <td><a class="btn" href="EscolhaNiveis.jsp?pid=<%=registro.getId()%>"> Entrar </a>
+                		    <td>
                                         <a class="btn" href="ExcluirPropriedade.jsp?pid=<%=registro.getId()%>"> Excluir </a></td>
                 		</tr>
                                 <%

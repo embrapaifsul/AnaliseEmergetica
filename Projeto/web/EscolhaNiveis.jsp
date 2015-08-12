@@ -107,12 +107,6 @@
                         <a class="btn btn-inverse btn-large" href="" > Nivel 3 </a>
                         <a class="btn btn-inverse btn-large" href="" > Nivel 4 </a>
                     </div>
-                    <div class="btn-group">
-                         <a href="AnoLv1.jsp" class="btn btn-inverse"> Nivel 1 </a>
-                         <a href="AnoLv2.jsp" class="btn btn-inverse"> Nivel 2 </a>
-                         <a href="" class="btn btn-inverse"> Nivel 3 </a>
-                         <a href="" class="btn btn-inverse"> Nivel 4 </a>
-                     </div>
                 </div>
                 </aside>
 

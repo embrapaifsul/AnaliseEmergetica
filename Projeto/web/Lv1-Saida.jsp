@@ -27,6 +27,9 @@
     
 
 <%
+    if(request.getParameter("medicamentos")!=null)
+    {
+    
         Lv1p4 lv1p4 = new Lv1p4();
         
         
@@ -67,6 +70,9 @@
         Lv1p4DAO dao = new Lv1p4DAO();
         dao.inserir(lv1p4);
         p.setLv1p4(lv1p4);
+        
+        
+    }
 %>
 <!DOCTYPE html>
 <html>
@@ -180,7 +186,7 @@
                             <label class="control-label">Receita por Hectare:</label>
                 		<div class="controls">
                                     <input type="text" name="receitahectare"  class="uneditable-input" value="<%=p.receitahectar()%>">
-                                        <span class="help-inline">R$/Hectare</span>
+                                        <span class="help-inline">Reais por Hectare</span>
                 		</div>
                         </div>
                         <div class="control-group">
@@ -188,7 +194,7 @@
                 		<div class="controls">
                                         <br/>
                 			<input type="text" name="totalproduçao"  class="uneditable-input" value="<%=p.totalcustoproducao()%>">
-                                        <span class="help-inline">R$</span>
+                                        <span class="help-inline">Reais</span>
                 		</div>
                         </div>
                         <div class="control-group">
@@ -196,7 +202,7 @@
                 		<div class="controls">
                                     <br/>
                 			<input type="text" name="custohectar"  class="uneditable-input" value="<%=p.custohectar()%>">
-                                        <span class="help-inline">R$/Hectare</span>
+                                        <span class="help-inline">Reais por Hectare</span>
                 		</div>
                         </div>
                         <div class="control-group">

@@ -12,6 +12,31 @@
     Usuario u = new Usuario();
     Passos p = new Passos();
     Propriedade pro = new Propriedade();
+    
+    String medicamentos="";
+    String maodeobra="";
+    String maquinas="";
+    String dispesas="";
+    String outros="";
+    if (session.getAttribute("Passos") != null) {
+        p = (Passos)session.getAttribute("Passos");
+        if(p.getLv1p4() !=null)
+        {
+            medicamentos = p.getLv1p4().getMadicamento().toString();
+            maodeobra = p.getLv1p4().getMao_de_obra().toString();
+            maquinas = p.getLv1p4().getMaquinas().toString();
+            dispesas = p.getLv1p4().getPastagem().toString();
+            outros = p.getLv1p4().getOutros().toString();
+        }
+    }
+    else
+    {
+        p = new Passos();
+        p.setAno(request.getParameter("data"));
+        session.setAttribute("Passos", p);
+        
+    }
+    
     if (session.getAttribute("Usuario") != null && session.getAttribute("Passos") != null && session.getAttribute("Propriedade") != null) {
         u = (Usuario) session.getAttribute("Usuario");
         p = (Passos) session.getAttribute("Passos");
@@ -26,7 +51,13 @@
 
 
 %>
-<%    Lv1p3 lv1p3 = new Lv1p3();
+<%
+    if(request.getParameter("bovinosanual")!=null)
+    {
+        
+    
+    
+    Lv1p3 lv1p3 = new Lv1p3();
     lv1p3.setReceita_anual(Double.parseDouble(request.getParameter("bovinosanual")));
     lv1p3.setPropiedade_id(pro.getId());
     lv1p3.setAno(p.getAno());
@@ -34,6 +65,7 @@
     Lv1p3DAO dao = new Lv1p3DAO();
     dao.inserir(lv1p3);
     p.setLv1p3(lv1p3);
+    }
 %>
 <!DOCTYPE html>
 <html>
@@ -193,7 +225,7 @@
                         <div class="control-group">
                             <label class="control-label">Medicamentos:</label>
                             <div class="controls">
-                                <input type="text" name="medicamentos">
+                                <input type="text" name="medicamentos" value="<%=medicamentos%>">
                                 <span>
                                     <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Medicamento: Vacinas, carrapaticidas, Vermífugos e outros medicamentos;"><i class="icon-info-sign"></i></button>
                                 </span>
@@ -202,14 +234,14 @@
                         <div class="control-group">
                             <label class="control-label">Mão-De-Obra:</label>
                             <div class="controls">
-                                <input type="text" name="maodeobra">
+                                <input type="text" name="maodeobra" value="<%=maodeobra%>">
                                 <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Mão de obra: Mão de obra fixa e variável;"><i class="icon-info-sign"></i></button>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Maquinas e Benfeitorias:</label>
                             <div class="controls">
-                                <input type="text" name="maquinas">
+                                <input type="text" name="maquinas" value="<%=maquinas%>">
                                 <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Máquinas: Reparos, combustíveis e lubrificantes;"><i class="icon-info-sign"></i></button>
                             </div>
                         </div>
@@ -217,14 +249,14 @@
                             <label class="control-label">Pastagem e Suplementos:</label>
                             <div class="controls">
                                 <br/>
-                                <input type="text" name="dispesas">
+                                <input type="text" name="dispesas" value="<%=dispesas%>">
                                 <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Pastagens: Sal comum e mineral, rações, sementes, calcário, adubo e defensivos agrícolas;"><i class="icon-info-sign"></i></button>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Outras Dispesas:</label>
                             <div class="controls">
-                                <input type="text" name="outros">
+                                <input type="text" name="outros" value="<%=outros%>">
                                 <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Outros: arrendamento, sêmen, utensílios em geral, fretes, taxas e comissões;"><i class="icon-info-sign"></i></button>
                             </div>
                         </div>

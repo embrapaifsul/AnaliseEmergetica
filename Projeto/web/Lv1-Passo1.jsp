@@ -15,8 +15,13 @@
 <%
     Usuario u = new Usuario();
     Passos p;
+    String areapecuaria="";
     if (session.getAttribute("Passos") != null) {
         p = (Passos)session.getAttribute("Passos");
+        if(p.getLv1p1() !=null)
+        {
+            areapecuaria = p.getLv1p1().getArea_apro().toString();
+        }
     }
     else
     {
@@ -142,7 +147,7 @@
                             <label class="control-label">Área média da Pecuária Aproveitavel:</label>
                             <div class="controls">
                                 <br/>
-                                <input type="text" name="areapecuaria">
+                                <input type="text" name="areapecuaria" value="<%=areapecuaria%>">
                                 <span class="help-inline">Hectares</span>
                             </div>
                         </div>

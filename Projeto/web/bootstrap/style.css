@@ -18,7 +18,16 @@ img {height: 500px; width: 1150px;}
   background-size: 300px;
 }
 
+.nomeio{
+    width: 206px;
+    float:left;
+    text-align: center;
+}
 
+.nomeio2{
+    width:1500px;
+    float:left;
+}
 
 
 /* Footer

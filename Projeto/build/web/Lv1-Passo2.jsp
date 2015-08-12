@@ -17,6 +17,42 @@
 <%
     Usuario u = new Usuario();
     Passos p = new Passos();
+    
+    String vacasdecria="";
+    String vacasdedescarte="";
+    String terneiros="";
+    String terneiras="";
+    String novilhos1="";
+    String novilhos2="";
+    String novilhos3="";
+    String novilhas1="";
+    String novilhas2="";
+    String touros="";
+    
+    if (session.getAttribute("Passos") != null) {
+        p = (Passos)session.getAttribute("Passos");
+        if(p.getLv1p2() !=null)
+        {
+            vacasdecria = p.getLv1p2().getVacadecria().toString();
+            vacasdedescarte = p.getLv1p2().getVacadedescarte().toString();
+            terneiros = p.getLv1p2().getTerneiro().toString();
+            terneiras = p.getLv1p2().getTerneira().toString();
+            novilhos1 = p.getLv1p2().getNovilho1324().toString();
+            novilhos2 = p.getLv1p2().getNovilho2536().toString();
+            novilhos3 = p.getLv1p2().getNovilho36().toString();
+            novilhas1 = p.getLv1p2().getNovilha1324().toString();
+            novilhas2 = p.getLv1p2().getNovilha2536().toString();
+            touros = p.getLv1p2().getTouro().toString();
+        }
+    }
+    else
+    {
+        p = new Passos();
+        p.setAno(request.getParameter("data"));
+        session.setAttribute("Passos", p);
+        
+    }
+    
     Propriedade pro = new Propriedade();
     if (session.getAttribute("Usuario") != null && session.getAttribute("Passos") != null && session.getAttribute("Propriedade") != null  ){
         u = (Usuario) session.getAttribute("Usuario");
@@ -27,14 +63,18 @@
     }
 
 %>
-<%    Lv1p1 lv1p1 = new Lv1p1();
-    lv1p1.setArea_apro(Double.parseDouble(request.getParameter("areapecuaria")));
-    lv1p1.setAno(p.getAno());
-    lv1p1.setPropiedade_id(pro.getId());
+<%  
+    if(request.getParameter("areapecuaria")!=null)
+    {
+        Lv1p1 lv1p1 = new Lv1p1();
+        lv1p1.setArea_apro(Double.parseDouble(request.getParameter("areapecuaria")));
+        lv1p1.setAno(p.getAno());
+        lv1p1.setPropiedade_id(pro.getId());
 
-    Lv1p1DAO dao = new Lv1p1DAO();
-    dao.inserir(lv1p1);
-    p.setLv1p1(lv1p1);
+        Lv1p1DAO dao = new Lv1p1DAO();
+        dao.inserir(lv1p1);
+        p.setLv1p1(lv1p1);
+    }
 %>
 <!DOCTYPE html>
 <html>
@@ -173,66 +213,59 @@
                 <aside class="span6">
                     <h2> Rebanho Bovino </h2>
                     <br/>
-
                     <form name="passo2" action="Lv1-Passo3.jsp" class="form-horizontal" method ="post" onSubmit="return passo2();">
+                        <div class="control-group">
+                            <label class="control-label">&nbsp;</label>
+                            <div class="controls">
+                                <div class="nomeio">MACHOS</div>
+                                 <div class="nomeio"> FEMEAS</div>
+                            </div> 
+                        </div>
                         <div class="control-group">
                             <label class="control-label">Vacas de Cria:</label>
                             <div class="controls">
-                                <input type="text" name="vacasdecria" id="vacasdecria">
+                                <span class="uneditable-input"></span> 
+                                <input type="text" name="vacasdecria" id="vacasdecria" value="<%=vacasdecria%>">
                             </div> 
                         </div>
                         <div class="control-group">
                             <label class="control-label">Vacas de Descarte:</label>
                             <div class="controls">
-                                <input type="text" name="vacasdedescarte" id="vacasdedescarte">
+                                <span class="uneditable-input"></span> 
+                                <input type="text" name="vacasdedescarte" id="vacasdedescarte" value="<%=vacasdedescarte%>">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label">Terneiros:</label>
+                            <label class="control-label">Terneiros(as):</label>
                             <div class="controls">
-                                <input type="text" name="terneiros" id="terneiros">
+                                <input type="text" name="terneiros" id="terneiros" value="<%=terneiros%>">
+                                <input type="text" name="terneiras" id="terneiras" value="<%=terneiras%>">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label">Terneiras:</label>
+                            <label class="control-label">De 13 á 24 meses:</label>
                             <div class="controls">
-                                <input type="text" name="terneiras" id="terneiras">
+                                <input type="text" name="novilhos1" id="novilhos1" value="<%=novilhos1%>">
+                                <input type="text" name="novilhas1" id="novilhas1" value="<%=novilhas1%>">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label">Novilhos 13-24:</label>
+                            <label class="control-label">De 25 á 36 meses:</label>
                             <div class="controls">
-                                <input type="text" name="novilhos1" id="novilhos1">
+                                <input type="text" name="novilhos2" id="novilhos2" value="<%=novilhos2%>">
+                                <input type="text" name="novilhas2" id="novilhas2" value="<%=novilhas2%>">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label">Novilhas 13-24:</label>
+                            <label class="control-label">Mais de 36 meses:</label>
                             <div class="controls">
-                                <input type="text" name="novilhas1" id="novilhas1">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">Novilhos 25-36:</label>
-                            <div class="controls">
-                                <input type="text" name="novilhos2" id="novilhos2">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">Novilhas 25-36:</label>
-                            <div class="controls">
-                                <input type="text" name="novilhas2" id="novilhas2">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">Novilhos > 36:</label>
-                            <div class="controls">
-                                <input type="text" name="novilhos3" id="novilhos3">
+                                <input type="text" name="novilhos3" id="novilhos3" value="<%=novilhos3%>">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Touros:</label>
                             <div class="controls">
-                                <input type="text" name="touros" id="touros">
+                                <input type="text" name="touros" id="touros" value="<%=touros%>">
                             </div>
                         </div>
                         <div class="control-group">
