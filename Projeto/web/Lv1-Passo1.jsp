@@ -32,6 +32,7 @@
     }
     
     Propriedade pro = new Propriedade ();
+    
     if (session.getAttribute("Usuario") != null) {
         u = (Usuario) session.getAttribute("Usuario");
         p = (Passos) session.getAttribute("Passos");
@@ -40,7 +41,7 @@
         response.sendRedirect("index.jsp");
     }
     
-    p.setAno(request.getParameter("data"));
+    
 
 %>
 
@@ -64,44 +65,7 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-fixed-top navbar-inverse">
-            <div class="navbar-inner">
-                <div class="container">
-                    <!-- .btn-navbar está classe é usada como alternador para o conteudo coplapsavel-->
-                    <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="Inicio.jsp" class="brand">Fazenda</a>
-
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a>Propriedade: <%=pro.getNome()%></a></li>
-                            <li><a></a></li>
-                            <li><a>Ano: <%=p.getAno()%></a></li>
-                            <li><a></a></li>
-                            <li><a>Nivel: 1</a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a href="index.jsp">Usuario: <%=u.getLogin()%></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-        <header class="page-header"></header>
+        <%@ include file="barranavegacao.jsp" %>
 
         <div class="container-fluid">
             <div class="row-fluid">
