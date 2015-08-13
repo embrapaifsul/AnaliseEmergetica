@@ -186,7 +186,7 @@
                                 <li><a href="AnoLv1.jsp"> Data </a><span class="divider"> / </span></li>
                                 <li><a href="Lv1-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
                                 <li><a href="Lv1-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
-                                <li class="alert-error"> Passo 3 </li><span class="divider"> / </span>
+                                <li class="alert-info"> Passo 3 </li><span class="divider"> / </span>
                                 <li><a href="Lv1-Passo4.jsp"> Passo 4 </a><span class="divider"> / </span></li>
                                 <li><a href="Lv1-Saida.jsp"> Resultados </a></li>
                             </ul>

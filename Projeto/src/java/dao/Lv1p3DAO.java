@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modelo.Lv1p2;
 import modelo.Lv1p3;
+import modelo.Propriedade;
 
 
 /**
@@ -118,4 +120,42 @@ public class Lv1p3DAO {
         return retorno;
         
     }
+      
+      
+      
+      public Lv1p3 buscar(String ano, Propriedade pro)
+    {
+        
+        //crio a lista de jogadores
+        
+        Lv1p3 lv1p3 = null;
+        String sql = "SELECT * FROM lv1p3 WHERE ano = ? AND propriedade_id=?";
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        
+        try {
+            //Executo o aql e jogo em um resultSet
+            ResultSet res = pst.executeQuery();
+            pst.setString(1, ano);
+            pst.setInt(2, pro.getId());
+            //Eqaunto tiver REGISTRO eu vou relacionar
+            //com a minha classe Jogador e adicionar na lista 
+            if(res.next())
+            {
+                lv1p3 = new Lv1p3();
+                lv1p3.setReceita_anual(res.getDouble("area_apro"));
+                lv1p3.setPropiedade_id(res.getInt("usuario_id")); 
+                lv1p3.setAno(res.getString("ano"));
+                
+                
+            }
+            } catch(SQLException ex){
+               
+               ex.printStackTrace();
+            }
+        return lv1p3;
+        }
+      
+      
+      
+      
 }

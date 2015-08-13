@@ -113,7 +113,7 @@
 
                             <ul class="breadcrumb">
                                 <li><a href="AnoLv1.jsp"> Data </a><span class="divider"> / </span></li>
-                                <li class="alert-error"> Passo 1 </li><span class="divider"> / </span>
+                                <li class="alert-info"> Passo 1 </li><span class="divider"> / </span>
                                 <li><a href="Lv1-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
                                 <li><a href="Lv1-Passo3.jsp"> Passo 3 </a><span class="divider"> / </span></li>
                                 <li><a href="Lv1-Passo4.jsp"> Passo 4 </a><span class="divider"> / </span></li>

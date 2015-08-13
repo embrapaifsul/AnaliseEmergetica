@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modelo.Lv1p1;
 
 import modelo.Lv1p2;
+import modelo.Propriedade;
 
 
 /**
@@ -151,4 +153,53 @@ public class Lv1p2DAO {
         return retorno;
         
     }
+      
+      
+      public Lv1p2 buscar(String ano, Propriedade pro)
+    {
+        
+        //crio a lista de jogadores
+        
+        Lv1p2 lv1p2 = null;
+        String sql = "SELECT * FROM lv1p2 WHERE ano = ? AND propriedade_id=?";
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        
+        try {
+            //Executo o aql e jogo em um resultSet
+            ResultSet res = pst.executeQuery();
+            pst.setString(1, ano);
+            pst.setInt(2, pro.getId());
+            //Eqaunto tiver REGISTRO eu vou relacionar
+            //com a minha classe Jogador e adicionar na lista 
+            if(res.next())
+            {
+                lv1p2 = new Lv1p2();
+                lv1p2.setPropiedade_id(res.getInt("usuario_id"));
+                lv1p2.setVacadecria(res.getInt("vaca_de_cria"));
+                lv1p2.setVacadedescarte(res.getInt("vaca_de_descarte"));
+                lv1p2.setTerneiro(res.getInt("terneiro"));
+                lv1p2.setTerneira(res.getInt("terneira"));
+                lv1p2.setNovilho1324(res.getInt("novilho_13a24"));
+                lv1p2.setNovilha1324(res.getInt("novilha_13a24"));
+                lv1p2.setNovilho2536(res.getInt("novilho_25a36"));
+                lv1p2.setNovilha2536(res.getInt("novilha_25a36"));
+                lv1p2.setNovilho36(res.getInt("novilho_36"));
+                lv1p2.setTouro(res.getInt("touro"));
+                lv1p2.setAno(res.getString("ano"));  
+                
+            }
+            } catch(SQLException ex){
+               
+               ex.printStackTrace();
+            }
+        return lv1p2;
+        }
+      
+      
+      
+      
+      
+      
+      
+      
 }

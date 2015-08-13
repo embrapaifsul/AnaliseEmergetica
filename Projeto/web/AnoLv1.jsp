@@ -22,7 +22,7 @@
         p = (Passos)session.getAttribute("Passos");
         if(p.getAno() !=null)
         {
-            ano = p.getAno().toString();
+            ano = p.getAno();
         }
     }
     else
@@ -87,7 +87,7 @@
                             <li><a></a></li>
                             <li><a></a></li>
                             <li><a></a></li>
-                            <li><a></a></li>
+                            <li><a>Nivel: 1</a></li>
                             <li><a></a></li>
                             <li><a></a></li>
                             <li><a></a></li>
@@ -108,11 +108,13 @@
         <div class="container-fluid">
             <div class="row-fluid">
 
-                <aside class="span12">
+                <aside class="span11">
                     <section id="breadcrumbs">
+                        <header class="page-header">
+                            
                             <h3> Progresso </h3>
                             <ul class="breadcrumb">
-                                <li class="alert-error"> Data </li><span class="divider"> / </span>
+                                <li class="alert-info"> Data </li><span class="divider"> / </span>
                                 <li><a href="Lv1-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
                                 <li><a href="Lv1-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
                                 <li><a href="Lv1-Passo3.jsp"> Passo 3 </a><span class="divider"> / </span></li>

@@ -72,7 +72,9 @@ public class Lv1p1DAO {
         return retorno;
         
     }
-       public List<Lv1p1> listar()
+      
+      
+      public List<Lv1p1> listar()
     {
         
         //crio a lista de jogadores
@@ -101,27 +103,31 @@ public class Lv1p1DAO {
         return lista;
         }
       
-      public Lv1p1 buscar(String ano, Propriedade prop)
+      
+      
+      public Lv1p1 buscar(String ano, Propriedade pro)
     {
         
         //crio a lista de jogadores
         
         Lv1p1 lv1p1 = null;
-        String sql = "SELECT * FROM lv1p1 where ano=? and propriedadeid = ?";
+        String sql = "SELECT * FROM lv1p1 WHERE ano = ? AND propriedade_id=?";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         
         try {
             //Executo o aql e jogo em um resultSet
             ResultSet res = pst.executeQuery();
+            pst.setString(1, ano);
+            pst.setInt(2, pro.getId());
             //Eqaunto tiver REGISTRO eu vou relacionar
             //com a minha classe Jogador e adicionar na lista 
-            if(res.next())
+            while(res.next())
             {
                 lv1p1 = new Lv1p1();
                 lv1p1.setArea_apro(res.getDouble("area_apro"));
                 lv1p1.setAno(res.getString("ano"));
                 lv1p1.setPropiedade_id(res.getInt("propiedade_id"));                
-               
+                
             }
             } catch(SQLException ex){
                
@@ -129,6 +135,10 @@ public class Lv1p1DAO {
             }
         return lv1p1;
         }
+      
+      
+      
+      
       
       
       public Boolean atualizar(Lv1p1 lv1p1){

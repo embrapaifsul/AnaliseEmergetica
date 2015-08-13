@@ -83,6 +83,23 @@
         <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
         <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
         <script type="text/javascript" src="bootstrap/TesteJavaScript.js"></script>
+        <script>
+            function calcularTotal()
+            {
+                var medicamentos = document.getElementById('medicamentos');
+                var maodeobra = document.getElementById('maodeobra');
+                var maquinas =  document.getElementById('maquinas');
+                var dispesas = document.getElementById('dispesas');
+                var outros = document.getElementById('outros');
+                
+                total.innerHTML = parseDouble(medicamentos.value) +
+                                   parseDouble(maodeobra.value) +
+                                   parseDouble(maquinas.value) +
+                                   parseDouble(dispesas.value) +
+                                   parseDouble(outros.value);
+            }
+            
+        </script>
         <%
             String exibegraf = "none";
             if (graf != null) {
@@ -194,7 +211,7 @@
                                 <li><a href="Lv1-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
                                 <li><a href="Lv1-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
                                 <li><a href="Lv1-Passo3.jsp"> Passo 3 </a><span class="divider"> / </span></li>
-                                <li class="alert-error"> Passo 4 </li><span class="divider"> / </span>
+                                <li class="alert-info"> Passo 4 </li><span class="divider"> / </span>
                                 <li><a href="Lv1-Saida.jsp"> Resultados </a></li>
                             </ul>
                             <div class="progress">
@@ -225,7 +242,7 @@
                         <div class="control-group">
                             <label class="control-label">Medicamentos:</label>
                             <div class="controls">
-                                <input type="text" name="medicamentos" value="<%=medicamentos%>">
+                                <input type="text" id="medicamentos" name="medicamentos" value="<%=medicamentos%>" >
                                 <span>
                                     <button type="button" class="btn btn-default btn-link" data-toggle="tooltip" data-placement="right" title="Medicamento: Vacinas, carrapaticidas, Vermífugos e outros medicamentos;"><i class="icon-info-sign"></i></button>
                                 </span>
@@ -234,14 +251,14 @@
                         <div class="control-group">
                             <label class="control-label">Mão-De-Obra:</label>
                             <div class="controls">
-                                <input type="text" name="maodeobra" value="<%=maodeobra%>">
+                                <input type="text" id="maodeobra" name="maodeobra" value="<%=maodeobra%>" >
                                 <button type="button" class="btn btn-default btn-link" data-toggle="tooltip" data-placement="right" title="Mão de obra: Mão de obra fixa e variável;"><i class="icon-info-sign"></i></button>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Maquinas e Benfeitorias:</label>
                             <div class="controls">
-                                <input type="text" name="maquinas" value="<%=maquinas%>">
+                                <input type="text" id="maquinas" name="maquinas" value="<%=maquinas%>" >
                                 <button type="button" class="btn btn-default btn-link" data-toggle="tooltip" data-placement="right" title="Máquinas: Reparos, combustíveis e lubrificantes;"><i class="icon-info-sign"></i></button>
                             </div>
                         </div>
@@ -249,15 +266,26 @@
                             <label class="control-label">Pastagem e Suplementos:</label>
                             <div class="controls">
                                 <br/>
-                                <input type="text" name="dispesas" value="<%=dispesas%>">
+                                <input type="text" id="dispesas" name="dispesas" value="<%=dispesas%>" >
                                 <button type="button" class="btn btn-default btn-link" data-toggle="tooltip" data-placement="right" title="Pastagens: Sal comum e mineral, rações, sementes, calcário, adubo e defensivos agrícolas;"><i class="icon-info-sign"></i></button>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Outras Dispesas:</label>
                             <div class="controls">
-                                <input type="text" name="outros" value="<%=outros%>">
+                                <input type="text" id="outros" name="outros" value="<%=outros%>">
                                 <button type="button" class="btn btn-default btn-link" data-toggle="tooltip" data-placement="right" title="Outros: arrendamento, sêmen, utensílios em geral, fretes, taxas e comissões;"><i class="icon-info-sign"></i></button>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><b>TOTAL CUSTOS:</b></label>
+                            <div class="controls">
+                                <span class="uneditable-input" name="total" id="total" ></span> 
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <input type="button" onclick="calcularTotal();" class="btn" value="Calcular" />
                             </div>
                         </div>
                         <div class="control-group">
