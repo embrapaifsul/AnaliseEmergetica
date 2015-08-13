@@ -16,7 +16,7 @@
 <%@page import="modelo.Propriedade"%>
 <%
     Propriedade pro = new Propriedade();
-    Passos p = new Passos();
+    Passos p = new Passos ();
     
     p.setAno(request.getParameter("data"));
     

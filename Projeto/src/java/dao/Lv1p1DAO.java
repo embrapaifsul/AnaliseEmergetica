@@ -116,12 +116,12 @@ public class Lv1p1DAO {
         
         try {
             //Executo o aql e jogo em um resultSet
-            ResultSet res = pst.executeQuery();
-            pst.setString(1, ano);
+             pst.setString(1, ano);
             pst.setInt(2, pro.getId());
-            //Eqaunto tiver REGISTRO eu vou relacionar
-            //com a minha classe Jogador e adicionar na lista 
-            while(res.next())
+            ResultSet res = pst.executeQuery();
+           
+         
+            if(res.next())
             {
                 lv1p1 = new Lv1p1();
                 lv1p1.setArea_apro(res.getDouble("area_apro"));

@@ -150,11 +150,10 @@ public class Lv1p4DAO {
         
         try {
             //Executo o aql e jogo em um resultSet
-            ResultSet res = pst.executeQuery();
+       
             pst.setString(1, ano);
             pst.setInt(2, pro.getId());
-            //Eqaunto tiver REGISTRO eu vou relacionar
-            //com a minha classe Jogador e adicionar na lista 
+                ResultSet res = pst.executeQuery();
             if(res.next())
             {
                 lv1p4 = new Lv1p4();
