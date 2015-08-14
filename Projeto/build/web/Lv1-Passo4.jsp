@@ -10,7 +10,7 @@
 <%
 
     Usuario u = new Usuario();
-    Passos p = new Passos();
+    Passos p;
     Propriedade pro = new Propriedade();
     
     String medicamentos="";
@@ -238,17 +238,6 @@
                             <div class="controls">
                                 <input type="text" id="outros" name="outros" value="<%=outros%>">
                                 <button type="button" class="btn btn-default btn-link" data-toggle="tooltip" data-placement="right" title="Outros: arrendamento, sêmen, utensílios em geral, fretes, taxas e comissões;"><i class="icon-info-sign"></i></button>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label"><b>TOTAL CUSTOS:</b></label>
-                            <div class="controls">
-                                <span class="uneditable-input" name="total" id="total" ></span> 
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="controls">
-                                <input type="button" onclick="calcularTotal();" class="btn" value="Calcular" />
                             </div>
                         </div>
                         <div class="control-group">

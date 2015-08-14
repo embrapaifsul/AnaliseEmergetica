@@ -13,7 +13,7 @@
 
 <%
     Usuario u = new Usuario();
-    Passos p = new Passos();
+    Passos p = new Passos(); 
     Propriedade pro = new Propriedade();
     if (session.getAttribute("Usuario") != null && session.getAttribute("Passos") != null && session.getAttribute("Propriedade") != null  ){
         u = (Usuario) session.getAttribute("Usuario");
@@ -23,15 +23,13 @@
         response.sendRedirect("index.jsp");
     }
     
-%>
-    
-
-<%
-    if(request.getParameter("medicamentos")!=null)
+    if(request.getParameter("medicamentos")!= null)
     {
-    
+        
         Lv1p4 lv1p4 = new Lv1p4();
         
+        lv1p4.setPropiedade_id(pro.getId());
+        lv1p4.setAno(p.getAno());
         
     if (request.getParameter("medicamentos").equals("")) {
         
@@ -64,8 +62,7 @@
         lv1p4.setOutros(Double.parseDouble(request.getParameter("outros")));
     }
         
-        lv1p4.setPropiedade_id(pro.getId());
-        lv1p4.setAno(p.getAno());
+    
         
         Lv1p4DAO dao = new Lv1p4DAO();
         dao.inserir(lv1p4);

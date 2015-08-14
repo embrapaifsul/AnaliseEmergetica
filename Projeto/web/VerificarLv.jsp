@@ -22,8 +22,7 @@
     
     if (session.getAttribute("Usuario") != null) {
         pro = (Propriedade) session.getAttribute("Propriedade");
-        p = new Passos();
-        p.setAno(request.getParameter("data"));
+        
         Lv1p1DAO dao = new Lv1p1DAO();
         Lv1p2DAO dao2 = new Lv1p2DAO();
         Lv1p3DAO dao3 = new Lv1p3DAO();

@@ -125,7 +125,7 @@ public class Passos {
         //passo1
         Double areapec = this.getLv1p1().getArea_apro();
         
-        Integer vacadecria = this.getLv1p2().getVacadecria();
+        Integer vacasdecria = this.getLv1p2().getVacadecria();
         Integer vacasdedescarte = this.getLv1p2().getVacadedescarte();
         Integer terneiro = this.getLv1p2().getTerneiro();
         Integer terneira = this.getLv1p2().getTerneira();
@@ -137,19 +137,12 @@ public class Passos {
         Integer touros = this.getLv1p2().getTouro();
         
         
-            double total = vacadecria + vacasdedescarte + terneiro + terneira + novilhos1 + novilhas1 + novilhos2 + novilhas2 + novilhos3 + touros;
-            return ((vacadecria + touros + novilhas1 + novilhas2 + terneiro + terneira) * 100) / total;  
+            Integer total = vacasdecria + vacasdedescarte + terneiro + terneira + novilhos1 + novilhas1 + novilhos2 + novilhas2 + novilhos3 + touros;
+            return ((vacasdecria + vacasdedescarte + touros + terneiro + terneira) * 100) / total;  
         
     }
     
-    public double receitahectar () {
-        
-        Double areapec = this.getLv1p1().getArea_apro();
-        
-        Double receitatotal = this.getLv1p3().getReceita_anual();
-        
-        return receitatotal / areapec;
-    }
+    
     
     public double totalcustoproducao () {
         
@@ -157,8 +150,18 @@ public class Passos {
         Double maodeobra = this.getLv1p4().getMao_de_obra();
         Double maquina = this.getLv1p4().getMaquinas();
         Double pastagem = this.getLv1p4().getPastagem();
+        Double outros = this.getLv1p4().getOutros();
         
-        return medicamento + maodeobra + maquina + pastagem;
+        return medicamento + maodeobra + maquina + pastagem + outros;
+    }
+    
+    public double receitahectar () {
+        
+        Double areapec = this.getLv1p1().getArea_apro();
+        
+        Double receitatotal = this.totalcustoproducao();
+        
+        return receitatotal / areapec;
     }
     
     public double custocria () {

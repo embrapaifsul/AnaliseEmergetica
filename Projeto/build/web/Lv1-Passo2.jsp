@@ -16,7 +16,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     Usuario u = new Usuario();
-    Passos p = new Passos();
+    Passos p;
     
     String vacasdecria="";
     String vacasdedescarte="";
