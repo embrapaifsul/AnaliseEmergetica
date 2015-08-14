@@ -4,6 +4,7 @@
     Author     : Aluno
 --%>
 
+<%@page import="dao.PropriedadeDAO"%>
 <%@page import="modelo.Propriedade"%>
 <%@page import="modelo.Passos"%>
 <%@page import="modelo.Usuario"%>
@@ -37,7 +38,13 @@
     {
         u = (Usuario) session.getAttribute("Usuario");
         p = (Passos) session.getAttribute("Passos");
-        pro = (Propriedade) session.getAttribute("Propriedade");
+         if (request.getParameter("pid") != null) {
+            pro.setId(Integer.parseInt(request.getParameter("pid")));
+            PropriedadeDAO dao = new PropriedadeDAO();
+            pro = dao.loginpro(pro);
+            session.setAttribute("Propriedade", pro);
+        }
+        
     }
     else 
     {
@@ -66,7 +73,7 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-fixed-top navbar-inverse">
+       <nav class="navbar navbar-fixed-top navbar-inverse">
             <div class="navbar-inner">
                 <div class="container">
                     <!-- .btn-navbar está classe é usada como alternador para o conteudo coplapsavel-->
@@ -103,7 +110,7 @@
             </div>
         </nav>
 
-        <header class="page-header"></header>
+        <header class="page-header"></header> 
 
         <div class="container-fluid">
             <div class="row-fluid">
@@ -140,7 +147,7 @@
                 <aside class="span6">
                     <h2> Data </h2>
                     <br/>
-                    <form name="AnoLv1" action="Lv1-Passo1.jsp" class="form-horizontal" method ="post">
+                    <form name="AnoLv1" action="VerificarLv.jsp" class="form-horizontal" method ="post">
                         <div class="control-group">
                             <label class="control-label">Ano das Informações:</label>
                             <div class="controls">

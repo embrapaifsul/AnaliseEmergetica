@@ -102,7 +102,7 @@ else
                                   {
                                 %>
                 		<tr class="success">                                  
-                	            <td><a class="btn btn-link" href="EscolhaNiveis.jsp?pid=<%=registro.getId()%>"><%=registro.getNome()%></a></td>
+                	            <td><a class="btn btn-link" href="AnoLv1.jsp?pid=<%=registro.getId()%>"><%=registro.getNome()%></a></td>
                 		    <td><%=registro.getCidade()%></td>
                                     <td><%=registro.getUf()%></td>
                 		    <td>

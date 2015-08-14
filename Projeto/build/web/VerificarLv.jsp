@@ -16,7 +16,10 @@
 <%@page import="modelo.Propriedade"%>
 <%
     Propriedade pro = new Propriedade();
-    Passos p = new Passos();
+    Passos p = new Passos ();
+    
+    p.setAno(request.getParameter("data"));
+    
     if (session.getAttribute("Usuario") != null) {
         pro = (Propriedade) session.getAttribute("Propriedade");
         p = new Passos();
@@ -30,28 +33,32 @@
         Lv1p2 n12 = dao2.buscar(p.getAno(), pro);
         Lv1p3 n13 = dao3.buscar(p.getAno(), pro);
         Lv1p4 n14 = dao4.buscar(p.getAno(), pro);
-        if (n11 != null) {
-            //adiciona na session
-            p.setLv1p1(n11);          
-            } else {
-                response.sendRedirect("Lv1-Passo1.jsp");
-            }
+        
+        
+        if (n11 != null) {  
+            p.setLv1p1(n11);
+        
             if (n12 != null) {
                 p.setLv1p2(n12);
+                
+                    if (n13 != null) {
+                        p.setLv1p3(n13);
+                        
+                            if (n14 != null){
+                                p.setLv1p4(n14);
+                            }else{                
+                                response.sendRedirect("Lv1-Passo4.jsp");                
+                            }
+                    } else {
+                        response.sendRedirect("Lv1-Passo3.jsp");
+                    }
+            }else {
+                response.sendRedirect("Lv1-Passo2.jsp");
+            }
         } else {
-            response.sendRedirect("Lv1-Passo2.jsp");
+            response.sendRedirect("Lv1-Passo1.jsp");
         }
-            if (n13 != null){
-               p.setLv1p3(n13);
-            }else{                
-                response.sendRedirect("Lv1-Passo3.jsp");                
-            }
-            
-            if (n14 != null){
-               p.setLv1p4(n14);
-            }else{                
-                response.sendRedirect("Lv1-Passo4.jsp");                
-            }
+                     
 
     } else {
         response.sendRedirect("index.jsp");
