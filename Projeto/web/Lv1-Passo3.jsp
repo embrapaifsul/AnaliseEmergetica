@@ -15,7 +15,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     Usuario u = new Usuario();
-    Passos p;
+    Passos p = new Passos();
     Propriedade pro = new Propriedade();
 
     String custo = "";
