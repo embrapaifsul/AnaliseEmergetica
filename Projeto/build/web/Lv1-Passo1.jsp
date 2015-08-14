@@ -14,7 +14,7 @@
 
 <%
     Usuario u = new Usuario();
-    Passos p;
+    Passos p = new Passos();
     String areapecuaria="";
     if (session.getAttribute("Passos") != null) {
         p = (Passos)session.getAttribute("Passos");
