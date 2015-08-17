@@ -85,8 +85,8 @@ public class Lv1p3DAO {
             while(res.next())
             {
                 Lv1p3 lv1p3 = new Lv1p3();
-                lv1p3.setReceita_anual(res.getDouble("area_apro"));
-                lv1p3.setPropiedade_id(res.getInt("usuario_id")); 
+                lv1p3.setReceita_anual(res.getDouble("receita_anual"));
+                lv1p3.setPropiedade_id(res.getInt("propiedade_id"));
                 lv1p3.setAno(res.getString("ano"));
                 lista.add(lv1p3);
             }
@@ -142,8 +142,8 @@ public class Lv1p3DAO {
             if(res.next())
             {
                 lv1p3 = new Lv1p3();
-                lv1p3.setReceita_anual(res.getDouble("area_apro"));
-                lv1p3.setPropiedade_id(res.getInt("usuario_id")); 
+                lv1p3.setReceita_anual(res.getDouble("receita_anual"));
+                lv1p3.setPropiedade_id(res.getInt("propiedade_id"));
                 lv1p3.setAno(res.getString("ano"));
                 
                 

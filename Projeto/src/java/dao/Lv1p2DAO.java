@@ -110,7 +110,7 @@ public class Lv1p2DAO {
             while(res.next())
             {
                 Lv1p2 lv1p2 = new Lv1p2();
-                lv1p2.setPropiedade_id(res.getInt("usuario_id"));
+                lv1p2.setPropiedade_id(res.getInt("propriedade_id"));
                 lv1p2.setVacadecria(res.getInt("vaca_de_cria"));
                 lv1p2.setVacadedescarte(res.getInt("vaca_de_descarte"));
                 lv1p2.setTerneiro(res.getInt("terneiro"));
@@ -173,7 +173,7 @@ public class Lv1p2DAO {
             if(res.next())
             {
                 lv1p2 = new Lv1p2();
-                lv1p2.setPropiedade_id(res.getInt("usuario_id"));
+                lv1p2.setPropiedade_id(res.getInt("propriedade_id"));
                 lv1p2.setVacadecria(res.getInt("vaca_de_cria"));
                 lv1p2.setVacadedescarte(res.getInt("vaca_de_descarte"));
                 lv1p2.setTerneiro(res.getInt("terneiro"));

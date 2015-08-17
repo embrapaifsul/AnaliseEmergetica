@@ -97,8 +97,10 @@ public class Lv1p4DAO {
                 Lv1p4 lv1p4 = new Lv1p4();
                 lv1p4.setMadicamento(res.getDouble("medicamento"));
                 lv1p4.setMao_de_obra(res.getDouble("mao_de_obra"));
-                lv1p4.setMaquinas(res.getDouble("maquina"));
+                lv1p4.setMaquinas(res.getDouble("maquinas"));
                 lv1p4.setPastagem(res.getDouble("pastagem"));
+                lv1p4.setOutros(res.getDouble("outros"));
+                lv1p4.setPropiedade_id(res.getInt("propriedade_id"));
                 lv1p4.setAno(res.getString("ano"));
                 
                 
@@ -159,8 +161,10 @@ public class Lv1p4DAO {
                 lv1p4 = new Lv1p4();
                 lv1p4.setMadicamento(res.getDouble("medicamento"));
                 lv1p4.setMao_de_obra(res.getDouble("mao_de_obra"));
-                lv1p4.setMaquinas(res.getDouble("maquina"));
+                lv1p4.setMaquinas(res.getDouble("maquinas"));
                 lv1p4.setPastagem(res.getDouble("pastagem"));
+                lv1p4.setOutros(res.getDouble("outros"));
+                lv1p4.setPropiedade_id(res.getInt("propriedade_id"));
                 lv1p4.setAno(res.getString("ano"));
                 
                 
