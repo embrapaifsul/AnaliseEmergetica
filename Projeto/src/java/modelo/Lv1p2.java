@@ -24,6 +24,7 @@ public class Lv1p2 {
     private Integer novilho2536;
     private Integer novilha2536;
     private Integer novilho36;
+    private Integer novilha36;
     private Integer touro;
 
     public String getAno() {
@@ -112,6 +113,14 @@ public class Lv1p2 {
 
     public void setNovilho36(Integer novilho36) {
         this.novilho36 = novilho36;
+    }
+
+    public Integer getNovilha36() {
+        return novilha36;
+    }
+
+    public void setNovilha36(Integer novilha36) {
+        this.novilha36 = novilha36;
     }
 
     public Integer getTouro() {

@@ -102,6 +102,11 @@
         } else {
             e.setNovilho36(Integer.parseInt(request.getParameter("novilhos3")));
         }
+        if (request.getParameter("novilhas3").equals("")) {
+            e.setNovilha36(0);
+        } else {
+            e.setNovilha36(Integer.parseInt(request.getParameter("novilhas3")));
+        }
 
         if (request.getParameter("touros").equals("")) {
             e.setTouro(00);
@@ -182,7 +187,7 @@
                             <label class="control-label">Receita Anual de Bovinos:</label>
                             <div class="controls">
                                 <br/>
-                                <input type="text" name="bovinosanual" value="<%=custo%>">
+                                <input type="text" name="bovinosanual" value="<%=custo%>" required>
                             </div>
                         </div>
 
@@ -216,7 +221,7 @@
                                 <div class="control-group">
                                     <label class="control-label"><h6><b>Receita por Hectare: </b><span id="c"></span><span class="help-inline">R$/Hectare</span></h6>
                                 </div>
-                                <br/><br/><br/><br/><br/>
+                                <br/><br/>
                             </div>
                         </div>
                     </div>
@@ -243,15 +248,8 @@
                                 <h5 class="panel-title">Passo 4</h5>
                             </div>
                             <div class="panel-body">
-                                <div class="control-group">
-                                    <label class="control-label"><h6><b>Total dos Custos de Produção: </b><span id="d"></span><span class="help-inline">R$</span></h6>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label"><h6><b>Custo de Atividade de Cria: </b><span id="e"></span><span class="help-inline">R$</span></h6>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label"><h6><b>Custo de Produção por Hectar: </b><span id="f"></span><span class="help-inline">R$/Hectare</span></h6>
-                                </div>
+                                <label class="control-label"><h6><b>CUSTOS</b></h6>
+                                 <br/><br/><br/>
                             </div>
                         </div>
                     </div>

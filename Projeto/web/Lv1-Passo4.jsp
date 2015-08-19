@@ -84,13 +84,34 @@
         <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
         <script type="text/javascript" src="bootstrap/TesteJavaScript.js"></script>
         <script>
-            function calcularTotal()
+            function calcular()
             {
                 var medicamentos = document.getElementById('medicamentos');
                 var maodeobra = document.getElementById('maodeobra');
                 var maquinas =  document.getElementById('maquinas');
                 var dispesas = document.getElementById('dispesas');
                 var outros = document.getElementById('outros');
+                
+                if (medicamentos == null)
+                {
+                    medicamentos = 0;
+                }
+                if (maodeobra == null)
+                {
+                    maodeobra = 0;
+                }
+                if (maquinas == null)
+                {
+                    maquinas = 0;
+                }
+                if (dispesas == null)
+                {
+                    dispesas = 0;
+                }
+                if (outros == null)
+                {
+                    outros = 0;
+                }
                 
                 total.innerHTML = parseDouble(medicamentos.value) +
                                    parseDouble(maodeobra.value) +
@@ -234,7 +255,7 @@
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label">Outras Dispesas:</label>
+                            <label class="control-label">Outras Despesas:</label>
                             <div class="controls">
                                 <input type="text" id="outros" name="outros" value="<%=outros%>">
                                 <button type="button" class="btn btn-default btn-link" data-toggle="tooltip" data-placement="right" title="Outros: arrendamento, sêmen, utensílios em geral, fretes, taxas e comissões;"><i class="icon-info-sign"></i></button>
@@ -242,7 +263,24 @@
                         </div>
                         <div class="control-group">
                             <div class="controls">
+                                <input type="button" onclick="calcular();" class="btn" value="Calcular" />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><b>TOTAL CUSTOS DE PRODUÇÃO:</b></label>
+                            <div class="controls">
+                                <br/>
+                                <span class="uneditable-input" name="total" id="total" ></span> 
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
                                 <input type="submit" class="btn" value="Resultados" />
+                                <% if (graf != null) { %>
+                                     
+                       <a href="#MeuModal" class="btn btn-primary" role="button" data-toggle="modal"> Grafico </a>
+                   
+                                     <%}%>
                             </div>
                         </div>
                     </form>               
@@ -262,9 +300,7 @@
 
 
                                 <aside class="span2">
-                                     <header class="page-header">
-                       <a href="#MeuModal" class="btn btn-primary btn-large" role="button" data-toggle="modal"> Graficos </a>
-                   </header>
+                                    
                                     <div class="panel-group">
                                         <div class="panel panel-info">
                                             <div class="panel-heading">
@@ -292,7 +328,6 @@
                                     </div>
                                 </aside>
                                 <aside class="span2">
-                                    <br/><br/><br/><br/><br/>
                                     <div>
                                         <div class="panel-group">
                                             <div class="panel panel-warning">

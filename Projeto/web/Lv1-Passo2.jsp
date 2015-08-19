@@ -27,6 +27,7 @@
     String novilhos3="";
     String novilhas1="";
     String novilhas2="";
+    String novilhas3="";
     String touros="";
     
     if (session.getAttribute("Passos") != null) {
@@ -42,6 +43,7 @@
             novilhos3 = p.getLv1p2().getNovilho36().toString();
             novilhas1 = p.getLv1p2().getNovilha1324().toString();
             novilhas2 = p.getLv1p2().getNovilha2536().toString();
+            novilhas3 = p.getLv1p2().getNovilha36().toString();
             touros = p.getLv1p2().getTouro().toString();
         }
     }
@@ -95,8 +97,7 @@
         <script>
             function calcular()
             {
-                var rebanho = document.getElementById('rebanho');
-                var cria = document.getElementById('cria');
+                
                 var vacasdecria =  document.getElementById('vacasdecria');
                 var vacasdedescarte = document.getElementById('vacasdedescarte');
                 var terneiros = document.getElementById('terneiros');
@@ -106,7 +107,53 @@
                 var novilhos2 = document.getElementById('novilhos2');
                 var novilhas2 = document.getElementById('novilhas2');
                 var novilhos3 = document.getElementById('novilhos3');
+                var novilhas3 = document.getElementById('novilhos3');
                 var touros = document.getElementById('touros');
+                
+                if (vacasdecria == 0)
+                {
+                    vacasdecria = 0;
+                }
+                if (vacasdedescarte == 0)
+                {
+                    vacasdedescarte = 0;
+                }
+                if (terneiros == 0)
+                {
+                    terneiros = 0;
+                }
+                if (terneiras == 0)
+                {
+                    terneiras = 0;
+                }
+                if (novilhos1 == 0)
+                {
+                    novilhos1 = 0;
+                }
+                if (novilhos2 == 0)
+                {
+                    novilhos2 = 0;
+                }
+                if (novilhos3 == 0)
+                {
+                    novilhos3 = 0;
+                }
+                if (novilhas1 == 0)
+                {
+                    novilhas1 = 0;
+                }
+                if (novilhas2 == 0)
+                {
+                    novilhas2 = 0;
+                }
+                if (novilhas3 == 0)
+                {
+                    novilhas3 = 0;
+                }
+                if (touros == 0)
+                {
+                    touros = 0;
+                }
                 
                 
                 rebanho.innerHTML = parseInt(vacasdecria.value) +
@@ -118,6 +165,7 @@
                         parseInt(novilhos2.value) +
                         parseInt(novilhas2.value) +
                         parseInt(novilhos3.value) +
+                        parseInt(novilhas3.value) +
                         parseInt(touros.value);
 
 
@@ -125,6 +173,19 @@
                         parseInt(vacasdedescarte.value) +
                         parseInt(terneiros.value) +
                         parseInt(terneiras.value) +
+                        parseInt(touros.value);
+                
+                femeas.innerHTML = parseInt(vacasdecria.value) +
+                        parseInt(vacasdedescarte.value) +
+                        parseInt(terneiras.value) +
+                        parseInt(novilhas1.value) +
+                        parseInt(novilhas2.value) +
+                        parseInt(novilhas3.value);
+                
+                machos.innerHTML = parseInt(terneiros.value) +
+                        parseInt(novilhos1.value) +
+                        parseInt(novilhos2.value) +
+                        parseInt(novilhos3.value) +
                         parseInt(touros.value);
             }
 
@@ -178,21 +239,19 @@
                         <div class="control-group">
                             <label class="control-label">&nbsp;</label>
                             <div class="controls">
-                                <div class="nomeio">MACHOS</div>
-                                 <div class="nomeio"> FEMEAS</div>
+                                <div class="nomeio">FEMEAS</div>
+                                 <div class="nomeio"> MACHOS</div>
                             </div> 
                         </div>
                         <div class="control-group">
                             <label class="control-label">Vacas de Cria:</label>
                             <div class="controls">
-                                <span class="uneditable-input"></span> 
                                 <input type="text" name="vacasdecria" id="vacasdecria" value="<%=vacasdecria%>">
                             </div> 
                         </div>
                         <div class="control-group">
                             <label class="control-label">Vacas de Descarte:</label>
-                            <div class="controls">
-                                <span class="uneditable-input"></span> 
+                            <div class="controls"> 
                                 <input type="text" name="vacasdedescarte" id="vacasdedescarte" value="<%=vacasdedescarte%>">
                             </div>
                         </div>
@@ -220,13 +279,31 @@
                         <div class="control-group">
                             <label class="control-label">Mais de 36 meses:</label>
                             <div class="controls">
-                                <input type="text" name="novilhos3" id="novilhos3" value="<%=novilhos3%>">
+                                <input type="text" name="novilhas3" id="novilhas3" value="<%=novilhas3%>">
+                                <input type="text" name="novilhos3" id="novilhos3" value="<%=novilhos3%>">  
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Touros:</label>
                             <div class="controls">
                                 <input type="text" name="touros" id="touros" value="<%=touros%>">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <input type="button" onclick="calcular();" class="btn" value="Calcular" />
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"><b>FEMEAS:</b></label>
+                            <div class="controls">
+                                <span class="uneditable-input" name="rebanho" id="femeas" ></span> 
+                            </div>
+                        </div>
+                            <div class="control-group">
+                            <label class="control-label"><b>MACHOS:</b></label>
+                            <div class="controls">
+                                <span class="uneditable-input" name="rebanho" id="machos" ></span> 
                             </div>
                         </div>
                         <div class="control-group">
@@ -241,11 +318,6 @@
                             <div class="controls">
                                 <br/>
                                 <span class="uneditable-input" name="cria" id="cria" ></span> 
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="controls">
-                                <input type="button" onclick="calcular();" class="btn" value="Calcular" />
                             </div>
                         </div>
                         <div class="control-group">
@@ -275,9 +347,9 @@
                             </div>
                             <div class="panel-body">
                                 <div class="control-group">
-                                    <label class="control-label"><h6><b>Receita por Hectare: </b><span id="c"></span><span class="help-inline">R$/Hectare</span></h6>
+                                    <label class="control-label"><h6><b>RECEITA</b></h6>
                                 </div>
-                                <br/><br/><br/><br/><br/>
+                                <br/><br/><br/>
                             </div>
                         </div>
                     </div>
@@ -304,15 +376,8 @@
                                     <h5 class="panel-title">Passo 4</h5>
                                 </div>
                                 <div class="panel-body">
-                                    <div class="control-group">
-                                        <label class="control-label"><h6><b>Total dos Custos de Produção: </b><span id="d"></span><span class="help-inline">R$</span></h6>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label"><h6><b>Custo de Atividade de Cria: </b><span id="e"></span><span class="help-inline">R$</span></h6>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label"><h6><b>Custo de Produção por Hectar: </b><span id="f"></span><span class="help-inline">R$/Hectare</span></h6>
-                                    </div>
+                                    <label class="control-label"><h6><b>CUSTOS</b></h6>
+                                    <br/><br/><br/>
                                 </div>
                             </div>
                         </div>

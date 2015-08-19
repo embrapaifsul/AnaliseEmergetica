@@ -66,7 +66,7 @@
                     
                     
                     
-                    <form name="formulario2" action="FimCadastroUsuario.jsp" class="form-horizontal" method ="post" onSubmit="return Cadastro2 ();">
+                    <form name="formulario2" action="FimCadastroUsuario.jsp" class="form-horizontal" method="post" onSubmit="return Cadastro2();">
                 	<div class="control-group">
                 		<label class="control-label">Login: </label>
                 		<div class="controls">

@@ -51,29 +51,29 @@ function passo4 (){
     }    
 }
 
-function Cadastro(){
-    if(document.formulario.login.value==="" ||
-       document.formulario.senha.value===""){
-    
-        alert ("Por Favor, Preencha todos os campos");
 
-        return false;
-    }       
-    else{
-        return true;  
-    }  
-}
 function Cadastro2(){
     if(document.formulario2.login.value==="" ||
        document.formulario2.email.value==="" ||
-       document.formulario2.senha.value===""){
+       document.formulario2.senha.value==="" ||
+       document.formulario2.confsenha.value===""){
     
         alert ("Por Favor, Preencha todos os campos");
 
         return false;
-    }       
+    } 
+    else if(document.formulario2.senha.value !==
+            document.formulario2.confsenha.value){
+    
+        alert ("Senha Incompativeis");
+
+        return false;
+    }
     else{
         return true;  
     }  
 }
+
+
+
 

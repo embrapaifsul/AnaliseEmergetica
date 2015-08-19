@@ -57,6 +57,7 @@ public class Lv1p2DAO {
                 + "novilho_25a36,"
                 + "novilha_25a36,"
                 + "novilho_36,"
+                + "novilha_36,"
                 + "touro,"
                 + "ano,"
                 + "propriedade_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -75,9 +76,10 @@ public class Lv1p2DAO {
         pst.setInt(7, lv1p2.getNovilho2536());
         pst.setInt(8,lv1p2.getNovilha2536());
         pst.setInt(9,lv1p2.getNovilho36());
-        pst.setInt(10,lv1p2.getTouro());
-        pst.setString (11,lv1p2.getAno());
-        pst.setInt(12, lv1p2.getPropiedade_id());
+        pst.setInt(10,lv1p2.getNovilha36());
+        pst.setInt(11,lv1p2.getTouro());
+        pst.setString (12,lv1p2.getAno());
+        pst.setInt(13, lv1p2.getPropiedade_id());
         //Executa o sql no bancod de dados
         pst.executeUpdate();
                 retorno = true;
@@ -120,6 +122,7 @@ public class Lv1p2DAO {
                 lv1p2.setNovilho2536(res.getInt("novilho_25a36"));
                 lv1p2.setNovilha2536(res.getInt("novilha_25a36"));
                 lv1p2.setNovilho36(res.getInt("novilho_36"));
+                lv1p2.setNovilha36(res.getInt("novilha_36"));
                 lv1p2.setTouro(res.getInt("touro"));
                 lv1p2.setAno(res.getString("ano"));
                 lista.add(lv1p2);
@@ -183,6 +186,7 @@ public class Lv1p2DAO {
                 lv1p2.setNovilho2536(res.getInt("novilho_25a36"));
                 lv1p2.setNovilha2536(res.getInt("novilha_25a36"));
                 lv1p2.setNovilho36(res.getInt("novilho_36"));
+                lv1p2.setNovilha36(res.getInt("novilha_36"));
                 lv1p2.setTouro(res.getInt("touro"));
                 lv1p2.setAno(res.getString("ano"));  
                 

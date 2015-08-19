@@ -90,13 +90,6 @@
                     
                     <br/><br/><br/>                 
                     
-                    <form action="">
-                	<div class="controls input-prepend">
-                	    <span class="add-on"><i class="icon-user"></i></span>
-                	    <input type="text" class="span11" id="prependInput" placeholder="Pesquisar Usuario">
-                	</div>
-                    </form>
-                    
                     <a href="CadastroUsuario.jsp" class="btn"> Novo Usuario </a>
                     
                 </aside>

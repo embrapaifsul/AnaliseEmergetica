@@ -7,6 +7,8 @@
 <%@page import="dao.UsuarioDAO"%>
 <%@page import="modelo.Usuario"%>
 <%
+    
+    
   Usuario usuario = new Usuario();
   usuario.setLogin(request.getParameter("login"));
   usuario.setEmail(request.getParameter("email"));
