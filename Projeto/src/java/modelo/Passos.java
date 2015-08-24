@@ -143,7 +143,6 @@ public class Passos {
     }
     
     
-    
     public double totalcustoproducao () {
         
         Double medicamento = this.getLv1p4().getMadicamento();
@@ -159,7 +158,7 @@ public class Passos {
         
         Double areapec = this.getLv1p1().getArea_apro();
         
-        Double receitatotal = this.totalcustoproducao();
+        Double receitatotal = this.getLv1p3().getReceita_anual();
         
         return receitatotal / areapec;
     }
@@ -177,7 +176,7 @@ public class Passos {
         
         Double areapec = this.getLv1p1().getArea_apro();
         
-        Double percentualcria = this.percentualcria();
+        Double percentualcria = this.totalcustoproducao();
         
         return percentualcria / areapec;
     }
