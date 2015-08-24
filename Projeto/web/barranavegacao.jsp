@@ -8,7 +8,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="Inicio.jsp" class="brand">Fazenda</a>
+                    <a href="index.jsp" class="brand">Fazenda</a>
 
                     <div class="nav-collapse collapse">
                         <ul class="nav">
