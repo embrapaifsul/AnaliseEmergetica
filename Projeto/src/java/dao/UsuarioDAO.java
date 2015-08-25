@@ -97,17 +97,16 @@ public class UsuarioDAO {
         }
     
     
-    public Boolean atualizar(Usuario usuario){
+    public Boolean redefinirSenha(Usuario usuario){
         Boolean retorno = false;
-        String sql = "UPDATE usuario set login=?,senha=?,email=? where id=?";
+        String sql = "UPDATE usuario set senha=? where id=?";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         try {
             
             
-            pst.setString(1,usuario.getLogin());
-            pst.setString(2,usuario.getSenha());
-            pst.setString(3,usuario.getEmail());
-            pst.setInt(4, usuario.getId());
+            
+            pst.setString(1,usuario.getSenha());            
+            pst.setInt(2, usuario.getId());
         
         if(pst.executeUpdate() > 0){
             retorno = true;
