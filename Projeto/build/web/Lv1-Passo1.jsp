@@ -15,24 +15,46 @@
 <%
     Usuario u = new Usuario();
     Passos p = new Passos();
-    String areapecuaria="";
+    String areapecuaria = "";
+    String link2, link3, link4, link5;
+    link2="";
+    link3="";
+    link4="";
+    link5="";
     if (session.getAttribute("Passos") != null) {
-        p = (Passos)session.getAttribute("Passos");
-        if(p.getLv1p1() !=null)
-        {
+        p = (Passos) session.getAttribute("Passos");
+        if (p.getLv1p1() != null) {
             areapecuaria = p.getLv1p1().getArea_apro().toString();
         }
-    }
-    else
-    {
+
+        if (p.getLv1p2() == null) {
+            link2 = " class='inativo' ";
+            link3 = " class='inativo' ";
+            link4 = " class='inativo' ";
+            link5 = " class='inativo' ";
+
+        } else {
+            if (p.getLv1p3() == null) {
+                link3 = " class='inativo' ";
+                link4 = " class='inativo' ";
+                link5 = " class='inativo' ";
+
+            } else {
+                if (p.getLv1p4() == null) {
+                    link4 = " class='inativo' ";
+                    link5 = " class='inativo' ";
+                }
+            }
+        }
+    } else {
         p = new Passos();
         p.setAno(request.getParameter("data"));
         session.setAttribute("Passos", p);
-        
+
     }
-    
-    Propriedade pro = new Propriedade ();
-    
+
+    Propriedade pro = new Propriedade();
+
     if (session.getAttribute("Usuario") != null) {
         u = (Usuario) session.getAttribute("Usuario");
         p = (Passos) session.getAttribute("Passos");
@@ -40,28 +62,13 @@
     } else {
         response.sendRedirect("index.jsp");
     }
-    
-   
+
 
 %>
 
 
-<!DOCTYPE html>
-<html>
-    <head>
+<%@ include file="cabecalho.jsp" %>
 
-        <meta charset="utf-8"/>
-        <meta name="description" content="Fazenda"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-        <title>Fazenda</title>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css">
-        <link rel="stylesheet" href="bootstrap/style.css">
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
-        <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-        <script type="text/javascript" src="bootstrap/TesteJavaScript.js"></script>
     </head>
     <body>
 
@@ -78,10 +85,10 @@
                             <ul class="breadcrumb">
                                 <li><a href="AnoLv1.jsp"> Data </a><span class="divider"> / </span></li>
                                 <li class="alert-info"> Passo 1 </li><span class="divider"> / </span>
-                                <li><a href="Lv1-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
-                                <li><a href="Lv1-Passo3.jsp"> Passo 3 </a><span class="divider"> / </span></li>
-                                <li><a href="Lv1-Passo4.jsp"> Passo 4 </a><span class="divider"> / </span></li>
-                                <li><a href="Lv1-Saida.jsp"> Resultados </a></li>
+                                <li><a href="Lv1-Passo2.jsp" <%=link2%> > Passo 2 </a><span class="divider"> / </span></li>
+                                <li><a href="Lv1-Passo3.jsp" <%=link3%>> Passo 3 </a><span class="divider"> / </span></li>
+                                <li><a href="Lv1-Passo4.jsp" <%=link4%>> Passo 4 </a><span class="divider"> / </span></li>
+                                <li><a href="Lv1-Saida.jsp" <%=link5%>> Resultados </a></li>
                             </ul>
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
@@ -89,7 +96,7 @@
                                 </div>
                             </div>
                         </header>
-                        
+
                     </section><br/><br/>
                 </aside>
 
@@ -156,32 +163,32 @@
                             <div class="panel-heading">
                                 <h5 class="panel-title">Passo 2</h5>
                             </div>
-                                <div class="panel-body">
-                                    <div class="control-group">
-                                        <label class="control-label"><h6><b>REBANHO</b></h6>
-                                    </div>
-                                    <br/><br/><br/>
+                            <div class="panel-body">
+                                <div class="control-group">
+                                    <label class="control-label"><h6><b>REBANHO</b></h6>
                                 </div>
+                                <br/><br/><br/>
                             </div>
-                        
-                            <div class="panel panel-danger">
-                                <div class="panel-heading">
-                                    <h5 class="panel-title">Passo 4</h5>
+                        </div>
+
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">
+                                <h5 class="panel-title">Passo 4</h5>
+                            </div>
+                            <div class="panel-body">
+                                <div class="control-group">
+                                    <label class="control-label"><h6><b>CUSTOS</b></h6>
                                 </div>
-                                <div class="panel-body">
-                                    <div class="control-group">
-                                        <label class="control-label"><h6><b>CUSTOS</b></h6>
-                                    </div>
-                                    <br/><br/><br/>
-                                </div>
+                                <br/><br/><br/>
                             </div>
                         </div>
                     </div>
-                </aside>
-
             </div>
-        </div>
+        </aside>
 
-    </body>
+    </div>
+</div>
+
+</body>
 
 </html>

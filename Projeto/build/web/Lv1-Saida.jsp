@@ -71,22 +71,7 @@
         
     }
 %>
-<!DOCTYPE html>
-<html>
-    <head>
-
-	<meta charset="utf-8"/>
-	<meta name="description" content="Fazenda"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-	<title>Fazenda</title>
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-	<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css">
-	<link rel="stylesheet" href="bootstrap/style.css">
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
-	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-        <script type="text/javascript" src="bootstrap/TesteJavaScript.js"></script>
+    <%@ include file="cabecalho.jsp" %>
     </head>
     <body>
         
@@ -132,20 +117,20 @@
                     <h2> Custo de Produção </h2>
                     <br/>
                     
-                    <form name="Passo4" action="InicioPropriedade.jsp" class="form-horizontal" method ="post" onSubmit="return passo4 ();">
+                    <form name="Passo4" action="Lv2-Passo1.jsp" class="form-horizontal" method ="post" onSubmit="return passo4 ();">
                         
                         <div class="control-group">
                             <label class="control-label">Lotação Média da Propriedade:</label>
                 		<div class="controls">
                                     <br/>
-                			<input type="text" name="lotaçaomedia"  class="uneditable-input" value="<%=p.lotacaomedia()%>">
+                			<input type="text" name="lotaçaomedia"  class="uneditable-input" value="<%=  String.format("%.2f", p.lotacaomedia())%>">
                                         <span class="help-inline">Cabeça(s) por hectare</span>
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Receita por Hectare:</label>
                 		<div class="controls">
-                                    <input type="text" name="receitahectare"  class="uneditable-input" value="<%=p.receitahectar()%>">
+                                    <input type="text" name="receitahectare"  class="uneditable-input" value="<%=  String.format("%.2f", p.receitahectar())%>">
                                         <span class="help-inline">Reais por Hectare</span>
                 		</div>
                         </div>
@@ -153,7 +138,7 @@
                             <label class="control-label">Total dos Custos de Produção:</label>
                 		<div class="controls">
                                         <br/>
-                			<input type="text" name="totalproduçao"  class="uneditable-input" value="<%=p.totalcustoproducao()%>">
+                			<input type="text" name="totalproduçao"  class="uneditable-input" value="<%=  String.format("%.2f", p.totalcustoproducao())%>">
                                         <span class="help-inline">Reais</span>
                 		</div>
                         </div>
@@ -161,13 +146,14 @@
                             <label class="control-label">Custo de Produção por Hectar:</label>
                 		<div class="controls">
                                     <br/>
-                			<input type="text" name="custohectar"  class="uneditable-input" value="<%=p.custohectar()%>">
+                			<input type="text" name="custohectar"  class="uneditable-input" value="<%=  String.format("%.2f", p.custohectar())%>">
                                         <span class="help-inline">Reais por Hectare</span>
                 		</div>
                         </div>
                         <div class="control-group">
                             <div class="controls">
-                                <input type="submit" class="btn" value="Ir Para o Inicio" />
+                                <input type="hidden" id="data" value="<%=p.getAno()%>" />
+                                <input type="submit" class="btn" value="Próximo Nível" />
                             </div>
                         </div>
                     </form>               

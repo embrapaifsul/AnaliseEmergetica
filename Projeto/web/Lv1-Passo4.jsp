@@ -18,6 +18,10 @@
     String maquinas="";
     String dispesas="";
     String outros="";
+    
+    String link5;
+    link5="";
+    
     if (session.getAttribute("Passos") != null) {
         p = (Passos)session.getAttribute("Passos");
         if(p.getLv1p4() !=null)
@@ -27,6 +31,9 @@
             maquinas = p.getLv1p4().getMaquinas().toString();
             dispesas = p.getLv1p4().getPastagem().toString();
             outros = p.getLv1p4().getOutros().toString();
+        }
+        if (p.getLv1p4() == null) {
+                link5 = " class='inativo' ";
         }
     }
     else
@@ -67,22 +74,7 @@
     p.setLv1p3(lv1p3);
     }
 %>
-<!DOCTYPE html>
-<html>
-    <head>
-
-        <meta charset="utf-8"/>
-        <meta name="description" content="Fazenda"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-        <title>Fazenda</title>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css">
-        <link rel="stylesheet" href="bootstrap/style.css">
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
-        <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-        <script type="text/javascript" src="bootstrap/TesteJavaScript.js"></script>
+    <%@ include file="cabecalho.jsp" %>
         <script>
             function calcular()
             {
@@ -91,6 +83,7 @@
                 var maquinas =  document.getElementById('maquinas');
                 var dispesas = document.getElementById('dispesas');
                 var outros = document.getElementById('outros');
+                var total = document.getElementById('total');
                 
                 if (medicamentos == null)
                 {
@@ -196,7 +189,7 @@
                                 <li><a href="Lv1-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
                                 <li><a href="Lv1-Passo3.jsp"> Passo 3 </a><span class="divider"> / </span></li>
                                 <li class="alert-info"> Passo 4 </li><span class="divider"> / </span>
-                                <li><a href="Lv1-Saida.jsp"> Resultados </a></li>
+                                <li><a href="Lv1-Saida.jsp" <%=link5%>> Resultados </a></li>
                             </ul>
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
@@ -308,7 +301,7 @@
                                             </div>
                                             <div class="panel-body">
                                                 <div class="control-group">
-                                                    <label class="control-label"><h6><b>Área média da Pecuária Aproveitavel: </b><span id="a"><%=p.getLv1p1().getArea_apro()%></span><span class="help-inline">Hectares</span></h6>
+                                                    <label class="control-label"><h6><b>Área média da Pecuária Aproveitavel: </b><span id="a"><%=  String.format("%.2f", p.getLv1p1().getArea_apro())%></span><span class="help-inline">Hectares</span></h6>
                                                 </div>
                                                 <br/><br/><br/><br/><br/>
                                                 
@@ -320,7 +313,7 @@
                                             </div>
                                             <div class="panel-body">
                                                 <div class="control-group">
-                                                    <label class="control-label"><h6><b>Receita por Hectare: </b><span id="c"><%=p.getLv1p3().getReceita_anual()%></span><span class="help-inline">R$/Hectare</span></h6>
+                                                    <label class="control-label"><h6><b>Receita por Hectare: </b><span id="c"><%=  String.format("%.2f", p.getLv1p3().getReceita_anual())%></span><span class="help-inline">R$/Hectare</span></h6>
                                                 </div>
                                                 <br/><br/><br/><br/><br/>
                                             </div>
@@ -337,10 +330,10 @@
                                                 <div class="panel-body">
                                                     <div class="panel-body">
                                                         <div class="control-group">
-                                                            <label class="control-label"><h6><b>Rebanho com atividade de Cria: </b><span id="a"><%=p.percentualcria()%></span><span class="help-inline">%</span></h6>
+                                                            <label class="control-label"><h6><b>Rebanho com atividade de Cria: </b><span id="a"><%=  String.format("%.2f", p.percentualcria())%></span><span class="help-inline">%</span></h6>
                                                         </div>
                                                         <div class="control-group">
-                                                            <label class="control-label"><h6><b>Lotação Média da Propriedade: </b><span id="b"><%=p.lotacaomedia()%></span><span class="help-inline">Cabeça(s) por hectare</span></h6>
+                                                            <label class="control-label"><h6><b>Lotação Média da Propriedade: </b><span id="b"><%=  String.format("%.2f", p.lotacaomedia())%></span><span class="help-inline">Cabeça(s) por hectare</span></h6>
                                                         </div>
                                                     </div>
                                                 </div>

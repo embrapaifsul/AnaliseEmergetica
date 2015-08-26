@@ -19,10 +19,19 @@
     Propriedade pro = new Propriedade();
 
     String custo = "";
+    
+    String link4, link5;
+    link4="";
+    link5="";
+    
     if (session.getAttribute("Passos") != null) {
         p = (Passos) session.getAttribute("Passos");
         if (p.getLv1p3() != null) {
             custo = p.getLv1p3().getReceita_anual().toString();
+        }
+        if (p.getLv1p4() == null) {
+                link4 = " class='inativo' ";
+                link5 = " class='inativo' ";
         }
     } else {
         p = new Passos();
@@ -121,22 +130,7 @@
 
     }
 %>
-<!DOCTYPE html>
-<html>
-    <head>
-
-        <meta charset="utf-8"/>
-        <meta name="description" content="Fazenda"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-        <title>Fazenda</title>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css">
-        <link rel="stylesheet" href="bootstrap/style.css">
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
-        <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-        <script type="text/javascript" src="bootstrap/TesteJavaScript.js"></script>
+    <%@ include file="cabecalho.jsp" %>
     </head>
     <body>
 
@@ -155,8 +149,8 @@
                                 <li><a href="Lv1-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
                                 <li><a href="Lv1-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
                                 <li class="alert-info"> Passo 3 </li><span class="divider"> / </span>
-                                <li><a href="Lv1-Passo4.jsp"> Passo 4 </a><span class="divider"> / </span></li>
-                                <li><a href="Lv1-Saida.jsp"> Resultados </a></li>
+                                <li><a href="Lv1-Passo4.jsp" <%=link4%>> Passo 4 </a><span class="divider"> / </span></li>
+                                <li><a href="Lv1-Saida.jsp" <%=link5%>> Resultados </a></li>
                             </ul>
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
@@ -208,7 +202,7 @@
                             </div>
                             <div class="panel-body">
                                 <div class="control-group">
-                                    <label class="control-label"><h6><b>Área média da Pecuária Aproveitavel: </b><span id="a"><%=p.getLv1p1().getArea_apro()%></span><span class="help-inline">Hectares</span></h6>
+                                    <label class="control-label"><h6><b>Área média da Pecuária Aproveitavel: </b><span id="a"><%= String.format("%.2f", p.getLv1p1().getArea_apro())%></span><span class="help-inline">Hectares</span></h6>
                                 </div>
                                 <br/><br/><br/><br/><br/>
                             </div>
@@ -235,10 +229,10 @@
                             <div class="panel-body">
                                 <div class="panel-body">
                                     <div class="control-group">
-                                        <label class="control-label"><h6><b>Rebanho com atividade de Cria: </b><span id="a"><%=p.percentualcria()%></span><span class="help-inline">%</span></h6>
+                                        <label class="control-label"><h6><b>Rebanho com atividade de Cria: </b><span id="a"><%= String.format("%.2f", p.percentualcria())%></span><span class="help-inline">%</span></h6>
                                     </div>
                                     <div class="control-group">
-                                        <label class="control-label"><h6><b>Lotação Média da Propriedade: </b><span id="b"><%=p.lotacaomedia()%></span><span class="help-inline">Cabeça(s) por hectare</span></h6>
+                                        <label class="control-label"><h6><b>Lotação Média da Propriedade: </b><span id="b"><%= String.format("%.2f", p.lotacaomedia())%></span><span class="help-inline">Cabeça(s) por hectare</span></h6>
                                     </div>
                                 </div>
                             </div>

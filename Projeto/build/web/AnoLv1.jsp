@@ -152,7 +152,7 @@
                             <label class="control-label">Ano das Informações:</label>
                             <div class="controls">
                                 
-                                <input type="text" name="data" value="<%=ano%>">
+                                <input type="text" name="data" value="<%=ano%>" required>
                             </div>
                         </div>
                         <div class="control-group">
