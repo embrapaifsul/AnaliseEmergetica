@@ -115,6 +115,7 @@
                 var cria = document.getElementById('cria');
                 var femeas = document.getElementById('femeas');
                 var machos = document.getElementById('machos');
+                
                 if (vacasdecria === 0)
                 {
                     vacasdecria = 0;
