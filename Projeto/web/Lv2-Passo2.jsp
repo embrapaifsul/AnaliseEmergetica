@@ -99,7 +99,7 @@ else
 $(function () {
     $('#container').highcharts({
         title: {
-            text: 'Rebanho Bovino 2012',
+            text: 'Rebanho Bovino',
             x: -20 //center
         },        
         xAxis: {
@@ -353,42 +353,7 @@ $(function () {
     </head>
     <body>
         
-        <nav class="navbar navbar-fixed-top navbar-inverse">
-            <div class="navbar-inner">
-                <div class="container">
-                    <!-- .btn-navbar está classe é usada como alternador para o conteudo coplapsavel-->
-                    <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="Inicio.jsp" class="brand">Fazenda</a>
-
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a>Propriedade: <%=pro.getNome()%></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a href="index.jsp">Usuario: <%=u.getLogin()%></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
+          <%@ include file="barranavegacao.jsp" %>
         
         <header class="page-header"></header>
         
@@ -427,7 +392,7 @@ $(function () {
                  
                 
                 
-                <aside class="span8">
+                <aside class="span10">
                     <h2> Rebanho Bovino </h2>
                     <br/>
                     
@@ -535,15 +500,18 @@ $(function () {
                             <div class="controls">
                 		<input type="submit" class="btn" value="Proximo Passo" />
                             </div>
+                            <div>
+                                <div style="display:<%=exibegraf%>">
+                        <script src="js/highcharts.js"></script>
+                         <script src="js/modules/exporting.js"></script>
+                          <div id="container" style="min-width: 50px; height: 200px; margin: 0 auto"></div>
+                    </div>
+                            </div>
                 	</div>   
                     </form>
                 </aside>
                 <aside>
-                   <div style="display:<%=exibegraf%>">
-                        <script src="js/highcharts.js"></script>
-                         <script src="js/modules/exporting.js"></script>
-                          <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-                    </div>
+                   
                 </aside>
             </div>
         </div>
