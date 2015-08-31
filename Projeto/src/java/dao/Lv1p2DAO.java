@@ -134,15 +134,29 @@ public class Lv1p2DAO {
         return lista;
         }
        
-      public Boolean atualizar(Lv1p2 lv1p2){
+     public Boolean atualizar(Lv1p2 lv1p2){
         Boolean retorno = false;
-        String sql = "UPDATE lv1p2 set ano = ? where id=?";
+        String sql = "UPDATE lv1p2 SET vaca_de_cria=?, vaca_de_descarte=?, terneiro=?, terneira=?,novilho_13a24=?, "
+                + "novilha_13a24=?, novilho_25a36=?, novilha_25a36=?,novilho_36=?, touro=?,novilha_36=? "
+                + "WHERE ano =? and propriedade=?;";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         try {
             
             
-            pst.setString(1, lv1p2.getAno());
-            pst.setInt(2, lv1p2.getId());
+            pst.setInt(1, lv1p2.getVacadecria());
+            pst.setInt(2, lv1p2.getVacadedescarte());
+            pst.setInt(3, lv1p2.getTerneiro());
+            pst.setInt(4, lv1p2.getTerneira());
+            pst.setInt(5, lv1p2.getNovilho1324());
+            pst.setInt(6, lv1p2.getNovilha1324());
+            pst.setInt(7, lv1p2.getNovilho2536());
+            pst.setInt(8, lv1p2.getNovilha2536());
+            pst.setInt(9, lv1p2.getNovilho36());
+            pst.setInt(10, lv1p2.getTouro());
+            pst.setInt(11, lv1p2.getNovilha36());
+            pst.setString(12, lv1p2.getAno());
+            pst.setInt(13, lv1p2.getPropiedade_id());
+            pst.setInt(14, lv1p2.getId());
         
         if(pst.executeUpdate() > 0){
             retorno = true;
@@ -156,6 +170,8 @@ public class Lv1p2DAO {
         return retorno;
         
     }
+
+
       
       
       public Lv1p2 buscar(String ano, Propriedade pro)
