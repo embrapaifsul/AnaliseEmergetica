@@ -19,18 +19,86 @@
     Propriedade pro = new Propriedade();
     
     String ano="";
+    
+    String link1, link2, link3, link4, link5;
+    link1="";
+    link2="";
+    link3="";
+    link4="";
+    link5="";
+    
     if (session.getAttribute("Passos") != null) {
         p = (Passos)session.getAttribute("Passos");
         if(p.getAno() !=null)
         {
             ano = p.getAno();
         }
+        if(p.getLv1p1() == null)
+        {
+            link1 = " class='inativo' ";
+            link2 = " class='inativo' ";
+            link3 = " class='inativo' ";
+            link4 = " class='inativo' ";
+            link5 = " class='inativo' ";
+            
+        } else {
+            if (p.getLv1p2() == null) {
+            link2 = " class='inativo' ";
+            link3 = " class='inativo' ";
+            link4 = " class='inativo' ";
+            link5 = " class='inativo' ";
+
+            } else {
+                if (p.getLv1p3() == null) {
+                    link3 = " class='inativo' ";
+                    link4 = " class='inativo' ";
+                    link5 = " class='inativo' ";
+
+                } else {
+                    if (p.getLv1p4() == null) {
+                        link4 = " class='inativo' ";
+                        link5 = " class='inativo' ";
+                    }
+                }
+            }
+        }
+        
     }
     else
     {
         p = new Passos();
         p.setAno(request.getParameter("data"));
         session.setAttribute("Passos", p);
+        
+        if(p.getLv1p1() == null)
+        {
+            link1 = " class='inativo' ";
+            link2 = " class='inativo' ";
+            link3 = " class='inativo' ";
+            link4 = " class='inativo' ";
+            link5 = " class='inativo' ";
+            
+        } else {
+            if (p.getLv1p2() == null) {
+            link2 = " class='inativo' ";
+            link3 = " class='inativo' ";
+            link4 = " class='inativo' ";
+            link5 = " class='inativo' ";
+
+            } else {
+                if (p.getLv1p3() == null) {
+                    link3 = " class='inativo' ";
+                    link4 = " class='inativo' ";
+                    link5 = " class='inativo' ";
+
+                } else {
+                    if (p.getLv1p4() == null) {
+                        link4 = " class='inativo' ";
+                        link5 = " class='inativo' ";
+                    }
+                }
+            }
+        }
         
     }
     
@@ -122,11 +190,11 @@
                             <h3> Progresso </h3>
                             <ul class="breadcrumb">
                                 <li class="alert-info"> Data </li><span class="divider"> / </span>
-                                <li><a href="Lv1-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
-                                <li><a href="Lv1-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
-                                <li><a href="Lv1-Passo3.jsp"> Passo 3 </a><span class="divider"> / </span></li>
-                                <li><a href="Lv1-Passo4.jsp"> Passo 4 </a><span class="divider"> / </span></li>
-                                <li><a href="Lv1-Saida.jsp"> Resultados </a></li>
+                                <li><a href="Lv1-Passo1.jsp" <%=link1%>> Passo 1 </a><span class="divider"> / </span></li>
+                                <li><a href="Lv1-Passo2.jsp" <%=link2%>> Passo 2 </a><span class="divider"> / </span></li>
+                                <li><a href="Lv1-Passo3.jsp" <%=link3%>> Passo 3 </a><span class="divider"> / </span></li>
+                                <li><a href="Lv1-Passo4.jsp" <%=link4%>> Passo 4 </a><span class="divider"> / </span></li>
+                                <li><a href="Lv1-Saida.jsp" <%=link5%>> Resultados </a></li>
                             </ul>
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">

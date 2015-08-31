@@ -90,22 +90,8 @@ else
         dao.inserir(b);
         p.setLv2p2(b);
 %>
-<!DOCTYPE html>
-<html>
-    <head>
 
-	<meta charset="utf-8"/>
-	<meta name="description" content="Fazenda"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-	<title>Fazenda</title>
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-	<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css">
-	<link rel="stylesheet" href="bootstrap/style.css">
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
-	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-        <script type="text/javascript" src="bootstrap/TesteJavaScript.js"></script>
+<%@ include file="cabecalho.jsp" %>
         <script>
             function calcularTerneiros()
             {
@@ -271,13 +257,12 @@ else
     </head>
     <body>
         
-       <%@ include file="barranavegacao.jsp" %>
-        <header class="page-header"></header>
+       <%@ include file="barranavegacao2.jsp" %>
         
         <div class="container-fluid">
             <div class="row-fluid">
                  
-                <aside class="span10">
+                <aside class="span11">
                     <section id="breadcrumbs">
                          <header class="page-header">
                              <h3> Progresso </h3>
@@ -286,7 +271,7 @@ else
                              <li><a href="AnoLv2.jsp"> Data </a><span class="divider"> / </span></li>
                              <li><a href="Lv2-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
                              <li><a href="Lv2-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
-                             <li class="active"> Passo 3 <span class="divider"> / </span></li>
+                             <li class="alert-info"> Passo 3 </li><span class="divider"> / </span>
                              <li><a href="Lv2-Passo4.jsp"> Passo 4 </a><span class="divider"> / </span></li>
                              <li><a href="Lv2-Saida.jsp"> Resultados </a></li>
                          </ul>
@@ -299,7 +284,7 @@ else
                      </section><br/><br/>
                 </aside>
                 
-                <aside class="span2"></aside>
+                <aside class="span1"></aside>
                 
             </div>
         </div>

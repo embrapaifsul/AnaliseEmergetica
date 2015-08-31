@@ -85,23 +85,23 @@
                 var outros = document.getElementById('outros');
                 var total = document.getElementById('total');
                 
-                if (medicamentos === null)
+                if (medicamentos == null)
                 {
                     medicamentos = 0;
                 }
-                if (maodeobra === null)
+                if (maodeobra == null)
                 {
                     maodeobra = 0;
                 }
-                if (maquinas === null)
+                if (maquinas == null)
                 {
                     maquinas = 0;
                 }
-                if (dispesas === null)
+                if (dispesas == null)
                 {
                     dispesas = 0;
                 }
-                if (outros === null)
+                if (outros == null)
                 {
                     outros = 0;
                 }

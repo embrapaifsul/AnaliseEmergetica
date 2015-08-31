@@ -16,8 +16,51 @@
     
     Usuario u = new Usuario();
     Passos p;
+    
+    String pn="", pnm="", pcp="", pai="", pav="";
+    String agriV="", agriI="", floresta="", outras="";
+    String matasnativas="", sea="", inaproveitavel="";
+    
+    String link2="", link3="", link4="", link5="";
+    
     if (session.getAttribute("Passos") != null) {
         p = (Passos)session.getAttribute("Passos");
+        if (p.getLv2p1() != null) {
+            pn = p.getLv2p1().getPastagemnativa().toString();
+            pnm = p.getLv2p1().getPastagemnativamelhorada().toString();
+            pcp = p.getLv2p1().getPastagemcultivadaperene().toString();
+            pai = p.getLv2p1().getPastagemanuaisdeinverno().toString();
+            pav = p.getLv2p1().getPastagemanuaisdeverao().toString();
+            
+            agriV = p.getLv2p1().getAgriculturav().toString();
+            agriI = p.getLv2p1().getAgriculturai().toString();
+            floresta = p.getLv2p1().getFlorestaplantadas().toString();
+            outras = p.getLv2p1().getOutrasplantadas().toString();
+            
+            matasnativas = p.getLv2p1().getMatasnativas().toString();
+            sea = p.getLv2p1().getSea().toString();
+            inaproveitavel = p.getLv2p1().getInaproveitavel().toString();
+        }
+
+        if (p.getLv2p2() == null) {
+            link2 = " class='inativo' ";
+            link3 = " class='inativo' ";
+            link4 = " class='inativo' ";
+            link5 = " class='inativo' ";
+
+        } else {
+            if (p.getLv2p3() == null) {
+                link3 = " class='inativo' ";
+                link4 = " class='inativo' ";
+                link5 = " class='inativo' ";
+
+            } else {
+                if (p.getLv2p4() == null) {
+                    link4 = " class='inativo' ";
+                    link5 = " class='inativo' ";
+                }
+            }
+        }
     }
     else
     {
@@ -43,22 +86,8 @@
      
   
 %>
-<!DOCTYPE html>
-<html>
-    <head>
 
-        <meta charset="utf-8"/>
-        <meta name="description" content="Fazenda"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-        <title>Fazenda</title>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css">
-        <link rel="stylesheet" href="bootstrap/style.css">
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
-        <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-        <script type="text/javascript" src="bootstrap/TesteJavaScript.js"></script>
+<%@ include file="cabecalho.jsp" %>
         
          <%
          String exibegraf = "none";
@@ -218,47 +247,92 @@ $(function () {
         <script>
             function calcularPastagem()
             {
-               if(pn.value == "")
-               {
-                   pn.focus();
-               }
-               else if(pnm.value == "")
-               {
-                   pnm.focus();
-               }
-               else if(pcp.value == "")
-               {
-                   pcp.focus();
-               }
-               else if(pai.value == "")
-               {
-                   pai.focus();
-               }
-               else if(pav.value == "")
-               {
-                   pav.focus();
-               }
-               TAREA.innerHTML = parseInt(pn.value) + parseInt(pnm.value) + parseInt(pcp.value) + parseInt(pai.value) + parseInt(pav.value);   
+                var pn =  document.getElementById('pn');
+                var pnm =  document.getElementById('pnm');
+                var pcp =  document.getElementById('pcp');
+                var pai =  document.getElementById('pai');
+                var pav =  document.getElementById('pav');
+                var TAREA =  document.getElementById('TAREA');
+                
+                if(pn.value === "")
+                {
+                    pn = 0.0;
+                }
+                else if(pnm.value === "")
+                {
+                    pnm = 0.0;
+                }
+                else if(pcp.value === "")
+                {
+                    pcp = 0.0;
+                }
+                else if(pai.value === "")
+                {
+                    pai = 0.0;
+                }
+                else if(pav.value === "")
+                {
+                    pav = 0.0;
+                }
+                
+                TAREA.innerHTML = parseInt(pn.value) + 
+                                  parseInt(pnm.value) + 
+                                  parseInt(pcp.value) + 
+                                  parseInt(pai.value) + 
+                                  parseInt(pav.value);   
             }
+            
             function calcularAreaAproveitavel()
             {
-               if(agriV.value == "")
-               {
-                   agriV.focus();
-               }
-               else if(agriI.value == "")
-               {
-                   agriI.focus();
-               }
-               else if(florestas.value == "")
-               {
-                   florestas.focus();
-               }
-               else if(outras.value == "")
-               {
-                   outras.focus();
-               } 
-               taprov.innerHTML = parseInt(pn.value) + 
+                var pn =  document.getElementById('pn');
+                var pnm =  document.getElementById('pnm');
+                var pcp =  document.getElementById('pcp');
+                var pai =  document.getElementById('pai');
+                var pav =  document.getElementById('pav');
+                var agriV =  document.getElementById('agriV');
+                var agriI =  document.getElementById('agriI');
+                var florestas =  document.getElementById('florestas');
+                var outras =  document.getElementById('outras');
+                var taprov =  document.getElementById('taprov');
+               
+                if(pn.value === "")
+                {
+                    pn = 0.0;
+                }
+                else if(pnm.value === "")
+                {
+                    pnm = 0.0;
+                }
+                else if(pcp.value === "")
+                {
+                    pcp = 0.0;
+                }
+                else if(pai.value === "")
+                {
+                    pai = 0.0;
+                }
+                else if(pav.value === "")
+                {
+                    pav = 0.0;
+                }
+                if(agriV.value === "")
+                {
+                   agriV = 0.0;
+                }
+                else if(agriI.value === "")
+                {
+                   agriI = 0.0;
+                }
+                else if(florestas.value === "")
+                {
+                   florestas = 0.0;
+                }
+                else if(outras.value === "")
+                {
+                   outras = 0.0;
+                }
+                
+                taprov.innerHTML = parseInt(pn.value) + 
                               parseInt(pnm.value) + 
                               parseInt(pcp.value) + 
                               parseInt(pai.value) + 
@@ -270,19 +344,71 @@ $(function () {
             }
             function calcularTodaArea()
             {
-               if(matasnativas.value == "")
-               {
-                   matasnativas.focus();
-               }
-               else if(sea.value == "")
-               {
-                   sea.focus();
-               }
-               else if(inaproveitavel.value == "")
-               {
-                   inaproveitavel.focus();
-               }
-               areat.innerHTML = parseInt(pn.value) + 
+                
+                var pn =  document.getElementById('pn');
+                var pnm =  document.getElementById('pnm');
+                var pcp =  document.getElementById('pcp');
+                var pai =  document.getElementById('pai');
+                var pav =  document.getElementById('pav');
+                var agriV =  document.getElementById('agriV');
+                var agriI =  document.getElementById('agriI');
+                var florestas =  document.getElementById('florestas');
+                var outras =  document.getElementById('outras');
+                var matasnativas =  document.getElementById('matasnativas');
+                var sea =  document.getElementById('sea');
+                var inaproveitavel =  document.getElementById('inaproveitavel');
+                var areat =  document.getElementById('areat');
+               
+                if(pn.value === "")
+                {
+                    pn = 0.0;
+                }
+                else if(pnm.value === "")
+                {
+                    pnm = 0.0;
+                }
+                else if(pcp.value === "")
+                {
+                    pcp = 0.0;
+                }
+                else if(pai.value === "")
+                {
+                    pai = 0.0;
+                }
+                else if(pav.value === "")
+                {
+                    pav = 0.0;
+                }
+                if(agriV.value === "")
+                {
+                   agriV = 0.0;
+                }
+                else if(agriI.value === "")
+                {
+                   agriI = 0.0;
+                }
+                else if(florestas.value === "")
+                {
+                   florestas = 0.0;
+                }
+                else if(outras.value === "")
+                {
+                   outras = 0.0;
+                }
+                if(matasnativas.value === "")
+                {
+                    matasnativas.focus();
+                }
+                else if(sea.value === "")
+                {
+                    sea.focus();
+                }
+                else if(inaproveitavel.value === "")
+                {
+                    inaproveitavel.focus();
+                }
+                
+                areat.innerHTML = parseInt(pn.value) + 
                               parseInt(pnm.value) + 
                               parseInt(pcp.value) + 
                               parseInt(pai.value) + 
@@ -299,25 +425,24 @@ $(function () {
     </head>
     <body>
 
-        <%@ include file="barranavegacao.jsp" %>
+        <%@ include file="barranavegacao2.jsp" %>
 
-        <header class="page-header"></header>
 
         <div class="container-fluid">
             <div class="row-fluid">
 
-                <aside class="span10">
+                <aside class="span11">
                     <section id="breadcrumbs">
                         <header class="page-header">
                             <h3> Progresso </h3>
 
                             <ul class="breadcrumb">
                                 <li><a href="AnoLv2.jsp"> Data </a><span class="divider"> / </span></li>
-                                <li class="active"> Passo 1 <span class="divider"> / </span></li>
-                                <li><a href="Lv2-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
-                                <li><a href="Lv2-Passo3.jsp"> Passo 3 </a><span class="divider"> / </span></li>
-                                <li><a href="Lv2-Passo4.jsp"> Passo 4 </a><span class="divider"> / </span></li>
-                                <li><a href="Lv2-Saida.jsp"> Resultados </a></li>
+                                <li class="alert-info"> Passo 1 </li><span class="divider"> / </span>
+                                <li><a href="Lv2-Passo2.jsp" <%=link2%>> Passo 2 </a><span class="divider"> / </span></li>
+                                <li><a href="Lv2-Passo3.jsp" <%=link3%>> Passo 3 </a><span class="divider"> / </span></li>
+                                <li><a href="Lv2-Passo4.jsp" <%=link4%>> Passo 4 </a><span class="divider"> / </span></li>
+                                <li><a href="Lv2-Saida.jsp" <%=link5%>> Resultados </a></li>
                             </ul>
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
@@ -328,7 +453,7 @@ $(function () {
                     </section><br/><br/>
                 </aside>
 
-                <aside class="span2"></aside>
+                <aside class="span1"></aside>
 
             </div>
         </div>
@@ -345,35 +470,35 @@ $(function () {
                         <div class="control-group">
                             <label class="control-label">Pastagem Nativa:</label>
                             <div class="controls">
-                                <input type="text" name="pn" id="pn" required>
+                                <input type="text" name="pn" id="pn" value="<%=pn%>">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Pastagem Nativa Melhorada:</label>
                             <div class="controls">
                                 <br/>
-                                <input type="text" name="pnm" id="pnm" required>
+                                <input type="text" name="pnm" id="pnm" value="<%=pnm%>">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Pastagem Cultivada Perene:</label>
                             <div class="controls">
                                 <br/>
-                                <input type="text" name="pcp" id="pcp" required>
+                                <input type="text" name="pcp" id="pcp" value="<%=pcp%>">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Pastagem Anuais de Inverno:</label>
                             <div class="controls">
                                 <br/>
-                                <input type="text" name="pai" id="pai" required>
+                                <input type="text" name="pai" id="pai" value="<%=pai%>">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Pastagem Anuais de Verão:</label>
                             <div class="controls">
                                 <br/>
-                                <input type="text" name="pav" id="pav" required onblur="calcularPastagem();">
+                                <input type="text" name="pav" id="pav" value="<%=pav%>" onblur="calcularPastagem();">
                             </div>
                         </div>
                         <div class="control-group">
@@ -386,20 +511,20 @@ $(function () {
                         <div class="control-group">
                             <label class="control-label">Agricultura:</label>
                             <div class="controls">
-                                <input type="text" name="agriV" placeholder="No Verão" id="agriV" required>
-                                <input type="text" name="agriI" placeholder="No Inverno" id="agriI" required>
+                                <input type="text" name="agriV" placeholder="No Verão" id="agriV" value="<%=agriV%>">
+                                <input type="text" name="agriI" placeholder="No Inverno" id="agriI" value="<%=agriI%>">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Florestas Plantadas:</label>
                             <div class="controls">
-                                <input type="text" name="florestas" id="florestas" required>
+                                <input type="text" name="florestas" id="florestas" value="<%=floresta%>">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Outras Culturas:</label>
                             <div class="controls">
-                                <input type="text" name="outras" id="outras" required onblur="calcularAreaAproveitavel()">
+                                <input type="text" name="outras" id="outras" value="<%=outras%>" onblur="calcularAreaAproveitavel()">
                             </div>
                         </div>
                         <div class="control-group">
@@ -412,20 +537,20 @@ $(function () {
                         <div class="control-group">
                             <label class="control-label">Matas Nativas:</label>
                             <div class="controls">
-                                <input type="text" name="matasnativas" required id="matasnativas">
+                                <input type="text" name="matasnativas" value="<%=matasnativas%>" id="matasnativas">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Sede, estradas, Açudes:</label>
                             <div class="controls">
-                                <input type="text" name="sea" required id="sea">
+                                <input type="text" name="sea" value="<%=sea%>" id="sea">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Inaproveitável (banhados, pedras, etc):</label>
                             <div class="controls">
                                 <br/>
-                                <input type="text" name="inaproveitavel" required id="inaproveitavel" onblur="calcularTodaArea()">
+                                <input type="text" name="inaproveitavel" value="<%=inaproveitavel%>" id="inaproveitavel" onblur="calcularTodaArea()">
                             </div>
                         </div>
                         <div class="control-group">
