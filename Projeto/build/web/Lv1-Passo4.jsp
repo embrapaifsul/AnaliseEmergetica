@@ -70,7 +70,14 @@
     lv1p3.setAno(p.getAno());
 
     Lv1p3DAO dao = new Lv1p3DAO();
-    dao.inserir(lv1p3);
+    Lv1p3 teste;
+    teste = dao.buscar(p.getAno(), pro);
+    if(teste==null){
+    dao.inserir(lv1p3);    
+    }else{
+        dao.atualizar(lv1p3);
+    }
+    
     p.setLv1p3(lv1p3);
     }
 %>

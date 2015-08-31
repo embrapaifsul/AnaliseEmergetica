@@ -65,7 +65,13 @@
     
         
         Lv1p4DAO dao = new Lv1p4DAO();
-        dao.inserir(lv1p4);
+        Lv1p4 teste;
+        teste = dao.buscar(p.getAno(), pro);
+        if(teste==null){
+         dao.inserir(lv1p4);   
+        }else{
+         dao.atualizar(lv1p4);   
+        }
         p.setLv1p4(lv1p4);
         
         

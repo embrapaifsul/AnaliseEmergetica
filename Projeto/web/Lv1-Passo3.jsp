@@ -124,7 +124,10 @@
         }
 
         e.setAno(p.getAno());
-
+         
+        Lv1p2 teste;
+        teste = dao.buscar(p.getAno(), pro);
+        
         dao.inserirNao(e);
         p.setLv1p2(e);
 

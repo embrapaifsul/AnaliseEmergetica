@@ -115,7 +115,7 @@ public class Lv1p4DAO {
       
       public Boolean atualizar(Lv1p4 lv1p4){
         Boolean retorno = false;
-        String sql = "UPDATE lv1p4 set medicamento =?,mao_de_obra=?,maquinas=?,pastagem=?, ano = ? where id=?";
+        String sql = "UPDATE lv1p4 set medicamento =?,mao_de_obra=?,maquinas=?,pastagem=?,outros = ?  where ano = ? and propriedade_id=?";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         try {
             
@@ -124,8 +124,9 @@ public class Lv1p4DAO {
             pst.setDouble(2,lv1p4.getMao_de_obra());
             pst.setDouble(3,lv1p4.getMaquinas());
             pst.setDouble(4,lv1p4.getPastagem());
-            pst.setString(5, lv1p4.getAno());
-            pst.setInt(6, lv1p4.getPropiedade_id());
+            pst.setDouble(5, lv1p4.getOutros());
+            pst.setString(6, lv1p4.getAno());
+            pst.setInt(7, lv1p4.getPropiedade_id());
         
         if(pst.executeUpdate() > 0){
             retorno = true;

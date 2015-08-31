@@ -99,7 +99,7 @@ public class Lv1p3DAO {
       
       public Boolean atualizar(Lv1p3 lv1p3){
         Boolean retorno = false;
-        String sql = "UPDATE lv1p3 set receita_anual=?,ano=? where id=?";
+        String sql = "UPDATE lv1p3 set receita_anual=? where ano=? and propriedade_id=?";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         try {
             

@@ -91,7 +91,14 @@
         lv1p1.setPropiedade_id(pro.getId());
 
         Lv1p1DAO dao = new Lv1p1DAO();
-        dao.inserir(lv1p1);
+        Lv1p1 teste;
+        teste = dao.buscar(p.getAno(), pro);
+        if(teste==null){
+            dao.inserir(lv1p1);
+        }else{
+            dao.atualizar(lv1p1);
+        }
+        
         p.setLv1p1(lv1p1);
     }
 %>
