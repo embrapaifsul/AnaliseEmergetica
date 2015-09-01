@@ -106,7 +106,7 @@ public class Lv1p3DAO {
             
             pst.setDouble(1,lv1p3.getReceita_anual());
             pst.setString(2, lv1p3.getAno());
-            pst.setInt(3, lv1p3.getId());
+            pst.setInt(3, lv1p3.getPropiedade_id());
         
         if(pst.executeUpdate() > 0){
             retorno = true;

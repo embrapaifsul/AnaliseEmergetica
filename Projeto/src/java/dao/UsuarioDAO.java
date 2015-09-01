@@ -152,6 +152,40 @@ public class UsuarioDAO {
             }
         return usuario;
         }
+    
+    
+    
+    
+    public Usuario buscar(Usuario usuarioE) 
+    {
+        
+        //crio a lista de jogadores
+        
+        Usuario usuario = null;
+        String sql = "SELECT * FROM usuario WHERE login =?";
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        
+        try {
+            pst.setString(1, usuarioE.getLogin());            
+            //Executo o aql e jogo em um resultSet
+            ResultSet res = pst.executeQuery();
+            //Eqaunto tiver REGISTRO eu vou relacionar
+            //com a minha classe Jogador e adicionar na lista 
+            while(res.next())
+            {
+               usuario = new Usuario();
+                usuario.setLogin(res.getString("login"));
+                usuario.setSenha(res.getString("senha"));
+                usuario.setEmail(res.getString("email"));
+                usuario.setId(res.getInt("id"));
+                
+            }
+            } catch(SQLException ex){
+               
+               ex.printStackTrace();
+            }
+        return usuario;
+        }
         
     }
     

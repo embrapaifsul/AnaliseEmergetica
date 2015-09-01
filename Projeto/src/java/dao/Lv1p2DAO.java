@@ -60,7 +60,7 @@ public class Lv1p2DAO {
                 + "novilha_36,"
                 + "touro,"
                 + "ano,"
-                + "propriedade_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                + "propriedade_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         //Prepara a conexão
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
@@ -138,7 +138,7 @@ public class Lv1p2DAO {
         Boolean retorno = false;
         String sql = "UPDATE lv1p2 SET vaca_de_cria=?, vaca_de_descarte=?, terneiro=?, terneira=?,novilho_13a24=?, "
                 + "novilha_13a24=?, novilho_25a36=?, novilha_25a36=?,novilho_36=?, touro=?,novilha_36=? "
-                + "WHERE ano =? and propriedade=?;";
+                + "WHERE ano =? and propriedade_id=?;";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         try {
             
@@ -156,7 +156,7 @@ public class Lv1p2DAO {
             pst.setInt(11, lv1p2.getNovilha36());
             pst.setString(12, lv1p2.getAno());
             pst.setInt(13, lv1p2.getPropiedade_id());
-            pst.setInt(14, lv1p2.getId());
+        
         
         if(pst.executeUpdate() > 0){
             retorno = true;

@@ -113,12 +113,14 @@
                 	</div>
                         <div class="control-group">
                             <div class="controls">
-                		<input type="submit" class="btn" value="Entrar" /> 
-                            </div>
+                		<input type="submit" class="btn" value="Entrar" />
+                                <a href = "TrocarSenha.jsp"class="btn">Esqueci a senha</a>                                
+                            </div>                            
                 	</div>
                     </form>
+                                                     
                 </aside>
-                
+                        
             </div>
         </div>
     </body>
