@@ -17,17 +17,16 @@
     Usuario u = new Usuario();
     Passos p = new Passos();
     
-    String vacasdecria="";
-    String vacasdedescarte="";
-    String terneiros="";
-    String terneiras="";
-    String novilhos1="";
-    String novilhos2="";
-    String novilhos3="";
-    String novilhas1="";
-    String novilhas2="";
-    String novilhas3="";
-    String touros="";
+    String vacasdecria1="", vacasdecria2="", vacasdecria3="", vacasdecria4="";
+    String vacasdedescarte1="", vacasdedescarte2="", vacasdedescarte3="", vacasdedescarte4="";
+    String terneiros1="", terneiros2="", terneiros3="", terneiros4="";
+    String terneiras1="", terneiras2="", terneiras3="", terneiras4="";
+    String novilhos1="", novilhos2="", novilhos3="", novilhos4="";
+    String novilhas1="", novilhas2="", novilhas3="", novilhas4="";
+    String novilhos11="", novilhos22="", novilhos33="", novilhos44="";
+    String novilhas11="", novilhas22="", novilhas33="", novilhas44="";
+    String novilhos111="", novilhos222="", novilhos333="", novilhos444="";
+    String touros1="", touros2="", touros3="", touros4="";
     
     String link3, link4, link5;
     link3="";
@@ -38,17 +37,47 @@
         p = (Passos)session.getAttribute("Passos");
         if(p.getLv2p2() !=null)
         {
-            vacasdecria = p.getLv1p2().getVacadecria().toString();
-            vacasdedescarte = p.getLv1p2().getVacadedescarte().toString();
-            terneiros = p.getLv1p2().getTerneiro().toString();
-            terneiras = p.getLv1p2().getTerneira().toString();
-            novilhos1 = p.getLv1p2().getNovilho1324().toString();
-            novilhos2 = p.getLv1p2().getNovilho2536().toString();
-            novilhos3 = p.getLv1p2().getNovilho36().toString();
-            novilhas1 = p.getLv1p2().getNovilha1324().toString();
-            novilhas2 = p.getLv1p2().getNovilha2536().toString();
-            novilhas3 = p.getLv1p2().getNovilha36().toString();
-            touros = p.getLv1p2().getTouro().toString();
+            vacasdecria1 = p.getLv2p2().getVacadecriajanmar().toString();
+            vacasdecria2 = p.getLv2p2().getVacadecriaabrjun().toString();
+            vacasdecria3 = p.getLv2p2().getVacadedescartejulset().toString();
+            vacasdecria4 = p.getLv2p2().getVacadecriaoutdez().toString();
+            vacasdedescarte1 = p.getLv2p2().getVacadedescartejanmar().toString();
+            vacasdedescarte2 = p.getLv2p2().getVacadedescarteabrjun().toString();
+            vacasdedescarte3 = p.getLv2p2().getVacadedescartejulset().toString();
+            vacasdedescarte4 = p.getLv2p2().getVacadedescarteoutdez().toString();
+            terneiros1 = p.getLv2p2().getTerneirosjanmar().toString();
+            terneiros2 = p.getLv2p2().getTerneirosabrjun().toString();
+            terneiros3 = p.getLv2p2().getTerneirosjulset().toString();
+            terneiros4 = p.getLv2p2().getTerneirosoutdez().toString();
+            terneiras1 = p.getLv2p2().getTerneirasjanmar().toString();
+            terneiras2 = p.getLv2p2().getTerneirasabrjun().toString();
+            terneiras3 = p.getLv2p2().getTerneirasjulset().toString();
+            terneiras4 = p.getLv2p2().getTerneirasoutdez().toString();
+            novilhos1 = p.getLv2p2().getNovilho1324janmar().toString();
+            novilhos2 = p.getLv2p2().getNovilho1324abrjun().toString();
+            novilhos3 = p.getLv2p2().getNovilho1324julset().toString();
+            novilhos4 = p.getLv2p2().getNovilho1324outdez().toString();
+            novilhas1 = p.getLv2p2().getNovilha1324janmar().toString();
+            novilhas2 = p.getLv2p2().getNovilha1324abrjun().toString();
+            novilhas3 = p.getLv2p2().getNovilha1324julset().toString();
+            novilhas4 = p.getLv2p2().getNovilha1324outdez().toString();
+            novilhos11 = p.getLv2p2().getNovilho2536janmar().toString();
+            novilhos22 = p.getLv2p2().getNovilho2536abrjun().toString();
+            novilhos33 = p.getLv2p2().getNovilho2536julset().toString();
+            novilhos44 = p.getLv2p2().getNovilho2536outdez().toString();
+            novilhas11 = p.getLv2p2().getNovilha2536janmar().toString();
+            novilhas22 = p.getLv2p2().getNovilha2536abrjun().toString();
+            novilhas33 = p.getLv2p2().getNovilha2536julset().toString();
+            novilhas44 = p.getLv2p2().getNovilha2536outdez().toString();
+            novilhos111 = p.getLv2p2().getNovilho36janmar().toString();
+            novilhos222 = p.getLv2p2().getNovilho36abrjun().toString();
+            novilhos333 = p.getLv2p2().getNovilho36julset().toString();
+            novilhos444 = p.getLv2p2().getNovilho36outdez().toString();
+            touros1 = p.getLv2p2().getTourojanmar().toString();
+            touros2 = p.getLv2p2().getTouroabrjun().toString();
+            touros3 = p.getLv2p2().getTourojulset().toString();
+            touros4 = p.getLv2p2().getTourooutdez().toString();
+            
         }
         
         if (p.getLv2p3() == null) {
@@ -436,91 +465,91 @@ $(function () {
                         <div class="control-group">
                             <label class="control-label">Vacas de Cria:</label>
                 		<div class="controls">
-                                    <input type="text" name="vacasdecria1" id="vacasdecria1" placeholder="Jan-Mar" required>
-                                    <input type="text" name="vacasdecria2" id="vacasdecria2" placeholder="Abr-Jun" required>
-                                    <input type="text" name="vacasdecria3" id="vacasdecria3" placeholder="Jul-Set" required>
-                                    <input type="text" name="vacasdecria4" id="vacasdecria4" placeholder="Out-Dez" required>
+                                    <input type="text" name="vacasdecria1" id="vacasdecria1" placeholder="Jan-Mar" value="<%=vacasdecria1%>">
+                                    <input type="text" name="vacasdecria2" id="vacasdecria2" placeholder="Abr-Jun" value="<%=vacasdecria2%>">
+                                    <input type="text" name="vacasdecria3" id="vacasdecria3" placeholder="Jul-Set" value="<%=vacasdecria3%>">
+                                    <input type="text" name="vacasdecria4" id="vacasdecria4" placeholder="Out-Dez" value="<%=vacasdecria4%>">
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Vacas de Descarte:</label>
                 		<div class="controls">
-                                    <input type="text" name="vacasdedescarte1" id="vacasdedescarte1" placeholder="Jan-Mar" required>
-                                    <input type="text" name="vacasdedescarte2" id="vacasdedescarte2" placeholder="Abr-Jun" required>
-                                    <input type="text" name="vacasdedescarte3" id="vacasdedescarte3" placeholder="Jul-Set" required>
-                                    <input type="text" name="vacasdedescarte4" id="vacasdedescarte4" placeholder="Out-Dez" required>
+                                    <input type="text" name="vacasdedescarte1" id="vacasdedescarte1" placeholder="Jan-Mar" value="<%=vacasdedescarte1%>">
+                                    <input type="text" name="vacasdedescarte2" id="vacasdedescarte2" placeholder="Abr-Jun" value="<%=vacasdedescarte2%>">
+                                    <input type="text" name="vacasdedescarte3" id="vacasdedescarte3" placeholder="Jul-Set" value="<%=vacasdedescarte3%>">
+                                    <input type="text" name="vacasdedescarte4" id="vacasdedescarte4" placeholder="Out-Dez" value="<%=vacasdedescarte4%>">
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Terneiros:</label>
                 		<div class="controls">
-                                    <input type="text" name="terneiros1" id="terneiros1" placeholder="Jan-Mar" required>
-                                    <input type="text" name="terneiros2" id="terneiros2" placeholder="Abr-Jun" required>
-                                    <input type="text" name="terneiros3" id="terneiros3" placeholder="Jul-Set" required>
-                                    <input type="text" name="terneiros4" id="terneiros4" placeholder="Out-Dez" required>
+                                    <input type="text" name="terneiros1" id="terneiros1" placeholder="Jan-Mar" value="<%=terneiros1%>">
+                                    <input type="text" name="terneiros2" id="terneiros2" placeholder="Abr-Jun" value="<%=terneiros2%>">
+                                    <input type="text" name="terneiros3" id="terneiros3" placeholder="Jul-Set" value="<%=terneiros3%>">
+                                    <input type="text" name="terneiros4" id="terneiros4" placeholder="Out-Dez" value="<%=terneiros4%>">
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Terneiras:</label>
                 		<div class="controls">
-                                    <input type="text" name="terneiras1" id="terneiras1" placeholder="Jan-Mar" required>
-                                    <input type="text" name="terneiras2" id="terneiras2" placeholder="Abr-Jun" required>
-                                    <input type="text" name="terneiras3" id="terneiras3" placeholder="Jul-Set" required>
-                                    <input type="text" name="terneiras4" id="terneiras4" placeholder="Out-Dez" required>
+                                    <input type="text" name="terneiras1" id="terneiras1" placeholder="Jan-Mar" value="<%=terneiras1%>">
+                                    <input type="text" name="terneiras2" id="terneiras2" placeholder="Abr-Jun" value="<%=terneiras2%>">
+                                    <input type="text" name="terneiras3" id="terneiras3" placeholder="Jul-Set" value="<%=terneiras3%>">
+                                    <input type="text" name="terneiras4" id="terneiras4" placeholder="Out-Dez" value="<%=terneiras4%>">
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Novilhos 13-24:</label>
                 		<div class="controls">
-                                    <input type="text" name="novilhos1" id="novilhos1" placeholder="Jan-Mar" required>
-                                    <input type="text" name="novilhos2" id="novilhos2" placeholder="Abr-Jun" required>
-                                    <input type="text" name="novilhos3" id="novilhos3" placeholder="Jul-Set" required>
-                                    <input type="text" name="novilhos4" id="novilhos4" placeholder="Out-Dez" required>
+                                    <input type="text" name="novilhos1" id="novilhos1" placeholder="Jan-Mar" value="<%=novilhos1%>">
+                                    <input type="text" name="novilhos2" id="novilhos2" placeholder="Abr-Jun" value="<%=novilhos2%>">
+                                    <input type="text" name="novilhos3" id="novilhos3" placeholder="Jul-Set" value="<%=novilhos3%>">
+                                    <input type="text" name="novilhos4" id="novilhos4" placeholder="Out-Dez" value="<%=novilhos4%>">
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Novilhas 13-24:</label>
                 		<div class="controls">
-                                    <input type="text" name="novilhas1" id="novilhas1" placeholder="Jan-Mar" required>
-                                    <input type="text" name="novilhas2" id="novilhas2" placeholder="Abr-Jun" required>
-                                    <input type="text" name="novilhas3" id="novilhas3" placeholder="Jul-Set" required>
-                                    <input type="text" name="novilhas4" id="novilhas4" placeholder="Out-Dez" required>
+                                    <input type="text" name="novilhas1" id="novilhas1" placeholder="Jan-Mar" value="<%=novilhas1%>">
+                                    <input type="text" name="novilhas2" id="novilhas2" placeholder="Abr-Jun" value="<%=novilhas2%>">
+                                    <input type="text" name="novilhas3" id="novilhas3" placeholder="Jul-Set" value="<%=novilhas3%>">
+                                    <input type="text" name="novilhas4" id="novilhas4" placeholder="Out-Dez" value="<%=novilhas4%>">
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Novilhos 25-36:</label>
                 		<div class="controls">
-                                    <input type="text" name="novilhos11" id="novilhos11" placeholder="Jan-Mar" required>
-                                    <input type="text" name="novilhos22" id="novilhos22" placeholder="Abr-Jun" required>
-                                    <input type="text" name="novilhos33" id="novilhos33" placeholder="Jul-Set" required>
-                                    <input type="text" name="novilhos44" id="novilhos44" placeholder="Out-Dez" required>
+                                    <input type="text" name="novilhos11" id="novilhos11" placeholder="Jan-Mar" value="<%=novilhos11%>">
+                                    <input type="text" name="novilhos22" id="novilhos22" placeholder="Abr-Jun" value="<%=novilhos22%>">
+                                    <input type="text" name="novilhos33" id="novilhos33" placeholder="Jul-Set" value="<%=novilhos33%>">
+                                    <input type="text" name="novilhos44" id="novilhos44" placeholder="Out-Dez" value="<%=novilhos44%>">
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Novilhas 25-36:</label>
                 		<div class="controls">
-                                    <input type="text" name="novilhas11" id="novilhas11" placeholder="Jan-Mar" required>
-                                    <input type="text" name="novilhas22" id="novilhas22" placeholder="Abr-Jun" required>
-                                    <input type="text" name="novilhas33" id="novilhas33" placeholder="Jul-Set" required>
-                                    <input type="text" name="novilhas44" id="novilhas44" placeholder="Out-Dez" required>
+                                    <input type="text" name="novilhas11" id="novilhas11" placeholder="Jan-Mar" value="<%=novilhas11%>">
+                                    <input type="text" name="novilhas22" id="novilhas22" placeholder="Abr-Jun" value="<%=novilhas22%>">
+                                    <input type="text" name="novilhas33" id="novilhas33" placeholder="Jul-Set" value="<%=novilhas33%>">
+                                    <input type="text" name="novilhas44" id="novilhas44" placeholder="Out-Dez" value="<%=novilhas44%>">
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Novilhos > 36:</label>
                 		<div class="controls">
-                                    <input type="text" name="novilhos111" id="novilhos111" placeholder="Jan-Mar" required>
-                                    <input type="text" name="novilhos222" id="novilhos222" placeholder="Abr-Jun" required>
-                                    <input type="text" name="novilhos333" id="novilhos333" placeholder="Jul-Set" required>
-                                    <input type="text" name="novilhos444" id="novilhos444" placeholder="Out-Dez" required>
+                                    <input type="text" name="novilhos111" id="novilhos111" placeholder="Jan-Mar" value="<%=novilhos111%>">
+                                    <input type="text" name="novilhos222" id="novilhos222" placeholder="Abr-Jun" value="<%=novilhos222%>">
+                                    <input type="text" name="novilhos333" id="novilhos333" placeholder="Jul-Set" value="<%=novilhos333%>">
+                                    <input type="text" name="novilhos444" id="novilhos444" placeholder="Out-Dez" value="<%=novilhos444%>">
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Touros:</label>
                 		<div class="controls">
-                                    <input type="text" name="touros1" id="touros1" placeholder="Jan-Mar" required onblur="calcularJanMar()">
-                                    <input type="text" name="touros2" id="touros2" placeholder="Abr-Jun" required onblur="calcularAbrJun()">
-                                    <input type="text" name="touros3" id="touros3" placeholder="Jul-Set" required onblur="calcularJulSet()">
-                                    <input type="text" name="touros4" id="touros4" placeholder="Out-Dez" required onblur="calcularOutDez()">
+                                    <input type="text" name="touros1" id="touros1" placeholder="Jan-Mar" value="<%=touros1%>" onblur="calcularJanMar()">
+                                    <input type="text" name="touros2" id="touros2" placeholder="Abr-Jun" value="<%=touros2%>" onblur="calcularAbrJun()">
+                                    <input type="text" name="touros3" id="touros3" placeholder="Jul-Set" value="<%=touros3%>" onblur="calcularJulSet()">
+                                    <input type="text" name="touros4" id="touros4" placeholder="Out-Dez" value="<%=touros4%>" onblur="calcularOutDez()">
                 		</div>
                         </div>
                          <div class="control-group">
