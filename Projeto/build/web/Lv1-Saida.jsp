@@ -123,7 +123,7 @@
                     <h2> Custo de Produção </h2>
                     <br/>
                     
-                    <form name="Passo4" action="Lv2-Passo1.jsp" class="form-horizontal" method ="post" onSubmit="return passo4 ();">
+                    <form name="Passo4" action="VerificarLv2.jsp" class="form-horizontal" method ="post" onSubmit="return passo4 ();">
                         
                         <div class="control-group">
                             <label class="control-label">Lotação Média da Propriedade:</label>
@@ -158,7 +158,7 @@
                         </div>
                         <div class="control-group">
                             <div class="controls">
-                                <input type="hidden" id="data" value="<%=p.getAno()%>" />
+                                <input type="hidden" name="data2" id="data2" value="<%=p.getAno()%>" />
                                 <input type="submit" class="btn" value="Próximo Nível" />
                             </div>
                         </div>

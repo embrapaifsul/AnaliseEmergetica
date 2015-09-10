@@ -19,6 +19,63 @@
     Usuario u = new Usuario();
     Passos p = new Passos();
     Propriedade pro = new Propriedade();
+    
+
+    
+    String link4, link5;
+    link4="";
+    link5="";
+    
+    String terneiros1="", terneiros2="", terneiras1="", 
+            terneiras2="", novilhas1="", novilhas2="", 
+            vacasdescarte1="", vacasdescarte2="", vacprenha1="", 
+            vacprenha2="", vaccria1="", vaccria2="", 
+            vacgorda1="", vacgorda2="", novilhosrecria1="", 
+            novilhosrecria2="", novilhosgordos1="", novilhosgordos2="",
+            torunos1="", torunos2="", touros1="", touros2="";
+    
+    if (session.getAttribute("Passos") != null) {
+        p = (Passos)session.getAttribute("Passos");
+        if(p.getLv2p3() !=null)
+        {
+            terneiros1 = p.getLv2p3().getTerneiroquant().toString();
+            terneiros2 = p.getLv2p3().getTerneirovalor().toString();
+            terneiras1 = p.getLv2p3().getTerneiraquant().toString();
+            terneiras2 = p.getLv2p3().getTerneiravalor().toString();
+            novilhas1 = p.getLv2p3().getNovilhaquant().toString();
+            novilhas2 = p.getLv2p3().getNovilhavalor().toString();
+            vacasdescarte1 = p.getLv2p3().getVacadedescartequant().toString();
+            vacasdescarte2 = p.getLv2p3().getVacadedescartevalor().toString();
+            vacprenha1 = p.getLv2p3().getVacaprenhasquant().toString();
+            vacprenha2 = p.getLv2p3().getVacaprenhavalor().toString();
+            vaccria1 = p.getLv2p3().getVacacomcriaquant().toString();
+            vaccria2 = p.getLv2p3().getVacacomcriavalor().toString();
+            vacgorda1 = p.getLv2p3().getVacagordaquant().toString();
+            vacgorda2 = p.getLv2p3().getVacagordavalor().toString();
+            novilhosrecria1 = p.getLv2p3().getNovilhorecriaquant().toString();
+            novilhosrecria2 = p.getLv2p3().getNovilhorecriavalor().toString();
+            novilhosgordos1 = p.getLv2p3().getNovilhogordoquant().toString();
+            novilhosgordos2 = p.getLv2p3().getNovilhogordovalor().toString();
+            torunos1 = p.getLv2p3().getTorunosquant().toString();
+            torunos2 = p.getLv2p3().getTorunovalor().toString();
+            touros1 = p.getLv2p3().getTouroquant().toString();
+            touros2 = p.getLv2p3().getTourovalor().toString();
+        }
+        
+        if (p.getLv2p4() == null) {
+            link4 = " class='inativo' ";
+            link5 = " class='inativo' ";
+        }
+        
+    }
+    else
+    {
+        p = new Passos();
+        session.setAttribute("Passos", p);
+        
+    }
+    
+    
 if (session.getAttribute("Usuario") != null && session.getAttribute("Passos") != null && session.getAttribute("Propriedade") != null  )
 {
      u = (Usuario)session.getAttribute("Usuario");
@@ -93,133 +150,150 @@ else
 
 <%@ include file="cabecalho.jsp" %>
         <script>
-            function calcularTerneiros()
+            function calcularTotal()
             {
-                if(terneiros1.value == "")
+                var terneiros1 =  document.getElementById('terneiros1');
+                var terneiros2 =  document.getElementById('terneiros2');
+                var terneiros3 =  document.getElementById('terneiros3');
+                var terneiras1 =  document.getElementById('terneiras1');
+                var terneiras2 =  document.getElementById('terneiras2');
+                var terneiras3 =  document.getElementById('terneiras3');
+                var novilhas1 =  document.getElementById('novilhas1');
+                var novilhas2 =  document.getElementById('novilhas2');
+                var novilhas3 =  document.getElementById('novilhas3');
+                var vacdescarte1 =  document.getElementById('vacdescarte1');
+                var vacdescarte2 =  document.getElementById('vacdescarte2');
+                var vacdescarte3 =  document.getElementById('vacdescarte3');
+                var vacprenha1 =  document.getElementById('vacprenha1');
+                var vacprenha2 =  document.getElementById('vacprenha2');
+                var vacprenha3 =  document.getElementById('vacprenha3');
+                var vaccria1 =  document.getElementById('vaccria1');
+                var vaccria2 =  document.getElementById('vaccria2');
+                var vaccria3 =  document.getElementById('vaccria3');
+                var vacgorda1 =  document.getElementById('vacgorda1');
+                var vacgorda2 =  document.getElementById('vacgorda2');
+                var vacgorda3 =  document.getElementById('vacgorda3');
+                var novilhosrecria1 =  document.getElementById('novilhosrecria1');
+                var novilhosrecria2 =  document.getElementById('novilhosrecria2');
+                var novilhosrecria3 =  document.getElementById('novilhosrecria3');
+                var novilhosgordos1 =  document.getElementById('novilhosgordos1');
+                var novilhosgordos2 =  document.getElementById('novilhosgordos2');
+                var novilhosgordos3 =  document.getElementById('novilhosgordos3');
+                var torunos1 =  document.getElementById('torunos1');
+                var torunos2 =  document.getElementById('torunos2');
+                var torunos3 =  document.getElementById('torunos3');
+                var touros1 =  document.getElementById('touros1');
+                var touros2 =  document.getElementById('touros2');
+                var touros3 =  document.getElementById('touros3');
+                var total1 =  document.getElementById('total1');
+                var total2 =  document.getElementById('total2');
+                var total3 =  document.getElementById('total3');
+                
+                if(terneiros1.value === "")
                 {
                     terneiros1.focus();
                 }
-                else if(terneiros2.value == "")
+                else if(terneiros2.value === "")
                 {
                     terneiros2.focus();
                 }
                 terneiros3.innerHTML = parseInt(terneiros1.value) * parseInt(terneiros2.value);
-            }
-            function calcularTerneiras()
-            {
-                if(terneiras1.value == "")
+            
+                if(terneiras1.value === "")
                 {
                     terneiras1.focus();
                 }
-                else if(terneiras2.value == "")
+                else if(terneiras2.value === "")
                 {
                     terneiras2.focus();
                 }
                 terneiras3.innerHTML = parseInt(terneiras1.value) * parseInt(terneiras2.value);
-            }
-            function calcularNovilhas()
-            {
-                if(novilhas1.value == "")
+            
+                if(novilhas1.value === "")
                 {
                     novilhas1.focus();
                 }
-                else if(novilhas2.value == "")
+                else if(novilhas2.value === "")
                 {
                     novilhas2.focus();
                 }
                 novilhas3.innerHTML = parseInt(novilhas1.value) * parseInt(novilhas2.value);
-            }
-            function calcularVacdescarte()
-            {
-                if(vacdescarte1.value == "")
+            
+                if(vacdescarte1.value === "")
                 {
                     vacdescarte1.focus();
                 }
-                else if(vacdescarte2.value == "")
+                else if(vacdescarte2.value === "")
                 {
                     vacdescarte2.focus();
                 }
                 vacdescarte3.innerHTML = parseInt(vacdescarte1.value) * parseInt(vacdescarte2.value);
-            }
-            function calcularVacprenha()
-            {
-                if(vacprenha1.value == "")
+            
+                if(vacprenha1.value === "")
                 {
                     vacprenha1.focus();
                 }
-                else if(vacprenha2.value == "")
+                else if(vacprenha2.value === "")
                 {
                     vacprenha2.focus();
                 }
                 vacprenha3.innerHTML = parseInt(vacprenha1.value) * parseInt(vacprenha2.value);
-            }
-            function calcularVaccria()
-            {
-                if(vaccria1.value == "")
+            
+                if(vaccria1.value === "")
                 {
                     vaccria1.focus();
                 }
-                else if(vaccria2.value == "")
+                else if(vaccria2.value === "")
                 {
                     vaccria2.focus();
                 }
                 vaccria3.innerHTML = parseInt(vaccria1.value) * parseInt(vaccria2.value);
-            }
-            function calcularVacgorda()
-            {
-                if(vacgorda1.value == "")
+            
+                if(vacgorda1.value === "")
                 {
                     vacgorda1.focus();
                 }
-                else if(vacgorda2.value == "")
+                else if(vacgorda2.value === "")
                 {
                     vacgorda2.focus();
                 }
                 vacgorda3.innerHTML = parseInt(vacgorda1.value) * parseInt(vacgorda2.value);
-            }
-            function calcularNovilhosrecria()
-            {
-                if(novilhosrecria1.value == "")
+            
+                if(novilhosrecria1.value === "")
                 {
                     novilhosrecria1.focus();
                 }
-                else if(novilhosrecria2.value == "")
+                else if(novilhosrecria2.value === "")
                 {
                     novilhosrecria2.focus();
                 }
                 novilhosrecria3.innerHTML = parseInt(novilhosrecria1.value) * parseInt(novilhosrecria2.value);
-            }
-            function calcularNovilhosgordos()
-            {
-                if(novilhosgordos1.value == "")
+            
+                if(novilhosgordos1.value === "")
                 {
                     novilhosgordos1.focus();
                 }
-                else if(novilhosgordos2.value == "")
+                else if(novilhosgordos2.value === "")
                 {
                     novilhosgordos2.focus();
                 }
                 novilhosgordos3.innerHTML = parseInt(novilhosgordos1.value) * parseInt(novilhosgordos2.value);
-            }
-            function calcularTorunos()
-            {
-                if(torunos1.value == "")
+            
+                if(torunos1.value === "")
                 {
                     torunos1.focus();
                 }
-                else if(torunos2.value == "")
+                else if(torunos2.value === "")
                 {
                     torunos2.focus();
                 }
                 torunos3.innerHTML = parseInt(torunos1.value) * parseInt(torunos2.value);
-            }
-            function calcularTouros()
-            {
-                if(touros1.value == "")
+            
+                if(touros1.value === "")
                 {
                     touros1.focus();
                 }
-                else if(touros2.value == "")
+                else if(touros2.value === "")
                 {
                     touros2.focus();
                 }
@@ -272,8 +346,8 @@ else
                              <li><a href="Lv2-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
                              <li><a href="Lv2-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
                              <li class="alert-info"> Passo 3 </li><span class="divider"> / </span>
-                             <li><a href="Lv2-Passo4.jsp"> Passo 4 </a><span class="divider"> / </span></li>
-                             <li><a href="Lv2-Saida.jsp"> Resultados </a></li>
+                             <li><a href="Lv2-Passo4.jsp" <%=link4%>> Passo 4 </a><span class="divider"> / </span></li>
+                             <li><a href="Lv2-Saida.jsp" <%=link5%>> Resultados </a></li>
                          </ul>
                              <div class="progress">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
@@ -303,88 +377,88 @@ else
                         <div class="control-group">
                             <label class="control-label">Terneiros:</label>
                 		<div class="controls">
-                		    <input type="text" name="terneiros1" id="terneiros1" placeholder="Quantidade(cabeças)" required>
-                                    <input type="text" name="terneiros2" id="terneiros2" placeholder="Valor Unitário" required onblur="calcularTerneiros()">
+                		    <input type="text" name="terneiros1" id="terneiros1" placeholder="Quantidade(cabeças)" required value="<%=terneiros1%>">
+                                    <input type="text" name="terneiros2" id="terneiros2" placeholder="Valor Unitário" required value="<%=terneiros2%>">
                                     <span name="terneiros3" id="terneiros3" placeholder="Valor Total" class="uneditable-input"></span>
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Terneiras:</label>
                 		<div class="controls">
-                		    <input type="text" name="terneiras1" id="terneiras1" placeholder="Quantidade(cabeças)" required>
-                                    <input type="text" name="terneiras2" id="terneiras2" placeholder="Valor Unitário" required onblur="calcularTerneiras()">
+                		    <input type="text" name="terneiras1" id="terneiras1" placeholder="Quantidade(cabeças)" required value="<%=terneiras1%>">
+                                    <input type="text" name="terneiras2" id="terneiras2" placeholder="Valor Unitário" required value="<%=terneiras2%>">
                                     <span name="terneiras3" id="terneiras3" placeholder="Valor Total" class="uneditable-input"></span>
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Novilhas:</label>
                 		<div class="controls">
-                		    <input type="text" name="novilhas1" id="novilhas1" placeholder="Quantidade(cabeças)" required>
-                                    <input type="text" name="novilhas2" id="novilhas2" placeholder="Valor Unitário" required onblur="calcularNovilhas()">
+                		    <input type="text" name="novilhas1" id="novilhas1" placeholder="Quantidade(cabeças)" required value="<%=novilhas1%>">
+                                    <input type="text" name="novilhas2" id="novilhas2" placeholder="Valor Unitário" required value="<%=novilhas2%>">
                                     <span name="novilhas3" id="novilhas3" placeholder="Valor Total" class="uneditable-input"></span>
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Vacas de Descarte:</label>
                 		<div class="controls">
-                		    <input type="text" name="vacdescarte1" id="vacdescarte1" placeholder="Quantidade(cabeças)" required>
-                                    <input type="text" name="vacdescarte2" id="vacdescarte2" placeholder="Valor Unitário" required onblur="calcularVacdescarte()">
+                		    <input type="text" name="vacdescarte1" id="vacdescarte1" placeholder="Quantidade(cabeças)" required value="<%=vacasdescarte1%>">
+                                    <input type="text" name="vacdescarte2" id="vacdescarte2" placeholder="Valor Unitário" required value="<%=vacasdescarte2%>">
                                     <span name="vacdescarte3" id="vacdescarte3" placeholder="Valor Total" class="uneditable-input"></span>
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Vacas Prenhas:</label>
                 		<div class="controls">
-                		    <input type="text" name="vacprenha1" id="vacprenha1" placeholder="Quantidade(cabeças)" required>
-                                    <input type="text" name="vacprenha2" id="vacprenha2" placeholder="Valor Unitário" required onblur="calcularVacprenha()">
+                		    <input type="text" name="vacprenha1" id="vacprenha1" placeholder="Quantidade(cabeças)" required value="<%=vacprenha1%>">
+                                    <input type="text" name="vacprenha2" id="vacprenha2" placeholder="Valor Unitário" required value="<%=vacprenha2%>">
                                     <span name="vacprenha3" id="vacprenha3" placeholder="Valor Total" class="uneditable-input"></span>
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Vacas com Cria:</label>
                 		<div class="controls">
-                		    <input type="text" name="vaccria1" id="vaccria1" placeholder="Quantidade(cabeças)" required>
-                                    <input type="text" name="vaccria2" id="vaccria2" placeholder="Valor Unitário" required onblur="calcularVaccria()">
+                		    <input type="text" name="vaccria1" id="vaccria1" placeholder="Quantidade(cabeças)" required value="<%=vaccria1%>">
+                                    <input type="text" name="vaccria2" id="vaccria2" placeholder="Valor Unitário" required value="<%=vaccria2%>">
                                     <span name="vaccria3" id="vaccria3" placeholder="Valor Total" class="uneditable-input"></span>
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Vacas Gordas:</label>
                 		<div class="controls">
-                		    <input type="text" name="vacgorda1" id="vacgorda1" placeholder="Quantidade(cabeças)" required>
-                                    <input type="text" name="vacgorda2" id="vacgorda2" placeholder="Valor Unitário" required onblur="calcularVacgorda()">
+                		    <input type="text" name="vacgorda1" id="vacgorda1" placeholder="Quantidade(cabeças)" required value="<%=vacgorda1%>">
+                                    <input type="text" name="vacgorda2" id="vacgorda2" placeholder="Valor Unitário" required value="<%=vacgorda2%>">
                                     <span name="vacgorda3" id="vacgorda3" placeholder="Valor Total" class="uneditable-input"></span>
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Novilhos para Recria:</label>
                 		<div class="controls">
-                		    <input type="text" name="novilhosrecria1" id="novilhosrecria1" placeholder="Quantidade(cabeças)" required>
-                                    <input type="text" name="novilhosrecria2" id="novilhosrecria2" placeholder="Valor Unitário" required onblur="calcularNovilhosrecria()">
+                		    <input type="text" name="novilhosrecria1" id="novilhosrecria1" placeholder="Quantidade(cabeças)" required value="<%=novilhosrecria1%>">
+                                    <input type="text" name="novilhosrecria2" id="novilhosrecria2" placeholder="Valor Unitário" required value="<%=novilhosrecria2%>">
                                     <span name="novilhosrecria3" id="novilhosrecria3" placeholder="Valor Total" class="uneditable-input"></span>
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Novilhos Gordos:</label>
                 		<div class="controls">
-                		    <input type="text" name="novilhosgordos1"  id="novilhosgordos1" placeholder="Quantidade(cabeças)" required>
-                                    <input type="text" name="novilhosgordos2" id="novilhosgordos2" placeholder="Valor Unitário" required onblur="calcularNovilhosgordos()">
+                		    <input type="text" name="novilhosgordos1"  id="novilhosgordos1" placeholder="Quantidade(cabeças)" required value="<%=novilhosgordos1%>">
+                                    <input type="text" name="novilhosgordos2" id="novilhosgordos2" placeholder="Valor Unitário" required value="<%=novilhosgordos2%>">
                                     <span name="novilhosgordos3" id="novilhosgordos3" placeholder="Valor Total" class="uneditable-input"></span>
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Torunos:</label>
                 		<div class="controls">
-                		    <input type="text" name="torunos1" id="torunos1" placeholder="Quantidade(cabeças)" required>
-                                    <input type="text" name="torunos2" id="torunos2" placeholder="Valor Unitário" required onblur="calcularTorunos()">
+                		    <input type="text" name="torunos1" id="torunos1" placeholder="Quantidade(cabeças)" required value="<%=torunos1%>">
+                                    <input type="text" name="torunos2" id="torunos2" placeholder="Valor Unitário" required value="<%=torunos2%>">
                                     <span name="torunos3"  id="torunos3" placeholder="Valor Total" class="uneditable-input"></span>
                 		</div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Touros:</label>
                 		<div class="controls">
-                		    <input type="text" name="touros1" id="touros1" placeholder="Quantidade(cabeças)" required>
-                                    <input type="text" name="touros2" id="touros2" placeholder="Valor Unitário" required onblur="calcularTouros()">
+                		    <input type="text" name="touros1" id="touros1" placeholder="Quantidade(cabeças)" required value="<%=touros1%>">
+                                    <input type="text" name="touros2" id="touros2" placeholder="Valor Unitário" required value="<%=touros2%>">
                                     <span name="touros3" id="touros3" placeholder="Valor Total" class="uneditable-input"></span>
                 		</div>
                         </div>
@@ -395,6 +469,11 @@ else
                                     <span name="total2" placeholder="Valor Unitário" id="total2" class="uneditable-input"></span>
                                     <span name="total3" placeholder="Valor Total" id="total3" class="uneditable-input"></span>
                 		</div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <input type="button" onclick="calcularTotal();" class="btn" value="Calcular" />
+                            </div>
                         </div>
                         <div class="control-group">
                             <div class="controls">

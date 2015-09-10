@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import modelo.Lv2p3;
+import modelo.Propriedade;
 
 public class Lv2p3DAO {
 
@@ -195,4 +196,69 @@ public class Lv2p3DAO {
         }
         return lista;
     }
+    
+    public Lv2p3 buscar(String ano, Propriedade pro)
+    {
+        
+        //crio a lista de jogadores
+        
+        Lv2p3 lv2p3 = null;
+        String sql = "SELECT * FROM lv2p3 WHERE ano = ? AND propriedade_id=?";
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        
+        try {
+            //Executo o aql e jogo em um resultSet
+           
+            pst.setString(1, ano);
+            pst.setInt(2, pro.getId());
+            ResultSet res = pst.executeQuery();
+            //com a minha classe Jogador e adicionar na lista 
+            if(res.next())
+            {
+                lv2p3 = new Lv2p3();
+                
+                lv2p3.setTerneiroquant(res.getInt("terneiros_quant"));
+                lv2p3.setTerneirovalor(res.getDouble("terneiros_valor"));
+
+                lv2p3.setTerneiraquant(res.getInt("terneiras_quant"));
+                lv2p3.setTerneiravalor(res.getDouble("terneiras_valor"));
+
+                lv2p3.setNovilhaquant(res.getInt("novilhas_quant"));
+                lv2p3.setNovilhavalor(res.getDouble("novilhas_valor"));
+
+                lv2p3.setVacadedescartequant(res.getInt("vacas_de_descarte_quant"));
+                lv2p3.setVacadedescartevalor(res.getDouble("vacas_de_descarte_valor"));
+
+                lv2p3.setVacaprenhasquant(res.getInt("vaca_prenha_quant"));
+                lv2p3.setVacacomcriavalor(res.getDouble("vaca_prenha_valor"));
+
+                lv2p3.setVacacomcriaquant(res.getInt("vaca_com_cria_quant"));
+                lv2p3.setVacacomcriavalor(res.getDouble("vaca_com_cria_valor"));
+
+                lv2p3.setVacagordaquant(res.getInt("vaca_gorda_quant"));
+                lv2p3.setVacagordavalor(res.getDouble("vaca_gorda_valor"));
+
+                lv2p3.setNovilhorecriaquant(res.getInt("novilho_pra_recria_quant"));
+                lv2p3.setNovilhorecriavalor(res.getDouble("novilho_pra_recria_valor"));
+
+                lv2p3.setNovilhogordoquant(res.getInt("novilho_gordo_quant"));
+                lv2p3.setNovilhogordovalor(res.getDouble("novilho_gordo_valor"));
+
+                lv2p3.setTorunosquant(res.getInt("torunos_quant"));
+                lv2p3.setTorunovalor(res.getDouble("torunos_valor"));
+
+                lv2p3.setTouroquant(res.getInt("touro_quant"));
+                lv2p3.setTourovalor(res.getDouble("touro_valor"));
+
+                lv2p3.setPropriedade_id(res.getInt("propriedade_id"));
+                lv2p3.setAno(res.getString("ano"));
+                
+                
+            }
+            } catch(SQLException ex){
+               
+               ex.printStackTrace();
+            }
+        return lv2p3;
+        }
 }

@@ -95,7 +95,6 @@
     else
     {
         p = new Passos();
-        p.setAno(request.getParameter("data"));
         session.setAttribute("Passos", p);
         
     }
@@ -111,42 +110,33 @@
 
 %>
 <%
-        Lv2p1 a = new Lv2p1();
-        a.setPastagemnativa(Double.parseDouble(request.getParameter("pn")));
-        a.setPastagemnativamelhorada(Double.parseDouble(request.getParameter("pnm")));
-        a.setPastagemcultivadaperene(Double.parseDouble(request.getParameter("pcp")));
-        a.setPastagemanuaisdeinverno(Double.parseDouble(request.getParameter("pai")));
-        a.setPastagemanuaisdeverao(Double.parseDouble(request.getParameter("pav")));
-        a.setAgriculturav(Double.parseDouble(request.getParameter("agriV")));
-        a.setAgriculturai(Double.parseDouble(request.getParameter("agriI")));
-        a.setFlorestaplantadas(Double.parseDouble(request.getParameter("florestas")));
-        a.setOutrasplantadas(Double.parseDouble(request.getParameter("outras")));
-        a.setMatasnativas(Double.parseDouble(request.getParameter("matasnativas")));
-        a.setSea(Double.parseDouble(request.getParameter("sea")));
-        a.setInaproveitavel(Double.parseDouble(request.getParameter("inaproveitavel")));
-        a.setPropriedade_id(pro.getId());
-        a.setAno(p.getAno());
+    Lv2p1 a = new Lv2p1();
+    a.setPastagemnativa(Double.parseDouble(request.getParameter("pn")));
+    a.setPastagemnativamelhorada(Double.parseDouble(request.getParameter("pnm")));
+    a.setPastagemcultivadaperene(Double.parseDouble(request.getParameter("pcp")));
+    a.setPastagemanuaisdeinverno(Double.parseDouble(request.getParameter("pai")));
+    a.setPastagemanuaisdeverao(Double.parseDouble(request.getParameter("pav")));
+    a.setAgriculturav(Double.parseDouble(request.getParameter("agriV")));
+    a.setAgriculturai(Double.parseDouble(request.getParameter("agriI")));
+    a.setFlorestaplantadas(Double.parseDouble(request.getParameter("florestas")));
+    a.setOutrasplantadas(Double.parseDouble(request.getParameter("outras")));
+    a.setMatasnativas(Double.parseDouble(request.getParameter("matasnativas")));
+    a.setSea(Double.parseDouble(request.getParameter("sea")));
+    a.setInaproveitavel(Double.parseDouble(request.getParameter("inaproveitavel")));
+    a.setPropriedade_id(pro.getId());
+    a.setAno(p.getAno());
 
-        Lv2p1DAO dao = new Lv2p1DAO();
-        dao.inserir(a);
-        p.setLv2p1(a);
-        
-        
-        
-        
-        GraficosDAO daog = new GraficosDAO ();
+    Lv2p1DAO dao = new Lv2p1DAO();
+    dao.inserir(a);
+    p.setLv2p1(a);
+           
+    GraficosDAO daog = new GraficosDAO ();
     Lv2p2 graf = daog.graficolv2p2(pro);
     
     Integer janmar = graf.getVacadecriajanmar() + graf.getVacadedescartejanmar() + graf.getTerneirasjanmar() + graf.getTerneirosjanmar() + graf.getNovilho1324janmar() + graf.getNovilha1324janmar() + graf.getNovilho2536janmar() + graf.getNovilha2536janmar() + graf.getNovilho36janmar() + graf.getTourojanmar();
     Integer abrjun = graf.getVacadecriaabrjun() + graf.getVacadedescarteabrjun() + graf.getTerneirasabrjun() + graf.getTerneirosabrjun() + graf.getNovilho1324abrjun() + graf.getNovilha1324abrjun() + graf.getNovilho2536abrjun() + graf.getNovilha2536abrjun() + graf.getNovilho36abrjun() + graf.getTouroabrjun();
     Integer julset = graf.getVacadecriajulset() + graf.getVacadedescartejulset() + graf.getTerneirasjulset() + graf.getTerneirosjulset() + graf.getNovilho1324julset() + graf.getNovilha1324julset() + graf.getNovilho2536julset() + graf.getNovilha2536julset() + graf.getNovilho36julset() + graf.getTourojulset();
-    Integer outdez = graf.getVacadecriaoutdez() + graf.getVacadedescarteoutdez() + graf.getTerneirasoutdez() + graf.getTerneirosoutdez() + graf.getNovilho1324outdez() + graf.getNovilha1324outdez() + graf.getNovilho2536outdez() + graf.getNovilha2536outdez() + graf.getNovilho36outdez() + graf.getTourooutdez();
-    
-        
-        
-      
-        
-        
+    Integer outdez = graf.getVacadecriaoutdez() + graf.getVacadedescarteoutdez() + graf.getTerneirasoutdez() + graf.getTerneirosoutdez() + graf.getNovilho1324outdez() + graf.getNovilha1324outdez() + graf.getNovilho2536outdez() + graf.getNovilha2536outdez() + graf.getNovilho36outdez() + graf.getTourooutdez();      
 %>
 
 <%@ include file="cabecalho.jsp" %>
@@ -203,45 +193,90 @@ $(function () {
     }
 %>
         <script>
-            function calcularJanMar()
+            function calcularTudo()
             {
-                if(vacasdecria1.value == "")
+                var vacasdecria1 =  document.getElementById('vacasdecria1');
+                var vacasdecria2 =  document.getElementById('vacasdecria2');
+                var vacasdecria3 =  document.getElementById('vacasdecria3');
+                var vacasdecria4 =  document.getElementById('vacasdecria4');
+                var vacasdedescarte1 =  document.getElementById('vacasdedescarte1');
+                var vacasdedescarte2 =  document.getElementById('vacasdedescarte2');
+                var vacasdedescarte3 =  document.getElementById('vacasdedescarte3');
+                var vacasdedescarte4 =  document.getElementById('vacasdedescarte4');
+                var terneiros1 =  document.getElementById('terneiros1');
+                var terneiros2 =  document.getElementById('terneiros2');
+                var terneiros3 =  document.getElementById('terneiros3');
+                var terneiros4 =  document.getElementById('terneiros4');
+                var terneiras1 =  document.getElementById('terneiras1');
+                var terneiras2 =  document.getElementById('terneiras2');
+                var terneiras3 =  document.getElementById('terneiras3');
+                var terneiras4 =  document.getElementById('terneiras4');
+                var novilhos1 =  document.getElementById('novilhos1');
+                var novilhos2 =  document.getElementById('novilhos2');
+                var novilhos3 =  document.getElementById('novilhos3');
+                var novilhos4 =  document.getElementById('novilhos4');
+                var novilhas1 =  document.getElementById('novilhas1');
+                var novilhas2 =  document.getElementById('novilhas2');
+                var novilhas3 =  document.getElementById('novilhas3');
+                var novilhas4 =  document.getElementById('novilhas4');
+                var novilhos11 =  document.getElementById('novilhos11');
+                var novilhos22 =  document.getElementById('novilhos22');
+                var novilhos33 =  document.getElementById('novilhos33');
+                var novilhos44 =  document.getElementById('novilhos44');
+                var novilhas11 =  document.getElementById('novilhas11');
+                var novilhas22 =  document.getElementById('novilhas22');
+                var novilhas33 =  document.getElementById('novilhas33');
+                var novilhas44 =  document.getElementById('novilhas44');
+                var novilhos111 =  document.getElementById('novilhos111');
+                var novilhos222 =  document.getElementById('novilhos222');
+                var novilhos333 =  document.getElementById('novilhos333');
+                var novilhos444 =  document.getElementById('novilhos444');
+                var touros1 =  document.getElementById('touros1');
+                var touros2 =  document.getElementById('touros2');
+                var touros3 =  document.getElementById('touros3');
+                var touros4 =  document.getElementById('touros4');
+                var total1 =  document.getElementById('total1');
+                var total2 =  document.getElementById('total2');
+                var total3 =  document.getElementById('total3');
+                var total4 =  document.getElementById('total4');
+                
+                if(vacasdecria1.value === "")
                 {
                     vacasdecria1.focus();
                 }
-                else if(vacasdedescarte1.value == "")
+                else if(vacasdedescarte1.value === "")
                 {
                     vacasdedescarte1.focus();
                 }
-                else if(terneiros1.value == "")
+                else if(terneiros1.value === "")
                 {
                     terneiros1.focus();
                 }
-                else if(terneiras1.value == "")
+                else if(terneiras1.value === "")
                 {
                     terneiras1.focus();
                 }
-                else if(novilhos1.value == "")
+                else if(novilhos1.value === "")
                 {
                     novilhos1.focus();
                 }
-                else if(novilhas1.value == "")
+                else if(novilhas1.value === "")
                 {
                     novilhas1.focus();
                 }
-                else if(novilhos11.value == "")
+                else if(novilhos11.value === "")
                 {
                     novilhos11.focus();
                 }
-                else if(novilhas11.value == "")
+                else if(novilhas11.value === "")
                 {
                     novilhas11.focus();
                 }
-                else if(novilhos111.value == "")
+                else if(novilhos111.value === "")
                 {
                     novilhos111.focus();
                 }
-                else if (touros1.value == "")
+                else if (touros1.value === "")
                 {
                     touros1.focus();
                 }
@@ -255,46 +290,44 @@ $(function () {
                                    parseInt(novilhas11.value) + 
                                    parseInt(novilhos111.value) +
                                    parseInt(touros1.value);
-            }
-            function calcularAbrJun()
-            {
-                if(vacasdecria2.value == "")
+            
+                if(vacasdecria2.value === "")
                 {
                     vacasdecria2.focus();
                 }
-                else if(vacasdedescarte2.value == "")
+                else if(vacasdedescarte2.value === "")
                 {
                     vacasdedescarte2.focus();
                 }
-                else if(terneiros2.value == "")
+                else if(terneiros2.value === "")
                 {
                     terneiros2.focus();
                 }
-                else if(terneiras2.value == "")
+                else if(terneiras2.value === "")
                 {
                     terneiras2.focus();
                 }
-                else if(novilhos2.value == "")
+                else if(novilhos2.value === "")
                 {
                     novilhos2.focus();
                 }
-                else if(novilhas2.value == "")
+                else if(novilhas2.value === "")
                 {
                     novilhas2.focus();
                 }
-                else if(novilhos22.value == "")
+                else if(novilhos22.value === "")
                 {
                     novilhos22.focus();
                 }
-                else if(novilhas22.value == "")
+                else if(novilhas22.value === "")
                 {
                     novilhas22.focus();
                 }
-                else if(novilhos222.value == "")
+                else if(novilhos222.value === "")
                 {
                     novilhos222.focus();
                 }
-                else if (touros2.value == "")
+                else if (touros2.value === "")
                 {
                     touros2.focus();
                 }
@@ -308,46 +341,44 @@ $(function () {
                                    parseInt(novilhas22.value) + 
                                    parseInt(novilhos222.value) +
                                    parseInt(touros2.value);
-            }
-            function calcularJulSet()
-            {
-                if(vacasdecria3.value == "")
+            
+                if(vacasdecria3.value === "")
                 {
                     vacasdecria3.focus();
                 }
-                else if(vacasdedescarte3.value == "")
+                else if(vacasdedescarte3.value === "")
                 {
                     vacasdedescarte3.focus();
                 }
-                else if(terneiros3.value == "")
+                else if(terneiros3.value === "")
                 {
                     terneiros3.focus();
                 }
-                else if(terneiras3.value == "")
+                else if(terneiras3.value === "")
                 {
                     terneiras3.focus();
                 }
-                else if(novilhos3.value == "")
+                else if(novilhos3.value === "")
                 {
                     novilhos3.focus();
                 }
-                else if(novilhas3.value == "")
+                else if(novilhas3.value === "")
                 {
                     novilhas3.focus();
                 }
-                else if(novilhos33.value == "")
+                else if(novilhos33.value === "")
                 {
                     novilhos33.focus();
                 }
-                else if(novilhas33.value == "")
+                else if(novilhas33.value === "")
                 {
                     novilhas33.focus();
                 }
-                else if(novilhos333.value == "")
+                else if(novilhos333.value === "")
                 {
                     novilhos333.focus();
                 }
-                else if (touros3.value == "")
+                else if (touros3.value === "")
                 {
                     touros3.focus();
                 }
@@ -361,46 +392,44 @@ $(function () {
                                    parseInt(novilhas33.value) + 
                                    parseInt(novilhos333.value) +
                                    parseInt(touros3.value);
-            }
-            function calcularOutDez()
-            {
-               if(vacasdecria4.value == "")
+            
+               if(vacasdecria4.value === "")
                 {
                     vacasdecria4.focus();
                 }
-                else if(vacasdedescarte4.value == "")
+                else if(vacasdedescarte4.value === "")
                 {
                     vacasdedescarte4.focus();
                 }
-                else if(terneiros4.value == "")
+                else if(terneiros4.value === "")
                 {
                     terneiros4.focus();
                 }
-                else if(terneiras4.value == "")
+                else if(terneiras4.value === "")
                 {
                     terneiras4.focus();
                 }
-                else if(novilhos4.value == "")
+                else if(novilhos4.value === "")
                 {
                     novilhos4.focus();
                 }
-                else if(novilhas4.value == "")
+                else if(novilhas4.value === "")
                 {
                     novilhas4.focus();
                 }
-                else if(novilhos44.value == "")
+                else if(novilhos44.value === "")
                 {
                     novilhos44.focus();
                 }
-                else if(novilhas44.value == "")
+                else if(novilhas44.value === "")
                 {
                     novilhas44.focus();
                 }
-                else if(novilhos444.value == "")
+                else if(novilhos444.value === "")
                 {
                     novilhos444.focus();
                 }
-                else if (touros4.value == "")
+                else if (touros4.value === "")
                 {
                     touros4.focus();
                 }
@@ -546,10 +575,10 @@ $(function () {
                         <div class="control-group">
                             <label class="control-label">Touros:</label>
                 		<div class="controls">
-                                    <input type="text" name="touros1" id="touros1" placeholder="Jan-Mar" value="<%=touros1%>" onblur="calcularJanMar()">
-                                    <input type="text" name="touros2" id="touros2" placeholder="Abr-Jun" value="<%=touros2%>" onblur="calcularAbrJun()">
-                                    <input type="text" name="touros3" id="touros3" placeholder="Jul-Set" value="<%=touros3%>" onblur="calcularJulSet()">
-                                    <input type="text" name="touros4" id="touros4" placeholder="Out-Dez" value="<%=touros4%>" onblur="calcularOutDez()">
+                                    <input type="text" name="touros1" id="touros1" placeholder="Jan-Mar" value="<%=touros1%>">
+                                    <input type="text" name="touros2" id="touros2" placeholder="Abr-Jun" value="<%=touros2%>">
+                                    <input type="text" name="touros3" id="touros3" placeholder="Jul-Set" value="<%=touros3%>">
+                                    <input type="text" name="touros4" id="touros4" placeholder="Out-Dez" value="<%=touros4%>">
                 		</div>
                         </div>
                          <div class="control-group">
@@ -560,6 +589,11 @@ $(function () {
                                     <span name="total3" id="total3" placeholder="Jul-Set" class="uneditable-input"></span>
                                     <span name="total4" id="total4" placeholder="Out-Dez" class="uneditable-input"></span>
                 		</div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <input type="button" onclick="calcularTudo();" class="btn" value="Calcular" />
+                            </div>
                         </div>
                         <div class="control-group">
                             <div class="controls">

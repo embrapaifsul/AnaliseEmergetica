@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Lv2p2;
+import modelo.Propriedade;
 
 public class Lv2p2DAO {
 
@@ -266,4 +267,83 @@ public class Lv2p2DAO {
         }
         return lista;
     }
+    
+    public Lv2p2 buscar(String ano, Propriedade pro)
+    {
+        
+        //crio a lista de jogadores
+        
+        Lv2p2 lv2p2 = null;
+        String sql = "SELECT * FROM lv2p2 WHERE ano = ? AND propriedade_id=?";
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        
+        try {
+            //Executo o aql e jogo em um resultSet
+            
+            pst.setString(1, ano);
+            pst.setInt(2, pro.getId());
+            ResultSet res = pst.executeQuery();
+            if(res.next())
+            {
+                lv2p2 = new Lv2p2();
+                lv2p2.setVacadecriajanmar(res.getInt("vaca_de_cria_janmar"));
+                lv2p2.setVacadecriaabrjun(res.getInt("vaca_de_cria_abrjun"));
+                lv2p2.setVacadecriajulset(res.getInt("vaca_de_cria_julset"));
+                lv2p2.setVacadecriaoutdez(res.getInt("vaca_de_cria_outdez"));
+
+                lv2p2.setVacadedescartejanmar(res.getInt("vaca_de_descarte_janmar"));
+                lv2p2.setVacadedescarteabrjun(res.getInt("vaca_de_descarte_abrjun"));
+                lv2p2.setVacadedescartejulset(res.getInt("vaca_de_descarte_julset"));
+                lv2p2.setVacadedescarteoutdez(res.getInt("vaca_de_descarte_outdez"));
+
+                lv2p2.setTerneirosjanmar(res.getInt("terneiros_janmar"));
+                lv2p2.setTerneirosabrjun(res.getInt("terneiros_abrjun"));
+                lv2p2.setTerneirosjulset(res.getInt("terneiros_julset"));
+                lv2p2.setTerneirosoutdez(res.getInt("terneiros_outdez"));
+
+                lv2p2.setTerneirasjanmar(res.getInt("terneiras_janamr"));
+                lv2p2.setTerneirasabrjun(res.getInt("terneiras_abrjun"));
+                lv2p2.setTerneirasjulset(res.getInt("terneiras_julset"));
+                lv2p2.setTerneirasoutdez(res.getInt("terneiras_outdez"));
+
+                lv2p2.setNovilho1324janmar(res.getInt("novilhos_13a24_janmar"));
+                lv2p2.setNovilho1324abrjun(res.getInt("novilhos_13a24_abrjun"));
+                lv2p2.setNovilho1324julset(res.getInt("novilhos_13a24_julset"));
+                lv2p2.setNovilho1324janmar(res.getInt("novilhos_13a24_outdez"));
+
+                lv2p2.setNovilha1324janmar(res.getInt("novilhas_13a24_janmar"));
+                lv2p2.setNovilha1324abrjun(res.getInt("novilhas_13a24_abrjun"));
+                lv2p2.setNovilha1324julset(res.getInt("novilhas_13a24_julset"));
+                lv2p2.setNovilha1324outdez(res.getInt("novilhas_13a24_outdez"));
+
+                lv2p2.setNovilho2536janmar(res.getInt("novilhos_25a36_janmar"));
+                lv2p2.setNovilho2536abrjun(res.getInt("novilhos_25a36_abrjun"));
+                lv2p2.setNovilho2536julset(res.getInt("novilhos_25a36_julset"));
+                lv2p2.setNovilho2536outdez(res.getInt("novilhos_25a36_outdez"));
+
+                lv2p2.setNovilha2536janmar(res.getInt("novilhas_25a36_janmar"));
+                lv2p2.setNovilha2536abrjun(res.getInt("novilhas_25a36_abrjun"));
+                lv2p2.setNovilha2536julset(res.getInt("novilhas_25a36_julset"));
+                lv2p2.setNovilha2536outdez(res.getInt("novilhas_25a36_outdez"));
+
+                lv2p2.setNovilho36janmar(res.getInt("novilho_36_janmar"));
+                lv2p2.setNovilho36abrjun(res.getInt("novilho_36_abrjun"));
+                lv2p2.setNovilho36julset(res.getInt("novilho_36_julset"));
+                lv2p2.setNovilho36outdez(res.getInt("novilho_36_outdez"));
+
+                lv2p2.setTourojanmar(res.getInt("touro_janmar"));
+                lv2p2.setTouroabrjun(res.getInt("touro_abrjun"));
+                lv2p2.setTourojulset(res.getInt("touro_julset"));
+                lv2p2.setTourooutdez(res.getInt("touro_outdez"));
+
+                lv2p2.setPropriedade_id(res.getInt("propriedade_id"));
+                lv2p2.setAno(res.getString("ano"));  
+                
+            }
+            } catch(SQLException ex){
+               
+               ex.printStackTrace();
+            }
+        return lv2p2;
+        }
 }

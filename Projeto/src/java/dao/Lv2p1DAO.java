@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Lv2p1;
+import modelo.Propriedade;
 
 /**
  *
@@ -157,5 +158,45 @@ public class Lv2p1DAO {
         
     }
        
-       
+    public Lv2p1 buscar(String ano, Propriedade pro)
+    {
+        
+        //crio a lista de jogadores
+        
+        Lv2p1 lv2p1 = null;
+        String sql = "SELECT * FROM lv2p1 WHERE ano = ? AND propriedade_id=?";
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        
+        try {
+            //Executo o aql e jogo em um resultSet
+             pst.setString(1, ano);
+            pst.setInt(2, pro.getId());
+            ResultSet res = pst.executeQuery();
+           
+         
+            if(res.next())
+            {
+                lv2p1 = new Lv2p1();
+                lv2p1.setPastagemnativa(res.getDouble("pastagem_nativa"));
+                lv2p1.setPastagemnativamelhorada(res.getDouble("pastagem_nativa_melhorada"));
+                lv2p1.setPastagemcultivadaperene(res.getDouble("pastagem_cultivada_perene"));
+                lv2p1.setPastagemanuaisdeinverno(res.getDouble("pastagem_anuais_de_inverno"));
+                lv2p1.setPastagemanuaisdeverao(res.getDouble("pastagem_anuais_de_verao"));
+                lv2p1.setAgriculturai(res.getDouble("agricultura_i"));
+                lv2p1.setAgriculturav(res.getDouble("agricultura_v"));
+                lv2p1.setFlorestaplantadas(res.getDouble("florestas_plantadas"));
+                lv2p1.setOutrasplantadas(res.getDouble("outras_culturas"));
+                lv2p1.setMatasnativas(res.getDouble("matas_nativas"));
+                lv2p1.setSea(res.getDouble("sea"));
+                lv2p1.setInaproveitavel(res.getDouble("inaproveitavel"));
+                lv2p1.setPropriedade_id(res.getInt("propriedade_id"));
+                lv2p1.setAno(res.getString("ano"));                
+                
+            }
+            } catch(SQLException ex){
+               
+               ex.printStackTrace();
+            }
+        return lv2p1;
+        }   
 }

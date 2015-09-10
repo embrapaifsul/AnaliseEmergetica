@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Lv2p4;
+import modelo.Propriedade;
 
 
 public class Lv2p4DAO {
@@ -195,5 +196,56 @@ public class Lv2p4DAO {
                ex.printStackTrace();
             }
         return lista;
+        }
+      
+      public Lv2p4 buscar(String ano, Propriedade pro)
+    {
+        
+        //crio a lista de jogadores
+        
+        Lv2p4 lv2p4 = null;
+        String sql = "SELECT * FROM lv2p4 WHERE ano = ? AND propriedade_id=?";
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        
+        try {
+            //Executo o aql e jogo em um resultSet
+       
+            pst.setString(1, ano);
+            pst.setInt(2, pro.getId());
+                ResultSet res = pst.executeQuery();
+            if(res.next())
+            {
+                lv2p4 = new Lv2p4();
+                lv2p4.setMedicamento(res.getDouble("medicamento"));
+                lv2p4.setCarrapaticida(res.getDouble("carrapaticidas"));
+                lv2p4.setSal(res.getDouble("sal"));
+                lv2p4.setRacao(res.getDouble("racao"));
+                lv2p4.setCompradebovinos(res.getDouble("compra_de_bovinos"));
+                lv2p4.setUntesilosdeusogeral(res.getDouble("untensilios_de_uso_geral"));
+                lv2p4.setSemem(res.getDouble("semem"));
+                lv2p4.setMaodeobrafixa(res.getDouble("mao_de_obra_fixa"));
+                lv2p4.setMaodeobravariavel(res.getDouble("mao_de_obra_variavel"));
+                lv2p4.setSemente(res.getDouble("semente"));
+                lv2p4.setDefensivoagriparapastagem(res.getDouble("defensivos_agri_para_pastagem"));
+                lv2p4.setAdubosparapastagem(res.getDouble("adubos_para_pastagem"));
+                lv2p4.setCombustivel(res.getDouble("combustivel"));
+                lv2p4.setReparosmaquina(res.getDouble("reparos_de_maquina"));
+                lv2p4.setReparobanfeitoria(res.getDouble("reparo_de_benfeitorias"));
+                lv2p4.setFrete(res.getDouble("frete"));
+                lv2p4.setArrendamentocamponativo(res.getDouble("arrendamentos_de_campo_nativo"));
+                lv2p4.setArrendamentopastagemcultivada(res.getDouble("arrendamentos_de_pastagem_cultivada"));
+                lv2p4.setImposto(res.getDouble("impostos"));
+                lv2p4.setOutradespesas(res.getDouble("outras_despesas"));
+                lv2p4.setPropriedade_id(res.getInt("propriedade_id"));
+                lv2p4.setAno(res.getString("ano"));
+                
+                
+                
+            }
+            } catch(SQLException ex){
+               
+               ex.printStackTrace();
+            }
+        return lv2p4;
         }
 }

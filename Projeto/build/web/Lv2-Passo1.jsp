@@ -34,12 +34,14 @@
             
             agriV = p.getLv2p1().getAgriculturav().toString();
             agriI = p.getLv2p1().getAgriculturai().toString();
-            floresta = p.getLv2p1().getFlorestaplantadas().toString();
-            outras = p.getLv2p1().getOutrasplantadas().toString();
+     
             
-            matasnativas = p.getLv2p1().getMatasnativas().toString();
             sea = p.getLv2p1().getSea().toString();
             inaproveitavel = p.getLv2p1().getInaproveitavel().toString();
+            
+            outras = p.getLv2p1().getOutrasplantadas().toString();
+            floresta = p.getLv2p1().getFlorestaplantadas().toString();
+            matasnativas = p.getLv2p1().getMatasnativas().toString();
         }
 
         if (p.getLv2p2() == null) {
@@ -65,7 +67,6 @@
     else
     {
         p = new Passos();
-        p.setAno(request.getParameter("data"));
         session.setAttribute("Passos", p);
         
     }
@@ -79,10 +80,9 @@
         response.sendRedirect("index.jsp");
     }
     
-    p.setAno(request.getParameter("data"));
     
-       GraficosDAO daog = new GraficosDAO ();
-     Lv2p1 graf = daog.graficolv2p1(pro);
+    GraficosDAO daog = new GraficosDAO ();
+    Lv2p1 graf = daog.graficolv2p1(pro);
      
   
 %>
@@ -245,103 +245,6 @@ $(function () {
     }
 %>
         <script>
-            function calcularPastagem()
-            {
-                var pn =  document.getElementById('pn');
-                var pnm =  document.getElementById('pnm');
-                var pcp =  document.getElementById('pcp');
-                var pai =  document.getElementById('pai');
-                var pav =  document.getElementById('pav');
-                var TAREA =  document.getElementById('TAREA');
-                
-                if(pn.value === "")
-                {
-                    pn = 0.0;
-                }
-                else if(pnm.value === "")
-                {
-                    pnm = 0.0;
-                }
-                else if(pcp.value === "")
-                {
-                    pcp = 0.0;
-                }
-                else if(pai.value === "")
-                {
-                    pai = 0.0;
-                }
-                else if(pav.value === "")
-                {
-                    pav = 0.0;
-                }
-                
-                TAREA.innerHTML = parseInt(pn.value) + 
-                                  parseInt(pnm.value) + 
-                                  parseInt(pcp.value) + 
-                                  parseInt(pai.value) + 
-                                  parseInt(pav.value);   
-            }
-            
-            function calcularAreaAproveitavel()
-            {
-                var pn =  document.getElementById('pn');
-                var pnm =  document.getElementById('pnm');
-                var pcp =  document.getElementById('pcp');
-                var pai =  document.getElementById('pai');
-                var pav =  document.getElementById('pav');
-                var agriV =  document.getElementById('agriV');
-                var agriI =  document.getElementById('agriI');
-                var florestas =  document.getElementById('florestas');
-                var outras =  document.getElementById('outras');
-                var taprov =  document.getElementById('taprov');
-               
-                if(pn.value === "")
-                {
-                    pn = 0.0;
-                }
-                else if(pnm.value === "")
-                {
-                    pnm = 0.0;
-                }
-                else if(pcp.value === "")
-                {
-                    pcp = 0.0;
-                }
-                else if(pai.value === "")
-                {
-                    pai = 0.0;
-                }
-                else if(pav.value === "")
-                {
-                    pav = 0.0;
-                }
-                if(agriV.value === "")
-                {
-                   agriV = 0.0;
-                }
-                else if(agriI.value === "")
-                {
-                   agriI = 0.0;
-                }
-                else if(florestas.value === "")
-                {
-                   florestas = 0.0;
-                }
-                else if(outras.value === "")
-                {
-                   outras = 0.0;
-                }
-                
-                taprov.innerHTML = parseInt(pn.value) + 
-                              parseInt(pnm.value) + 
-                              parseInt(pcp.value) + 
-                              parseInt(pai.value) + 
-                              parseInt(pav.value) +
-                              parseInt(agriV.value) +
-                              parseInt(agriI.value) +
-                              parseInt(florestas.value) +
-                              parseInt(outras.value);
-            }
             function calcularTodaArea()
             {
                 
@@ -357,6 +260,8 @@ $(function () {
                 var matasnativas =  document.getElementById('matasnativas');
                 var sea =  document.getElementById('sea');
                 var inaproveitavel =  document.getElementById('inaproveitavel');
+                var TAREA =  document.getElementById('TAREA');
+                var taprov =  document.getElementById('taprov');
                 var areat =  document.getElementById('areat');
                
                 if(pn.value === "")
@@ -407,6 +312,22 @@ $(function () {
                 {
                     inaproveitavel.focus();
                 }
+                
+                TAREA.innerHTML = parseInt(pn.value) + 
+                                  parseInt(pnm.value) + 
+                                  parseInt(pcp.value) + 
+                                  parseInt(pai.value) + 
+                                  parseInt(pav.value); 
+                
+                taprov.innerHTML = parseInt(pn.value) + 
+                              parseInt(pnm.value) + 
+                              parseInt(pcp.value) + 
+                              parseInt(pai.value) + 
+                              parseInt(pav.value) +
+                              parseInt(agriV.value) +
+                              parseInt(agriI.value) +
+                              parseInt(florestas.value) +
+                              parseInt(outras.value);
                 
                 areat.innerHTML = parseInt(pn.value) + 
                               parseInt(pnm.value) + 
@@ -498,7 +419,7 @@ $(function () {
                             <label class="control-label">Pastagem Anuais de Verão:</label>
                             <div class="controls">
                                 <br/>
-                                <input type="text" name="pav" id="pav" value="<%=pav%>" onblur="calcularPastagem();">
+                                <input type="text" name="pav" id="pav" value="<%=pav%>">
                             </div>
                         </div>
                         <div class="control-group">
@@ -524,7 +445,7 @@ $(function () {
                         <div class="control-group">
                             <label class="control-label">Outras Culturas:</label>
                             <div class="controls">
-                                <input type="text" name="outras" id="outras" value="<%=outras%>" onblur="calcularAreaAproveitavel()">
+                                <input type="text" name="outras" id="outras" value="<%=outras%>">
                             </div>
                         </div>
                         <div class="control-group">
@@ -550,13 +471,18 @@ $(function () {
                             <label class="control-label">Inaproveitável (banhados, pedras, etc):</label>
                             <div class="controls">
                                 <br/>
-                                <input type="text" name="inaproveitavel" value="<%=inaproveitavel%>" id="inaproveitavel" onblur="calcularTodaArea()">
+                                <input type="text" name="inaproveitavel" value="<%=inaproveitavel%>" id="inaproveitavel">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label"><b>ÁREA TOTAL:</b></label>
                             <div class="controls">
                                 <span name="AREAT" class="uneditable-input" id="areat"></span>   
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <input type="button" onclick="calcularTodaArea();" class="btn" value="Calcular" />
                             </div>
                         </div>
                         <div class="control-group">
