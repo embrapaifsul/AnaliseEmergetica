@@ -309,7 +309,7 @@ public class Lv2p2DAO {
                 lv2p2.setNovilho1324janmar(res.getInt("novilhos_13a24_janmar"));
                 lv2p2.setNovilho1324abrjun(res.getInt("novilhos_13a24_abrjun"));
                 lv2p2.setNovilho1324julset(res.getInt("novilhos_13a24_julset"));
-                lv2p2.setNovilho1324janmar(res.getInt("novilhos_13a24_outdez"));
+                lv2p2.setNovilho1324outdez(res.getInt("novilhos_13a24_outdez"));
 
                 lv2p2.setNovilha1324janmar(res.getInt("novilhas_13a24_janmar"));
                 lv2p2.setNovilha1324abrjun(res.getInt("novilhas_13a24_abrjun"));

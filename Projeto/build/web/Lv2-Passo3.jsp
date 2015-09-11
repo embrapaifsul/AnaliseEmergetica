@@ -89,6 +89,17 @@ else
     
 %>
 <%
+    if(request.getParameter("vacasdecria1") != null || request.getParameter("vacasdecria2") != null || request.getParameter("vacasdecria3") != null || request.getParameter("vacasdecria4") != null ||
+       request.getParameter("vacasdedescarte1") != null || request.getParameter("vacasdedescarte2") != null || request.getParameter("vacasdedescarte3") != null || request.getParameter("vacasdedescarte4") != null ||
+       request.getParameter("terneiros1") != null || request.getParameter("terneiros2") != null || request.getParameter("terneiros3") != null || request.getParameter("terneiros4") != null || 
+       request.getParameter("terneiras1") != null || request.getParameter("terneiras2") != null || request.getParameter("terneiras3") != null || request.getParameter("terneiras4") != null ||
+       request.getParameter("novilhos1") != null || request.getParameter("novilhos2") != null || request.getParameter("novilhos3") != null || request.getParameter("novilhos4") != null ||
+       request.getParameter("novilhas1") != null || request.getParameter("novilhas2") != null || request.getParameter("novilhas3") != null || request.getParameter("novilhas4") != null ||
+       request.getParameter("novilhos11") != null || request.getParameter("novilhos22") != null || request.getParameter("novilhos33") != null || request.getParameter("novilhos44") != null ||
+       request.getParameter("novilhas11") != null || request.getParameter("novilhas22") != null || request.getParameter("novilhas33") != null || request.getParameter("novilhas44") != null ||
+       request.getParameter("novilhos111") != null || request.getParameter("novilhos222") != null || request.getParameter("novilhos333") != null || request.getParameter("novilhos444") != null ||
+       request.getParameter("touros1") != null || request.getParameter("touros2") != null || request.getParameter("touros3") != null || request.getParameter("touros4") != null)
+    {
         Lv2p2 b = new Lv2p2();
         b.setVacadecriajanmar(Integer.parseInt(request.getParameter("vacasdecria1")));
         b.setVacadecriaabrjun(Integer.parseInt(request.getParameter("vacasdecria2")));
@@ -145,7 +156,8 @@ else
         
         Lv2p2DAO dao = new Lv2p2DAO();
         dao.inserir(b);
-        p.setLv2p2(b);
+        p.setLv2p2(b);  
+    }
 %>
 
 <%@ include file="cabecalho.jsp" %>

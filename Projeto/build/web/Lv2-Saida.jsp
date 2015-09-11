@@ -23,8 +23,30 @@
     }
 
 %>
-<%    Lv2p4 d = new Lv2p4();
-
+<%  
+   
+if(request.getParameter("medicamentos") != null || 
+   request.getParameter("carrapaticidas") != null ||  
+   request.getParameter("sal") != null || 
+   request.getParameter("racoes") != null ||
+   request.getParameter("comprabovinos") != null || 
+   request.getParameter("utensilios") != null ||
+   request.getParameter("semen") != null || 
+   request.getParameter("maodeobrafixa") != null ||
+   request.getParameter("maodeobravariavel") != null || 
+   request.getParameter("sementes") != null ||
+   request.getParameter("defensivospastagens") != null || 
+   request.getParameter("adubos") != null ||
+   request.getParameter("combustiveis") != null || 
+   request.getParameter("reparomaquinas") != null ||
+   request.getParameter("reparosbemfeitorias") != null || 
+   request.getParameter("fretes") != null ||
+   request.getParameter("arrendamentosnativo") != null || 
+   request.getParameter("arrendamentoscultivadas") != null ||
+   request.getParameter("impostos") != null || 
+   request.getParameter("outras") != null)
+{
+    Lv2p4 d = new Lv2p4();
     d.setMedicamento(Double.parseDouble(request.getParameter("medicamentos")));
     d.setCarrapaticida(Double.parseDouble(request.getParameter("carrapaticidas")));
     d.setSal(Double.parseDouble(request.getParameter("sal")));
@@ -51,6 +73,7 @@
     Lv2p4DAO dao = new Lv2p4DAO();
     dao.inserir(d);
     p.setLv2p4(d);
+}
 %>
 
     <%@ include file="cabecalho.jsp" %>

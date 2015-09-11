@@ -204,7 +204,7 @@ public class Lv2p4DAO {
         //crio a lista de jogadores
         
         Lv2p4 lv2p4 = null;
-        String sql = "SELECT * FROM lv2p4 WHERE ano = ? AND propriedade_id=?";
+        String sql = "SELECT * FROM lv2p4 WHERE ano=? AND propriedade_id=?";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         
         try {

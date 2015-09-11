@@ -183,12 +183,12 @@
         <div class="container-fluid">
             <div class="row-fluid">
 
-                <aside class="span10">
+                <aside class="span11">
                     <section id="breadcrumbs">
                         <header class="page-header">
                             <h3> Progresso </h3>
                             <ul class="breadcrumb">
-                                <li class="active"> Data <span class="divider"> / </span></li>
+                                <li class="alert-info"> Data </li><span class="divider"> / </span>
                                 <li><a href="Lv2-Passo1.jsp" <%=link1%>> Passo 1 </a><span class="divider"> / </span></li>
                                 <li><a href="Lv2-Passo2.jsp" <%=link2%>> Passo 2 </a><span class="divider"> / </span></li>
                                 <li><a href="Lv2-Passo3.jsp" <%=link3%>> Passo 3 </a><span class="divider"> / </span></li>
@@ -203,7 +203,7 @@
                         </header>
                     </section><br/><br/>
                 </aside>
-                <aside class="span2"><p></aside>
+                <aside class="span1"><p></aside>
             </div>
         </div>
 

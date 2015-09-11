@@ -110,6 +110,20 @@
 
 %>
 <%
+    
+if(request.getParameter("pn") != null || 
+   request.getParameter("pnm") != null ||  
+   request.getParameter("pcp") != null || 
+   request.getParameter("pai") != null ||
+   request.getParameter("pav") != null || 
+   request.getParameter("agriV") != null ||
+   request.getParameter("agriI") != null || 
+   request.getParameter("florestas") != null ||
+   request.getParameter("outras") != null || 
+   request.getParameter("matasnativas") != null ||
+   request.getParameter("sea") != null || 
+   request.getParameter("inaproveitavel") != null)
+{
     Lv2p1 a = new Lv2p1();
     a.setPastagemnativa(Double.parseDouble(request.getParameter("pn")));
     a.setPastagemnativamelhorada(Double.parseDouble(request.getParameter("pnm")));
@@ -129,7 +143,9 @@
     Lv2p1DAO dao = new Lv2p1DAO();
     dao.inserir(a);
     p.setLv2p1(a);
-           
+     
+}
+    
     GraficosDAO daog = new GraficosDAO ();
     Lv2p2 graf = daog.graficolv2p2(pro);
     

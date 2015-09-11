@@ -230,7 +230,7 @@ public class Lv2p3DAO {
                 lv2p3.setVacadedescartevalor(res.getDouble("vacas_de_descarte_valor"));
 
                 lv2p3.setVacaprenhasquant(res.getInt("vaca_prenha_quant"));
-                lv2p3.setVacacomcriavalor(res.getDouble("vaca_prenha_valor"));
+                lv2p3.setVacaprenhavalor(res.getDouble("vaca_prenha_valor"));
 
                 lv2p3.setVacacomcriaquant(res.getInt("vaca_com_cria_quant"));
                 lv2p3.setVacacomcriavalor(res.getDouble("vaca_com_cria_valor"));

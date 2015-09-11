@@ -75,7 +75,21 @@
     }
 
 %>
-<%    Lv2p3 c = new Lv2p3();
+<%  
+    
+if(request.getParameter("terneiros1") != null || request.getParameter("terneiros2") != null ||  
+   request.getParameter("terneiras1") != null || request.getParameter("terneiras2") != null ||
+   request.getParameter("novilhas1") != null || request.getParameter("novilhas2") != null ||
+   request.getParameter("vacdescarte1") != null || request.getParameter("vacdescarte2") != null ||
+   request.getParameter("vacprenha1") != null || request.getParameter("vacprenha2") != null ||
+   request.getParameter("vaccria1") != null || request.getParameter("vaccria2") != null ||
+   request.getParameter("vacgorda1") != null || request.getParameter("vacgorda2") != null ||
+   request.getParameter("novilhosrecria1") != null || request.getParameter("novilhosrecria2") != null ||
+   request.getParameter("novilhosgordos1") != null || request.getParameter("novilhosgordos2") != null ||
+   request.getParameter("torunos1") != null || request.getParameter("torunos2") != null ||
+   request.getParameter("touros1") != null || request.getParameter("touros2") != null)
+{ 
+    Lv2p3 c = new Lv2p3();
     c.setTerneiroquant(Integer.parseInt(request.getParameter("terneiros1")));
     c.setTerneirovalor(Double.parseDouble(request.getParameter("terneiros2")));
 
@@ -115,6 +129,7 @@
     Lv2p3DAO dao = new Lv2p3DAO();
     dao.inserir(c);
     p.setLv2p3(c);
+}
 %>
 
 <%@ include file="cabecalho.jsp" %>
