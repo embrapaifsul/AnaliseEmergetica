@@ -216,15 +216,15 @@ public class Lv2p2DAO {
                 lv2p2.setVacadedescartejulset(res.getInt("vaca_de_descarte_julset"));
                 lv2p2.setVacadedescarteoutdez(res.getInt("vaca_de_descarte_outdez"));
 
-                lv2p2.setTerneirosjanmar(res.getInt("terneiro_janmar"));
+                lv2p2.setTerneirosjanmar(res.getInt("terneiros_janmar"));
                 lv2p2.setTerneirosabrjun(res.getInt("terneiros_abrjun"));
                 lv2p2.setTerneirosjulset(res.getInt("terneiros_julset"));
                 lv2p2.setTerneirosoutdez(res.getInt("terneiros_outdez"));
 
-                lv2p2.setTerneirasjanmar(res.getInt("terneiras_janamr"));
-                lv2p2.setTerneirasabrjun(res.getInt("terneira_abrjun"));
+                lv2p2.setTerneirasjanmar(res.getInt("terneiras_janmar"));
+                lv2p2.setTerneirasabrjun(res.getInt("terneiras_abrjun"));
                 lv2p2.setTerneirasjulset(res.getInt("terneiras_julset"));
-                lv2p2.setTerneirasoutdez(res.getInt("terneira_outdez"));
+                lv2p2.setTerneirasoutdez(res.getInt("terneiras_outdez"));
 
                 lv2p2.setNovilho1324janmar(res.getInt("novilhos_13a24_janmar"));
                 lv2p2.setNovilho1324abrjun(res.getInt("novilhos_13a24_abrjun"));
@@ -236,15 +236,15 @@ public class Lv2p2DAO {
                 lv2p2.setNovilha1324julset(res.getInt("novilhas_13a24_julset"));
                 lv2p2.setNovilha1324outdez(res.getInt("novilhas_13a24_outdez"));
 
-                lv2p2.setNovilho2536janmar(res.getInt("novilho_25a36_janmar"));
-                lv2p2.setNovilho2536abrjun(res.getInt("novilho_25a36_abrjun"));
-                lv2p2.setNovilho2536julset(res.getInt("novilho_25a36_julset"));
-                lv2p2.setNovilho2536outdez(res.getInt("novilho_25a36_outdez"));
+                lv2p2.setNovilho2536janmar(res.getInt("novilhos_25a36_janmar"));
+                lv2p2.setNovilho2536abrjun(res.getInt("novilhos_25a36_abrjun"));
+                lv2p2.setNovilho2536julset(res.getInt("novilhos_25a36_julset"));
+                lv2p2.setNovilho2536outdez(res.getInt("novilhos_25a36_outdez"));
 
-                lv2p2.setNovilha2536janmar(res.getInt("novilha_25a36_janmar"));
-                lv2p2.setNovilha2536abrjun(res.getInt("novilha_25a36_abrjun"));
-                lv2p2.setNovilha2536julset(res.getInt("novilha_25a36_julset"));
-                lv2p2.setNovilha2536outdez(res.getInt("novilha_25a36_outdez"));
+                lv2p2.setNovilha2536janmar(res.getInt("novilhas_25a36_janmar"));
+                lv2p2.setNovilha2536abrjun(res.getInt("novilhas_25a36_abrjun"));
+                lv2p2.setNovilha2536julset(res.getInt("novilhas_25a36_julset"));
+                lv2p2.setNovilha2536outdez(res.getInt("novilhas_25a36_outdez"));
 
                 lv2p2.setNovilho36janmar(res.getInt("novilho_36_janmar"));
                 lv2p2.setNovilho36abrjun(res.getInt("novilho_36_abrjun"));
@@ -301,7 +301,7 @@ public class Lv2p2DAO {
                 lv2p2.setTerneirosjulset(res.getInt("terneiros_julset"));
                 lv2p2.setTerneirosoutdez(res.getInt("terneiros_outdez"));
 
-                lv2p2.setTerneirasjanmar(res.getInt("terneiras_janamr"));
+                lv2p2.setTerneirasjanmar(res.getInt("terneiras_janmar"));
                 lv2p2.setTerneirasabrjun(res.getInt("terneiras_abrjun"));
                 lv2p2.setTerneirasjulset(res.getInt("terneiras_julset"));
                 lv2p2.setTerneirasoutdez(res.getInt("terneiras_outdez"));

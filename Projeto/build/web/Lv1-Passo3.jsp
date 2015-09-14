@@ -53,7 +53,16 @@
 <%    Lv1p2 e = new Lv1p2();
     Lv1p2DAO dao = new Lv1p2DAO();
 
-    if (request.getParameter("vacasdecria") != null) {
+    if (request.getParameter("vacasdecria") != null || 
+        request.getParameter("vacasdedescarte") != null || 
+        request.getParameter("terneiros") != null || 
+        request.getParameter("terneiras") != null ||
+        request.getParameter("novilhos1") != null ||
+        request.getParameter("novilhas1") != null ||
+        request.getParameter("novilhos2") != null ||
+        request.getParameter("novilhas2") != null ||
+        request.getParameter("novilhos3") != null ||
+        request.getParameter("touros") != null) {
 
         e.setPropiedade_id(pro.getId());
 
