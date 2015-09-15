@@ -61,10 +61,10 @@ public class Lv2p1DAO {
     
     public Boolean excluir(Lv2p1 lv2p1){
         Boolean retorno = false;
-        String sql = "DELETE FROM lv2p1 where id=?";
+        String sql = "DELETE FROM lv2p1 where propriedade_id=?";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         try {           
-            pst.setInt(1,lv2p1.getId());
+            pst.setInt(1,lv2p1.getPropriedade_id());
         
         if(pst.executeUpdate() > 0){
             retorno = true;

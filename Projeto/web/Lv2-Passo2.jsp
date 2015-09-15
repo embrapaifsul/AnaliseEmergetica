@@ -95,6 +95,7 @@
     else
     {
         p = new Passos();
+        p.setAno(request.getParameter("data"));
         session.setAttribute("Passos", p);
         
     }

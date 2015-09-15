@@ -20,10 +20,10 @@ import modelo.Propriedade;
 public class Lv1p2DAO {
     public Boolean excluir(Lv1p2 lv1p2){
         Boolean retorno = false;
-        String sql = "DELETE FROM lv1p2 where id=?";
+        String sql = "DELETE FROM lv1p2 where propriedade_id=?";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         try {           
-            pst.setInt(1,lv1p2.getId());
+            pst.setInt(1,lv1p2.getPropiedade_id());
         
         if(pst.executeUpdate() > 0){
             retorno = true;
