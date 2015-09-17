@@ -175,23 +175,23 @@
                                 </div>
                             </div>
                         </div>
-                            <div class="panel panel-danger">
-                                <div class="panel-heading">
-                                    <h5 class="panel-title">Passo 4</h5>
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">
+                                <h5 class="panel-title">Passo 4</h5>
+                            </div>
+                            <div class="panel-body">
+                                <div class="control-group">
+                                    <label class="control-label"><h6><b>Total dos Custos de Produção: </b><span id="d">96.000</span><span class="help-inline">R$</span></h6>
                                 </div>
-                                <div class="panel-body">
-                                    <div class="control-group">
-                                        <label class="control-label"><h6><b>Total dos Custos de Produção: </b><span id="d">96.000</span><span class="help-inline">R$</span></h6>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label"><h6><b>Custo de Atividade de Cria: </b><span id="e">42.500</span><span class="help-inline">R$</span></h6>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label"><h6><b>Custo de Produção por Hectar: </b><span id="f">53.500</span><span class="help-inline">R$/Hectare</span></h6>
-                                    </div>
+                                <div class="control-group">
+                                    <label class="control-label"><h6><b>Custo de Atividade de Cria: </b><span id="e">42.500</span><span class="help-inline">R$</span></h6>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label"><h6><b>Custo de Produção por Hectar: </b><span id="f">53.500</span><span class="help-inline">R$/Hectare</span></h6>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </aside>
             </div>
         </div>

@@ -17,36 +17,34 @@
     Usuario u = new Usuario();
     Passos p = new Passos();
     Propriedade pro = new Propriedade();
-    
-    String ano="";
-    
+
+    String ano = "";
+
     String link1, link2, link3, link4, link5;
-    link1="";
-    link2="";
-    link3="";
-    link4="";
-    link5="";
-    
+    link1 = "";
+    link2 = "";
+    link3 = "";
+    link4 = "";
+    link5 = "";
+
     if (session.getAttribute("Passos") != null) {
-        p = (Passos)session.getAttribute("Passos");
-        if(p.getAno() !=null)
-        {
+        p = (Passos) session.getAttribute("Passos");
+        if (p.getAno() != null) {
             ano = p.getAno();
         }
-        if(p.getLv1p1() == null)
-        {
+        if (p.getLv1p1() == null) {
             link1 = " class='inativo' ";
             link2 = " class='inativo' ";
             link3 = " class='inativo' ";
             link4 = " class='inativo' ";
             link5 = " class='inativo' ";
-            
+
         } else {
             if (p.getLv1p2() == null) {
-            link2 = " class='inativo' ";
-            link3 = " class='inativo' ";
-            link4 = " class='inativo' ";
-            link5 = " class='inativo' ";
+                link2 = " class='inativo' ";
+                link3 = " class='inativo' ";
+                link4 = " class='inativo' ";
+                link5 = " class='inativo' ";
 
             } else {
                 if (p.getLv1p3() == null) {
@@ -62,28 +60,25 @@
                 }
             }
         }
-        
-    }
-    else
-    {
+
+    } else {
         p = new Passos();
         p.setAno(request.getParameter("data"));
         session.setAttribute("Passos", p);
-        
-        if(p.getLv1p1() == null)
-        {
+
+        if (p.getLv1p1() == null) {
             link1 = " class='inativo' ";
             link2 = " class='inativo' ";
             link3 = " class='inativo' ";
             link4 = " class='inativo' ";
             link5 = " class='inativo' ";
-            
+
         } else {
             if (p.getLv1p2() == null) {
-            link2 = " class='inativo' ";
-            link3 = " class='inativo' ";
-            link4 = " class='inativo' ";
-            link5 = " class='inativo' ";
+                link2 = " class='inativo' ";
+                link3 = " class='inativo' ";
+                link4 = " class='inativo' ";
+                link5 = " class='inativo' ";
 
             } else {
                 if (p.getLv1p3() == null) {
@@ -99,23 +94,20 @@
                 }
             }
         }
-        
+
     }
-    
-    if (session.getAttribute("Usuario") != null) 
-    {
+
+    if (session.getAttribute("Usuario") != null) {
         u = (Usuario) session.getAttribute("Usuario");
         p = (Passos) session.getAttribute("Passos");
-         if (request.getParameter("pid") != null) {
+        if (request.getParameter("pid") != null) {
             pro.setId(Integer.parseInt(request.getParameter("pid")));
             PropriedadeDAO dao = new PropriedadeDAO();
             pro = dao.loginpro(pro);
             session.setAttribute("Propriedade", pro);
         }
-        
-    }
-    else 
-    {
+
+    } else {
         response.sendRedirect("index.jsp");
     }
 
@@ -141,7 +133,7 @@
     </head>
     <body>
 
-       <nav class="navbar navbar-fixed-top navbar-inverse">
+        <nav class="navbar navbar-fixed-top navbar-inverse">
             <div class="navbar-inner">
                 <div class="container">
                     <!-- .btn-navbar está classe é usada como alternador para o conteudo coplapsavel-->
@@ -186,7 +178,7 @@
                 <aside class="span11">
                     <section id="breadcrumbs">
                         <header class="page-header">
-                            
+
                             <h3> Progresso </h3>
                             <ul class="breadcrumb">
                                 <li class="alert-info"> Data </li><span class="divider"> / </span>
@@ -219,7 +211,7 @@
                         <div class="control-group">
                             <label class="control-label">Ano das Informações:</label>
                             <div class="controls">
-                                
+
                                 <input type="text" name="data" value="<%=ano%>" required>
                             </div>
                         </div>
@@ -238,5 +230,5 @@
         </div>
 
     </body>
-    
+
 </html>

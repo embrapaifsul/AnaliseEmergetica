@@ -39,62 +39,61 @@
     if (request.getParameter("pid") == null) {
         msg = "Item não enviado";
     } else {
-        
+
         Lv1p1 lv1p1 = new Lv1p1();
-        Lv1p1DAO lv1p1DAO = new Lv1p1DAO(); 
+        Lv1p1DAO lv1p1DAO = new Lv1p1DAO();
         lv1p1.setPropiedade_id(Integer.parseInt(request.getParameter("pid")));
         Boolean ret1 = lv1p1DAO.excluir(lv1p1);
-        
+
         Lv1p2 lv1p2 = new Lv1p2();
         Lv1p2DAO lv1p2DAO = new Lv1p2DAO();
         lv1p2.setPropiedade_id(Integer.parseInt(request.getParameter("pid")));
         Boolean ret2 = lv1p2DAO.excluir(lv1p2);
-        
+
         Lv1p3 lv1p3 = new Lv1p3();
         Lv1p3DAO lv1p3DAO = new Lv1p3DAO();
         lv1p3.setPropiedade_id(Integer.parseInt(request.getParameter("pid")));
         Boolean ret3 = lv1p3DAO.excluir(lv1p3);
-        
+
         Lv1p4 lv1p4 = new Lv1p4();
         Lv1p4DAO lv1p4DAO = new Lv1p4DAO();
         lv1p4.setPropiedade_id(Integer.parseInt(request.getParameter("pid")));
         Boolean ret4 = lv1p4DAO.excluir(lv1p4);
-        
+
         Lv2p1 lv2p1 = new Lv2p1();
-        Lv2p1DAO lv2p1DAO = new Lv2p1DAO(); 
+        Lv2p1DAO lv2p1DAO = new Lv2p1DAO();
         lv2p1.setPropriedade_id(Integer.parseInt(request.getParameter("pid")));
         Boolean ret11 = lv2p1DAO.excluir(lv2p1);
-        
+
         Lv2p2 lv2p2 = new Lv2p2();
         Lv2p2DAO lv2p2DAO = new Lv2p2DAO();
         lv2p2.setPropriedade_id(Integer.parseInt(request.getParameter("pid")));
         Boolean ret22 = lv2p2DAO.excluir(lv2p2);
-        
+
         Lv2p3 lv2p3 = new Lv2p3();
         Lv2p3DAO lv2p3DAO = new Lv2p3DAO();
         lv2p3.setPropriedade_id(Integer.parseInt(request.getParameter("pid")));
         Boolean ret33 = lv2p3DAO.excluir(lv2p3);
-        
+
         Lv2p4 lv2p4 = new Lv2p4();
         Lv2p4DAO lv2p4DAO = new Lv2p4DAO();
         lv2p4.setPropriedade_id(Integer.parseInt(request.getParameter("pid")));
         Boolean ret44 = lv2p4DAO.excluir(lv2p4);
-        
+
         PropriedadeDAO dao = new PropriedadeDAO();
         Propriedade pro = new Propriedade();
         pro.setId(Integer.parseInt(request.getParameter("pid")));
         Boolean ret = dao.excluir(pro);
-        
-        if (ret == true 
-              //  && ret1 == true
-              //  && ret2 == true
-              //  && ret3 == true
-              //  && ret4 == true
-              //  && ret11 == true
-              //  && ret22 == true
-              //  && ret33 == true
-              //  && ret44 == true
-           ) {
+
+        if (ret == true //  && ret1 == true
+                //  && ret2 == true
+                //  && ret3 == true
+                //  && ret4 == true
+                //  && ret11 == true
+                //  && ret22 == true
+                //  && ret33 == true
+                //  && ret44 == true
+                ) {
             msg = "Excluido com Sucesso";
         } else {
             msg = "Erro ao Excluir";

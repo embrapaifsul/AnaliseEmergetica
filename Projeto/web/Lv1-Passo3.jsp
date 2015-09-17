@@ -19,19 +19,19 @@
     Propriedade pro = new Propriedade();
 
     String custo = "";
-    
+
     String link4, link5;
-    link4="";
-    link5="";
-    
+    link4 = "";
+    link5 = "";
+
     if (session.getAttribute("Passos") != null) {
         p = (Passos) session.getAttribute("Passos");
         if (p.getLv1p3() != null) {
             custo = p.getLv1p3().getReceita_anual().toString();
         }
         if (p.getLv1p4() == null) {
-                link4 = " class='inativo' ";
-                link5 = " class='inativo' ";
+            link4 = " class='inativo' ";
+            link5 = " class='inativo' ";
         }
     } else {
         p = new Passos();
@@ -53,16 +53,16 @@
 <%    Lv1p2 e = new Lv1p2();
     Lv1p2DAO dao = new Lv1p2DAO();
 
-    if (request.getParameter("vacasdecria") != null || 
-        request.getParameter("vacasdedescarte") != null || 
-        request.getParameter("terneiros") != null || 
-        request.getParameter("terneiras") != null ||
-        request.getParameter("novilhos1") != null ||
-        request.getParameter("novilhas1") != null ||
-        request.getParameter("novilhos2") != null ||
-        request.getParameter("novilhas2") != null ||
-        request.getParameter("novilhos3") != null ||
-        request.getParameter("touros") != null) {
+    if (request.getParameter("vacasdecria") != null
+            || request.getParameter("vacasdedescarte") != null
+            || request.getParameter("terneiros") != null
+            || request.getParameter("terneiras") != null
+            || request.getParameter("novilhos1") != null
+            || request.getParameter("novilhas1") != null
+            || request.getParameter("novilhos2") != null
+            || request.getParameter("novilhas2") != null
+            || request.getParameter("novilhos3") != null
+            || request.getParameter("touros") != null) {
 
         e.setPropiedade_id(pro.getId());
 
@@ -133,140 +133,140 @@
         }
 
         e.setAno(p.getAno());
-         
+
         Lv1p2 teste;
         teste = dao.buscar(p.getAno(), pro);
-        if (teste == null){
+        if (teste == null) {
             dao.inserirNao(e);
-        }else{
+        } else {
             dao.atualizar(e);
         }
-        
+
         p.setLv1p2(e);
 
     }
 %>
-    <%@ include file="cabecalho.jsp" %>
-    </head>
-    <body>
+<%@ include file="cabecalho.jsp" %>
+</head>
+<body>
 
-        <%@ include file="barranavegacao.jsp" %>
+    <%@ include file="barranavegacao.jsp" %>
 
-        <div class="container-fluid">
-            <div class="row-fluid">
+    <div class="container-fluid">
+        <div class="row-fluid">
 
-                <aside class="span11">
-                    <section id="breadcrumbs">
-                        <header class="page-header">
-                            <h3> Progresso </h3>
+            <aside class="span11">
+                <section id="breadcrumbs">
+                    <header class="page-header">
+                        <h3> Progresso </h3>
 
-                            <ul class="breadcrumb">
-                                <li><a href="AnoLv1.jsp"> Data </a><span class="divider"> / </span></li>
-                                <li><a href="Lv1-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
-                                <li><a href="Lv1-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
-                                <li class="alert-info"> Passo 3 </li><span class="divider"> / </span>
-                                <li><a href="Lv1-Passo4.jsp" <%=link4%>> Passo 4 </a><span class="divider"> / </span></li>
-                                <li><a href="Lv1-Saida.jsp" <%=link5%>> Resultados </a></li>
-                            </ul>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                                    <span class="sr-only">60% Completo</span>
-                                </div>
+                        <ul class="breadcrumb">
+                            <li><a href="AnoLv1.jsp"> Data </a><span class="divider"> / </span></li>
+                            <li><a href="Lv1-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
+                            <li><a href="Lv1-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
+                            <li class="alert-info"> Passo 3 </li><span class="divider"> / </span>
+                            <li><a href="Lv1-Passo4.jsp" <%=link4%>> Passo 4 </a><span class="divider"> / </span></li>
+                            <li><a href="Lv1-Saida.jsp" <%=link5%>> Resultados </a></li>
+                        </ul>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                <span class="sr-only">60% Completo</span>
                             </div>
-                        </header>
-                    </section><br/><br/>
-                </aside>
+                        </div>
+                    </header>
+                </section><br/><br/>
+            </aside>
 
-                <aside class="span2"></aside>
+            <aside class="span2"></aside>
 
-            </div>
         </div>
+    </div>
 
-        <div class="container-fluid">
-            <div class="row-fluid">
+    <div class="container-fluid">
+        <div class="row-fluid">
 
-                <aside class="span1"></aside>
+            <aside class="span1"></aside>
 
-                <aside class="span6">
+            <aside class="span6">
 
-                    <h2> Receitas Anuais </h2>
-                    <br/>
+                <h2> Receitas Anuais </h2>
+                <br/>
 
-                    <form name="Passo3" action="Lv1-Passo4.jsp" class="form-horizontal" method ="post" onSubmit="return passo3();">
-                        <div class="control-group">
-                            <label class="control-label">Receita Anual de Bovinos:</label>
-                            <div class="controls">
-                                <br/>
-                                <input type="text" name="bovinosanual" value="<%=custo%>" required>
-                            </div>
+                <form name="Passo3" action="Lv1-Passo4.jsp" class="form-horizontal" method ="post" onSubmit="return passo3();">
+                    <div class="control-group">
+                        <label class="control-label">Receita Anual de Bovinos:</label>
+                        <div class="controls">
+                            <br/>
+                            <input type="text" name="bovinosanual" value="<%=custo%>" required>
                         </div>
+                    </div>
 
-                        <div class="control-group">
-                            <div class="controls">
-                                <input type="submit" class="btn" value="Proximo Passo" />
-                            </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="submit" class="btn" value="Proximo Passo" />
                         </div>
-                    </form>               
+                    </div>
+                </form>               
 
-                </aside>
+            </aside>
 
-                <aside class="span2">
-                    <div class="panel-group">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h5 class="panel-title">Passo 1</h5>
+            <aside class="span2">
+                <div class="panel-group">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h5 class="panel-title">Passo 1</h5>
+                        </div>
+                        <div class="panel-body">
+                            <div class="control-group">
+                                <label class="control-label"><h6><b>Área média da Pecuária Aproveitavel: </b><span id="a"><%= String.format("%.2f", p.getLv1p1().getArea_apro())%></span><span class="help-inline">Hectares</span></h6>
                             </div>
+                            <br/><br/><br/><br/><br/>
+                        </div>
+                    </div>
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h5 class="panel-title">Passo 3</h5>
+                        </div>
+                        <div class="panel-body">
+                            <div class="control-group">
+                                <label class="control-label"><h6><b>Receita por Hectare: </b><span id="c"></span><span class="help-inline">R$/Hectare</span></h6>
+                            </div>
+                            <br/><br/>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <aside class="span2">
+                <div class="panel-group">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <h5 class="panel-title">Passo 2</h5>
+                        </div>
+                        <div class="panel-body">
                             <div class="panel-body">
                                 <div class="control-group">
-                                    <label class="control-label"><h6><b>Área média da Pecuária Aproveitavel: </b><span id="a"><%= String.format("%.2f", p.getLv1p1().getArea_apro())%></span><span class="help-inline">Hectares</span></h6>
+                                    <label class="control-label"><h6><b>Rebanho com atividade de Cria: </b><span id="a"><%= String.format("%.2f", p.percentualcria())%></span><span class="help-inline">%</span></h6>
                                 </div>
-                                <br/><br/><br/><br/><br/>
-                            </div>
-                        </div>
-                        <div class="panel panel-success">
-                            <div class="panel-heading">
-                                <h5 class="panel-title">Passo 3</h5>
-                            </div>
-                            <div class="panel-body">
                                 <div class="control-group">
-                                    <label class="control-label"><h6><b>Receita por Hectare: </b><span id="c"></span><span class="help-inline">R$/Hectare</span></h6>
+                                    <label class="control-label"><h6><b>Lotação Média da Propriedade: </b><span id="b"><%= String.format("%.2f", p.lotacaomedia())%></span><span class="help-inline">Cabeça(s) por hectare</span></h6>
                                 </div>
-                                <br/><br/>
                             </div>
                         </div>
                     </div>
-                </aside>
-                <aside class="span2">
-                    <div class="panel-group">
-                        <div class="panel panel-warning">
-                            <div class="panel-heading">
-                                <h5 class="panel-title">Passo 2</h5>
-                            </div>
-                            <div class="panel-body">
-                                <div class="panel-body">
-                                    <div class="control-group">
-                                        <label class="control-label"><h6><b>Rebanho com atividade de Cria: </b><span id="a"><%= String.format("%.2f", p.percentualcria())%></span><span class="help-inline">%</span></h6>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label"><h6><b>Lotação Média da Propriedade: </b><span id="b"><%= String.format("%.2f", p.lotacaomedia())%></span><span class="help-inline">Cabeça(s) por hectare</span></h6>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h5 class="panel-title">Passo 4</h5>
                         </div>
-                        <div class="panel panel-danger">
-                            <div class="panel-heading">
-                                <h5 class="panel-title">Passo 4</h5>
-                            </div>
-                            <div class="panel-body">
-                                <label class="control-label"><h6><b>CUSTOS</b></h6>
-                                 <br/><br/><br/>
-                            </div>
+                        <div class="panel-body">
+                            <label class="control-label"><h6><b>CUSTOS</b></h6>
+                                <br/><br/><br/>
                         </div>
                     </div>
-                </aside>
-            </div>
+                </div>
+            </aside>
         </div>
+    </div>
 
-    </body>
+</body>
 
 </html>

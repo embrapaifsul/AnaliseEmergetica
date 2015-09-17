@@ -99,15 +99,15 @@
                 </aside>
 
                 <aside class="span4">
-                   
-                <div class="btn-toolbar">
-                     <div class="control-group-vertical" >
-                        <a class="btn btn-inverse btn-large" href="AnoLv1.jsp" > Nivel 1 </a>
-                        <a class="btn btn-inverse btn-large" href="AnoLv2.jsp" > Nivel 2 </a>
-                        <a class="btn btn-inverse btn-large" href="" > Nivel 3 </a>
-                        <a class="btn btn-inverse btn-large" href="" > Nivel 4 </a>
+
+                    <div class="btn-toolbar">
+                        <div class="control-group-vertical" >
+                            <a class="btn btn-inverse btn-large" href="AnoLv1.jsp" > Nivel 1 </a>
+                            <a class="btn btn-inverse btn-large" href="AnoLv2.jsp" > Nivel 2 </a>
+                            <a class="btn btn-inverse btn-large" href="" > Nivel 3 </a>
+                            <a class="btn btn-inverse btn-large" href="" > Nivel 4 </a>
+                        </div>
                     </div>
-                </div>
                 </aside>
 
                 <aside class="span4">

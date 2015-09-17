@@ -8,27 +8,22 @@
 
 
 <%
-   Usuario u = new Usuario();
-   
-if(session.getAttribute("Usuario")!=null)
-{
-     u = (Usuario)session.getAttribute("Usuario");
-    
-    
-}
-else
-{
-    response.sendRedirect("index.jsp"); 
-}   
+    Usuario u = new Usuario();
+
+    if (session.getAttribute("Usuario") != null) {
+        u = (Usuario) session.getAttribute("Usuario");
+
+    } else {
+        response.sendRedirect("index.jsp");
+    }
 %>
 <%
-
     session.setAttribute("Passos", null);
 
     PropriedadeDAO dao = new PropriedadeDAO();
-    
+
     List<Propriedade> lista;
-    
+
     lista = dao.listar(u);
 %>
 
@@ -78,50 +73,49 @@ else
 
         <header class="page-header"></header>
 
-        
+
         <div class="container-fluid">
             <div class="row-fluid">
-                
+
                 <aside class="span1"></aside>
-                
+
                 <aside class="span9">
                     <h1>Propriedades</h1>
                     <br/>
                     <table class="table table-bordered table-hover">
-                	<thead>
-                		<tr>
-                		   <th>Identificação<button type="button" class="btn btn-default btn-link" data-toggle="tooltip" data-placement="right" title="Identificar sua propriedade no sistema."><i class="icon-info-sign"></i></button></th>
-                		   <th>Cidade</th>
-                                   <th>UF</th>
-                		   <th>Ações</th>
-                		</tr>
-                	</thead>
+                        <thead>
+                            <tr>
+                                <th>Identificação<button type="button" class="btn btn-default btn-link" data-toggle="tooltip" data-placement="right" title="Identificar sua propriedade no sistema."><i class="icon-info-sign"></i></button></th>
+                                <th>Cidade</th>
+                                <th>UF</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
                         <tbody>
-                	        <%
-                                  for(Propriedade registro: lista)
-                                  {
-                                %>
-                		<tr class="success">                                  
-                	            <td><a class="btn btn-link" href="AnoLv1.jsp?pid=<%=registro.getId()%>"><%=registro.getNome()%></a></td>
-                		    <td><%=registro.getCidade()%></td>
-                                    <td><%=registro.getUf()%></td>
-                		    <td>
-                                        <a class="btn" href="ExcluirPropriedade.jsp?pid=<%=registro.getId()%>"> Excluir </a></td>
-                		</tr>
-                                <%
-                                  }
-                                %>
+                            <%
+                                for (Propriedade registro : lista) {
+                            %>
+                            <tr class="success">                                  
+                                <td><a class="btn btn-link" href="AnoLv1.jsp?pid=<%=registro.getId()%>"><%=registro.getNome()%></a></td>
+                                <td><%=registro.getCidade()%></td>
+                                <td><%=registro.getUf()%></td>
+                                <td>
+                                    <a class="btn" href="ExcluirPropriedade.jsp?pid=<%=registro.getId()%>"> Excluir </a></td>
+                            </tr>
+                            <%
+                                }
+                            %>
                         </tbody>
-                </table>
-                        
+                    </table>
+
                     <br/><br/>                 
                     <a href="CadastroPropriedade.jsp" class="btn"> Nova Propriedade </a>
-                    
+
                 </aside>
-                
+
                 <aside class="span2"></aside>
             </div>
         </div>
-        
+
     </body>
 </html>

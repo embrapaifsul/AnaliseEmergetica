@@ -80,7 +80,7 @@
 
 %>
 <%    if (request.getParameter("areapecuaria") != null) {
-    
+
         Lv1p1 lv1p1 = new Lv1p1();
         lv1p1.setArea_apro(Double.parseDouble(request.getParameter("areapecuaria")));
         lv1p1.setAno(p.getAno());

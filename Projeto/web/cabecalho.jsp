@@ -14,4 +14,3 @@
         <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
         <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
         <script type="text/javascript" src="bootstrap/TesteJavaScript.js"></script>
-    
