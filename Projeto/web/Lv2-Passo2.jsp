@@ -605,19 +605,18 @@
                     <div class="control-group">
                         <div class="controls">
                             <input type="button" onclick="calcularTudo();" class="btn" value="Calcular" />
+                             <% if (graf != null) { %>
+
+                            <a href="#MeuModal" class="btn btn-primary" role="button" data-toggle="modal"> Grafico </a>
+
+                            <%}%>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls">
                             <input type="submit" class="btn" value="Proximo Passo" />
                         </div>
-                        <div>
-                            <div style="display:<%=exibegraf%>">
-                                <script src="js/highcharts.js"></script>
-                                <script src="js/modules/exporting.js"></script>
-                                <div id="container" style="min-width: 50px; height: 200px; margin: 0 auto"></div>
-                            </div>
-                        </div>
+                        
                     </div>   
                 </form>
             </aside>
@@ -626,6 +625,24 @@
             </aside>
         </div>
     </div>
+                                <section id="MeuModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="meuModelLabel" aria-hidden="true">
+                <header class="modal-header">
+                    <button class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                    <h3 id="meuModelLabel"> Aréa da Propriedade</h3>
+                </header>
+                <section class="modal-body">
+             
+           
+                            <div style="display:<%=exibegraf%>">
+                                <script src="js/highcharts.js"></script>
+                                <script src="js/modules/exporting.js"></script>
+                                <div id="container" style="min-width: 500px; height: 200px; margin: 0 auto"></div>
+                            </div>
+                        </div
+
+
+                </section>
+            </section>
     <footer class="footer">
         <div class="container">
         </div>

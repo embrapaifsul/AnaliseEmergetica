@@ -129,7 +129,7 @@
                     "Quantidade": "<%=graf.getInaproveitavel()%>"
                 }
             },
-            "Área da Aproveitável": {
+            "Área Aproveitável": {
                 "Agricultura": {
                     "Quantidade": "<%=graf.getAgriculturai() + graf.getAgriculturav()%>"
                 },
@@ -475,17 +475,34 @@
                     <div class="control-group">
                         <div class="controls">
                             <input type="button" onclick="calcularTodaArea();" class="btn" value="Calcular" />
+                               <% if (graf != null) { %>
+
+                            <a href="#MeuModal" class="btn btn-primary" role="button" data-toggle="modal"> Grafico </a>
+
+                            <%}%>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls">
                             <input type="submit" class="btn" value="Proximo Passo" />
+                           
                         </div>
+                       
                     </div>
                 </form>               
 
             </aside>
-            <asidde class="span4">
+            
+
+        </div>
+    </div>
+                     <section id="MeuModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="meuModelLabel" aria-hidden="true">
+                <header class="modal-header">
+                    <button class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                    <h3 id="meuModelLabel"> Aréa da Propriedade</h3>
+                </header>
+                <section class="modal-body">
+             
                 <div style="display:<%=exibegraf%>">
                     <script src="js/highcharts.js"></script>
                     <script src="js/modules/heatmap.js"></script>
@@ -494,10 +511,9 @@
                 </div>
 
 
-            </asidde>
 
-        </div>
-    </div>
+                </section>
+            </section>       
     <footer class="footer">
         <div class="container">
         </div>
