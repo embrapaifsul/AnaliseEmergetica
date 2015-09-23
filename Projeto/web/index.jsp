@@ -148,15 +148,15 @@
                                                         <p>Tendo em vista ajudar o produtor em sua tomada de decisão, o software faz uma analise financeira da propriedade do agricultor, deixando mais claro se vale a pena reutilizar seus recursos.</p>
                                                     </li>
                                                     <li>
+                                                        <div class="feature"></div>
+                                                        <h4></h4>
+                                                        <p></p>
+                                                    </li>
+                         
+                                                    <li>
                                                         <div class="feature-icon icon2"></div>
                                                         <h4>Analise Emergetica</h4>
                                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia mi nulla, in imperdiet arcu hendrerit in.</p>
-                                                    </li>
-                                                    <li>
-                                                        <div class="feature-icon icon3"></div>
-                                                        <h4>Objetivo</h4>
-                                                        <p>Espera-se, que o software permita auxiliar a definição de políticas públicas que promovam o aumento da competitividade e uma produção economicamente viável e ambientalmente correta. </p>
-                                                        <p> A ferramenta servirá também, como sistema de apoio à decisão, permitindo identificar concomitantemente os custos de produção e a sua respectiva eficiência no uso de recursos naturais.</p>
                                                     </li>
                                                 </ul>
                                             </div>

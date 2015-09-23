@@ -119,11 +119,11 @@
         var femeas = document.getElementById('femeas');
         var machos = document.getElementById('machos');
 
-        if (vacasdecria == null)
+        if (vacasdecria == 0)
         {
             vacasdecria = 0;
         }
-        if (vacasdedescarte == 0)
+        if (vacasdedescarte.value === null)
         {
             vacasdedescarte = 0;
         }
