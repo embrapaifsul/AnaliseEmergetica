@@ -24,17 +24,18 @@ import modelo.Usuario;
  * @author Lucas
  */
 public class GraficosDAO {
-    public Lv2p4 graficolv2p4(Propriedade propriedade) 
+    public Lv2p4 graficolv2p4(Propriedade propriedade, String ano) 
     {
         
         //crio a lista de jogadores
         
         Lv2p4 retorno = null;
-        String sql = "SELECT * FROM lv2p4 where propriedade_id = ?";
+        String sql = "SELECT * FROM lv2p4 where propriedade_id = ? and ano=?";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         
         try {
             pst.setInt(1, propriedade.getId());
+            pst.setString(2, ano);
             
             //Executo o aql e jogo em um resultSet
             ResultSet res = pst.executeQuery();

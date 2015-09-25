@@ -4,6 +4,8 @@
     Author     : Aluno
 --%>
 
+<%@page import="modelo.Lv1p4"%>
+<%@page import="dao.GraficosDAO"%>
 <%@page import="modelo.Propriedade"%>
 <%@page import="modelo.Passos"%>
 <%@page import="modelo.Lv2p3"%>
@@ -297,6 +299,73 @@
 
     }
 </script>
+<%
+ GraficosDAO daog = new GraficosDAO();
+    String ano = p.getAno();
+    Lv2p4 graf = daog.graficolv2p4(pro, ano);
+
+    String exibegraf = "none";
+    if (graf != null) {
+        exibegraf = "block";
+%>
+<%
+Double medicamento = graf.getCarrapaticida() + graf.getMedicamento() + graf.getSal() + graf.getRacao() + graf.getSemem();
+Double maquinas = graf.getCombustivel() + graf.getReparosmaquina();
+Double pastagem = graf.getAdubosparapastagem() + graf.getSemente() + graf.getArrendamentocamponativo() + graf.getArrendamentopastagemcultivada()+ graf.getDefensivoagriparapastagem();
+Double outros = graf.getOutradespesas() + graf.getFrete() + graf.getImposto() + graf.getUntesilosdeusogeral() + graf.getCompradebovinos();
+Double mao_de_obra = graf.getMaodeobrafixa() + graf.getMaodeobravariavel() + graf.getReparobanfeitoria();
+%>
+<style type="text/css">
+    ${demo.css}
+</style>
+
+
+<script type="text/javascript">
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: 'Percentual dos Custos'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                    type: 'pie',
+                    name: 'Custos',
+                    data: [
+                        ['Medicamentos', <%=medicamento%>],
+                        ['Mão-de-obra', <%=mao_de_obra%>],
+                        ['Maquinas', <%=maquinas%>],
+                        ['Pastagem', <%=pastagem%>],
+                        ['Outros', <%=outros%>]
+                    ]
+                }]
+        });
+    });
+
+
+</script>
+<%
+    }
+%>
 </head>
 <body>
 
@@ -500,6 +569,11 @@
                     <div class="control-group">
                         <div class="controls">
                             <input type="button" onclick="calcularTotal();" class="btn" value="Calcular" />
+                             <% if (graf != null) { %>
+
+                            <a href="#MeuModal" class="btn btn-primary" role="button" data-toggle="modal"> Grafico </a>
+
+                            <%}%>
                         </div>
                     </div>
                     <div class="control-group">
@@ -512,6 +586,19 @@
 
             </aside>
 
+            <section id="MeuModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="meuModelLabel" aria-hidden="true">
+                <header class="modal-header">
+                    <button class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                    <h3 id="meuModelLabel"> Custos</h3>
+                </header>
+                <section class="modal-body">
+
+                    <script src="js/highcharts.js"></script>
+                    <script src="js/modules/exporting.js"></script>                                 
+                    <div id="container" style="min-width: 410px; height: 300px; max-width: 400px; margin: 0 auto"></div>
+
+                </section>
+            </section>  
         </div>
     </div>
     <footer class="footer">
