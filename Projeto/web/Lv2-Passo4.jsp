@@ -173,85 +173,85 @@
         var impostos2 = document.getElementById('impostos2');
         var outras2 = document.getElementById('outras2');
 
-        if (medicamentos.value === "")
+        if (medicamentos.value == "")
         {
-            medicamentos.focus();
+            medicamentos.value = 0;
         }
-        else if (carrapaticidas.value === "")
+        else if (carrapaticidas.value == "")
         {
-            carrapaticidas.focus();
+            carrapaticidas.value = 0;
         }
-        else if (sal.value === "")
+        else if (sal.value == "")
         {
-            sal.focus();
+            sal.value = 0;
         }
-        else if (racoes.value === "")
+        else if (racoes.value == "")
         {
-            racoes.focus();
+            racoes.value = 0;
         }
-        else if (comprabovinos.value === "")
+        else if (comprabovinos.value == "")
         {
-            comprabovinos.focus();
+            comprabovinos.value = 0;
         }
-        else if (utensilios.value === "")
+        else if (utensilios.value == "")
         {
-            utensilios.focus();
+            utensilios.value = 0;
         }
-        else if (semen.value === "")
+        else if (semen.value == "")
         {
-            semen.focus();
+            semen.value = 0;
         }
-        else if (maodeobrafixa.value === "")
+        else if (maodeobrafixa.value == "")
         {
-            maodeobrafixa.focus();
+            maodeobrafixa.value = 0;
         }
-        else if (maodeobravariavel.value === "")
+        else if (maodeobravariavel.value == "")
         {
-            maodeobravariavel.focus();
+            maodeobravariavel.value = 0;
         }
-        else if (sementes.value === "")
+        else if (sementes.value == "")
         {
-            sementes.focus();
+            sementes.value = 0;
         }
-        else if (defensivospastagens.value === "")
+        else if (defensivospastagens.value == "")
         {
-            defensivospastagens.focus();
+            defensivospastagens.value = 0;
         }
-        else if (adubos.value === "")
+        else if (adubos.value == "")
         {
-            adubos.focus();
+            adubos.value = 0;
         }
-        else if (combustiveis.value === "")
+        else if (combustiveis.value == "")
         {
-            combustiveis.focus();
+            combustiveis.value = 0;
         }
-        else if (reparomaquinas.value === "")
+        else if (reparomaquinas.value == "")
         {
-            reparomaquinas.focus();
+            reparomaquinas.value = 0;
         }
-        else if (reparosbemfeitorias.value === "")
+        else if (reparosbemfeitorias.value == "")
         {
-            reparosbemfeitorias.focus();
+            reparosbemfeitorias.value = 0;
         }
-        else if (fretes.value === "")
+        else if (fretes.value == "")
         {
-            fretes.focus();
+            fretes.value = 0;
         }
-        else if (arrendamentosnativo.value === "")
+        else if (arrendamentosnativo.value == "")
         {
-            arrendamentosnativo.focus();
+            arrendamentosnativo.value = 0;
         }
-        else if (arrendamentoscultivadas.value === "")
+        else if (arrendamentoscultivadas.value == "")
         {
-            arrendamentoscultivadas.focus();
+            arrendamentoscultivadas.value = 0;
         }
-        else if (impostos.value === "")
+        else if (impostos.value == "")
         {
-            impostos.focus();
+            impostos.value = 0;
         }
-        else if (outras.value === "")
+        else if (outras.value == "")
         {
-            outras.focus();
+            outras.value = 0;
         }
 
         totalizando.innerHTML = parseInt(medicamentos.value) +

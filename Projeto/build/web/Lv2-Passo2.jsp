@@ -252,45 +252,45 @@
         var total3 = document.getElementById('total3');
         var total4 = document.getElementById('total4');
 
-        if (vacasdecria1.value === "")
+        if (vacasdecria1.value == "")
         {
-            vacasdecria1.focus();
+            vacasdecria1.value = 0;
         }
-        else if (vacasdedescarte1.value === "")
+        else if (vacasdedescarte1.value == "")
         {
-            vacasdedescarte1.focus();
+            vacasdedescarte1.value = 0;
         }
-        else if (terneiros1.value === "")
+        else if (terneiros1.value == "")
         {
-            terneiros1.focus();
+            terneiros1.value = 0;
         }
-        else if (terneiras1.value === "")
+        else if (terneiras1.value == "")
         {
-            terneiras1.focus();
+            terneiras1.value = 0;
         }
-        else if (novilhos1.value === "")
+        else if (novilhos1.value == "")
         {
-            novilhos1.focus();
+            novilhos1.value = 0;
         }
-        else if (novilhas1.value === "")
+        else if (novilhas1.value == "")
         {
-            novilhas1.focus();
+            novilhas1.value = 0;
         }
-        else if (novilhos11.value === "")
+        else if (novilhos11.value == "")
         {
-            novilhos11.focus();
+            novilhos11.value = 0;
         }
-        else if (novilhas11.value === "")
+        else if (novilhas11.value == "")
         {
-            novilhas11.focus();
+            novilhas11.value = 0;
         }
-        else if (novilhos111.value === "")
+        else if (novilhos111.value == "")
         {
-            novilhos111.focus();
+            novilhos111.value = 0;
         }
-        else if (touros1.value === "")
+        else if (touros1.value == "")
         {
-            touros1.focus();
+            touros1.value = 0;
         }
         total1.innerHTML = parseInt(vacasdecria1.value) +
                 parseInt(vacasdedescarte1.value) +
@@ -303,45 +303,45 @@
                 parseInt(novilhos111.value) +
                 parseInt(touros1.value);
 
-        if (vacasdecria2.value === "")
+        if (vacasdecria2.value == "")
         {
-            vacasdecria2.focus();
+            vacasdecria2.value = 0;
         }
-        else if (vacasdedescarte2.value === "")
+        else if (vacasdedescarte2.value == "")
         {
-            vacasdedescarte2.focus();
+            vacasdedescarte2.value = 0;
         }
-        else if (terneiros2.value === "")
+        else if (terneiros2.value == "")
         {
-            terneiros2.focus();
+            terneiros2.value = 0;
         }
-        else if (terneiras2.value === "")
+        else if (terneiras2.value == "")
         {
-            terneiras2.focus();
+            terneiras2.value = 0;
         }
-        else if (novilhos2.value === "")
+        else if (novilhos2.value == "")
         {
-            novilhos2.focus();
+            novilhos2.value = 0;
         }
-        else if (novilhas2.value === "")
+        else if (novilhas2.value == "")
         {
-            novilhas2.focus();
+            novilhas2.value = 0;
         }
-        else if (novilhos22.value === "")
+        else if (novilhos22.value == "")
         {
-            novilhos22.focus();
+            novilhos22.value = 0;
         }
-        else if (novilhas22.value === "")
+        else if (novilhas22.value == "")
         {
-            novilhas22.focus();
+            novilhas22.value = 0;
         }
-        else if (novilhos222.value === "")
+        else if (novilhos222.value == "")
         {
-            novilhos222.focus();
+            novilhos222.value = 0;
         }
-        else if (touros2.value === "")
+        else if (touros2.value == "")
         {
-            touros2.focus();
+            touros2.value = 0;
         }
         total2.innerHTML = parseInt(vacasdecria2.value) +
                 parseInt(vacasdedescarte2.value) +
@@ -354,45 +354,45 @@
                 parseInt(novilhos222.value) +
                 parseInt(touros2.value);
 
-        if (vacasdecria3.value === "")
+        if (vacasdecria3.value == "")
         {
-            vacasdecria3.focus();
+            vacasdecria3.value = 0;
         }
-        else if (vacasdedescarte3.value === "")
+        else if (vacasdedescarte3.value == "")
         {
-            vacasdedescarte3.focus();
+            vacasdedescarte3.value = 0;
         }
-        else if (terneiros3.value === "")
+        else if (terneiros3.value == "")
         {
-            terneiros3.focus();
+            terneiros3.value = 0;
         }
-        else if (terneiras3.value === "")
+        else if (terneiras3.value == "")
         {
-            terneiras3.focus();
+            terneiras3.value = 0;
         }
-        else if (novilhos3.value === "")
+        else if (novilhos3.value == "")
         {
-            novilhos3.focus();
+            novilhos3.value = 0;
         }
-        else if (novilhas3.value === "")
+        else if (novilhas3.value == "")
         {
-            novilhas3.focus();
+            novilhas3.value = 0;
         }
-        else if (novilhos33.value === "")
+        else if (novilhos33.value == "")
         {
-            novilhos33.focus();
+            novilhos33.value = 0;
         }
-        else if (novilhas33.value === "")
+        else if (novilhas33.value == "")
         {
-            novilhas33.focus();
+            novilhas33.value = 0;
         }
-        else if (novilhos333.value === "")
+        else if (novilhos333.value == "")
         {
-            novilhos333.focus();
+            novilhos333.value = 0;
         }
-        else if (touros3.value === "")
+        else if (touros3.value == "")
         {
-            touros3.focus();
+            touros3.value = 0;
         }
         total3.innerHTML = parseInt(vacasdecria3.value) +
                 parseInt(vacasdedescarte3.value) +
@@ -405,45 +405,45 @@
                 parseInt(novilhos333.value) +
                 parseInt(touros3.value);
 
-        if (vacasdecria4.value === "")
+        if (vacasdecria4.value == "")
         {
-            vacasdecria4.focus();
+            vacasdecria4.value = 0;
         }
-        else if (vacasdedescarte4.value === "")
+        else if (vacasdedescarte4.value == "")
         {
-            vacasdedescarte4.focus();
+            vacasdedescarte4.value = 0;
         }
-        else if (terneiros4.value === "")
+        else if (terneiros4.value == "")
         {
-            terneiros4.focus();
+            terneiros4.value = 0;
         }
-        else if (terneiras4.value === "")
+        else if (terneiras4.value == "")
         {
-            terneiras4.focus();
+            terneiras4.value = 0;
         }
-        else if (novilhos4.value === "")
+        else if (novilhos4.value == "")
         {
-            novilhos4.focus();
+            novilhos4.value = 0;
         }
-        else if (novilhas4.value === "")
+        else if (novilhas4.value == "")
         {
-            novilhas4.focus();
+            novilhas4.value = 0;
         }
-        else if (novilhos44.value === "")
+        else if (novilhos44.value == "")
         {
-            novilhos44.focus();
+            novilhos44.value = 0;
         }
-        else if (novilhas44.value === "")
+        else if (novilhas44.value == "")
         {
-            novilhas44.focus();
+            novilhas44.value = 0;
         }
-        else if (novilhos444.value === "")
+        else if (novilhos444.value == "")
         {
-            novilhos444.focus();
+            novilhos444.value = 0;
         }
-        else if (touros4.value === "")
+        else if (touros4.value == "")
         {
-            touros4.focus();
+            touros4.value = 0;
         }
         total4.innerHTML = parseInt(vacasdecria4.value) +
                 parseInt(vacasdedescarte4.value) +

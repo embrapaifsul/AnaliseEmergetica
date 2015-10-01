@@ -256,53 +256,53 @@
         var taprov = document.getElementById('taprov');
         var areat = document.getElementById('areat');
 
-        if (pn.value === "")
+        if (pn.value == "")
         {
-            pn = 0.0;
+            pn.value = 0.0;
         }
-        else if (pnm.value === "")
+        else if (pnm.value == "")
         {
-            pnm = 0.0;
+            pnm.value = 0.0;
         }
-        else if (pcp.value === "")
+        else if (pcp.value == "")
         {
-            pcp = 0.0;
+            pcp.value = 0.0;
         }
-        else if (pai.value === "")
+        else if (pai.value == "")
         {
-            pai = 0.0;
+            pai.value = 0.0;
         }
-        else if (pav.value === "")
+        else if (pav.value == "")
         {
-            pav = 0.0;
+            pav.value = 0.0;
         }
-        if (agriV.value === "")
+        if (agriV.value == "")
         {
-            agriV = 0.0;
+            agriV.value = 0.0;
         }
-        else if (agriI.value === "")
+        else if (agriI.value == "")
         {
-            agriI = 0.0;
+            agriI.value = 0.0;
         }
-        else if (florestas.value === "")
+        else if (florestas.value == "")
         {
-            florestas = 0.0;
+            florestas.value = 0.0;
         }
-        else if (outras.value === "")
+        else if (outras.value == "")
         {
-            outras = 0.0;
+            outras.value = 0.0;
         }
-        if (matasnativas.value === "")
+        if (matasnativas.value == "")
         {
-            matasnativas.focus();
+            matasnativas.value = 0.0;
         }
-        else if (sea.value === "")
+        else if (sea.value == "")
         {
-            sea.focus();
+            sea.value = 0.0;
         }
-        else if (inaproveitavel.value === "")
+        else if (inaproveitavel.value == "")
         {
-            inaproveitavel.focus();
+            inaproveitavel.value = 0.0;
         }
 
         TAREA.innerHTML = parseInt(pn.value) +

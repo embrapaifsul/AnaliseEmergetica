@@ -119,49 +119,49 @@
         var femeas = document.getElementById('femeas');
         var machos = document.getElementById('machos');
 
-        if (vacasdecria == 0)
+        if (vacasdecria.value == "")
         {
-            vacasdecria = 0;
+            vacasdecria.value = 0;
         }
-        if (vacasdedescarte.value === null)
+        if (vacasdedescarte.value == "")
         {
-            vacasdedescarte = 0;
+            vacasdedescarte.value = 0;
         }
-        if (terneiros === null)
+        if (terneiros.value == "")
         {
-            terneiros = 0;
+            terneiros.value = 0;
         }
-        if (terneiras === null)
+        if (terneiras.value == "")
         {
-            terneiras = 0;
+            terneiras.value = 0;
         }
-        if (novilhos1 === 0)
+        if (novilhos1.value == "")
         {
-            novilhos1 = 0;
+            novilhos1.value = 0;
         }
-        if (novilhos2 === 0)
+        if (novilhos2.value == "")
         {
-            novilhos2 = 0;
+            novilhos2.value = 0;
         }
-        if (novilhos3 === 0)
+        if (novilhos3.value == "")
         {
-            novilhos3 = 0;
+            novilhos3.value = 0;
         }
-        if (novilhas1 === 0)
+        if (novilhas1.value == "")
         {
-            novilhas1 = 0;
+            novilhas1.value = 0;
         }
-        if (novilhas2 === 0)
+        if (novilhas2.value == "")
         {
-            novilhas2 = 0;
+            novilhas2.value = 0;
         }
-        if (novilhas3 === 0)
+        if (novilhas3.value == "")
         {
-            novilhas3 = 0;
+            novilhas3.value = 0;
         }
-        if (touros === 0)
+        if (touros.value == "")
         {
-            touros = 0;
+            touros.value = 0;
         }
 
 

@@ -86,25 +86,25 @@
         var outros = document.getElementById('outros');
         var total = document.getElementById('total');
 
-        if (medicamentos == null)
+        if (medicamentos.value == "")
         {
-            medicamentos = 0;
+            medicamentos.value = 0;
         }
-        if (maodeobra == null)
+        if (maodeobra.value == "")
         {
-            maodeobra = 0;
+            maodeobra.value = 0;
         }
-        if (maquinas == null)
+        if (maquinas.value == "")
         {
-            maquinas = 0;
+            maquinas.value = 0;
         }
-        if (dispesas == null)
+        if (dispesas.value == "")
         {
-            dispesas = 0;
+            dispesas.value = 0;
         }
-        if (outros == null)
+        if (outros.value == "")
         {
-            outros = 0;
+            outros.value = 0;
         }
 
         total.innerHTML = parseInt(medicamentos.value) +

@@ -191,113 +191,113 @@
         var total2 = document.getElementById('total2');
         var total3 = document.getElementById('total3');
 
-        if (terneiros1.value === "")
+        if (terneiros1.value == "")
         {
-            terneiros1.focus();
+            terneiros1.value = 0;
         }
-        else if (terneiros2.value === "")
+        else if (terneiros2.value == "")
         {
-            terneiros2.focus();
+            terneiros2.value = 0;
         }
         terneiros3.innerHTML = parseInt(terneiros1.value) * parseInt(terneiros2.value);
 
-        if (terneiras1.value === "")
+        if (terneiras1.value == "")
         {
-            terneiras1.focus();
+            terneiras1.value = 0;
         }
-        else if (terneiras2.value === "")
+        else if (terneiras2.value == "")
         {
-            terneiras2.focus();
+            terneiras2.value = 0;
         }
         terneiras3.innerHTML = parseInt(terneiras1.value) * parseInt(terneiras2.value);
 
-        if (novilhas1.value === "")
+        if (novilhas1.value == "")
         {
-            novilhas1.focus();
+            novilhas1.value = 0;
         }
-        else if (novilhas2.value === "")
+        else if (novilhas2.value == "")
         {
-            novilhas2.focus();
+            novilhas2.value = 0;
         }
         novilhas3.innerHTML = parseInt(novilhas1.value) * parseInt(novilhas2.value);
 
-        if (vacdescarte1.value === "")
+        if (vacdescarte1.value == "")
         {
-            vacdescarte1.focus();
+            vacdescarte1.value = 0;
         }
-        else if (vacdescarte2.value === "")
+        else if (vacdescarte2.value == "")
         {
-            vacdescarte2.focus();
+            vacdescarte2.value = 0;
         }
         vacdescarte3.innerHTML = parseInt(vacdescarte1.value) * parseInt(vacdescarte2.value);
 
-        if (vacprenha1.value === "")
+        if (vacprenha1.value == "")
         {
-            vacprenha1.focus();
+            vacprenha1.value = 0;
         }
-        else if (vacprenha2.value === "")
+        else if (vacprenha2.value == "")
         {
-            vacprenha2.focus();
+            vacprenha2.value = 0;
         }
         vacprenha3.innerHTML = parseInt(vacprenha1.value) * parseInt(vacprenha2.value);
 
-        if (vaccria1.value === "")
+        if (vaccria1.value == "")
         {
-            vaccria1.focus();
+            vaccria1.value = 0;
         }
-        else if (vaccria2.value === "")
+        else if (vaccria2.value == "")
         {
-            vaccria2.focus();
+            vaccria2.value = 0;
         }
         vaccria3.innerHTML = parseInt(vaccria1.value) * parseInt(vaccria2.value);
 
-        if (vacgorda1.value === "")
+        if (vacgorda1.value == "")
         {
-            vacgorda1.focus();
+            vacgorda1.value = 0;
         }
-        else if (vacgorda2.value === "")
+        else if (vacgorda2.value == "")
         {
-            vacgorda2.focus();
+            vacgorda2.value = 0;
         }
         vacgorda3.innerHTML = parseInt(vacgorda1.value) * parseInt(vacgorda2.value);
 
-        if (novilhosrecria1.value === "")
+        if (novilhosrecria1.value == "")
         {
-            novilhosrecria1.focus();
+            novilhosrecria1.value = 0;
         }
-        else if (novilhosrecria2.value === "")
+        else if (novilhosrecria2.value == "")
         {
-            novilhosrecria2.focus();
+            novilhosrecria2.value = 0;
         }
         novilhosrecria3.innerHTML = parseInt(novilhosrecria1.value) * parseInt(novilhosrecria2.value);
 
-        if (novilhosgordos1.value === "")
+        if (novilhosgordos1.value == "")
         {
-            novilhosgordos1.focus();
+            novilhosgordos1.value = 0;
         }
-        else if (novilhosgordos2.value === "")
+        else if (novilhosgordos2.value == "")
         {
-            novilhosgordos2.focus();
+            novilhosgordos2.value = 0;
         }
         novilhosgordos3.innerHTML = parseInt(novilhosgordos1.value) * parseInt(novilhosgordos2.value);
 
-        if (torunos1.value === "")
+        if (torunos1.value == "")
         {
-            torunos1.focus();
+            torunos1.value = 0;
         }
-        else if (torunos2.value === "")
+        else if (torunos2.value == "")
         {
-            torunos2.focus();
+            torunos2.value = 0;
         }
         torunos3.innerHTML = parseInt(torunos1.value) * parseInt(torunos2.value);
 
-        if (touros1.value === "")
+        if (touros1.value == "")
         {
-            touros1.focus();
+            touros1.value = 0;
         }
-        else if (touros2.value === "")
+        else if (touros2.value == "")
         {
-            touros2.focus();
+            touros2.value = 0;
         }
         touros3.innerHTML = parseInt(touros1.value) * parseInt(touros2.value);
 
