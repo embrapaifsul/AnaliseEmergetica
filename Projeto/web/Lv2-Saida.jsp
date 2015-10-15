@@ -4,6 +4,8 @@
     Author     : Aluno
 --%>
 
+<%@page import="dao.Lv2ResultadoDAO"%>
+<%@page import="modelo.Lv2Resultado"%>
 <%@page import="modelo.Propriedade"%>
 <%@page import="modelo.Passos"%>
 <%@page import="dao.Lv2p4DAO"%>
@@ -71,6 +73,24 @@
         dao.inserir(d);
         p.setLv2p4(d);
     }
+
+        Lv2Resultado res = new Lv2Resultado();
+        Lv2ResultadoDAO resdao = new Lv2ResultadoDAO();
+        
+        res.setAreaaproveitavel(p.areaaproveitavel());
+        res.setAreamedia(p.areamedia());
+        res.setCustoatividadecria1(p.custoatividadecria1());
+        res.setCustoproducaohectar1(p.custoproducaohectar1());
+        res.setCustotalproducao(p.custotalproducao());
+        res.setCustoterneiro(p.custoterneiro());
+        res.setLotacaomedia2(p.lotacaomedia2());
+        res.setPercentualrebanhocomcria(p.percentualrebanhocomcria());
+        res.setReceitahectar2(p.receitahectar2());
+        res.setTotalreceita(p.totalreceita());
+        res.setAno(p.getAno());
+        res.setPropriedade_id(pro.getId());
+        
+        resdao.inserir(res);
 %>
 
 <%@ include file="cabecalho.jsp" %>

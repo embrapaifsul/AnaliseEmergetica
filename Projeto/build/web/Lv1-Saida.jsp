@@ -4,6 +4,8 @@
     Author     : Aluno
 --%>
 
+<%@page import="dao.Lv1ResultadoDAO"%>
+<%@page import="modelo.Lv1Resultado"%>
 <%@page import="modelo.Propriedade"%>
 <%@page import="modelo.Passos"%>
 <%@page import="dao.Lv1p4DAO"%>
@@ -74,8 +76,24 @@
             dao.atualizar(lv1p4);
         }
         p.setLv1p4(lv1p4);
-
+        
+        
+        
+        
     }
+    
+    Lv1Resultado res = new Lv1Resultado();
+        Lv1ResultadoDAO resdao = new Lv1ResultadoDAO();
+        
+        res.setCustohectar(p.custohectar());
+        res.setLotacaomedia(p.lotacaomedia());
+        res.setReceitahectar(p.receitahectar());
+        res.setTotalcustoproducao(p.totalcustoproducao());
+        res.setAno(p.getAno());
+        res.setPropriedade_id(pro.getId());
+        
+        resdao.inserir(res);
+    
 %>
 <%@ include file="cabecalho.jsp" %>
 </head>
