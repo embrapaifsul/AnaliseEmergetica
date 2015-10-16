@@ -22,6 +22,25 @@ public class Passos {
     private Lv2p3 lv2p3;
     private Lv2p4 lv2p4;
     
+    private Lv3p1 lv3p1;
+    private Lv3p2 lv3p2;
+
+    public Lv3p1 getLv3p1() {
+        return lv3p1;
+    }
+
+    public void setLv3p1(Lv3p1 lv3p1) {
+        this.lv3p1 = lv3p1;
+    }
+
+    public Lv3p2 getLv3p2() {
+        return lv3p2;
+    }
+
+    public void setLv3p2(Lv3p2 lv3p2) {
+        this.lv3p2 = lv3p2;
+    }
+    
     private String ano;
 
     public String getAno() {
