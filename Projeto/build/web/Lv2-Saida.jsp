@@ -221,6 +221,7 @@
                     <div class="control-group">
                         <div class="controls">
                             <input type="submit" class="btn" value="Ir Para o Inicio" />
+                            <a href="Lv2-Comparacao.jsp" class="btn"> Comparar </a>
                         </div>
                     </div>
                 </form>               

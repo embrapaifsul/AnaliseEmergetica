@@ -140,6 +140,28 @@ public class Passos {
         
     }
     
+    public Double totalbovinos (){
+        
+        //passo2
+        Integer vacasdecria = this.getLv1p2().getVacadecria();
+        Integer vacasdedescarte = this.getLv1p2().getVacadedescarte();
+        Integer terneiro = this.getLv1p2().getTerneiro();
+        Integer terneira = this.getLv1p2().getTerneira();
+        Integer novilhos1 = this.getLv1p2().getNovilho1324();
+        Integer novilhas1 = this.getLv1p2().getNovilha1324();
+        Integer novilhos2 = this.getLv1p2().getNovilho2536();
+        Integer novilhas2 = this.getLv1p2().getNovilha2536();
+        Integer novilhos3 = this.getLv1p2().getNovilho36();
+        Integer touros = this.getLv1p2().getTouro();
+        
+        Integer total = vacasdecria + vacasdedescarte + terneiro + terneira + novilhos1 + novilhas1 + novilhos2 + novilhas2 + novilhos3 + touros;
+        Double total1 = Double.parseDouble(total.toString());
+        return total1;
+        
+        
+    }
+    
+    
     public double percentualcria (){
         //passo1
         Double areapec = this.getLv1p1().getArea_apro();
@@ -282,6 +304,55 @@ public class Passos {
         Integer fim = ((a1+a2+a3+a4+j1+j2+j3+j4+f1+f2+f3+f4+h1+h2+h3+h4+c1+c2+c3+c4+d1+d2+d3+d4) * 100) / total;
         
         return  fim; 
+    }
+    
+    public double totalrebanho2 () {
+        
+        Integer a1 = this.getLv2p2().getVacadecriajanmar();
+        Integer a2 = this.getLv2p2().getVacadecriaabrjun();
+        Integer a3 = this.getLv2p2().getVacadecriajulset();
+        Integer a4 = this.getLv2p2().getVacadecriaoutdez();
+        Integer b1 = this.getLv2p2().getVacadedescartejanmar();
+        Integer b2 = this.getLv2p2().getVacadedescarteabrjun();
+        Integer b3 = this.getLv2p2().getVacadedescartejulset();
+        Integer b4 = this.getLv2p2().getVacadedescarteoutdez();
+        Integer c1 = this.getLv2p2().getTerneirosjanmar();
+        Integer c2 = this.getLv2p2().getTerneirosabrjun();
+        Integer c3 = this.getLv2p2().getTerneirosjulset();
+        Integer c4 = this.getLv2p2().getTerneirosoutdez();
+        Integer d1 = this.getLv2p2().getTerneirasjanmar();
+        Integer d2 = this.getLv2p2().getTerneirasabrjun();
+        Integer d3 = this.getLv2p2().getTerneirasjulset();
+        Integer d4 = this.getLv2p2().getTerneirasoutdez();
+        Integer e1 = this.getLv2p2().getNovilho1324janmar();
+        Integer e2 = this.getLv2p2().getNovilho1324abrjun();
+        Integer e3 = this.getLv2p2().getNovilho1324julset();
+        Integer e4 = this.getLv2p2().getNovilho1324outdez();
+        Integer f1 = this.getLv2p2().getNovilha1324janmar();
+        Integer f2 = this.getLv2p2().getNovilha1324abrjun();
+        Integer f3 = this.getLv2p2().getNovilha1324julset();
+        Integer f4 = this.getLv2p2().getNovilha1324outdez(); 
+        Integer g1 = this.getLv2p2().getNovilho2536janmar();
+        Integer g2 = this.getLv2p2().getNovilho2536abrjun();
+        Integer g3 = this.getLv2p2().getNovilho2536julset();
+        Integer g4 = this.getLv2p2().getNovilho2536outdez();
+        Integer h1 = this.getLv2p2().getNovilha2536janmar();
+        Integer h2 = this.getLv2p2().getNovilha2536abrjun();
+        Integer h3 = this.getLv2p2().getNovilha2536julset();
+        Integer h4 = this.getLv2p2().getNovilha2536outdez();
+        Integer i1 = this.getLv2p2().getNovilho36janmar();
+        Integer i2 = this.getLv2p2().getNovilho36abrjun();
+        Integer i3 = this.getLv2p2().getNovilho36julset();
+        Integer i4 = this.getLv2p2().getNovilho36outdez();
+        Integer j1 = this.getLv2p2().getTourojanmar();
+        Integer j2 = this.getLv2p2().getTouroabrjun();
+        Integer j3 = this.getLv2p2().getTourojulset();
+        Integer j4 = this.getLv2p2().getTourooutdez();
+        
+        Integer total = a1+a2+a3+a4+b1+b2+b3+b4+c1+c2+c3+c4+d1+d2+d3+d4+e1+e2+e3+e4+f1+f2+f3+f4+g1+g2+g3+g4+h1+h2+h3+h4+i1+i2+i3+i4+j1+j2+j3+j4;
+       
+        
+        return  total; 
     }
     
     public double lotacaomedia2 () {
