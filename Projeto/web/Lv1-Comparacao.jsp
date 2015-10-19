@@ -67,7 +67,7 @@
                     yAxis: {
                         allowDecimals: false,
                         title: {
-                            text: 'Units'
+                            text: 'Dados'
                         }
                     },
                     tooltip: {
