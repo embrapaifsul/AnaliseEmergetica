@@ -178,6 +178,7 @@
                         <div class="controls">
                             <input type="hidden" name="data2" id="data2" value="<%=p.getAno()%>" />
                             <input type="submit" class="btn" value="Próximo Nível" />
+                            <a href="Lv1-Comparacao.jsp" class="btn"> Comparar </a>
                         </div>
                     </div>
                 </form>               

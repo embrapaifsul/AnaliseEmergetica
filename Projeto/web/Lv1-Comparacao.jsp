@@ -18,6 +18,17 @@
     Passos p = new Passos();
     Propriedade pro = new Propriedade();
 
+    if (session.getAttribute("Usuario") != null) {
+        u = (Usuario) session.getAttribute("Usuario");
+        p = (Passos) session.getAttribute("Passos");
+        pro = (Propriedade) session.getAttribute("Propriedade");
+    } else {
+        response.sendRedirect("index.jsp");
+    }
+
+    
+    
+
 %>
 
 
@@ -37,8 +48,41 @@
         <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
         <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
         <script type="text/javascript" src="bootstrap/TesteJavaScript.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <style type="text/css">
+            ${demo.css}
+        </style>
+        <script type="text/javascript">
+            $(function () {
+                $('#container').highcharts({
+                    data: {
+                        table: 'datatable'
+                    },
+                    chart: {
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Comparação de você com os outros usuarios.'
+                    },
+                    yAxis: {
+                        allowDecimals: false,
+                        title: {
+                            text: 'Dados'
+                        }
+                    },
+                    tooltip: {
+                        formatter: function () {
+                            return '<b>' + this.series.name + '</b><br/>' +
+                                    this.point.y + ' ' + this.point.name.toLowerCase();
+                        }
+                    }
+                });
+            });
+        </script>
     </head>
     <body>
+
+
 
         <nav class="navbar navbar-fixed-top navbar-inverse">
             <div class="navbar-inner">
@@ -78,8 +122,64 @@
         </nav>
 
         <header class="page-header"></header> 
+        <br/><br/><br/>
 
+        <script src="js/highcharts.js"></script>
+        <script src="js/modules/data.js"></script>
+        <script src="js/modules/exporting.js"></script>
+
+        <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <aside class="span1"></aside>
+                <aside class="span5">
         
+        <table id="datatable" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Você</th>
+                    <th>Outros</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Aréa</th>
+                    <td><%=p.getLv1p1().getArea_apro()%></td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <th>Bovinos</th>
+                    <td><%=p.totalbovinos()%></td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <th>Custo</th>
+                    <td><%=p.getLv1p3().getReceita_anual()%></td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <th>Gasto</th>
+                    <td><%=p.totalcustoproducao()%></td>
+                    <td>5</td>
+                </tr>
+            </tbody>
+        </table>
+
+        </aside>
+            </div>
+        </div>
+                    
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <aside class="span1"></aside>
+                <aside class="span1">
+                    <br/>
+                    <a href="Lv1-Saida.jsp" class="btn"> Voltar </a>
+                </aside>
+            </div>
+        </div>
         
     </body>
 
