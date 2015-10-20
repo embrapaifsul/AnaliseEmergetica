@@ -139,7 +139,7 @@
                 <h2> Custo de Produção </h2>
                 <br/>
 
-                <form name="Passo4" action="InicioPropriedade.jsp" class="form-horizontal" method ="post" onSubmit="return passo4();">
+                <form name="Passo4" action="VerificarLv3.jsp" class="form-horizontal" method ="post" onSubmit="return passo4();">
                     <div class="control-group">
                         <label class="control-label">Área Média da Pecuária:</label>
                         <div class="controls">
@@ -220,7 +220,7 @@
                     </div>
                     <div class="control-group">
                         <div class="controls">
-                            <input type="submit" class="btn" value="Ir Para o Inicio" />
+                            <input type="submit" class="btn" value="Proximo Nivél" />
                         </div>
                     </div>
                 </form>               

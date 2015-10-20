@@ -37,10 +37,10 @@
                 p.setLv3p2(n12);
           
             } else {
-                response.sendRedirect("Lv2-Passo2.jsp");
+                response.sendRedirect("Lv3-Passo2.jsp");
             }
         } else {
-            response.sendRedirect("Lv2-Passo1.jsp");
+            response.sendRedirect("Lv3-Passo1.jsp");
         }
 
     } else {

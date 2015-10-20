@@ -45,7 +45,7 @@
 
                     if (n14 != null) {
                         p.setLv1p4(n14);
-                        response.sendRedirect("Lv1-Passo1.jsp");
+                        response.sendRedirect("VerificarLv2.jsp");
                     } else {
                         response.sendRedirect("Lv1-Passo4.jsp");
                     }
