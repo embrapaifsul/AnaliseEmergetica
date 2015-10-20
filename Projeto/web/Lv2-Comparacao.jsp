@@ -4,6 +4,7 @@
     Author     : Aluno
 --%>
 
+<%@page import="dao.Lv1ResultadoDAO"%>
 <%@page import="dao.PropriedadeDAO"%>
 <%@page import="modelo.Propriedade"%>
 <%@page import="modelo.Passos"%>
@@ -26,7 +27,7 @@
         response.sendRedirect("index.jsp");
     }
 
-
+    
 %>
 
 
@@ -159,7 +160,7 @@
                             <tr>
                                 <th>Gasto</th>
                                 <td><%=p.custotalproducao()%></td>
-                                <td>5</td>
+                                <td></td>
                             </tr>
                         </tbody>
                     </table>

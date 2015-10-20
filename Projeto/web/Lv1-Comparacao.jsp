@@ -4,6 +4,7 @@
     Author     : Aluno
 --%>
 
+<%@page import="dao.Lv1ResultadoDAO"%>
 <%@page import="dao.PropriedadeDAO"%>
 <%@page import="modelo.Propriedade"%>
 <%@page import="modelo.Passos"%>
@@ -27,7 +28,9 @@
     }
 
     
+    Lv1ResultadoDAO dao = new Lv1ResultadoDAO();
     
+    Double totalcustoproducao = Double.parseDouble(dao.media().toString()); 
 
 %>
 
@@ -162,7 +165,7 @@
                 <tr>
                     <th>Gasto</th>
                     <td><%=p.totalcustoproducao()%></td>
-                    <td>5</td>
+                    <td><%=totalcustoproducao%></td>
                 </tr>
             </tbody>
         </table>

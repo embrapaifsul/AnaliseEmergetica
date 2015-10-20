@@ -77,13 +77,35 @@
         } else {
             dao.atualizar(d);
         }
-        
+
         p.setLv2p4(d);
     }
 
+    Double a = p.areaaproveitavel();
+    Double a1 = p.areamedia();
+    Double a2 = p.custoatividadecria1();
+    Double a3 = p.custoproducaohectar1();
+    Double a4 = p.custotalproducao();
+    Double a5 = p.custoterneiro();
+    Double a6 = p.lotacaomedia2();
+    Double a7 = p.percentualrebanhocomcria();
+    Double a8 = p.receitahectar2();
+    Double a9 = p.totalreceita();
+
+    if (a != null
+            || a1 != null
+            || a2 != null
+            || a3 != null
+            || a4 != null
+            || a5 != null
+            || a6 != null
+            || a7 != null
+            || a8 != null
+            || a9 != null) {
+
         Lv2Resultado res = new Lv2Resultado();
         Lv2ResultadoDAO resdao = new Lv2ResultadoDAO();
-        
+
         res.setAreaaproveitavel(p.areaaproveitavel());
         res.setAreamedia(p.areamedia());
         res.setCustoatividadecria1(p.custoatividadecria1());
@@ -96,8 +118,15 @@
         res.setTotalreceita(p.totalreceita());
         res.setAno(p.getAno());
         res.setPropriedade_id(pro.getId());
-        
-        resdao.inserir(res);
+
+        Lv2Resultado teste;
+        teste = resdao.buscar(p.getAno(), pro);
+        if (teste == null) {
+            resdao.inserir(res);
+        } else {
+            resdao.atualizar(res);
+        }
+    }
 %>
 
 <%@ include file="cabecalho.jsp" %>
@@ -227,12 +256,12 @@
                     </div>
                     <div class="control-group">
                         <div class="controls">
-<<<<<<< HEAD
+                            <<<<<<< HEAD
                             <input type="submit" class="btn" value="Proximo Nivél" />
-=======
+                            =======
                             <input type="submit" class="btn" value="Ir Para o Inicio" />
                             <a href="Lv2-Comparacao.jsp" class="btn"> Comparar </a>
->>>>>>> origin/master
+                            >>>>>>> origin/master
                         </div>
                     </div>
                 </form>               

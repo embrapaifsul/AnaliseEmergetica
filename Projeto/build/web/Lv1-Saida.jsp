@@ -76,24 +76,38 @@
             dao.atualizar(lv1p4);
         }
         p.setLv1p4(lv1p4);
-        
-        
-        
-        
+
     }
-    
-    Lv1Resultado res = new Lv1Resultado();
+
+    Double a = p.custohectar();
+    Double a1 = p.receitahectar();
+    Double a6 = p.lotacaomedia();
+    Double a7 = p.totalcustoproducao();
+
+    if (a != null
+            || a1 != null
+            || a6 != null
+            || a7 != null) {
+
+        Lv1Resultado res = new Lv1Resultado();
         Lv1ResultadoDAO resdao = new Lv1ResultadoDAO();
-        
+
         res.setCustohectar(p.custohectar());
         res.setLotacaomedia(p.lotacaomedia());
         res.setReceitahectar(p.receitahectar());
         res.setTotalcustoproducao(p.totalcustoproducao());
         res.setAno(p.getAno());
         res.setPropriedade_id(pro.getId());
-        
-        resdao.inserir(res);
-    
+
+        Lv1Resultado teste;
+        teste = resdao.buscar(p.getAno(), pro);
+        if (teste == null) {
+            resdao.inserir(res);
+        } else {
+            resdao.atualizar(res);
+        }
+    }
+
 %>
 <%@ include file="cabecalho.jsp" %>
 </head>

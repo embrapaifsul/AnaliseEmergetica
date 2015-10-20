@@ -153,4 +153,32 @@ public class Lv1ResultadoDAO {
         return retorno;
 
     }
+    
+    public Lv1Resultado media() {
+
+        //crio a lista de jogadores
+        Lv1Resultado Lv1resultado = null;
+        String sql = "select avg(totalcustoproducao) from lv1resultado";
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+
+        try {
+            //Executo o aql e jogo em um resultSet
+            //pst.setString(1, ano);
+            //pst.setInt(2, pro.getId());
+            ResultSet res = pst.executeQuery();
+
+            if (res.next()) {
+                
+                
+                Lv1resultado = new Lv1Resultado();
+                Lv1resultado.setTotalcustoproducao(res.getDouble("totalcustoproducao"));
+                
+
+            }
+        } catch (SQLException ex) {
+
+            ex.printStackTrace();
+        }
+        return Lv1resultado;
+    }
 }
