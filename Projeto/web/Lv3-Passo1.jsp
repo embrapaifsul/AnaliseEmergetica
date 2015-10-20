@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="modelo.Lv3p1"%>
 <%@page import="modelo.Passos"%>
 <%@page import="modelo.Usuario"%>
 <%@page import="modelo.Propriedade"%>
@@ -53,11 +56,45 @@
         session.setAttribute("Passos", p);
 
     }
+       List<Lv3p1> depreciacoes;
+      if(session.getAttribute("depreciacoes")!=null)
+      {
+      
+         depreciacoes = (List<Lv3p1>)session.getAttribute("depreciacoes");
+      }
+      else
+      {
+          //listar o que já tem no banco pro ano/propriedade
+          depreciacoes = new ArrayList<Lv3p1>();
+          session.setAttribute("depreciacoes",depreciacoes);
+          
+      }
+      //Verifica se chamou do modal
+      if(request.getParameter("descricao")!= null||
+            request.getAttribute("categoria")!= null||
+            request.getAttribute("vida")!= null||
+            request.getAttribute("valor")!= null||
+            request.getAttribute("valorm")!= null){
+             
+        Lv3p1 a = new Lv3p1();
+        a.setDescricao(request.getParameter("descricao").toString());
+        a.setCategoria(request.getParameter("categoria").toString());
+        a.setVida(Integer.parseInt(request.getParameter("vida").toString()));
+        a.setValor(Double.parseDouble(request.getParameter("valor").toString()));
+        a.setValorm(Double.parseDouble(request.getParameter("valorm").toString()));
+        a.setAno(p.getAno());
+        a.setPropriedade_id(pro.getId());
+        
+        depreciacoes.add(a);
+        
+       
+      }
+     
 
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<<%@ include file="cabecalho.jsp" %>
+<%@ include file="cabecalho.jsp" %>
     </head>
     <body>
        <%@ include file="barranavegacao3.jsp" %>
@@ -101,8 +138,45 @@
 
                 <h2> Depreciação  </h2>
                 <br/>
+ <a href="#MeuModal" class="btn btn-primary" role="button" data-toggle="modal"> Add </a>
+ <div class="control-group">
+                        <label class="control-label">Item</label>
+                        
+                            <span>Valor/R$</span>
+                   
+                    </div>
+                 <%
+                 Double total = 0.0;
+                  for(Lv3p1 depreciacao:depreciacoes)
+                  {
+                 %>
+                 <div class="control-group">
+                        <label ><%=depreciacao.getDescricao()%>:</label>
+                        
+                            <span><%=depreciacao.getValor()%></span>
+                            
+                        
+                    </div>
+                  <%
+                  }
+                  %>          
+   
+            </aside>
 
-                <form name="Passo1" action="Lv3-Passo2.jsp" class="form-horizontal" method ="post" onSubmit="return passo1();">
+        </div>
+    </div>
+    
+    
+    
+    
+    <section id="MeuModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="meuModelLabel" aria-hidden="true">
+                <header class="modal-header">
+                    <button class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                    <h3 id="meuModelLabel"> Depreciação</h3>
+                </header>
+                <section class="modal-body">
+
+                   <form name="Passo1" action="Lv3-Passo1.jsp" class="form-horizontal" method ="post" onSubmit="return passo1();">
                     <div class="control-group">
                         <label class="control-label">Descrição do item:</label>
                         <div class="controls">
@@ -110,12 +184,7 @@
                             <textarea  name="descricao" id="descricao" placeholder="Descreva o item" rows="6" required=""></textarea>
                         </div>
                     </div>
-                    <div class="control-group">
-                        <label class="control-label">Categoria:</label>
-                        <div class="controls">
-                            <input type="text" name="categoria" id="categoria" placeholder="Quantidade(cabeças)" required="">
-                            
-                        </div>
+                   
                     </div>
                     <div class="control-group">
                         <label class="control-label">Vida util:</label>
@@ -131,24 +200,17 @@
                            
                         </div>
                     </div>
-                    <div class="control-group">
-                        <label class="control-label">Valor em m²:</label>
-                        <div class="controls">
-                            <input type="text" name="valorm" id="valorm" placeholder="Valor do item(m²)" required="">
-                            
-                        </div>
+                    
                     </div>                    
                     <div class="control-group">
                         <div class="controls">
-                            <input type="submit" class="btn" value="Proximo Passo" />
+                            <input type="submit" class="btn btn-primary" value="Salvar" />
                         </div>
                     </div>
-                </form>               
+                </form> 
 
-            </aside>
-
-        </div>
-    </div>
+                </section>
+            </section>                
     <footer class="footer">
         <div class="container">
         </div>

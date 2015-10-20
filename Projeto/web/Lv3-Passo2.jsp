@@ -18,18 +18,9 @@
 
     
     
-    if(request.getParameter("descricao")!= null||
-            request.getAttribute("categoria")!= null||
-            request.getAttribute("vida")!= null||
-            request.getAttribute("valor")!= null||
-            request.getAttribute("valorm")!= null){
-             
-        Lv3p1 a = new Lv3p1();
-        a.setDescricao(request.getParameter("descricao").toString());
-        a.setCategoria(request.getParameter("categoria").toString());
-        a.setVida(Integer.parseInt(request.getParameter("vida").toString()));
-        a.setValor(Double.parseDouble(request.getParameter("valor").toString()));
-        a.setValorm(Double.parseDouble(request.getParameter("valorm").toString()));
+        //Buscar a Lista na Session
+    //Percorrer a lista, para cada item da lista adicionar no BD
+    //limpar a session depreciacao
         
         Lv3p1DAO dao = new Lv3p1DAO();
         dao.inserir(a);

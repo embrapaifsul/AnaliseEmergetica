@@ -18,7 +18,7 @@
                     <li><a></a></li>
                     <li><a>Propriedade: </a></li>
                     <li><a></a></li>
-                    <li><a>Ano: </a></li>
+                    <li><a>Ano:<%=p.getAno()%> </a></li>
                     <li><a></a></li>
                     <li><a>Nivel: 3</a></li>
                     <li><a></a></li>
