@@ -5,21 +5,15 @@
 <%@page import="modelo.Usuario"%>
 <%  Usuario u = new Usuario();
     Passos p = new Passos();
-    String categoria ="";
-    String descricao = "";
-    String valor = "";
-    String valorm="";
-    String vida ="";
     
-      if (session.getAttribute("Passos") != null) {
+      Propriedade pro = new Propriedade();
+    if (session.getAttribute("Usuario") != null && session.getAttribute("Passos") != null && session.getAttribute("Propriedade") != null) {
+        u = (Usuario) session.getAttribute("Usuario");
         p = (Passos) session.getAttribute("Passos");
-        categoria = p.getLv3p1().getCategoria();
-        descricao = p.getLv3p1().getDescricao();
-        vida = p.getLv3p1().getVida().toString();
-        valor = p.getLv3p1().getValor().toString();
-        valorm = p.getLv3p1().getValorm().toString();          
-      }
-      
+        pro = (Propriedade) session.getAttribute("Propriedade");
+    } else {
+        response.sendRedirect("index.jsp");
+    }
       
 
     

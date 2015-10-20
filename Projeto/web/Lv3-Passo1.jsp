@@ -10,7 +10,51 @@
         pro = (Propriedade) session.getAttribute("Propriedade");
     } else {
         response.sendRedirect("index.jsp");
-    }%>
+    }
+    
+    String link2;
+    String link3;
+    String link4;
+    String link5;
+
+    
+    
+     String categoria ="";
+    String descricao = "";
+    String valor = "";
+    String valorm="";
+    String vida ="";
+
+   
+      if (session.getAttribute("Passos") != null) {
+        p = (Passos) session.getAttribute("Passos");
+        if (p.getLv3p1() != null) {
+        categoria = p.getLv3p1().getCategoria();
+        descricao = p.getLv3p1().getDescricao();
+        vida = p.getLv3p1().getVida().toString();
+        valor = p.getLv3p1().getValor().toString();
+        valorm = p.getLv3p1().getValorm().toString();          
+      }
+           
+        
+
+        if (p.getLv3p2() == null) {
+            link2 = " class='inativo' ";
+            link3 = " class='inativo' ";
+            link4 = " class='inativo' ";
+            link5 = " class='inativo' ";
+
+        } 
+            
+            
+        
+    } else {
+        p = new Passos();
+        session.setAttribute("Passos", p);
+
+    }
+
+%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <<%@ include file="cabecalho.jsp" %>
@@ -21,7 +65,7 @@
     <div class="container-fluid">
         <div class="row-fluid">
 
-            <aside class="span11">
+            <aside class="span11"
                 <section id="breadcrumbs">
                     <header class="page-header">
                         <h3> Progresso </h3>
