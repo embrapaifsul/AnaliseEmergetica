@@ -151,7 +151,7 @@
                   {
                  %>
                  <div class="control-group">
-                        <label ><%=depreciacao.getDescricao()%>:</label>
+                        <label class="control-label"><%=depreciacao.getDescricao()%>:</label>
                         
                             <span><%=depreciacao.getValor()%></span>
                             
@@ -184,7 +184,12 @@
                             <textarea  name="descricao" id="descricao" placeholder="Descreva o item" rows="6" required=""></textarea>
                         </div>
                     </div>
-                   
+                    <div class="control-group">
+                        <label class="control-label">Categoria:</label>
+                        <div class="controls">
+                            <input type="text" name="categoria" id="categoria" placeholder="Informe a categoria" required="">
+                            
+                        </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Vida util:</label>
@@ -200,7 +205,12 @@
                            
                         </div>
                     </div>
-                    
+                    <div class="control-group">
+                        <label class="control-label">Valor em m²:</label>
+                        <div class="controls">
+                            <input type="text" name="valorm" id="valorm" placeholder="Valor do item(m²)" required="">
+                            
+                        </div>
                     </div>                    
                     <div class="control-group">
                         <div class="controls">
