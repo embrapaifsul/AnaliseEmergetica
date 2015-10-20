@@ -4,6 +4,8 @@
     Author     : Aluno
 --%>
 
+<%@page import="dao.Lv2ResultadoDAO"%>
+<%@page import="modelo.Lv2Resultado"%>
 <%@page import="dao.Lv1ResultadoDAO"%>
 <%@page import="dao.PropriedadeDAO"%>
 <%@page import="modelo.Propriedade"%>
@@ -27,6 +29,21 @@
         response.sendRedirect("index.jsp");
     }
 
+    Lv2Resultado res = new Lv2Resultado();
+    Lv2ResultadoDAO dao = new Lv2ResultadoDAO();
+            
+    res = dao.media();
+    
+    res.getAreaaproveitavel();
+    res.getAreamedia();
+    res.getCustoatividadecria1();
+    res.getCustoproducaohectar1();
+    res.getCustotalproducao();
+    res.getCustoterneiro();
+    res.getLotacaomedia2();
+    res.getPercentualrebanhocomcria();
+    res.getReceitahectar2();
+    res.getTotalreceita();
     
 %>
 
