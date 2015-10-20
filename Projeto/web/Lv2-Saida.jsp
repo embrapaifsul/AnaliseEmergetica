@@ -255,6 +255,7 @@
                         </div>
                     </div>
                     <div class="control-group">
+<<<<<<< HEAD
                         <div class="controls">
                             <<<<<<< HEAD
                             <input type="submit" class="btn" value="Proximo Nivél" />
@@ -262,6 +263,12 @@
                             <input type="submit" class="btn" value="Ir Para o Inicio" />
                             <a href="Lv2-Comparacao.jsp" class="btn"> Comparar </a>
                             >>>>>>> origin/master
+=======
+
+                            <input type="submit" class="btn" value="Proximo Nivél" />                     
+                            <a href="Lv2-Comparacao.jsp" class="btn"> Comparar </a>
+
+>>>>>>> origin/master
                         </div>
                     </div>
                 </form>               
