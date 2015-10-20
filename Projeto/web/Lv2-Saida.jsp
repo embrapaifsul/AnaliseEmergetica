@@ -70,7 +70,14 @@
         d.setAno(p.getAno());
 
         Lv2p4DAO dao = new Lv2p4DAO();
-        dao.inserir(d);
+        Lv2p4 teste;
+        teste = dao.buscar(p.getAno(), pro);
+        if (teste == null) {
+            dao.inserir(d);
+        } else {
+            dao.atualizar(d);
+        }
+        
         p.setLv2p4(d);
     }
 

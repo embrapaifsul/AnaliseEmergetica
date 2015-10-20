@@ -122,7 +122,14 @@
         c.setAno(p.getAno());
 
         Lv2p3DAO dao = new Lv2p3DAO();
-        dao.inserir(c);
+        Lv2p3 teste;
+        teste = dao.buscar(p.getAno(), pro);
+        if (teste == null) {
+            dao.inserir(c);
+        } else {
+            dao.atualizar(c);
+        }
+        
         p.setLv2p3(c);
     }
 %>

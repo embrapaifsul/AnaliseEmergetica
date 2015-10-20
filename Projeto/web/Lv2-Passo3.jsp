@@ -145,7 +145,14 @@
         b.setAno(p.getAno());
 
         Lv2p2DAO dao = new Lv2p2DAO();
-        dao.inserir(b);
+        Lv2p2 teste;
+        teste = dao.buscar(p.getAno(), pro);
+        if (teste == null) {
+            dao.inserir(b);
+        } else {
+            dao.atualizar(b);
+        }
+        
         p.setLv2p2(b);
     }
 %>
