@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="index.jsp" class="brand">Fazenda</a>
+            <a class="brand">Fazenda</a>
 
             <div class="nav-collapse collapse">
                 <ul class="nav">
@@ -29,7 +29,7 @@
                     <li><a></a></li>
                     <li><a></a></li>
                     <li><a></a></li>
-                    <li><a href="index.jsp">Usuario: <%=u.getLogin()%></a></li>
+                    <li><a href="InicioPropriedade.jsp">Usuario: <%=u.getLogin()%></a></li>
                 </ul>
             </div>
         </div>

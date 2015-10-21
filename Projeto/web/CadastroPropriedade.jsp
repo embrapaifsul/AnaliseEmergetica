@@ -41,7 +41,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="Inicio.jsp" class="brand">Fazenda</a>
+                    <a class="brand">Fazenda</a>
 
                     <div class="nav-collapse collapse">
                         <ul class="nav">
@@ -50,7 +50,7 @@
                             <li><a></a></li>
                             <li><a></a></li>
                             <li><a></a></li>
-                            <li><a href="index.jsp"> Usuario </a></li>
+                            <li><a href="InicioPropriedade.jsp"> Usuario </a></li>
                         </ul>
                     </div>
                 </div>
@@ -79,19 +79,19 @@
                         <div class="control-group">  
                             <label class="control-label">Nome:</label>
                             <div class="controls">      
-                                <input type="text" name="nomepro">        
+                                <input type="text" name="nomepro" required>        
                             </div>         
                         </div>
                         <div class="control-group">
                             <label class="control-label">Cidade:</label>
                             <div class="controls">
-                                <input type="text" name="cidade">
+                                <input type="text" name="cidade" required>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">UF:</label>
                             <div class="controls">
-                                <input type="text" name="uf">
+                                <input type="text" name="uf" required>
                             </div>
                         </div>
                         <div class="control-group">

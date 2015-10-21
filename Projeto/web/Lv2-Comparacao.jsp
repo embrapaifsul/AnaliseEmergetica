@@ -37,13 +37,13 @@
     res.getAreaaproveitavel();
     res.getAreamedia();
     res.getCustoatividadecria1();
-    res.getCustoproducaohectar1();
+    
     res.getCustotalproducao();
     res.getCustoterneiro();
     res.getLotacaomedia2();
     res.getPercentualrebanhocomcria();
     res.getReceitahectar2();
-    res.getTotalreceita();
+    
     
 %>
 
@@ -70,15 +70,96 @@
         </style>
         <script type="text/javascript">
             $(function () {
-                $('#container').highcharts({
+                $('#container1').highcharts({
                     data: {
-                        table: 'datatable'
+                        table: 'datatable1'
                     },
                     chart: {
                         type: 'column'
                     },
                     title: {
-                        text: 'Comparação de você com os outros usuarios.'
+                        text: 'Área'
+                    },
+                    yAxis: {
+                        allowDecimals: false,
+                        title: {
+                            text: 'Dados'
+                        }
+                    },
+                    tooltip: {
+                        formatter: function () {
+                            return '<b>' + this.series.name + '</b><br/>' +
+                                    this.point.y + ' ' + this.point.name.toLowerCase();
+                        }
+                    }
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(function () {
+                $('#container2').highcharts({
+                    data: {
+                        table: 'datatable2'
+                    },
+                    chart: {
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Bovinos'
+                    },
+                    yAxis: {
+                        allowDecimals: false,
+                        title: {
+                            text: 'Dados'
+                        }
+                    },
+                    tooltip: {
+                        formatter: function () {
+                            return '<b>' + this.series.name + '</b><br/>' +
+                                    this.point.y + ' ' + this.point.name.toLowerCase();
+                        }
+                    }
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(function () {
+                $('#container3').highcharts({
+                    data: {
+                        table: 'datatable3'
+                    },
+                    chart: {
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Custo'
+                    },
+                    yAxis: {
+                        allowDecimals: false,
+                        title: {
+                            text: 'Dados'
+                        }
+                    },
+                    tooltip: {
+                        formatter: function () {
+                            return '<b>' + this.series.name + '</b><br/>' +
+                                    this.point.y + ' ' + this.point.name.toLowerCase();
+                        }
+                    }
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(function () {
+                $('#container4').highcharts({
+                    data: {
+                        table: 'datatable4'
+                    },
+                    chart: {
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'Gasto'
                     },
                     yAxis: {
                         allowDecimals: false,
@@ -107,7 +188,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="Inicio.jsp" class="brand">Fazenda</a>
+                    <a class="brand">Fazenda</a>
 
                     <div class="nav-collapse collapse">
                         <ul class="nav">
@@ -128,7 +209,7 @@
                             <li><a></a></li>
                             <li><a></a></li>
                             <li><a></a></li>
-                            <li><a href="index.jsp">Usuario: <%=u.getLogin()%></a></li>
+                            <li><a href="InicioPropriedade.jsp">Usuario: <%=u.getLogin()%></a></li>
                         </ul>
                     </div>
                 </div>
@@ -143,48 +224,134 @@
         <script src="js/modules/data.js"></script>
         <script src="js/modules/exporting.js"></script>
 
-        <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
         <div class="container-fluid">
+            <br/><br/>
             <div class="row-fluid">
-                <aside class="span1"></aside>
-                <aside class="span5">
-
-                    <table id="datatable" class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Você</th>
-                                <th>Outros</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>Aréa</th>
-                                <td><%=p.areamedia()%></td>
-                                <td>4</td>
-                            </tr>
-                            <tr>
-                                <th>Bovinos</th>
-                                <td><%=p.totalrebanho2()%></td>
-                                <td>5</td>
-                            </tr>
-                            <tr>
-                                <th>Custo</th>
-                                <td><%=p.totalreceita()%></td>
-                                <td>11</td>
-                            </tr>
-                            <tr>
-                                <th>Gasto</th>
-                                <td><%=p.custotalproducao()%></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-
+                <aside class="span1">
+                </aside>
+                <aside class="span6">
+                    <h3>Comparação de Dados</h3>
+                    <br/><br/>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Você</th>
+                    <th>Outros</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Aréa</th>
+                    <td><%=p.custohectar()%></td>
+                    <td><%=res.getCustoproducaohectar1()%></td>
+                </tr>
+                <tr>
+                    <th>Bovinos</th>
+                    <td><%=p.lotacaomedia()%></td>
+                    <td><%=res.getLotacaomedia2()%></td>
+                </tr>    
+                <tr>
+                    <th>Custo</th>
+                    <td><%=p.receitahectar()%></td>
+                    <td><%=res.getReceitahectar2()%></td>
+                </tr>
+                <tr>
+                    <th>Gasto</th>
+                    <td><%=p.totalcustoproducao()%></td>
+                    <td><%=res.getTotalreceita()%></td>
+                </tr>
+            </tbody>
+        </table>
                 </aside>
             </div>
         </div>
+        
+        <div class="container-fluid">
+            <br/><br/><br/><br/>
+            <div class="row-fluid">
+                <aside class="span6">
+                    <div id="container1" style="width: 450px; height: 320px; margin: 0 auto"></div>
+                </aside>
+                <aside class="span6">
+                    <div id="container2" style="width: 450px; height: 320px; margin: 0 auto"></div>
+                </aside>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <br/><br/><br/><br/>
+            <div class="row-fluid">
+                <aside class="span6">
+                    <br/><br/>
+                    <div id="container3" style="width: 450px; height: 320px; margin: 0 auto"></div>
+                </aside>
+                <aside class="span6">
+                    <br/><br/>
+                    <div id="container4" style="width: 450px; height: 320px; margin: 0 auto"></div>
+                </aside>
+            </div>
+        </div>
+        
+        <table id="datatable1" class="table table-bordered" style="display:none">
+            <thead>
+                <tr>
+                    <th>Você</th>
+                    <th>Outros</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Aréa</th>
+                    <td><%=p.custohectar()%></td>
+                    <td><%=res.getCustoproducaohectar1()%></td>
+                </tr>
+            </tbody>
+        </table>
+        <table id="datatable2" class="table table-bordered" style="display:none">        
+            <thead>
+                <tr>
+                    <th>Você</th>
+                    <th>Outros</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Bovinos</th>
+                    <td><%=p.lotacaomedia()%></td>
+                    <td><%=res.getLotacaomedia2()%></td>
+                </tr>
+            </tbody>
+        </table>
+        <table id="datatable3" class="table table-bordered" style="display:none">
+            <thead>
+                <tr>
+                    <th>Você</th>
+                    <th>Outros</th>
+                </tr>
+            </thead>
+            <tbody>    
+                <tr>
+                    <th>Custo</th>
+                    <td><%=p.receitahectar()%></td>
+                    <td><%=res.getReceitahectar2()%></td>
+                </tr>
+            </tbody>
+        </table>
+        <table id="datatable4" class="table table-bordered" style="display:none">
+            <thead>
+                <tr>
+                    <th>Você</th>
+                    <th>Outros</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Gasto</th>
+                    <td><%=p.totalcustoproducao()%></td>
+                    <td><%=res.getTotalreceita()%></td>
+                </tr>
+            </tbody>
+        </table>
 
         <div class="container-fluid">
             <div class="row-fluid">

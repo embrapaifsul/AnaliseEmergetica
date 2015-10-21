@@ -82,7 +82,7 @@
                             <li><a></a></li>
                             <li><a></a></li>
                             <li><a></a></li>
-                            <li><a href="index.jsp"> Usuario </a></li>
+                            <li><a href="InicioPropriedade.jsp"> Usuario </a></li>
                         </ul>
                     </div>
                 </div>

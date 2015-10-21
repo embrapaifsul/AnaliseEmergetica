@@ -15,7 +15,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="Inicio.jsp" class="brand">Fazenda</a>
+                <a class="brand">Fazenda</a>
 
                 <div class="nav-collapse collapse">
                     <ul class="nav">
@@ -24,7 +24,7 @@
                         <li><a></a></li>
                         <li><a></a></li>
                         <li><a></a></li>
-                        <li><a href="index.jsp"> Usuario </a></li>
+                        <li><a href="InicioPropriedade.jsp"> Usuario </a></li>
                     </ul>
                 </div>
             </div>
