@@ -209,7 +209,7 @@
                     <br/>
                     <form name="AnoLv1" action="VerificarLv.jsp" class="form-horizontal" method ="post">
                         <div class="control-group">
-                            <label class="control-label">Ano das Informações:</label>
+                            <label class="control-label">Ano da Análise:</label>
                             <div class="controls">
 
                                 <input type="text" name="data" value="<%=ano%>" required>
