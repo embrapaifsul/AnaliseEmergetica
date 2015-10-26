@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import modelo.Lv1p1;
 import modelo.Lv3p1;
 import modelo.Propriedade;
 
@@ -26,19 +25,18 @@ public class Lv3p1DAO {
         
         Boolean retorno;
         //Mostra o sql de insert da tabela
-        String sql = "INSERT INTO lv3p1(descricao, categoria, vida, valor, valor_m, ano, id_propriedade)\n" +
-"    VALUES (?, ?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO lv3p1(descricao, vida, valor, ano, propriedade_id) VALUES ( ?, ?, ?, ?, ?);";
+                    
+    
         //Prepara a conexão
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         
        try{ 
         pst.setString(1, lv3p1.getDescricao());
-        pst.setString(2, lv3p1.getCategoria());
-         pst.setInt(3, lv3p1.getVida());
-        pst.setDouble(4, lv3p1.getValor());
-        pst.setDouble(5, lv3p1.getValorm());
-        pst.setString(6, lv3p1.getAno());
-        pst.setInt(7, lv3p1.getPropriedade_id());
+        pst.setInt(2, lv3p1.getVida());
+        pst.setDouble(3, lv3p1.getValor());
+        pst.setString(4, lv3p1.getAno());
+        pst.setInt(5, lv3p1.getPropriedade_id());
         
         //Executa o sql no bancod de dados
         pst.executeUpdate();
@@ -71,7 +69,7 @@ public class Lv3p1DAO {
         
         
         } catch (SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Lv3p1DAO.class.getName()).log(Level.SEVERE, null, ex);
             retorno = false;
         }
         return retorno;
@@ -87,6 +85,7 @@ public class Lv3p1DAO {
         //crio a lista de jogadores
         
         List<Lv3p1> lista = new ArrayList<Lv3p1>();
+     
         String sql = "SELECT * FROM lv3p1";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         
@@ -99,8 +98,8 @@ public class Lv3p1DAO {
             {
                 Lv3p1 lv3p1 = new Lv3p1();
                 lv3p1.setValor(res.getDouble("valor"));
-                lv3p1.setValorm(res.getDouble("valorm"));
-                lv3p1.setCategoria(res.getString("caegoria"));
+                
+               
                 lv3p1.setDescricao(res.getString("descricao"));
                 lv3p1.setVida(res.getInt("vida"));
                 lv3p1.setAno(res.getString("ano"));
@@ -111,7 +110,12 @@ public class Lv3p1DAO {
                
                ex.printStackTrace();
             }
-        return lista;
+        if(lista != null){
+            return lista;
+        }else{
+        return null;    
+        }
+        
         }
       
      
@@ -180,11 +184,4 @@ public class Lv3p1DAO {
       
      
      
-     
-     
-     
-     
-     
-     
-     
-}
+  }

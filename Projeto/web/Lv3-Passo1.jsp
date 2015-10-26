@@ -1,3 +1,4 @@
+<%@page import="dao.Lv3p1DAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="modelo.Lv3p1"%>
@@ -5,6 +6,7 @@
 <%@page import="modelo.Usuario"%>
 <%@page import="modelo.Propriedade"%>
 <% Usuario u = new Usuario();
+    Lv3p1DAO dao = new Lv3p1DAO ();
    Passos p = new Passos ();
     Propriedade pro = new Propriedade();
     if (session.getAttribute("Usuario") != null && session.getAttribute("Passos") != null && session.getAttribute("Propriedade") != null) {
@@ -32,11 +34,11 @@
       if (session.getAttribute("Passos") != null) {
         p = (Passos) session.getAttribute("Passos");
         if (p.getLv3p1() != null) {
-        categoria = p.getLv3p1().getCategoria();
+        
         descricao = p.getLv3p1().getDescricao();
         vida = p.getLv3p1().getVida().toString();
         valor = p.getLv3p1().getValor().toString();
-        valorm = p.getLv3p1().getValorm().toString();          
+        
       }
            
         
@@ -57,6 +59,11 @@
 
     }
        List<Lv3p1> depreciacoes;
+       
+
+       
+
+       
       if(session.getAttribute("depreciacoes")!=null)
       {
       
@@ -65,30 +72,30 @@
       else
       {
           //listar o que já tem no banco pro ano/propriedade
-          depreciacoes = new ArrayList<Lv3p1>();
+          depreciacoes = dao.listar();
           session.setAttribute("depreciacoes",depreciacoes);
           
       }
       //Verifica se chamou do modal
-      if(request.getParameter("descricao")!= null||
-            request.getAttribute("categoria")!= null||
-            request.getAttribute("vida")!= null||
-            request.getAttribute("valor")!= null||
-            request.getAttribute("valorm")!= null){
+      if(request.getParameter("descricao")!= null||      
+            request.getParameter("vida")!= null||
+            request.getParameter("valor")!= null){
              
         Lv3p1 a = new Lv3p1();
         a.setDescricao(request.getParameter("descricao").toString());
-        a.setCategoria(request.getParameter("categoria").toString());
+       
         a.setVida(Integer.parseInt(request.getParameter("vida").toString()));
         a.setValor(Double.parseDouble(request.getParameter("valor").toString()));
-        a.setValorm(Double.parseDouble(request.getParameter("valorm").toString()));
+        
         a.setAno(p.getAno());
         a.setPropriedade_id(pro.getId());
         
         depreciacoes.add(a);
+          session.setAttribute("depreciacoes",depreciacoes);
         
        
       }
+      
      
 
 %>
@@ -140,27 +147,45 @@
                 <br/>
  <a href="#MeuModal" class="btn btn-primary" role="button" data-toggle="modal"> Add </a>
  <div class="control-group">
-                        <label class="control-label">Item</label>
                         
-                            <span>Valor/R$</span>
+             
                    
                     </div>
+ 
+                     <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Item<button type="button" class="btn btn-default btn-link" data-toggle="tooltip" data-placement="right" title="Item informado sobre a depreciação."><i class="icon-info-sign"></i></button></th>
+                                <th>Valor</th>                                
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                  <%
                  Double total = 0.0;
                   for(Lv3p1 depreciacao:depreciacoes)
                   {
                  %>
                  <div class="control-group">
-                        <label class="control-label"><%=depreciacao.getDescricao()%>:</label>
+                     
+                     <tr class="success">                                  
+                                
+                                <td><%=depreciacao.getDescricao()%></td>
+                                <td><%=depreciacao.getValor()%></td>
+                                <td>
+                                    <a class="btn" href="#"> Excluir </a></td>
+                            </tr>
                         
-                            <span><%=depreciacao.getValor()%></span>
+                        
                             
                         
                     </div>
                   <%
                   }
                   %>          
-   
+       </tbody>
+                    </table>
+       <a class ="btn" href="Lv3-Passo2.jsp">Próximo nivel</a>
             </aside>
 
         </div>
@@ -184,12 +209,7 @@
                             <textarea  name="descricao" id="descricao" placeholder="Descreva o item" rows="6" required=""></textarea>
                         </div>
                     </div>
-                    <div class="control-group">
-                        <label class="control-label">Categoria:</label>
-                        <div class="controls">
-                            <input type="text" name="categoria" id="categoria" placeholder="Informe a categoria" required="">
-                            
-                        </div>
+                   
                     </div>
                     <div class="control-group">
                         <label class="control-label">Vida util:</label>
@@ -205,13 +225,7 @@
                            
                         </div>
                     </div>
-                    <div class="control-group">
-                        <label class="control-label">Valor em m²:</label>
-                        <div class="controls">
-                            <input type="text" name="valorm" id="valorm" placeholder="Valor do item(m²)" required="">
-                            
-                        </div>
-                    </div>                    
+                                      
                     <div class="control-group">
                         <div class="controls">
                             <input type="submit" class="btn btn-primary" value="Salvar" />
