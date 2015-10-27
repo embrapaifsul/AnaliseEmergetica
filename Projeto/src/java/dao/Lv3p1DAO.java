@@ -107,16 +107,17 @@ public class Lv3p1DAO {
                 lista.add(lv3p1);
             }
             } catch(SQLException ex){
-               
+                
                ex.printStackTrace();
+               return null; 
             }
-        if(lista != null){
+      
             return lista;
-        }else{
-        return null;    
+        
+          
         }
         
-        }
+        
       
      
       public Lv3p1 buscar(String ano, Propriedade pro)
@@ -138,11 +139,9 @@ public class Lv3p1DAO {
             if(res.next())
             {
                 lv3p1 = new Lv3p1();
-                lv3p1.setValor(res.getDouble("valor"));
-                lv3p1.setValorm(res.getDouble("valorm"));
-                lv3p1.setCategoria(res.getString("caegoria"));
-                lv3p1.setDescricao(res.getString("descricao"));
+                lv3p1.setDescricao(res.getString("descricao"));                
                 lv3p1.setVida(res.getInt("vida"));
+                lv3p1.setValor(res.getDouble("valor"));                                                
                 lv3p1.setAno(res.getString("ano"));
                 lv3p1.setPropriedade_id(res.getInt("propiedade_id"));                        
                 

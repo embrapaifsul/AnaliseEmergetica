@@ -158,7 +158,12 @@ public class Lv1ResultadoDAO {
 
         //crio a lista de jogadores
         Lv1Resultado Lv1resultado = null;
-        String sql = "select avg(totalcustoproducao) from lv1resultado";
+        String sql = "select \n" +
+"	ROUND(avg(totalcustoproducao),2) as totalcustoproducao, \n" +
+"	ROUND(avg(lotacaomedia),2) as lotacaomedia,\n" +
+"	ROUND(avg(receitahectar),2) as receitahectar,\n" +
+"	ROUND(avg(custohectar),2) as custohectar\n" +
+"  from lv1resultado";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
 
         try {
@@ -168,11 +173,12 @@ public class Lv1ResultadoDAO {
             ResultSet res = pst.executeQuery();
 
             if (res.next()) {
-                
-                
+            
                 Lv1resultado = new Lv1Resultado();
                 Lv1resultado.setTotalcustoproducao(res.getDouble("totalcustoproducao"));
-                
+                Lv1resultado.setLotacaomedia(res.getDouble("lotacaomedia"));
+                Lv1resultado.setReceitahectar(res.getDouble("receitahectar"));
+                Lv1resultado.setCustohectar(res.getDouble("custohectar"));
 
             }
         } catch (SQLException ex) {

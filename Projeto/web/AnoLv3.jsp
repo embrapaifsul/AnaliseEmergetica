@@ -129,7 +129,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="Inicio.jsp" class="brand">Fazenda</a>
+                    <a  class="brand">Fazenda</a>
 
                     <div class="nav-collapse collapse">
                         <ul class="nav">
@@ -150,7 +150,7 @@
                             <li><a></a></li>
                             <li><a></a></li>
                             <li><a></a></li>
-                            <li><a href="index.jsp">Usuario: <%=u.getLogin()%></a></li>
+                            <li><a href="InicioPropriedade.jsp">Usuario: <%=u.getLogin()%></a></li>
                         </ul>
                     </div>
                 </div>
@@ -196,7 +196,7 @@
                     <br/>
                     <form name="AnoLv3" action="VerificarLv.jsp" class="form-horizontal" method ="post">
                         <div class="control-group">
-                            <label class="control-label">Ano das Informações:</label>
+                            <label class="control-label">Ano da Análise:</label>
                             <div class="controls">
 
                                 <input type="text" name="data" value="<%=ano%>" required>

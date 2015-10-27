@@ -150,6 +150,48 @@ public class Lv2ResultadoDAO {
         }
         return Lv2resultado;
     }
+    
+     public Lv2Resultado media() {
+
+        //crio a lista de jogadores
+        Lv2Resultado Lv2resultado = null;
+        String sql = "SELECT ROUND(avg(areamedia),2) as areamedia, \n" +
+"	ROUND(avg(areaaproveitavel),2) as  areaaproveitavel,\n" +
+"	ROUND(avg(percentualrebanhocomcria),2) as  percentualrebanhocomcria,\n" +
+"	ROUND(avg(lotacaomedia2),2) as  lotacaomedia2,\n" +
+"       ROUND(avg(totalreceita),2) as  totalreceita,\n" +
+"       ROUND(avg(receitahectar2),2) as  receitahectar2,\n" +
+"       ROUND(avg(custotalproducao),2) as  custotalproducao,\n" +
+"       ROUND(avg(custoatividadecria1),2) as custoatividadecria1,\n" +
+"       ROUND(avg(custoproducaohectar1),2) as custoproducaohectar1,\n" +
+"       ROUND(avg(custoterneiro),2) as custoterneiro\n" +
+"  FROM lv2resultado;";
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+
+        try {
+            
+            ResultSet res = pst.executeQuery();
+
+            if (res.next()) {
+                Lv2resultado = new Lv2Resultado();
+                Lv2resultado.setAreamedia(res.getDouble("areamedia"));
+                Lv2resultado.setAreaaproveitavel(res.getDouble("areaaproveitavel"));             
+                Lv2resultado.setCustoatividadecria1(res.getDouble("custoatividadecria1"));
+                Lv2resultado.setCustoproducaohectar1(res.getDouble("custoproducaohectar1"));
+                Lv2resultado.setCustotalproducao(res.getDouble("custototalproducao"));
+                Lv2resultado.setCustoterneiro(res.getDouble("custoterneiro"));
+                Lv2resultado.setLotacaomedia2(res.getDouble("lotacaomedia2"));
+                Lv2resultado.setPercentualrebanhocomcria(res.getDouble("percentualrebanhocomcria"));
+                Lv2resultado.setReceitahectar2(res.getDouble("receitahectar2"));
+                Lv2resultado.setTotalreceita(res.getDouble("totalreceita"));
+
+            }
+        } catch (SQLException ex) {
+
+            ex.printStackTrace();
+        }
+        return Lv2resultado;
+    }
 
     public Boolean atualizar(Lv2Resultado Lv2resultado) {
         Boolean retorno = false;

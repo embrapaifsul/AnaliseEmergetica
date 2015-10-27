@@ -24,10 +24,9 @@
 
     
     
-     String categoria ="";
+     
     String descricao = "";
     String valor = "";
-    String valorm="";
     String vida ="";
 
    
@@ -36,8 +35,9 @@
         if (p.getLv3p1() != null) {
         
         descricao = p.getLv3p1().getDescricao();
+         valor = p.getLv3p1().getValor().toString();
         vida = p.getLv3p1().getVida().toString();
-        valor = p.getLv3p1().getValor().toString();
+       
         
       }
            
@@ -64,7 +64,7 @@
        
 
        
-      if(session.getAttribute("depreciacoes")!=null)
+      if(session.getAttribute("depreciacoes")!= null)
       {
       
          depreciacoes = (List<Lv3p1>)session.getAttribute("depreciacoes");
