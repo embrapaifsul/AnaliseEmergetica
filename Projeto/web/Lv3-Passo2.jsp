@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@page import="dao.Lv3p1DAO"%>
 <%@page import="modelo.Lv3p1"%>
 <%@page import="modelo.Propriedade"%>
@@ -22,13 +24,21 @@
     //Percorrer a lista, para cada item da lista adicionar no BD
     //limpar a session depreciacao
         
-        Lv3p1DAO dao = new Lv3p1DAO();
-        dao.inserir(a);
-        p.setLv3p1(a);
+    List<Lv3p1> depreciacoes = new ArrayList<Lv3p1>();
+    depreciacoes = (List<Lv3p1>)session.getAttribute("depreciacoes");
+    Lv3p1DAO dao = new Lv3p1DAO();
+    Boolean deucerto;
+    for(Lv3p1 depreciacao:depreciacoes)
+    {
+    
+        
+       deucerto = dao.inserir(depreciacao);
+    
         
         
     }
-      
+    
+      session.setAttribute("depreciacoes", null);
       
       
     
