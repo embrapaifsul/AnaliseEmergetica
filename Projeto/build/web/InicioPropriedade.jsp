@@ -64,7 +64,7 @@
                             <li><a></a></li>
                             <li><a></a></li>
                             <li><a></a></li>
-                            <li><a href="InicioPropriedade.jsp"><%=u.getLogin()%></a></li>
+                            <li><a>Usuario: <%=u.getLogin()%></a></li>
                         </ul>
                     </div>
                 </div>
