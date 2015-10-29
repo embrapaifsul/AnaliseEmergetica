@@ -68,6 +68,11 @@
       {
       
          depreciacoes = (List<Lv3p1>)session.getAttribute("depreciacoes");
+         if(request.getParameter("excluir")!=null)
+         {
+             depreciacoes.remove(Integer.parseInt(request.getParameter("excluir")));
+             session.setAttribute("depreciacoes",depreciacoes);
+         }
       }
       else
       {
@@ -163,6 +168,7 @@
                         <tbody>
                  <%
                  Double total = 0.0;
+                 Integer posicao = 0;
                   for(Lv3p1 depreciacao:depreciacoes)
                   {
                  %>
@@ -173,7 +179,7 @@
                                 <td><%=depreciacao.getDescricao()%></td>
                                 <td><%=depreciacao.getValor()%></td>
                                 <td>
-                                    <a class="btn" href="#"> Excluir </a></td>
+                                    <a class="btn" href="Lv3-Passo1.jsp?excluir=<%=posicao%>"> Excluir </a></td>
                             </tr>
                         
                         
@@ -181,6 +187,7 @@
                         
                     </div>
                   <%
+                     posicao++;
                   }
                   %>          
        </tbody>

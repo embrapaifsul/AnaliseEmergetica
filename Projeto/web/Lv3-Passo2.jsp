@@ -28,19 +28,13 @@
     depreciacoes = (List<Lv3p1>)session.getAttribute("depreciacoes");
     Lv3p1DAO dao = new Lv3p1DAO();
     Boolean deucerto;
+   dao.excluirall(p.getAno(), pro);
     for(Lv3p1 depreciacao:depreciacoes)
     {
-    
-        
        deucerto = dao.inserir(depreciacao);
-    
-        
-        
+          session.setAttribute("depreciacoes", null);
+      
     }
-    
-      session.setAttribute("depreciacoes", null);
-      
-      
     
 %>
 

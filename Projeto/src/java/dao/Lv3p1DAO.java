@@ -58,10 +58,34 @@ public class Lv3p1DAO {
      
      public Boolean excluir(Lv3p1 lv3p1){
         Boolean retorno = false;
-        String sql = "DELETE FROM lv3p1 where propriedade_id=?";
+        String sql = "DELETE FROM lv3p1 where descricao=?";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         try {           
-            pst.setInt(1,lv3p1.getPropriedade_id());
+            
+            pst.setString(1, lv3p1.getDescricao());
+        
+        if(pst.executeUpdate() > 0){
+            retorno = true;
+        }
+        
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(Lv3p1DAO.class.getName()).log(Level.SEVERE, null, ex);
+            retorno = false;
+        }
+        return retorno;
+        
+    }
+     
+     
+     
+     public Boolean excluirall(String ano, Propriedade pro){
+        Boolean retorno = false;
+        String sql = "DELETE FROM lv3p1 where ano = ? propriedade_id=?";
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        try {           
+            pst.setString(1,ano);
+            pst.setInt(2, pro.getId());
         
         if(pst.executeUpdate() > 0){
             retorno = true;
@@ -81,7 +105,7 @@ public class Lv3p1DAO {
      
      public List<Lv3p1> listar()
     {
-        
+        Lv3p1 lv3p1;
         //crio a lista de jogadores
         
         List<Lv3p1> lista = new ArrayList<Lv3p1>();
@@ -96,14 +120,14 @@ public class Lv3p1DAO {
             //com a minha classe Jogador e adicionar na lista 
             while(res.next())
             {
-                Lv3p1 lv3p1 = new Lv3p1();
+                lv3p1 = new Lv3p1();
                 lv3p1.setValor(res.getDouble("valor"));
                 
                
                 lv3p1.setDescricao(res.getString("descricao"));
                 lv3p1.setVida(res.getInt("vida"));
                 lv3p1.setAno(res.getString("ano"));
-                lv3p1.setPropriedade_id(res.getInt("propiedade_id"));                
+                lv3p1.setPropriedade_id(res.getInt("propriedade_id"));                
                 lista.add(lv3p1);
             }
             } catch(SQLException ex){
@@ -156,17 +180,16 @@ public class Lv3p1DAO {
       
       public Boolean atualizar(Lv3p1 lv3p1){
         Boolean retorno = false;
-        String sql = "UPDATE lv3p1 set ano=?,descricao=?, categoria=?, vida=?, valor=?, valor_m=? where propriedade_id=?";
+        String sql = "UPDATE lv3p1 set descricao=?,  vida=?, valor=? where ano= ? and propriedade_id=?";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         try {
             
-        pst.setString(1, lv3p1.getAno());
-        pst.setString(2, lv3p1.getDescricao());
-        pst.setString(3, lv3p1.getCategoria());
-        pst.setInt(4,    lv3p1.getVida());
-        pst.setDouble(5, lv3p1.getValor());
-        pst.setDouble(6, lv3p1.getValorm());
-        pst.setDouble(7, lv3p1.getPropriedade_id());
+       
+        pst.setString(1, lv3p1.getDescricao());        
+        pst.setInt(2,    lv3p1.getVida());
+        pst.setDouble(3, lv3p1.getValor());
+        pst.setString(4, lv3p1.getAno());
+        pst.setDouble(5, lv3p1.getPropriedade_id());
         
         if(pst.executeUpdate() > 0){
             retorno = true;
