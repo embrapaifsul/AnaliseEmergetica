@@ -175,15 +175,19 @@ public class Lv2ResultadoDAO {
             if (res.next()) {
                 Lv2resultado = new Lv2Resultado();
                 Lv2resultado.setAreamedia(res.getDouble("areamedia"));
-                Lv2resultado.setAreaaproveitavel(res.getDouble("areaaproveitavel"));             
+                Lv2resultado.setAreaaproveitavel(res.getDouble("areaaproveitavel"));  
+                Lv2resultado.setPercentualrebanhocomcria(res.getDouble("percentualrebanhocomcria"));
+                Lv2resultado.setLotacaomedia2(res.getDouble("lotacaomedia2"));
+                Lv2resultado.setTotalreceita(res.getDouble("totalreceita"));
+                Lv2resultado.setReceitahectar2(res.getDouble("receitahectar2"));
+                Lv2resultado.setCustotalproducao(res.getDouble("custotalproducao"));
                 Lv2resultado.setCustoatividadecria1(res.getDouble("custoatividadecria1"));
                 Lv2resultado.setCustoproducaohectar1(res.getDouble("custoproducaohectar1"));
-                Lv2resultado.setCustotalproducao(res.getDouble("custototalproducao"));
                 Lv2resultado.setCustoterneiro(res.getDouble("custoterneiro"));
-                Lv2resultado.setLotacaomedia2(res.getDouble("lotacaomedia2"));
-                Lv2resultado.setPercentualrebanhocomcria(res.getDouble("percentualrebanhocomcria"));
-                Lv2resultado.setReceitahectar2(res.getDouble("receitahectar2"));
-                Lv2resultado.setTotalreceita(res.getDouble("totalreceita"));
+                
+                
+                
+                
 
             }
         } catch (SQLException ex) {

@@ -255,12 +255,11 @@
                         </div>
                     </div>
                     <div class="control-group">
-
+                        <div class="controls">
+                            <br/>
                             <input type="hidden" name="data2" id="data2" value="<%=p.getAno()%>" />
                             <input type="submit" class="btn" value="Proximo Nivél" />                     
                             <a href="Lv2-Comparacao.jsp" class="btn"> Comparar </a>
-
-
                         </div>
                     </div>
                 </form>               

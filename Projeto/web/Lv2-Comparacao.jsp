@@ -33,17 +33,7 @@
     Lv2ResultadoDAO dao = new Lv2ResultadoDAO();
             
     res = dao.media();
-    
-    res.getAreaaproveitavel();
-    res.getAreamedia();
-    res.getCustoatividadecria1();
-    
-    res.getCustotalproducao();
-    res.getCustoterneiro();
-    res.getLotacaomedia2();
-    res.getPercentualrebanhocomcria();
-    res.getReceitahectar2();
-    
+
     
 %>
 
@@ -243,22 +233,22 @@
             <tbody>
                 <tr>
                     <th>Aréa</th>
-                    <td><%=p.custohectar()%></td>
+                    <td><%=p.custoproducaohectar1()%></td>
                     <td><%=res.getCustoproducaohectar1()%></td>
                 </tr>
                 <tr>
                     <th>Bovinos</th>
-                    <td><%=p.lotacaomedia()%></td>
+                    <td><%=p.lotacaomedia2()%></td>
                     <td><%=res.getLotacaomedia2()%></td>
                 </tr>    
                 <tr>
                     <th>Custo</th>
-                    <td><%=p.receitahectar()%></td>
+                    <td><%=p.receitahectar2()%></td>
                     <td><%=res.getReceitahectar2()%></td>
                 </tr>
                 <tr>
                     <th>Gasto</th>
-                    <td><%=p.totalcustoproducao()%></td>
+                    <td><%=p.custotalproducao()%></td>
                     <td><%=res.getTotalreceita()%></td>
                 </tr>
             </tbody>
@@ -278,6 +268,7 @@
                 </aside>
             </div>
         </div>
+                
         <div class="container-fluid">
             <br/><br/><br/><br/>
             <div class="row-fluid">
@@ -302,11 +293,12 @@
             <tbody>
                 <tr>
                     <th>Aréa</th>
-                    <td><%=p.custohectar()%></td>
+                    <td><%=p.custoproducaohectar1()%></td>
                     <td><%=res.getCustoproducaohectar1()%></td>
                 </tr>
             </tbody>
         </table>
+                
         <table id="datatable2" class="table table-bordered" style="display:none">        
             <thead>
                 <tr>
@@ -317,7 +309,7 @@
             <tbody>
                 <tr>
                     <th>Bovinos</th>
-                    <td><%=p.lotacaomedia()%></td>
+                    <td><%=p.lotacaomedia2()%></td>
                     <td><%=res.getLotacaomedia2()%></td>
                 </tr>
             </tbody>
@@ -332,7 +324,7 @@
             <tbody>    
                 <tr>
                     <th>Custo</th>
-                    <td><%=p.receitahectar()%></td>
+                    <td><%=p.receitahectar2()%></td>
                     <td><%=res.getReceitahectar2()%></td>
                 </tr>
             </tbody>
@@ -347,7 +339,7 @@
             <tbody>
                 <tr>
                     <th>Gasto</th>
-                    <td><%=p.totalcustoproducao()%></td>
+                    <td><%=p.custotalproducao()%></td>
                     <td><%=res.getTotalreceita()%></td>
                 </tr>
             </tbody>
@@ -357,8 +349,9 @@
             <div class="row-fluid">
                 <aside class="span1"></aside>
                 <aside class="span1">
-                    <br/><br/>
+                    <br/><br/><br/><br/>
                     <a href="Lv2-Saida.jsp" class="btn"> Voltar </a>
+                    <br/><br/>
                 </aside>
             </div>
         </div>
