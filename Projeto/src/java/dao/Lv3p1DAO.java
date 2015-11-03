@@ -81,7 +81,7 @@ public class Lv3p1DAO {
      
      public Boolean excluirall(String ano, Propriedade pro){
         Boolean retorno = false;
-        String sql = "DELETE FROM lv3p1 where ano = ? propriedade_id=?";
+        String sql = "DELETE FROM lv3p1 where ano = ? and propriedade_id=?";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         try {           
             pst.setString(1,ano);
