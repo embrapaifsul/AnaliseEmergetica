@@ -286,6 +286,7 @@
         <table id="datatable1" class="table table-bordered" style="display:none">
             <thead>
                 <tr>
+                    <th></th>
                     <th>Você</th>
                     <th>Outros</th>
                 </tr>
@@ -302,6 +303,7 @@
         <table id="datatable2" class="table table-bordered" style="display:none">        
             <thead>
                 <tr>
+                    <th></th>
                     <th>Você</th>
                     <th>Outros</th>
                 </tr>
@@ -317,6 +319,7 @@
         <table id="datatable3" class="table table-bordered" style="display:none">
             <thead>
                 <tr>
+                    <th></th>
                     <th>Você</th>
                     <th>Outros</th>
                 </tr>
@@ -332,6 +335,7 @@
         <table id="datatable4" class="table table-bordered" style="display:none">
             <thead>
                 <tr>
+                    <th></th>
                     <th>Você</th>
                     <th>Outros</th>
                 </tr>
