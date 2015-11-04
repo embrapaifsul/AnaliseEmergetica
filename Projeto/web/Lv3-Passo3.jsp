@@ -26,6 +26,14 @@
     
     
     
+    
+
+
+    
+    
+    
+    
+    
   if(request.getParameter("combustivel") != null || request.getParameter("eletricidade") != null|| request.getParameter("materiaismanutencao") != null || request.getParameter("manutencao") != null||
      request.getParameter("impostos") != null || request.getParameter("servicosprivados") != null || request.getParameter("telefone") != null || request.getParameter("touro") != null ||
      request.getParameter("vacasinvernar") != null || request.getParameter("novilhos") != null || request.getParameter("vacinaovinos") != null || request.getParameter("vermifugosovinos") != null ||
@@ -68,7 +76,7 @@
         p.setLv3p2(a);
     }
       
-  }
+  
 
 
 %>
