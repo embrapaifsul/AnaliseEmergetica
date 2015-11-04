@@ -85,13 +85,15 @@ String ano;
         this.impostos = impostos;
     }
 
-    public Double getServiçosPrivados() {
-        return serviçosPrivados;
+    public Double getServicosPrivados() {
+        return servicosPrivados;
     }
 
-    public void setServiçosPrivados(Double serviçosPrivados) {
-        this.serviçosPrivados = serviçosPrivados;
+    public void setServicosPrivados(Double servicosPrivados) {
+        this.servicosPrivados = servicosPrivados;
     }
+
+
 
     public Double getTelefone() {
         return telefone;
@@ -204,7 +206,7 @@ String ano;
     public void setPlanoSaude(Double planoSaude) {
         this.planoSaude = planoSaude;
     }
-Double depreciacao,combustivel,eletricidade,materiaisManutencao,manutencao,impostos,serviçosPrivados,telefone,touro;	   
+Double depreciacao,combustivel,eletricidade,materiaisManutencao,manutencao,impostos,servicosPrivados,telefone,touro;	   
 Double vacasInvernar,novilhos,vacinaOvinos,vermifugosOvinos,vacinaBovinos,vermifugosBovinos,vermifugoEquinos;
 Double sementeMilho,sementeAzevem,remedio,comida,planoSaude;	 
 

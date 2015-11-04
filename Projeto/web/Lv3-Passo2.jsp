@@ -1,3 +1,5 @@
+<%--
+--%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.Lv3p1DAO"%>
@@ -16,9 +18,68 @@
     } else {
         response.sendRedirect("index.jsp");
     }
-      
+Double depreciacao,combustivel,eletricidade,materiais_manutencao,manutencao,impostos,servicos_privados,telefone;
+Double touro,vacas_invernar,novilhos,vacina_ovinos,vermifugos_ovinos,vacina_bovinos,vermifugos_bovinos,vermifugo_equinos;
+Double semente_azevem,remedio,comida,plano_saude,semente_milho;
+
+
 
     
+ if (session.getAttribute("Passos") != null) {
+        p = (Passos) session.getAttribute("Passos");
+        if (p.getLv3p1() != null) {
+            depreciacao = p.getLv3p2().getDepreciacao();
+            combustivel = p.getLv3p2().getCombustivel();
+            eletricidade = p.getLv3p2().getEletricidade();
+            materiais_manutencao = p.getLv3p2().getManutencao();
+            manutencao = p.getLv3p2().getManutencao();
+            impostos = p.getLv3p2().getImpostos();
+            servicos_privados = p.getLv3p2().getServicosPrivados();
+            telefone = p.getLv3p2().getTelefone();
+            touro = p.getLv3p2().getTouro();
+            vacas_invernar = p.getLv3p2().getVacasInvernar();
+            novilhos = p.getLv3p2().getNovilhos();
+            vacina_ovinos = p.getLv3p2().getVacinaOvinos();
+            vacina_bovinos = p.getLv3p2().getVacinaBovinos();
+            vermifugos_bovinos = p.getLv3p2().getVermifugosBovinos();
+            vermifugos_ovinos = p.getLv3p2().getVermifugosOvinos();
+            vermifugo_equinos = p.getLv3p2().getVermifugoEquinos();
+            semente_azevem = p.getLv3p2().getSementeAzevem();
+            remedio = p.getLv3p2().getRemedio();
+            comida = p.getLv3p2().getComida();
+            plano_saude = p.getLv3p2().getPlanoSaude();
+            semente_milho = p.getLv3p2().getSementeMilho();
+            
+        }
+        
+
+        if (p.getLv2p4() == null) {
+            link4 = " class='inativo' ";
+            link5 = " class='inativo' ";
+        }
+
+    } else {
+        p = new Passos();
+        p.setAno(request.getParameter("data"));
+        session.setAttribute("Passos", p);
+
+    }
+
+
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
     
         //Buscar a Lista na Session
     //Percorrer a lista, para cada item da lista adicionar no BD
@@ -29,7 +90,7 @@
     Lv3p1DAO dao = new Lv3p1DAO();
     Boolean deucerto;
    dao.excluirall(p.getAno(), pro);
-    for(Lv3p1 depreciacao:depreciacoes)
+    for (Lv3p1 depreciacao:depreciacoes)
     {
        deucerto = dao.inserir(depreciacao);
           session.setAttribute("depreciacoes", null);
@@ -39,11 +100,7 @@
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+<%@ include file="cabecalho.jsp" %>
     </head>
     <body>
        <%@ include file="barranavegacao3.jsp" %>
@@ -61,8 +118,8 @@
                             <li><a href="Lv2-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
                             <li><a href="Lv2-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
                             <li class="alert-info"> Passo 3 </li><span class="divider"> / </span>
-                            <li><a href="Lv2-Passo4.jsp" <%=link4%>> Passo 4 </a><span class="divider"> / </span></li>
-                            <li><a href="Lv2-Saida.jsp" <%=link5%>> Resultados </a></li>
+                            <li><a href="Lv2-Passo4.jsp" > Passo 4 </a><span class="divider"> / </span></li>
+                            <li><a href="Lv2-Saida.jsp" > Resultados </a></li>
                         </ul>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
@@ -85,7 +142,7 @@
 
             <aside class="span11">
 
-                <h2> Receita Anual de Bovinos </h2>
+                <h2>Cálculo dos custos de produção </h2>
                 <br/>
 
                 <form name="Passo3" action="Lv2-Passo3.jsp" class="form-horizontal" method ="post" onSubmit="return passo3();">
@@ -104,6 +161,7 @@
                     <div class="control-group">
                         <label class="control-label">Materiais de manutenção:</label>
                         <div class="controls">
+                            <br/>
                             <input type="text" name="materiaismanutencao" id="materiaismanutencao" placeholder="R$" required >
                         </div>
                     </div>
@@ -116,7 +174,7 @@
                     <div class="control-group">
                         <label class="control-label">Impostos:</label>
                         <div class="controls">
-                            <input type="text" name="impostos" id="impostos" placeholder="R$" required >
+                            <input type="text" name="impostos" id="impostos" placeholder=i"R$" required >
                         </div>
                     </div>
                     <div class="control-group">
@@ -181,6 +239,50 @@
                         </div>
                     </div>
                     
+                    
+                    <div class="control-group">
+                        <label class="control-label">Vermifugo equinos:</label>
+                        <div class="controls">
+                            <input type="text" name="vermifugosequinos" id="vermifugosequinos" placeholder="R$" required >
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="control-group">
+                        <label class="control-label">Sementes aveia e Azevém:</label>
+                        <div class="controls">
+                            <input type="text" name="sementesaveia" id="sementesaveia" placeholder="R$" required >
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Sementes Milho:</label>
+                        <div class="controls">
+                            <input type="text" name="sementemilho" id="sementemilho" placeholder="R$" required >
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="control-group">
+                        <label class="control-label">Remédio:</label>
+                        <div class="controls">
+                            <input type="text" name="remedio" id="remedio" placeholder="R$" required >
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Comida:</label>
+                        <div class="controls">
+                            <input type="text" name="comida" id="comida" placeholder="R$" required >
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Plano de Saúde:</label>
+                        <div class="controls">
+                            <input type="text" name="planosaude" id="planosaude" placeholder="R$" required >
+                        </div>
+                    </div>
                     
                     <div class="control-group">
                         <div class="controls">

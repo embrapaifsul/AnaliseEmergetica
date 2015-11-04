@@ -47,7 +47,7 @@ public class Lv3p2DAO {
         pst.setDouble(4, lv3p2.getMateriaisManutencao());
         pst.setDouble(5, lv3p2.getManutencao());
         pst.setDouble(6, lv3p2.getImpostos());
-        pst.setDouble(7, lv3p2.getServiçosPrivados());
+        pst.setDouble(7, lv3p2.getServicosPrivados());
         pst.setDouble(8, lv3p2.getTelefone());
         pst.setDouble(9, lv3p2.getTouro());
         pst.setDouble(10, lv3p2.getVacasInvernar());
@@ -127,7 +127,7 @@ public class Lv3p2DAO {
                 lv3p2.setMateriaisManutencao(res.getDouble("materiais_manutencao"));
                 lv3p2.setManutencao(res.getDouble("manutencao"));
                 lv3p2.setImpostos(res.getDouble("impostos"));
-                lv3p2.setServiçosPrivados(res.getDouble("servicos_privados"));
+                lv3p2.setServicosPrivados(res.getDouble("servicos_privados"));
                 lv3p2.setTelefone(res.getDouble("telefone"));
                 lv3p2.setTouro(res.getDouble("touro"));
                 lv3p2.setVacasInvernar(res.getDouble("vacas_invernar"));
@@ -181,7 +181,7 @@ public class Lv3p2DAO {
                 lv3p2.setMateriaisManutencao(res.getDouble("materiais_manutencao"));
                 lv3p2.setManutencao(res.getDouble("manutencao"));
                 lv3p2.setImpostos(res.getDouble("impostos"));
-                lv3p2.setServiçosPrivados(res.getDouble("servicos_privados"));
+                lv3p2.setServicosPrivados(res.getDouble("servicos_privados"));
                 lv3p2.setTelefone(res.getDouble("telefone"));
                 lv3p2.setTouro(res.getDouble("touro"));
                 lv3p2.setVacasInvernar(res.getDouble("vacas_invernar"));
@@ -228,7 +228,7 @@ public class Lv3p2DAO {
         pst.setDouble(4, lv3p2.getMateriaisManutencao());
         pst.setDouble(5, lv3p2.getManutencao());
         pst.setDouble(6, lv3p2.getImpostos());
-        pst.setDouble(7, lv3p2.getServiçosPrivados());
+        pst.setDouble(7, lv3p2.getServicosPrivados());
         pst.setDouble(8, lv3p2.getTelefone());
         pst.setDouble(9, lv3p2.getTouro());
         pst.setDouble(10, lv3p2.getVacasInvernar());
