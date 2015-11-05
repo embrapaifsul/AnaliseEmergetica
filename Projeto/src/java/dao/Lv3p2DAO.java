@@ -26,44 +26,41 @@ public class Lv3p2DAO {
         
         Boolean retorno;
         //Mostra o sql de insert da tabela
-        String sql = "INSERT INTO lv3p2(\n" +
-"             depreciacao, combustivel, eletricidade, materiais_manutencao, \n" +
-"            manutencao, impostos, servicos_privados, telefone, touro, vacas_invernar, \n" +
-"            novilhos, vacina_ovinos, vermifugos_ovinos, vacina_bovinos, vermifugos_bovinos, \n" +
-"            vermifugo_equinos, semente_milho, semente_azevem, remedio, comida, \n" +
-"            plano_saude, ano, propriedade_id)\n" +
-"    VALUES ( ?, ?, ?, ?, \n" +
-"            ?, ?, ?, ?, ?, ?, \n" +
-"            ?, ?, ?, ?, ?, \n" +
-"            ?, ?, ?, ?, ?, \n" +
-"            ?, ?, ?);";
+        String sql = "INSERT INTO lv3p2 (combustivel, eletricidade, materiais_manutencao," +
+"            manutencao, impostos, servicos_privados, telefone, touro, vacas_invernar," +
+"            novilhos, vacina_ovinos, vermifugos_ovinos, vacina_bovinos, vermifugos_bovinos," +
+"            vermifugo_equinos, semente_milho, semente_azevem, remedio, comida," +
+"            plano_saude, ano, propriedade_id)" +
+"    VALUES (?, ?, ?,?, ?, ?, ?, ?, ?,?,"+
+"            ?, ?, ?, ?, ?,?, ?, ?, ?,?,"+
+"            ?, ?);";
         //Prepara a conexão
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         
        try{ 
-        pst.setDouble(1, lv3p2.getDepreciacao());
-        pst.setDouble(2, lv3p2.getCombustivel());
-        pst.setDouble(3, lv3p2.getEletricidade());
-        pst.setDouble(4, lv3p2.getMateriaisManutencao());
-        pst.setDouble(5, lv3p2.getManutencao());
-        pst.setDouble(6, lv3p2.getImpostos());
-        pst.setDouble(7, lv3p2.getServicosPrivados());
-        pst.setDouble(8, lv3p2.getTelefone());
-        pst.setDouble(9, lv3p2.getTouro());
-        pst.setDouble(10, lv3p2.getVacasInvernar());
-        pst.setDouble(11, lv3p2.getNovilhos());
-        pst.setDouble(12, lv3p2.getVacinaOvinos());
-        pst.setDouble(13, lv3p2.getVermifugosOvinos());
-        pst.setDouble(14, lv3p2.getVacinaBovinos());
-        pst.setDouble(15, lv3p2.getVermifugosBovinos());
-        pst.setDouble(16, lv3p2.getVermifugoEquinos());
-        pst.setDouble(17, lv3p2.getSementeMilho());
-        pst.setDouble(18, lv3p2.getSementeAzevem());
-        pst.setDouble(19, lv3p2.getRemedio());
-        pst.setDouble(20, lv3p2.getComida());
-        pst.setDouble(21, lv3p2.getPlanoSaude());     
-        pst.setString(22, lv3p2.getAno());
-        pst.setInt(23, lv3p2.getPropriedade_id());
+       
+        pst.setDouble(1, lv3p2.getCombustivel());
+        pst.setDouble(2, lv3p2.getEletricidade());
+        pst.setDouble(3, lv3p2.getMateriaisManutencao());
+        pst.setDouble(4, lv3p2.getManutencao());
+        pst.setDouble(5, lv3p2.getImpostos());
+        pst.setDouble(6, lv3p2.getServicosPrivados());
+        pst.setDouble(7, lv3p2.getTelefone());
+        pst.setDouble(8, lv3p2.getTouro());
+        pst.setDouble(9, lv3p2.getVacasInvernar());
+        pst.setDouble(10, lv3p2.getNovilhos());
+        pst.setDouble(11, lv3p2.getVacinaOvinos());
+        pst.setDouble(12, lv3p2.getVermifugosOvinos());
+        pst.setDouble(13, lv3p2.getVacinaBovinos());
+        pst.setDouble(14, lv3p2.getVermifugosBovinos());
+        pst.setDouble(15, lv3p2.getVermifugoEquinos());
+        pst.setDouble(16, lv3p2.getSementeMilho());
+        pst.setDouble(17, lv3p2.getSementeAzevem());
+        pst.setDouble(18, lv3p2.getRemedio());
+        pst.setDouble(19, lv3p2.getComida());
+        pst.setDouble(20, lv3p2.getPlanoSaude());     
+        pst.setString(21, lv3p2.getAno());
+        pst.setInt(22, lv3p2.getPropriedade_id());
         
         //Executa o sql no bancod de dados
         pst.executeUpdate();

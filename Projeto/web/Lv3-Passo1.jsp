@@ -77,7 +77,7 @@
       else
       {
           //listar o que já tem no banco pro ano/propriedade
-          depreciacoes = dao.listar();
+          depreciacoes = dao.listar(p.getAno(),pro);
           session.setAttribute("depreciacoes",depreciacoes);
           
       }

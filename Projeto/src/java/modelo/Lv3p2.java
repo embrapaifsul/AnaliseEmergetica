@@ -13,6 +13,11 @@ public class Lv3p2 {
 Integer id, propriedade_id;
 String ano;
 
+Double depreciacao,combustivel,eletricidade,materiaisManutencao,manutencao,impostos,servicosPrivados,telefone,touro;	   
+Double vacasInvernar,novilhos,vacinaOvinos,vermifugosOvinos,vacinaBovinos,vermifugosBovinos,vermifugoEquinos;
+Double sementeMilho,sementeAzevem,remedio,comida,planoSaude;	 
+
+
     public Integer getId() {
         return id;
     }
@@ -206,8 +211,5 @@ String ano;
     public void setPlanoSaude(Double planoSaude) {
         this.planoSaude = planoSaude;
     }
-Double depreciacao,combustivel,eletricidade,materiaisManutencao,manutencao,impostos,servicosPrivados,telefone,touro;	   
-Double vacasInvernar,novilhos,vacinaOvinos,vermifugosOvinos,vacinaBovinos,vermifugosBovinos,vermifugoEquinos;
-Double sementeMilho,sementeAzevem,remedio,comida,planoSaude;	 
 
 }

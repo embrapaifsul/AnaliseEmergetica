@@ -63,10 +63,8 @@ public class Lv3p1DAO {
         try {           
             
             pst.setString(1, lv3p1.getDescricao());
-        
-        if(pst.executeUpdate() > 0){
+            pst.executeUpdate();       
             retorno = true;
-        }
         
         
         } catch (SQLException ex) {
@@ -80,18 +78,16 @@ public class Lv3p1DAO {
      
      
      public Boolean excluirall(String ano, Propriedade pro){
-        Boolean retorno = false;
+        Boolean retorno;
         String sql = "DELETE FROM lv3p1 where ano = ? and propriedade_id=?";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         try {           
             pst.setString(1,ano);
             pst.setInt(2, pro.getId());
+            pst.executeUpdate();
         
-        if(pst.executeUpdate() > 0){
             retorno = true;
-        }
-        
-        
+ 
         } catch (SQLException ex) {
             Logger.getLogger(Lv3p1DAO.class.getName()).log(Level.SEVERE, null, ex);
             retorno = false;
@@ -103,21 +99,23 @@ public class Lv3p1DAO {
      
      
      
-     public List<Lv3p1> listar()
+     public List<Lv3p1> listar(String ano, Propriedade pro)
     {
         Lv3p1 lv3p1;
         //crio a lista de jogadores
         
         List<Lv3p1> lista = new ArrayList<Lv3p1>();
      
-        String sql = "SELECT * FROM lv3p1";
+        String sql = "SELECT * FROM lv3p1 where ano = ? and propriedade_id = ?";
+        
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
+       
+        
         
         try {
-            //Executo o aql e jogo em um resultSet
+           pst.setString(1, ano);
+            pst.setInt(2, pro.getId());
             ResultSet res = pst.executeQuery();
-            //Eqaunto tiver REGISTRO eu vou relacionar
-            //com a minha classe Jogador e adicionar na lista 
             while(res.next())
             {
                 lv3p1 = new Lv3p1();

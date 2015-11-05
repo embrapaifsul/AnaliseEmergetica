@@ -53,16 +53,16 @@
     a.setVacasInvernar(Double.parseDouble(request.getParameter("vacasinvernar")));
     a.setNovilhos(Double.parseDouble(request.getParameter("novilhos")));
     a.setVacinaOvinos(Double.parseDouble(request.getParameter("vacinaovinos")));
-    a.setVermifugosOvinos(Double.parseDouble(request.getParameter("vermifungosovinos")));
+    a.setVermifugosOvinos(Double.parseDouble(request.getParameter("vermifugosovinos")));
     a.setVacinaBovinos(Double.parseDouble(request.getParameter("vacinabovinos")));
-    a.setVermifugosBovinos(Double.parseDouble(request.getParameter("vermifungosbovinos")));
-    a.setVermifugoEquinos(Double.parseDouble(request.getParameter("vermifungosequinos")));
+    a.setVermifugosBovinos(Double.parseDouble(request.getParameter("vermifugosbovinos")));
+    a.setVermifugoEquinos(Double.parseDouble(request.getParameter("vermifugosequinos")));
     a.setSementeAzevem(Double.parseDouble(request.getParameter("sementesaveia")));
     a.setRemedio(Double.parseDouble(request.getParameter("remedio")));
     a.setComida(Double.parseDouble(request.getParameter("comida")));
     a.setPlanoSaude(Double.parseDouble(request.getParameter("planosaude")));
     a.setSementeMilho(Double.parseDouble(request.getParameter("sementemilho")));
-    
+    a.setAno(p.getAno());
       
       Lv3p2 teste = new Lv3p2 ();
      

@@ -29,7 +29,34 @@ Double semente_azevem = 0.0 ,remedio = 0.0 ,comida = 0.0 ,plano_saude = 0.0 ,sem
 
 
     
- if (session.getAttribute("Passos") != null) {
+ 
+    
+    
+    
+    
+
+    //Buscar a Lista na Session
+    //Percorrer a lista, para cada item da lista adicionar no BD
+    //limpar a session depreciacao
+        
+    List<Lv3p1> depreciacoes = new ArrayList<Lv3p1>();
+    depreciacoes = (List<Lv3p1>)session.getAttribute("depreciacoes");
+    Lv3p1DAO dao = new Lv3p1DAO();
+    Boolean deucerto;
+   dao.excluirall(p.getAno(), pro);
+   
+   
+   for (Lv3p1 depreciacao:depreciacoes){
+       deucerto = dao.inserir(depreciacao);
+       session.setAttribute("depreciacoes", null);
+      
+    }
+    
+   
+   
+   
+   
+   if (session.getAttribute("Passos") != null) {
         p = (Passos) session.getAttribute("Passos");
         if (p.getLv3p1() != null) {            
             combustivel = p.getLv3p2().getCombustivel();
@@ -55,28 +82,6 @@ Double semente_azevem = 0.0 ,remedio = 0.0 ,comida = 0.0 ,plano_saude = 0.0 ,sem
             
         } 
  }
-    
-    
-    
-    
-
-    //Buscar a Lista na Session
-    //Percorrer a lista, para cada item da lista adicionar no BD
-    //limpar a session depreciacao
-        
-    List<Lv3p1> depreciacoes = new ArrayList<Lv3p1>();
-    depreciacoes = (List<Lv3p1>)session.getAttribute("depreciacoes");
-    Lv3p1DAO dao = new Lv3p1DAO();
-    Boolean deucerto;
-   dao.excluirall(p.getAno(), pro);
-   
-   
-   for (Lv3p1 depreciacao:depreciacoes){
-       deucerto = dao.inserir(depreciacao);
-       session.setAttribute("depreciacoes", null);
-      
-    }
-    
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
