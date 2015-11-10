@@ -192,7 +192,7 @@
                   %>          
        </tbody>
                     </table>
-       <a class ="btn" href="Lv3-Passo2.jsp">Próximo nivel</a>
+       <a class ="btn" href="Lv3-Passo2.jsp">Próximo passo</a>
             </aside>
 
         </div>

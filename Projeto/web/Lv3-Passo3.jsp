@@ -63,6 +63,7 @@
     a.setPlanoSaude(Double.parseDouble(request.getParameter("planosaude")));
     a.setSementeMilho(Double.parseDouble(request.getParameter("sementemilho")));
     a.setAno(p.getAno());
+    a.setPropriedade_id(pro.getId());
       
       Lv3p2 teste = new Lv3p2 ();
      

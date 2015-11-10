@@ -58,7 +58,7 @@ Double semente_azevem = 0.0 ,remedio = 0.0 ,comida = 0.0 ,plano_saude = 0.0 ,sem
    
    if (session.getAttribute("Passos") != null) {
         p = (Passos) session.getAttribute("Passos");
-        if (p.getLv3p1() != null) {            
+        if (p.getLv3p2() != null) {            
             combustivel = p.getLv3p2().getCombustivel();
             eletricidade = p.getLv3p2().getEletricidade();
             materiais_manutencao = p.getLv3p2().getManutencao();

@@ -27,13 +27,13 @@ public class Lv3p2DAO {
         Boolean retorno;
         //Mostra o sql de insert da tabela
         String sql = "INSERT INTO lv3p2 (combustivel, eletricidade, materiais_manutencao," +
-"            manutencao, impostos, servicos_privados, telefone, touro, vacas_invernar," +
-"            novilhos, vacina_ovinos, vermifugos_ovinos, vacina_bovinos, vermifugos_bovinos," +
-"            vermifugo_equinos, semente_milho, semente_azevem, remedio, comida," +
-"            plano_saude, ano, propriedade_id)" +
+"manutencao, impostos, servicos_privados, telefone, touro, vacas_invernar," +
+"novilhos, vacina_ovinos, vermifugos_ovinos, vacina_bovinos, vermifugos_bovinos," +
+"vermifugo_equinos, semente_milho, semente_azevem, remedio, comida," +
+"plano_saude, ano, propriedade_id)" +
 "    VALUES (?, ?, ?,?, ?, ?, ?, ?, ?,?,"+
-"            ?, ?, ?, ?, ?,?, ?, ?, ?,?,"+
-"            ?, ?);";
+"?, ?, ?, ?, ?,?, ?, ?, ?,?,"+
+"?, ?);";
         //Prepara a conexão
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         
