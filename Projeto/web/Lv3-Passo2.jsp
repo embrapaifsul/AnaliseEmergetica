@@ -20,7 +20,7 @@
         response.sendRedirect("index.jsp");
     }
     
-    
+    Double total = 0.0;
     
     Double combustivel = 0.0,eletricidade= 0.0, materiais_manutencao= 0.0, manutencao = 0.0 ,impostos = 0.0 ,servicos_privados = 0.0 ,telefone = 0.0 ;
 Double touro = 0.0 ,vacas_invernar = 0.0 ,novilhos = 0.0 ,vacina_ovinos = 0.0 ,vermifugos_ovinos = 0.0 ,vacina_bovinos = 0.0 ,vermifugos_bovinos = 0.0 ,vermifugo_equinos = 0.0 ;
@@ -48,13 +48,15 @@ Double semente_azevem = 0.0 ,remedio = 0.0 ,comida = 0.0 ,plano_saude = 0.0 ,sem
    
    for (Lv3p1 depreciacao:depreciacoes){
        deucerto = dao.inserir(depreciacao);
-       session.setAttribute("depreciacoes", null);
+      
+       
+       total = total + (depreciacao.getValor()/depreciacao.getVida());
       
     }
-    
+     session.setAttribute("depreciacoes", null);
+   p.setDepre(total);
    
-   
-   
+   session.setAttribute("Passos", p);
    
    if (session.getAttribute("Passos") != null) {
         p = (Passos) session.getAttribute("Passos");
@@ -101,8 +103,8 @@ Double semente_azevem = 0.0 ,remedio = 0.0 ,comida = 0.0 ,plano_saude = 0.0 ,sem
                         <ul class="breadcrumb">             
                             <li><a href="AnoLv2.jsp"> Data </a><span class="divider"> / </span></li>
                             <li><a href="Lv2-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
-                            <li><a href="Lv2-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
-                            <li class="alert-info"> Passo 3 </li><span class="divider"> / </span>
+                            <li class="alert-info"><a href="Lv2-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
+                            <li > Passo 3 </li><span class="divider"> / </span>
                             <li><a href="Lv2-Passo4.jsp" > Passo 4 </a><span class="divider"> / </span></li>
                             <li><a href="Lv2-Saida.jsp" > Resultados </a></li>
                         </ul>

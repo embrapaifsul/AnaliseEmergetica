@@ -30,16 +30,17 @@
         Lv3p2 n12 = dao2.buscar(p.getAno(), pro);
         
 
-        if (n11 != null) {
+      if (n11 != null) {
+          
             p.setLv3p1(n11);
-
+             
             if (n12 != null) {
                 p.setLv3p2(n12);
-          
+               response.sendRedirect("Lv3-Passo1.jsp");
             } else {
                 response.sendRedirect("Lv3-Passo1.jsp");
             }
-        } else {
+    } else {
             response.sendRedirect("Lv3-Passo1.jsp");
         }
 

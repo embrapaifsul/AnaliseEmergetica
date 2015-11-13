@@ -30,10 +30,10 @@ public class Lv3p2DAO {
 "manutencao, impostos, servicos_privados, telefone, touro, vacas_invernar," +
 "novilhos, vacina_ovinos, vermifugos_ovinos, vacina_bovinos, vermifugos_bovinos," +
 "vermifugo_equinos, semente_milho, semente_azevem, remedio, comida," +
-"plano_saude, ano, propriedade_id)" +
+"plano_saude, ano, propriedade_id,depreciacao)" +
 "    VALUES (?, ?, ?,?, ?, ?, ?, ?, ?,?,"+
 "?, ?, ?, ?, ?,?, ?, ?, ?,?,"+
-"?, ?);";
+"?, ?,?);";
         //Prepara a conexão
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         
@@ -61,6 +61,7 @@ public class Lv3p2DAO {
         pst.setDouble(20, lv3p2.getPlanoSaude());     
         pst.setString(21, lv3p2.getAno());
         pst.setInt(22, lv3p2.getPropriedade_id());
+        pst.setDouble(23, lv3p2.getDepreciacao());
         
         //Executa o sql no bancod de dados
         pst.executeUpdate();
@@ -174,7 +175,7 @@ public class Lv3p2DAO {
                 lv3p2 = new Lv3p2();
               lv3p2.setDepreciacao(res.getDouble("depreciacao"));
                 lv3p2.setCombustivel(res.getDouble("combustivel"));
-                lv3p2.setEletricidade(res.getDouble("eletrecidade"));
+                lv3p2.setEletricidade(res.getDouble("eletricidade"));
                 lv3p2.setMateriaisManutencao(res.getDouble("materiais_manutencao"));
                 lv3p2.setManutencao(res.getDouble("manutencao"));
                 lv3p2.setImpostos(res.getDouble("impostos"));
@@ -209,13 +210,12 @@ public class Lv3p2DAO {
         
         public Boolean atualizar(Lv3p2 lv3p2){
         Boolean retorno = false;
-        String sql = "UPDATE lv3p2\n" +
-"   SET  depreciacao=?, combustivel=?, eletricidade=?, materiais_manutencao=?, \n" +
-"       manutencao=?, impostos=?, servicos_privados=?, telefone=?, touro=?, \n" +
-"       vacas_invernar=?, novilhos=?, vacina_ovinos=?, vermifugos_ovinos=?, \n" +
-"       vacina_bovinos=?, vermifugos_bovinos=?, vermifugo_equinos=?, \n" +
-"       semente_milho=?, semente_azevem=?, remedio=?, comida=?, plano_saude=?, \n" +
-"       ano=?, propriedade_id=? where propriedade_id=?";
+        String sql = "UPDATE lv3p2 SET depreciacao=?, combustivel=?, eletricidade=?, materiais_manutencao=?," +
+"manutencao=?, impostos=?, servicos_privados=?, telefone=?, touro=?," +
+"vacas_invernar=?, novilhos=?, vacina_ovinos=?, vermifugos_ovinos=?," +
+"vacina_bovinos=?, vermifugos_bovinos=?, vermifugo_equinos=?," +
+"semente_milho=?, semente_azevem=?, remedio=?, comida=?, plano_saude=?" +
+" WHERE propriedade_id=? AND ano=?;";
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         try {
             
@@ -240,8 +240,10 @@ public class Lv3p2DAO {
         pst.setDouble(19, lv3p2.getRemedio());
         pst.setDouble(20, lv3p2.getComida());
         pst.setDouble(21, lv3p2.getPlanoSaude());     
-        pst.setString(22, lv3p2.getAno());
-        pst.setInt(23, lv3p2.getPropriedade_id());
+        pst.setInt(22, lv3p2.getPropriedade_id());
+        pst.setString(23, lv3p2.getAno());
+     
+        
         
         if(pst.executeUpdate() > 0){
             retorno = true;

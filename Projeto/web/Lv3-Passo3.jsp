@@ -62,8 +62,10 @@
     a.setComida(Double.parseDouble(request.getParameter("comida")));
     a.setPlanoSaude(Double.parseDouble(request.getParameter("planosaude")));
     a.setSementeMilho(Double.parseDouble(request.getParameter("sementemilho")));
+    a.setDepreciacao(p.getDepre());
     a.setAno(p.getAno());
     a.setPropriedade_id(pro.getId());
+    
       
       Lv3p2 teste = new Lv3p2 ();
      
@@ -84,12 +86,9 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+<%@ include file="cabecalho.jsp" %>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%@ include file="barranavegacao3.jsp" %>
     </body>
 </html>
