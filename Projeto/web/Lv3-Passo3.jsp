@@ -4,6 +4,9 @@
     Author     : Aluno
 --%>
 
+<%@page import="dao.ProdutoDAO"%>
+<%@page import="modelo.Produto"%>
+<%@page import="java.util.List"%>
 <%@page import="modelo.Propriedade"%>
 <%@page import="modelo.Passos"%>
 <%@page import="dao.Lv3p1DAO"%>
@@ -79,6 +82,10 @@
         p.setLv3p2(a);
     }
       
+  ProdutoDAO dao2 = new ProdutoDAO();
+  List<Produto> produtos;
+  produtos = dao2.listar();
+  
   
 
 
@@ -90,5 +97,116 @@
     </head>
     <body>
         <%@ include file="barranavegacao3.jsp" %>
+        
+        
+        <div class="container-fluid">
+        <div class="row-fluid">
+
+            <aside class="span11">
+                <section id="breadcrumbs">
+                    <header class="page-header">
+                        <h3> Progresso </h3>
+
+                        <ul class="breadcrumb">             
+                            <li><a href="AnoLv2.jsp"> Data </a><span class="divider"> / </span></li>
+                            <li><a href="Lv2-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
+                            <li ><a href="Lv2-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
+                            <li class="alert-info"> Passo 3 </li><span class="divider"> / </span>
+                            <li><a href="Lv2-Passo4.jsp" > Passo 4 </a><span class="divider"> / </span></li>
+                            <li><a href="Lv2-Saida.jsp" > Resultados </a></li>
+                        </ul>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                <span class="sr-only">60% Completo</span>
+                            </div>
+                        </div>
+                    </header>
+                </section><br/><br/>
+            </aside>
+
+            <aside class="span1"></aside>
+
+        </div>
+    </div>
+        
+        
+        <div class="container-fluid">
+        <div class="row-fluid">
+
+            <aside class="span1"></aside>
+
+            <aside class="span11">
+
+                <h2> Balanço de nutrintes  </h2>
+                <br/>
+
+ <div class="control-group">
+                        
+             
+                   
+                    </div>
+ 
+                     <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nome<button type="button" class="btn btn-default btn-link" data-toggle="tooltip" data-placement="right" ></button></th>
+                                <th>Produtividade</th>                                
+                                
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                 
+                 <div class="control-group">
+                     
+                     <tr class="success">                                  
+                          <%      
+                               Integer posicao = 0;
+                  for(Produto produto:produtos)
+                  {
+                 %>
+                 <div class="control-group">
+                     
+                     <tr class="success">                                  
+                                
+                                <td><%=produto.getNome()%></td>
+                                <td><input type="text" name="<%=produto.getNome()%>" id="<%=produto.getNome()%>"required ></td>                               
+                            </tr>
+                        
+                        
+                            
+                        
+                    </div>
+                  <%
+                     posicao++;
+                  }
+                  %>          
+                                
+                                
+                                    
+                            </tr>
+                        
+                        
+                            
+                        
+                    </div>
+                          
+       </tbody>
+                    </table>
+       <a class ="btn" href="Lv3-Passo2.jsp">Próximo passo</a>
+            </aside>
+
+        </div>
+    </div>
+    
+        
+        
+        
+        
+        
+        <footer class="footer">
+        <div class="container">
+        </div>
+    </footer>
     </body>
 </html>
