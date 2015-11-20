@@ -223,7 +223,17 @@ public class Passos {
     }
     
     
-    
+    public double custoterneiro1() {
+        
+        Integer terneiro = this.getLv1p2().getTerneiro();
+        Integer terneira = this.getLv1p2().getTerneira();
+        
+        Double totalcusto = this.totalcustoproducao();
+        
+        Double total = totalcusto / (terneiro + terneira);
+        
+        return total;
+    }
     
     
     

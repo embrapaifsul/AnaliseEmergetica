@@ -96,11 +96,27 @@
                             </div>
                         </div>
                     </header>
-
-                </section><br/><br/>
+                </section>                
             </aside>
 
             <aside class="span2"></aside>
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+
+
+            <aside class="span12">
+                <div class="control-group">
+                    <div class="controls">
+                        <h4>Propriedade: <%=pro.getNome()%></h4>
+                        <h4>Ano: <%=p.getAno()%></h4>
+                        <br/>
+                    </div>
+                </div>
+            </aside>
 
         </div>
     </div>
@@ -131,6 +147,7 @@
 
             </aside>
 
+
             <aside class="span2">
                 <div class="panel-group">
                     <div class="panel panel-info">
@@ -138,10 +155,7 @@
                             <h5 class="panel-title">Passo 1</h5>
                         </div>
                         <div class="panel-body">
-                            <div class="control-group">
-                                <label class="control-label"><h6><b>Área média da Pecuária Aproveitavel: </b><span id="a"></span><span class="help-inline">Hectares</span></h6>
-                            </div>
-                            <br/><br/>
+                            <img class="menorr2" src="images/edjrda93.bmp" alt="..." class="img-rounded">            
                         </div>
                     </div>
                     <div class="panel panel-success">
@@ -149,10 +163,7 @@
                             <h5 class="panel-title">Passo 3</h5>
                         </div>
                         <div class="panel-body">
-                            <div class="control-group">
-                                <label class="control-label"><h6><b>RECEITA</b></h6>
-                            </div>
-                            <br/><br/><br/>
+                            <img class="menorr2" src="images/tvy1d9k9.bmp" alt="..." class="img-rounded">
                         </div>
                     </div>
                 </div>
@@ -164,10 +175,7 @@
                             <h5 class="panel-title">Passo 2</h5>
                         </div>
                         <div class="panel-body">
-                            <div class="control-group">
-                                <label class="control-label"><h6><b>REBANHO</b></h6>
-                            </div>
-                            <br/><br/><br/>
+                            <img class="menorr2" src="images/q3lcybf7.bmp" alt="..." class="img-rounded">
                         </div>
                     </div>
 
@@ -176,10 +184,8 @@
                             <h5 class="panel-title">Passo 4</h5>
                         </div>
                         <div class="panel-body">
-                            <div class="control-group">
-                                <label class="control-label"><h6><b>CUSTOS</b></h6>
-                            </div>
-                            <br/><br/><br/>
+                            <img class="menorr2" src="images/ujg8h7w6.bmp" alt="..." class="img-rounded">
+
                         </div>
                     </div>
                 </div>

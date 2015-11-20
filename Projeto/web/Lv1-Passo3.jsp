@@ -218,9 +218,9 @@
                         </div>
                         <div class="panel-body">
                             <div class="control-group">
-                                <label class="control-label"><h6><b>Área média da Pecuária Aproveitavel: </b><span id="a"><%= String.format("%.2f", p.getLv1p1().getArea_apro())%></span><span class="help-inline">Hectares</span></h6>
+                                <label class="control-label"><h6><b>Área média da Pecuária Aproveitavel: </b></h6><span id="a"><h2><%= String.format("%.2f", p.getLv1p1().getArea_apro())%></h2></span><h6><span class="help-inline">Hectares</span></h6>
                             </div>
-                            <br/><br/><br/><br/><br/>
+                            <br/><br/><br/><br/><br/><br/>
                         </div>
                     </div>
                     <div class="panel panel-success">
@@ -228,10 +228,7 @@
                             <h5 class="panel-title">Passo 3</h5>
                         </div>
                         <div class="panel-body">
-                            <div class="control-group">
-                                <label class="control-label"><h6><b>Receita por Hectare: </b><span id="c"></span><span class="help-inline">R$/Hectare</span></h6>
-                            </div>
-                            <br/><br/>
+                            <img class="menorr2" src="images/tvy1d9k9.bmp" alt="..." class="img-rounded">
                         </div>
                     </div>
                 </div>
@@ -243,14 +240,12 @@
                             <h5 class="panel-title">Passo 2</h5>
                         </div>
                         <div class="panel-body">
-                            <div class="panel-body">
                                 <div class="control-group">
-                                    <label class="control-label"><h6><b>Rebanho com atividade de Cria: </b><span id="a"><%= String.format("%.2f", p.percentualcria())%></span><span class="help-inline">%</span></h6>
+                                    <label class="control-label"><h6><b>Rebanho com atividade de Cria: </b></h6><span id="a"><h2><%= String.format("%.2f", p.percentualcria())%></h2></span><h6><span class="help-inline">%</span></h6>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label"><h6><b>Lotação Média da Propriedade: </b><span id="b"><%= String.format("%.2f", p.lotacaomedia())%></span><span class="help-inline">Cabeça(s) por hectare</span></h6>
+                                    <label class="control-label"><h6><b>Lotação Média da Propriedade: </b></h6><span id="b"><h2><%= String.format("%.2f", p.lotacaomedia())%></h2></span><h6><span class="help-inline">Cabeça(s) por hectare</span></h6>
                                 </div>
-                            </div>
                         </div>
                     </div>
                     <div class="panel panel-danger">
@@ -258,8 +253,7 @@
                             <h5 class="panel-title">Passo 4</h5>
                         </div>
                         <div class="panel-body">
-                            <label class="control-label"><h6><b>CUSTOS</b></h6>
-                                <br/><br/><br/>
+                            <img class="menorr2" src="images/ujg8h7w6.bmp" alt="..." class="img-rounded">    
                         </div>
                     </div>
                 </div>

@@ -100,16 +100,11 @@
     if (session.getAttribute("Usuario") != null) {
         u = (Usuario) session.getAttribute("Usuario");
         p = (Passos) session.getAttribute("Passos");
-        if (request.getParameter("pid") != null) {
-            pro.setId(Integer.parseInt(request.getParameter("pid")));
-            PropriedadeDAO dao = new PropriedadeDAO();
-            pro = dao.loginpro(pro);
-            session.setAttribute("Propriedade", pro);
-        }
-
+        pro = (Propriedade) session.getAttribute("Propriedade");
     } else {
         response.sendRedirect("index.jsp");
     }
+
 
 %>
 

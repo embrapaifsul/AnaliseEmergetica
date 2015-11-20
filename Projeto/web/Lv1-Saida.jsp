@@ -189,6 +189,22 @@
                         </div>
                     </div>
                     <div class="control-group">
+                        <label class="control-label">Custo de Atividade de Cria:</label>
+                        <div class="controls">
+                            <br/>
+                            <input type="text" name="custohectar"  class="uneditable-input" value="<%=  String.format("%.2f", p.custocria())%>">
+                            <span class="help-inline">Reais</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Custo de Produção por terneiro(a) desmamado:</label>
+                        <div class="controls">
+                            <br/>
+                            <input type="text" name="custohectar"  class="uneditable-input" value="<%=  String.format("%.2f", p.custoterneiro1())%>">
+                            <span class="help-inline">Reais por Terneiro(a)</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
                         <div class="controls">
                             <input type="hidden" name="data2" id="data2" value="<%=p.getAno()%>" />
                             <input type="submit" class="btn" value="Próximo Nível" />
