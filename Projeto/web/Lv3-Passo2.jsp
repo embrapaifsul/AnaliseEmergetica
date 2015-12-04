@@ -20,7 +20,7 @@
         response.sendRedirect("index.jsp");
     }
     
-    
+    Double total = 0.0;
     
     Double combustivel = 0.0,eletricidade= 0.0, materiais_manutencao= 0.0, manutencao = 0.0 ,impostos = 0.0 ,servicos_privados = 0.0 ,telefone = 0.0 ;
 Double touro = 0.0 ,vacas_invernar = 0.0 ,novilhos = 0.0 ,vacina_ovinos = 0.0 ,vermifugos_ovinos = 0.0 ,vacina_bovinos = 0.0 ,vermifugos_bovinos = 0.0 ,vermifugo_equinos = 0.0 ;
@@ -48,17 +48,19 @@ Double semente_azevem = 0.0 ,remedio = 0.0 ,comida = 0.0 ,plano_saude = 0.0 ,sem
    
    for (Lv3p1 depreciacao:depreciacoes){
        deucerto = dao.inserir(depreciacao);
-       session.setAttribute("depreciacoes", null);
+      
+       
+       total = total + (depreciacao.getValor()/depreciacao.getVida());
       
     }
-    
+     session.setAttribute("depreciacoes", null);
+   p.setDepre(total);
    
-   
-   
+   session.setAttribute("Passos", p);
    
    if (session.getAttribute("Passos") != null) {
         p = (Passos) session.getAttribute("Passos");
-        if (p.getLv3p1() != null) {            
+        if (p.getLv3p2() != null) {            
             combustivel = p.getLv3p2().getCombustivel();
             eletricidade = p.getLv3p2().getEletricidade();
             materiais_manutencao = p.getLv3p2().getManutencao();
@@ -99,15 +101,15 @@ Double semente_azevem = 0.0 ,remedio = 0.0 ,comida = 0.0 ,plano_saude = 0.0 ,sem
                         <h3> Progresso </h3>
 
                         <ul class="breadcrumb">             
-                            <li><a href="AnoLv2.jsp"> Data </a><span class="divider"> / </span></li>
-                            <li><a href="Lv2-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
-                            <li><a href="Lv2-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
-                            <li class="alert-info"> Passo 3 </li><span class="divider"> / </span>
-                            <li><a href="Lv2-Passo4.jsp" > Passo 4 </a><span class="divider"> / </span></li>
-                            <li><a href="Lv2-Saida.jsp" > Resultados </a></li>
+                            <li><a href="AnoLv3.jsp"> Data </a><span class="divider"> / </span></li>
+                            <li><a href="Lv3-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
+                            <li class="alert-info"><a href="Lv3-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
+                            <li href ="Lv3-Passo3.jsp"> Passo 3 </li><span class="divider"> / </span>
+                            <li><a href="Lv3-Passo4.jsp" > Passo 4 </a><span class="divider"> / </span></li>
+                            <li><a href="Lv3-Saida.jsp" > Resultados </a></li>
                         </ul>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
                                 <span class="sr-only">40% Completo</span>
                             </div>
                         </div>

@@ -16,7 +16,7 @@ public class Passos {
     private Lv1p2 lv1p2;
     private Lv1p3 lv1p3;
     private Lv1p4 lv1p4;
-    
+    private Double depre;
     private Lv2p1 lv2p1;
     private Lv2p2 lv2p2;
     private Lv2p3 lv2p3;
@@ -24,6 +24,15 @@ public class Passos {
     
     private Lv3p1 lv3p1;
     private Lv3p2 lv3p2;
+    private Lv3p3 lv3p3;
+
+    public Double getDepre() {
+        return depre;
+    }
+
+    public void setDepre(Double depre) {
+        this.depre = depre;
+    }
 
     public Lv3p1 getLv3p1() {
         return lv3p1;
