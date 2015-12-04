@@ -80,7 +80,7 @@
                                                 </div>
                                                 <div class="menu" id="navigation">
                                                     <ul>
-                                                        <li><a href="#">Home</a></li>
+                                                        <li><a href="Lv3-Passo2">Home</a></li>
                                                         <li><a href="#sobre">Sobre</a></li>
                                                         <li><a href="#desenvolvedores">Desenvolvedores</a></li>
                                                         <li><a href="#contato">Contato</a></li>

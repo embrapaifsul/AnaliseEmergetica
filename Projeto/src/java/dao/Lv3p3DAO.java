@@ -12,9 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import modelo.Lv1p1;
-import modelo.Lv2p4;
 import modelo.Lv3p3;
+import modelo.Produto;
+import modelo.Propriedade;
 
 /**
  *
@@ -149,7 +149,38 @@ public Boolean atualizar(Lv3p3 lv3p3){
 
 
 
- 
+  public Lv3p3 buscar(String ano, Produto p, Propriedade pro )
+    {
+        Lv3p3 lv3p3 = null;
+        
+       
+        String sql = "SELECT * FROM lv3p3 WHERE ano = ? AND produto_id = ? AND propriedade_id = ?";
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        
+        try {
+            //Executo o aql e jogo em um resultSet
+            pst.setString(1, ano);
+            pst.setInt(2, p.getId());
+            pst.setInt(3, pro.getId());
+            ResultSet res = pst.executeQuery();
+           
+         
+            if(res.next())
+            {
+                lv3p3 = new Lv3p3();
+                lv3p3.setId(res.getInt("id"));
+                lv3p3.setProdutividade(res.getDouble("produtividade"));
+                lv3p3.setProduto_id(res.getInt("produto_id"));                                                
+                lv3p3.setAno(res.getString("ano"));
+                lv3p3.setPropriedade_id(res.getInt("propriedade_id"));                        
+                
+            }
+            } catch(SQLException ex){
+               
+               ex.printStackTrace();
+            }
+        return lv3p3;
+        }
  
  
     }

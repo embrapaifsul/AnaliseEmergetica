@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import modelo.Lv3p1;
 import modelo.Lv3p2;
 import modelo.Propriedade;
 
@@ -164,7 +163,7 @@ public class Lv3p2DAO {
         PreparedStatement pst = Conexao.getPreparedStatement(sql);
         
         try {
-            //Executo o aql e jogo em um resultSet
+            //Executo o sql e jogo em um resultSet
              pst.setString(1, ano);
             pst.setInt(2, pro.getId());
             ResultSet res = pst.executeQuery();
