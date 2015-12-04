@@ -155,19 +155,43 @@
     <div class="container-fluid">
         <div class="row-fluid">
 
-            <aside class="span11">
+            <aside class="span6">
                 <section id="breadcrumbs">
-                    <header class="page-header">
                         <h3> Progresso </h3>
 
-                        <ul class="breadcrumb">
-                            <li><a href="AnoLv1.jsp"> Data </a><span class="divider"> / </span></li>
-                            <li><a href="Lv1-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
-                            <li><a href="Lv1-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
-                            <li class="alert-info"> Passo 3 </li><span class="divider"> / </span>
-                            <li><a href="Lv1-Passo4.jsp" <%=link4%>> Passo 4 </a><span class="divider"> / </span></li>
-                            <li><a href="Lv1-Saida.jsp" <%=link5%>> Resultados </a></li>
-                        </ul>
+                        <div class="breadcrumb flat">
+                            <a href="AnoLv1.jsp"> Data </a>
+                            <a href="Lv1-Passo1.jsp"> Passo 1 </a>
+                            <a href="Lv1-Passo2.jsp"> Passo 2 </a>
+                            <a class="active"> Passo 3 </a>
+                            <a href="Lv1-Passo4.jsp" <%=link4%>> Passo 4 </a>
+                            <a href="Lv1-Saida.jsp" <%=link5%>> Resultados </a>
+                        </div>
+                        
+                        </section>                
+            </aside>
+
+            <aside class="span5">
+                <br/>
+                <br/>
+                <br/>
+                <div class="ficanaesquerda">
+                    <h4 >Propriedade: <%=pro.getNome()%></h4>
+                    <h4>Ano: <%=p.getAno()%></h4>
+                </div>
+            </aside>
+
+            <aside class="span1"></aside>
+
+        </div>
+
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+                <aside class="span11">
+                    <section id="breadcrumbs">
+                        <header class="page-header">
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
                                 <span class="sr-only">60% Completo</span>
@@ -197,7 +221,7 @@
                         <label class="control-label">Receita Anual de Bovinos:</label>
                         <div class="controls">
                             <br/>
-                            <input type="text" name="bovinosanual" value="<%=custo%>" required>
+                            <input type="number" name="bovinosanual" value="<%=custo%>" required>
                         </div>
                     </div>
 

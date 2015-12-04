@@ -219,13 +219,6 @@
                 text: 'Area da Fazenda'
             }
         });
-
-
-
-
-
-
-
     });
 
 

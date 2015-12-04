@@ -207,20 +207,44 @@
     <div class="container-fluid">
         <div class="row-fluid">
 
-            <aside class="span11">
+            <aside class="span6">
                 <section id="breadcrumbs">
-                    <header class="page-header">
                         <h3> Progresso </h3>
 
-                        <ul class="breadcrumb">
-                            <li><a href="AnoLv1.jsp"> Data </a><span class="divider"> / </span></li>
-                            <li><a href="Lv1-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
-                            <li class="alert-info"> Passo 2 </li><span class="divider"> / </span>
-                            <li><a href="Lv1-Passo3.jsp" <%=link3%>> Passo 3 </a><span class="divider"> / </span></li>
-                            <li><a href="Lv1-Passo4.jsp" <%=link4%>> Passo 4 </a><span class="divider"> / </span></li>
-                            <li><a href="Lv1-Saida.jsp" <%=link5%>> Resultados </a></li>
-                        </ul>
+                        <div class="breadcrumb flat">
+                            <a href="AnoLv1.jsp"> Data </a>
+                            <a href="Lv1-Passo1.jsp"> Passo 1 </a>
+                            <a class="active"> Passo 2 </a>
+                            <a href="Lv1-Passo3.jsp" <%=link3%>> Passo 3 </a>
+                            <a href="Lv1-Passo4.jsp" <%=link4%>> Passo 4 </a>
+                            <a href="Lv1-Saida.jsp" <%=link5%>> Resultados </a>
+                        </div>
+                        
+                        </section>                
+            </aside>
 
+            <aside class="span5">
+                <br/>
+                <br/>
+                <br/>
+                <div class="ficanaesquerda">
+                    <h4 >Propriedade: <%=pro.getNome()%></h4>
+                    <h4>Ano: <%=p.getAno()%></h4>
+                </div>
+            </aside>
+
+            <aside class="span1"></aside>
+
+        </div>
+
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+                <aside class="span11">
+                    <section id="breadcrumbs">
+                        <header class="page-header">
+                        
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
                                 <span class="sr-only">40% Completo</span>
@@ -244,7 +268,26 @@
             <aside class="span6">
                 <h2> Rebanho Bovino </h2>
                 <br/>
-                <form name="passo2" action="Lv1-Passo3.jsp" class="form-horizontal" method ="post" onSubmit="return passo2();">
+                <form name="passo2" action="Lv1-Passo3.jsp" class="form-horizontal" method ="post" onSubmit="return passo2();">                   
+                    <div class="control-group">
+                        <label class="control-label">Vacas de Cria:</label>
+                        <div class="controls">
+                            <input type="number" name="vacasdecria" id="vacasdecria" value="<%=vacasdecria%>">
+                        </div> 
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Vacas de Descarte:</label>
+                        <div class="controls"> 
+                            <input type="number" name="vacasdedescarte" id="vacasdedescarte" value="<%=vacasdedescarte%>">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Touros:</label>
+                        <div class="controls">
+                            <input type="number" name="touros" id="touros" value="<%=touros%>">
+                        </div>
+                    </div>
+                    <br/>
                     <div class="control-group">
                         <label class="control-label">&nbsp;</label>
                         <div class="controls">
@@ -253,50 +296,31 @@
                         </div> 
                     </div>
                     <div class="control-group">
-                        <label class="control-label">Vacas de Cria:</label>
-                        <div class="controls">
-                            <input type="text" name="vacasdecria" id="vacasdecria" value="<%=vacasdecria%>">
-                        </div> 
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">Vacas de Descarte:</label>
-                        <div class="controls"> 
-                            <input type="text" name="vacasdedescarte" id="vacasdedescarte" value="<%=vacasdedescarte%>">
-                        </div>
-                    </div>
-                    <div class="control-group">
                         <label class="control-label">Terneiros(as):</label>
                         <div class="controls">
-                            <input type="text" name="terneiros" id="terneiros" value="<%=terneiros%>">
-                            <input type="text" name="terneiras" id="terneiras" value="<%=terneiras%>">
+                            <input type="number" name="terneiros" id="terneiros" value="<%=terneiros%>">
+                            <input type="number" name="terneiras" id="terneiras" value="<%=terneiras%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">De 13 á 24 meses:</label>
                         <div class="controls">
-                            <input type="text" name="novilhos1" id="novilhos1" value="<%=novilhos1%>">
-                            <input type="text" name="novilhas1" id="novilhas1" value="<%=novilhas1%>">
+                            <input type="number" name="novilhos1" id="novilhos1" value="<%=novilhos1%>">
+                            <input type="number" name="novilhas1" id="novilhas1" value="<%=novilhas1%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">De 25 á 36 meses:</label>
                         <div class="controls">
-                            <input type="text" name="novilhos2" id="novilhos2" value="<%=novilhos2%>">
-                            <input type="text" name="novilhas2" id="novilhas2" value="<%=novilhas2%>">
+                            <input type="number" name="novilhos2" id="novilhos2" value="<%=novilhos2%>">
+                            <input type="number" name="novilhas2" id="novilhas2" value="<%=novilhas2%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Mais de 36 meses:</label>
                         <div class="controls">
-                            <input type="text" name="novilhas3" id="novilhas3" value="<%=novilhas3%>">
-                            <input type="text" name="novilhos3" id="novilhos3" value="<%=novilhos3%>">  
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">Touros:</label>
-                        <label class="control-label">&nbsp;</label>
-                        <div class="controls">
-                            <input type="text" name="touros" id="touros" value="<%=touros%>">
+                            <input type="number" name="novilhas3" id="novilhas3" value="<%=novilhas3%>">
+                            <input type="number" name="novilhos3" id="novilhos3" value="<%=novilhos3%>">  
                         </div>
                     </div>
                     <div class="control-group">
@@ -348,10 +372,10 @@
                             <div class="control-group">
                                 <label class="control-label"><h6><b>Área média da Pecuária Aproveitavel: </b><span id="a"><h2><%=  String.format("%.2f", p.getLv1p1().getArea_apro())%></h2></span><span class="help-inline">Hectares</span></h6>
                             </div>
-                            
+
                         </div>
                     </div>
-                   <div class="panel panel-success">
+                    <div class="panel panel-success">
                         <div class="panel-heading">
                             <h5 class="panel-title">Passo 3</h5>
                         </div>
@@ -378,7 +402,7 @@
                         </div>
                         <div class="panel-body">
                             <img class="menorr2" src="images/ujg8h7w6.bmp" alt="..." class="img-rounded">
-                            
+
                         </div>
                     </div>
                 </div>

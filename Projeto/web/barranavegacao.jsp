@@ -15,10 +15,10 @@
                     <li><a></a></li>
                     <li><a></a></li>
                     <li><a></a></li>
+                    <li><a href="InicioPropriedade.jsp">Usuario: <%=u.getLogin()%></a></li>
                     <li><a></a></li>
-                    <li><a>Propriedade: <%=pro.getNome()%></a></li>
                     <li><a></a></li>
-                    <li><a>Ano: <%=p.getAno()%></a></li>
+                    <li><a></a></li>
                     <li><a></a></li>
                     <li><a>Nivel: 1</a></li>
                     <li><a></a></li>
@@ -29,7 +29,7 @@
                     <li><a></a></li>
                     <li><a></a></li>
                     <li><a></a></li>
-                    <li><a href="InicioPropriedade.jsp">Usuario: <%=u.getLogin()%></a></li>
+                    <li><a href="index.jsp" class="pull-right"> Sair </a></li>
                 </ul>
             </div>
         </div>

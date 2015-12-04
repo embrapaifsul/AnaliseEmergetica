@@ -118,19 +118,43 @@
     <div class="container-fluid">
         <div class="row-fluid">
 
-            <aside class="span11">
+            <aside class="span6">
                 <section id="breadcrumbs">
-                    <header class="page-header">
-                        <h3> Progresso </h3>
+                    <h3> Progresso </h3>
 
-                        <ul class="breadcrumb">
-                            <li><a href="AnoLv1.jsp"> Data </a><span class="divider"> / </span></li>
-                            <li><a href="Lv1-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
-                            <li><a href="Lv1-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
-                            <li><a href="Lv1-Passo3.jsp"> Passo 3 </a><span class="divider"> / </span></li>
-                            <li><a href="Lv1-Passo4.jsp"> Passo 4 </a><span class="divider"> / </span></li>
-                            <li class="alert-info"> Resultados </li>
-                        </ul>
+                    <div class="breadcrumb flat">
+                        <a href="AnoLv1.jsp"> Data </a>
+                        <a href="Lv1-Passo1.jsp"> Passo 1 </a>
+                        <a href="Lv1-Passo2.jsp"> Passo 2 </a>
+                        <a href="Lv1-Passo3.jsp"> Passo 3 </a>
+                        <a href="Lv1-Passo4.jsp"> Passo 4 </a>
+                        <a class="active"> Resultados </a>
+                    </div>
+
+                </section>                
+            </aside>
+
+            <aside class="span5">
+                <br/>
+                <br/>
+                <br/>
+                <div class="ficanaesquerda">
+                    <h4 >Propriedade: <%=pro.getNome()%></h4>
+                    <h4>Ano: <%=p.getAno()%></h4>
+                </div>
+            </aside>
+
+            <aside class="span1"></aside>
+
+        </div>
+    </div>
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+                <aside class="span11">
+                    <section id="breadcrumbs">
+                        <header class="page-header">
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
                                 <span class="sr-only">100% Completo</span>
