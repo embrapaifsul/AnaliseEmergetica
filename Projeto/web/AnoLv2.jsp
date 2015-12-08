@@ -149,6 +149,11 @@
                             <li><a></a></li>
                             <li><a></a></li>
                             <li><a></a></li>
+                            <li><a></a></li>
+                            <li><a>Propriedade: <%=pro.getNome()%></a></li>
+                            <li><a></a></li>
+                            <li><a></a></li>
+                            <li><a></a></li>
                             <li><a>Nivel: 2</a></li>
                             <li><a></a></li>
                             <li><a></a></li>
@@ -161,11 +166,6 @@
                             <li><a href="InicioPropriedade.jsp">Usuario: <%=u.getLogin()%></a></li>
                         </ul>
                     </div>
-
-                    <form action="index.jsp" class="navbar-form pull-right">
-                        <button class="btn btn-inverse"> Sair </button>
-                    </form>
-
                 </div>
             </div>
         </nav>
@@ -175,50 +175,27 @@
         <div class="container-fluid">
             <div class="row-fluid">
 
-                <aside class="span6">
-                    <section id="breadcrumbs">
-                        <h3> Progresso </h3>
-
-                        <div class="breadcrumb flat">
-                            <a class="active"> Data </a>
-                            <a href="Lv2-Passo1.jsp" <%=link1%>> Passo 1 </a>
-                            <a href="Lv2-Passo2.jsp" <%=link2%>> Passo 2 </a>
-                            <a href="Lv2-Passo3.jsp" <%=link3%>> Passo 3 </a>
-                            <a href="Lv2-Passo4.jsp" <%=link4%>> Passo 4 </a>
-                            <a href="Lv2-Saida.jsp" <%=link5%>> Resultados </a>
-                        </div>
-
-                    </section>                
-                </aside>
-
-                <aside class="span5">
-                    <br/>
-                    <br/>
-                    <br/>
-                    <div class="ficanaesquerda">
-                        <h4>Propriedade: <%=pro.getNome()%></h4>
-                    </div>
-                </aside>
-
-                <aside class="span1"></aside>
-
-            </div>
-        </div>
-
-        <div class="container-fluid">
-            <div class="row-fluid">
-
                 <aside class="span11">
                     <section id="breadcrumbs">
                         <header class="page-header">
+                            <h3> Progresso </h3>
+                            <ul class="breadcrumb">
+                                <li class="alert-info"> Data </li><span class="divider"> / </span>
+                                <li><a href="Lv2-Passo1.jsp" <%=link1%>> Passo 1 </a><span class="divider"> / </span></li>
+                                <li><a href="Lv2-Passo2.jsp" <%=link2%>> Passo 2 </a><span class="divider"> / </span></li>
+                                <li><a href="Lv2-Passo3.jsp" <%=link3%>> Passo 3 </a><span class="divider"> / </span></li>
+                                <li><a href="Lv2-Passo4.jsp" <%=link4%>> Passo 4 </a><span class="divider"> / </span></li>
+                                <li><a href="Lv2-Saida.jsp" <%=link5%>> Resultados </a></li>
+                            </ul>
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
                                     <span class="sr-only">0% Completo</span>
                                 </div>
                             </div>
-                    </section><br/>
+                        </header>
+                    </section><br/><br/>
                 </aside>
-
+                <aside class="span1"><p></aside>
             </div>
         </div>
 
@@ -235,7 +212,7 @@
                             <label class="control-label">Ano da Análise:</label>
                             <div class="controls">
 
-                                <input type="number" name="data" value="<%=ano%>" required>
+                                <input type="text" name="data" value="<%=ano%>" required>
                             </div>
                         </div>
                         <div class="control-group">

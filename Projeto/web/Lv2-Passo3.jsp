@@ -345,43 +345,19 @@
     <div class="container-fluid">
         <div class="row-fluid">
 
-            <aside class="span6">
+            <aside class="span11">
                 <section id="breadcrumbs">
+                    <header class="page-header">
                         <h3> Progresso </h3>
 
-                        <div class="breadcrumb flat">
-                            <a href="AnoLv2.jsp"> Data </a>
-                            <a href="Lv2-Passo1.jsp"> Passo 1 </a>
-                            <a href="Lv2-Passo2.jsp"> Passo 2 </a>
-                            <a class="active"> Passo 3 </a>
-                            <a href="Lv2-Passo4.jsp" <%=link4%>> Passo 4 </a>
-                            <a href="Lv2-Saida.jsp" <%=link5%>> Resultados </a>
-                        </div>
-                        
-                        </section>                
-            </aside>
-
-            <aside class="span5">
-                <br/>
-                <br/>
-                <br/>
-                <div class="ficanaesquerda">
-                    <h4 >Propriedade: <%=pro.getNome()%></h4>
-                    <h4>Ano: <%=p.getAno()%></h4>
-                </div>
-            </aside>
-
-            <aside class="span1"></aside>
-
-        </div>
-
-
-        <div class="container-fluid">
-            <div class="row-fluid">
-
-                <aside class="span11">
-                    <section id="breadcrumbs">
-                        <header class="page-header">
+                        <ul class="breadcrumb">             
+                            <li><a href="AnoLv2.jsp"> Data </a><span class="divider"> / </span></li>
+                            <li><a href="Lv2-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
+                            <li><a href="Lv2-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
+                            <li class="alert-info"> Passo 3 </li><span class="divider"> / </span>
+                            <li><a href="Lv2-Passo4.jsp" <%=link4%>> Passo 4 </a><span class="divider"> / </span></li>
+                            <li><a href="Lv2-Saida.jsp" <%=link5%>> Resultados </a></li>
+                        </ul>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
                                 <span class="sr-only">60% Completo</span>
@@ -391,7 +367,7 @@
                 </section><br/><br/>
             </aside>
 
-            <aside class="span2"></aside>
+            <aside class="span1"></aside>
 
         </div>
     </div>
@@ -410,88 +386,88 @@
                     <div class="control-group">
                         <label class="control-label">Terneiros:</label>
                         <div class="controls">
-                            <input type="number" name="terneiros1" id="terneiros1" placeholder="Quantidade(cabeças)" required value="<%=terneiros1%>">
-                            <input type="number" name="terneiros2" id="terneiros2" placeholder="Valor Unitário" required value="<%=terneiros2%>">
+                            <input type="text" name="terneiros1" id="terneiros1" placeholder="Quantidade(cabeças)" required value="<%=terneiros1%>">
+                            <input type="text" name="terneiros2" id="terneiros2" placeholder="Valor Unitário" required value="<%=terneiros2%>">
                             <span name="terneiros3" id="terneiros3" placeholder="Valor Total" class="uneditable-input"></span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Terneiras:</label>
                         <div class="controls">
-                            <input type="number" name="terneiras1" id="terneiras1" placeholder="Quantidade(cabeças)" required value="<%=terneiras1%>">
-                            <input type="number" name="terneiras2" id="terneiras2" placeholder="Valor Unitário" required value="<%=terneiras2%>">
+                            <input type="text" name="terneiras1" id="terneiras1" placeholder="Quantidade(cabeças)" required value="<%=terneiras1%>">
+                            <input type="text" name="terneiras2" id="terneiras2" placeholder="Valor Unitário" required value="<%=terneiras2%>">
                             <span name="terneiras3" id="terneiras3" placeholder="Valor Total" class="uneditable-input"></span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Novilhas:</label>
                         <div class="controls">
-                            <input type="number" name="novilhas1" id="novilhas1" placeholder="Quantidade(cabeças)" required value="<%=novilhas1%>">
-                            <input type="number" name="novilhas2" id="novilhas2" placeholder="Valor Unitário" required value="<%=novilhas2%>">
+                            <input type="text" name="novilhas1" id="novilhas1" placeholder="Quantidade(cabeças)" required value="<%=novilhas1%>">
+                            <input type="text" name="novilhas2" id="novilhas2" placeholder="Valor Unitário" required value="<%=novilhas2%>">
                             <span name="novilhas3" id="novilhas3" placeholder="Valor Total" class="uneditable-input"></span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Vacas de Descarte:</label>
                         <div class="controls">
-                            <input type="number" name="vacdescarte1" id="vacdescarte1" placeholder="Quantidade(cabeças)" required value="<%=vacasdescarte1%>">
-                            <input type="number" name="vacdescarte2" id="vacdescarte2" placeholder="Valor Unitário" required value="<%=vacasdescarte2%>">
+                            <input type="text" name="vacdescarte1" id="vacdescarte1" placeholder="Quantidade(cabeças)" required value="<%=vacasdescarte1%>">
+                            <input type="text" name="vacdescarte2" id="vacdescarte2" placeholder="Valor Unitário" required value="<%=vacasdescarte2%>">
                             <span name="vacdescarte3" id="vacdescarte3" placeholder="Valor Total" class="uneditable-input"></span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Vacas Prenhas:</label>
                         <div class="controls">
-                            <input type="number" name="vacprenha1" id="vacprenha1" placeholder="Quantidade(cabeças)" required value="<%=vacprenha1%>">
-                            <input type="number" name="vacprenha2" id="vacprenha2" placeholder="Valor Unitário" required value="<%=vacprenha2%>">
+                            <input type="text" name="vacprenha1" id="vacprenha1" placeholder="Quantidade(cabeças)" required value="<%=vacprenha1%>">
+                            <input type="text" name="vacprenha2" id="vacprenha2" placeholder="Valor Unitário" required value="<%=vacprenha2%>">
                             <span name="vacprenha3" id="vacprenha3" placeholder="Valor Total" class="uneditable-input"></span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Vacas com Cria:</label>
                         <div class="controls">
-                            <input type="number" name="vaccria1" id="vaccria1" placeholder="Quantidade(cabeças)" required value="<%=vaccria1%>">
-                            <input type="number" name="vaccria2" id="vaccria2" placeholder="Valor Unitário" required value="<%=vaccria2%>">
+                            <input type="text" name="vaccria1" id="vaccria1" placeholder="Quantidade(cabeças)" required value="<%=vaccria1%>">
+                            <input type="text" name="vaccria2" id="vaccria2" placeholder="Valor Unitário" required value="<%=vaccria2%>">
                             <span name="vaccria3" id="vaccria3" placeholder="Valor Total" class="uneditable-input"></span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Vacas Gordas:</label>
                         <div class="controls">
-                            <input type="number" name="vacgorda1" id="vacgorda1" placeholder="Quantidade(cabeças)" required value="<%=vacgorda1%>">
-                            <input type="number" name="vacgorda2" id="vacgorda2" placeholder="Valor Unitário" required value="<%=vacgorda2%>">
+                            <input type="text" name="vacgorda1" id="vacgorda1" placeholder="Quantidade(cabeças)" required value="<%=vacgorda1%>">
+                            <input type="text" name="vacgorda2" id="vacgorda2" placeholder="Valor Unitário" required value="<%=vacgorda2%>">
                             <span name="vacgorda3" id="vacgorda3" placeholder="Valor Total" class="uneditable-input"></span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Novilhos para Recria:</label>
                         <div class="controls">
-                            <input type="number" name="novilhosrecria1" id="novilhosrecria1" placeholder="Quantidade(cabeças)" required value="<%=novilhosrecria1%>">
-                            <input type="number" name="novilhosrecria2" id="novilhosrecria2" placeholder="Valor Unitário" required value="<%=novilhosrecria2%>">
+                            <input type="text" name="novilhosrecria1" id="novilhosrecria1" placeholder="Quantidade(cabeças)" required value="<%=novilhosrecria1%>">
+                            <input type="text" name="novilhosrecria2" id="novilhosrecria2" placeholder="Valor Unitário" required value="<%=novilhosrecria2%>">
                             <span name="novilhosrecria3" id="novilhosrecria3" placeholder="Valor Total" class="uneditable-input"></span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Novilhos Gordos:</label>
                         <div class="controls">
-                            <input type="number" name="novilhosgordos1"  id="novilhosgordos1" placeholder="Quantidade(cabeças)" required value="<%=novilhosgordos1%>">
-                            <input type="number" name="novilhosgordos2" id="novilhosgordos2" placeholder="Valor Unitário" required value="<%=novilhosgordos2%>">
+                            <input type="text" name="novilhosgordos1"  id="novilhosgordos1" placeholder="Quantidade(cabeças)" required value="<%=novilhosgordos1%>">
+                            <input type="text" name="novilhosgordos2" id="novilhosgordos2" placeholder="Valor Unitário" required value="<%=novilhosgordos2%>">
                             <span name="novilhosgordos3" id="novilhosgordos3" placeholder="Valor Total" class="uneditable-input"></span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Torunos:</label>
                         <div class="controls">
-                            <input type="number" name="torunos1" id="torunos1" placeholder="Quantidade(cabeças)" required value="<%=torunos1%>">
-                            <input type="number" name="torunos2" id="torunos2" placeholder="Valor Unitário" required value="<%=torunos2%>">
+                            <input type="text" name="torunos1" id="torunos1" placeholder="Quantidade(cabeças)" required value="<%=torunos1%>">
+                            <input type="text" name="torunos2" id="torunos2" placeholder="Valor Unitário" required value="<%=torunos2%>">
                             <span name="torunos3"  id="torunos3" placeholder="Valor Total" class="uneditable-input"></span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Touros:</label>
                         <div class="controls">
-                            <input type="number" name="touros1" id="touros1" placeholder="Quantidade(cabeças)" required value="<%=touros1%>">
-                            <input type="number" name="touros2" id="touros2" placeholder="Valor Unitário" required value="<%=touros2%>">
+                            <input type="text" name="touros1" id="touros1" placeholder="Quantidade(cabeças)" required value="<%=touros1%>">
+                            <input type="text" name="touros2" id="touros2" placeholder="Valor Unitário" required value="<%=touros2%>">
                             <span name="touros3" id="touros3" placeholder="Valor Total" class="uneditable-input"></span>
                         </div>
                     </div>
