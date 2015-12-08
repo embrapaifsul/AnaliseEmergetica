@@ -4,6 +4,8 @@
     Author     : Aluno
 --%>
 
+<%@page import="dao.Lv3p3DAO"%>
+<%@page import="modelo.Lv3p3"%>
 <%@page import="dao.ProdutoDAO"%>
 <%@page import="modelo.Produto"%>
 <%@page import="java.util.List"%>
@@ -17,7 +19,10 @@
 <%
     Usuario u = new Usuario();
     Lv3p2DAO dao = new Lv3p2DAO();
+    Lv3p3DAO dao3 = new Lv3p3DAO();
     Passos p = new Passos();
+    
+    List<Lv3p3> lista = dao3.listar();
     Propriedade pro = new Propriedade();
     if (session.getAttribute("Usuario") != null && session.getAttribute("Passos") != null && session.getAttribute("Propriedade") != null) {
         u = (Usuario) session.getAttribute("Usuario");
@@ -146,7 +151,11 @@
 
                         <div class="control-group">
 
-                            <tr class="success">                                  
+                            <tr class="success">   
+                                <%
+                                if(lista==null){
+                                %>
+                                
                                 <%                              Integer posicao = 0;
                                     for (Produto produto : produtos) {
                                 %>
@@ -171,10 +180,43 @@
                             <%
                                     posicao++;
                                 }
-                            %>          
+                            %>   
+                            
+                            
+                             <%}else{
+%>
+
+                         
+
+                         <%                              Integer posicao = 0;
+                                    for (Produto produto : produtos) {
+                                %>
 
 
+                            <tr class="success">                                  
 
+                                <td>
+                                    
+                                        <%=produto.getNome()%>
+                                        
+                                </td>
+                                <td>
+                                    <input type="number" name="<%=produto.getId()%>" id="<%=produto.getNome()%>"/>
+                                </td>
+                            </tr>
+
+
+                            <input type="hidden" name="id<%=produto.getId()%>" value="<%=produto.getId()%>" />
+
+
+                            <%
+                                    posicao++;
+                                }
+                            %>   
+
+
+<%
+                                }%>
                             </tr>
 
 
@@ -184,7 +226,7 @@
 
                         </tbody>
                     </table>
-                    <input type="submit" class="btn" value="PP" />
+                    <input type="submit" class="btn" value="Proxímo Passo" />
                    
                 </form>
                 
