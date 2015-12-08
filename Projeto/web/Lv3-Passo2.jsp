@@ -136,68 +136,68 @@ Double semente_azevem = 0.0 ,remedio = 0.0 ,comida = 0.0 ,plano_saude = 0.0 ,sem
                     <div class="control-group">
                         <label class="control-label">Combustível:</label>
                         <div class="controls">
-                            <input type="text" name="combustivel" id="combustivel" placeholder="R$" required value ="<%=combustivel%>">                                                        
+                            <input type="number" name="combustivel" id="combustivel" placeholder="R$" required value ="<%=combustivel%>">                                                        
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Eletricidade:</label>
                         <div class="controls">
-                            <input type="text" name="eletricidade" id="eletricidade" placeholder="R$" required value="<%=eletricidade%>">
+                            <input type="number" name="eletricidade" id="eletricidade" placeholder="R$" required value="<%=eletricidade%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Materiais de manutenção:</label>
                         <div class="controls">
                             <br/>
-                            <input type="text" name="materiaismanutencao" id="materiaismanutencao" placeholder="R$" required value="<%=materiais_manutencao%>">
+                            <input type="number" name="materiaismanutencao" id="materiaismanutencao" placeholder="R$" required value="<%=materiais_manutencao%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Manutenção:</label>
                         <div class="controls">
-                            <input type="text" name="manutencao" id="manutencao" placeholder="R$" required value ="<%=manutencao%>">
+                            <input type="number" name="manutencao" id="manutencao" placeholder="R$" required value ="<%=manutencao%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Impostos:</label>
                         <div class="controls">
-                            <input type="text" name="impostos" id="impostos" placeholder="R$" required  value= "<%=impostos%>">
+                            <input type="number" name="impostos" id="impostos" placeholder="R$" required  value= "<%=impostos%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Serviços privados:</label>
                         <div class="controls">
-                            <input type="text" name="servicosprivados" id="servicosprivados" placeholder="R$" required value ="<%=servicos_privados%> ">
+                            <input type="number" name="servicosprivados" id="servicosprivados" placeholder="R$" required value ="<%=servicos_privados%> ">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Telefone:</label>
                         <div class="controls">
-                            <input type="text" name="telefone" id="telefone" placeholder="R$" required value ="<%=telefone%>">
+                            <input type="number" name="telefone" id="telefone" placeholder="R$" required value ="<%=telefone%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Touro:</label>
                         <div class="controls">
-                            <input type="text" name="touro" id="touro" placeholder="R$" required value ="<%=touro%>">
+                            <input type="number" name="touro" id="touro" placeholder="R$" required value ="<%=touro%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Vacas invernar:</label>
                         <div class="controls">
-                            <input type="text" name="vacasinvernar"  id="vacasinvernar" placeholder="R$" required value ="<%=vacas_invernar%>">
+                            <input type="number" name="vacasinvernar"  id="vacasinvernar" placeholder="R$" required value ="<%=vacas_invernar%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Novilhos:</label>
                         <div class="controls">
-                            <input type="text" name="novilhos" id="novilhos" placeholder="R$" required value ="<%=novilhos%>">
+                            <input type="number" name="novilhos" id="novilhos" placeholder="R$" required value ="<%=novilhos%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Vacina de ovinos:</label>
                         <div class="controls">
-                            <input type="text" name="vacinaovinos" id="vacinaovinos" placeholder="R$" required value ="<%=vacina_ovinos%>">
+                            <input type="number" name="vacinaovinos" id="vacinaovinos" placeholder="R$" required value ="<%=vacina_ovinos%>">
                         </div>
                     </div>
                     
@@ -205,7 +205,7 @@ Double semente_azevem = 0.0 ,remedio = 0.0 ,comida = 0.0 ,plano_saude = 0.0 ,sem
                     <div class="control-group">
                         <label class="control-label">Vermifugos de ovinos:</label>
                         <div class="controls">
-                            <input type="text" name="vermifugosovinos" id="vermifugosovinos" placeholder="R$" required value ="<%=vermifugos_ovinos%>">
+                            <input type="number" name="vermifugosovinos" id="vermifugosovinos" placeholder="R$" required value ="<%=vermifugos_ovinos%>">
                         </div>
                     </div>
                     
@@ -214,7 +214,7 @@ Double semente_azevem = 0.0 ,remedio = 0.0 ,comida = 0.0 ,plano_saude = 0.0 ,sem
                     <div class="control-group">
                         <label class="control-label">Vacina de bovinos:</label>
                         <div class="controls">
-                            <input type="text" name="vacinabovinos" id="vacinabovinos" placeholder="R$" required value=" <%=vacina_bovinos%>">
+                            <input type="number" name="vacinabovinos" id="vacinabovinos" placeholder="R$" required value=" <%=vacina_bovinos%>">
                         </div>
                     </div>
                     
@@ -222,7 +222,7 @@ Double semente_azevem = 0.0 ,remedio = 0.0 ,comida = 0.0 ,plano_saude = 0.0 ,sem
                     <div class="control-group">
                         <label class="control-label">Vermifugos bovinos:</label>
                         <div class="controls">
-                            <input type="text" name="vermifugosbovinos" id="vermifugosbovinos" placeholder="R$" required value=" <%=vermifugos_bovinos%>">
+                            <input type="number" name="vermifugosbovinos" id="vermifugosbovinos" placeholder="R$" required value=" <%=vermifugos_bovinos%>">
                         </div>
                     </div>
                     
@@ -230,7 +230,7 @@ Double semente_azevem = 0.0 ,remedio = 0.0 ,comida = 0.0 ,plano_saude = 0.0 ,sem
                     <div class="control-group">
                         <label class="control-label">Vermifugo equinos:</label>
                         <div class="controls">
-                            <input type="text" name="vermifugosequinos" id="vermifugosequinos" placeholder="R$" required value ="<%=vermifugo_equinos%>">
+                            <input type="number" name="vermifugosequinos" id="vermifugosequinos" placeholder="R$" required value ="<%=vermifugo_equinos%>">
                         </div>
                     </div>
                     
@@ -238,14 +238,14 @@ Double semente_azevem = 0.0 ,remedio = 0.0 ,comida = 0.0 ,plano_saude = 0.0 ,sem
                     <div class="control-group">
                         <label class="control-label">Sementes aveia e Azevém:</label>
                         <div class="controls">
-                            <input type="text" name="sementesaveia" id="sementesaveia" placeholder="R$" required value ="<%=semente_azevem%>">
+                            <input type="number" name="sementesaveia" id="sementesaveia" placeholder="R$" required value ="<%=semente_azevem%>">
                         </div>
                     </div>
                     
                     <div class="control-group">
                         <label class="control-label">Sementes Milho:</label>
                         <div class="controls">
-                            <input type="text" name="sementemilho" id="sementemilho" placeholder="R$" required value ="<%=semente_milho%>">
+                            <input type="number" name="sementemilho" id="sementemilho" placeholder="R$" required value ="<%=semente_milho%>">
                         </div>
                     </div>
                     
@@ -253,21 +253,21 @@ Double semente_azevem = 0.0 ,remedio = 0.0 ,comida = 0.0 ,plano_saude = 0.0 ,sem
                     <div class="control-group">
                         <label class="control-label">Remédio:</label>
                         <div class="controls">
-                            <input type="text" name="remedio" id="remedio" placeholder="R$" required value ="<%=remedio%>">
+                            <input type="number" name="remedio" id="remedio" placeholder="R$" required value ="<%=remedio%>">
                         </div>
                     </div>
                     
                     <div class="control-group">
                         <label class="control-label">Comida:</label>
                         <div class="controls">
-                            <input type="text" name="comida" id="comida" placeholder="R$" required value ="<%=comida%>">
+                            <input type="number" name="comida" id="comida" placeholder="R$" required value ="<%=comida%>">
                         </div>
                     </div>
                     
                     <div class="control-group">
                         <label class="control-label">Plano de Saúde:</label>
                         <div class="controls">
-                            <input type="text" name="planosaude" id="planosaude" placeholder="R$" required value ="<%=plano_saude%>">
+                            <input type="number" name="planosaude" id="planosaude" placeholder="R$" required value ="<%=plano_saude%>">
                         </div>
                     </div>
                     
