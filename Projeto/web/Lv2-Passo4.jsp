@@ -382,32 +382,56 @@ Double mao_de_obra = graf.getMaodeobrafixa() + graf.getMaodeobravariavel() + gra
     <div class="container-fluid">
         <div class="row-fluid">
 
-            <aside class="span11">
+            <aside class="span6">
                 <section id="breadcrumbs">
-                    <header class="page-header">
-                        <h3> Progresso </h3>
+                    <h3> Progresso </h3>
 
-                        <ul class="breadcrumb">             
-                            <li><a href="AnoLv2.jsp"> Data </a><span class="divider"> / </span></li>
-                            <li><a href="Lv2-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
-                            <li><a href="Lv2-Passo2.jsp"> Passo 2 </a><span class="divider"> / </span></li>
-                            <li><a href="Lv2-Passo3.jsp"> Passo 3 </a><span class="divider"> / </span></li>
-                            <li class="alert-info"> Passo 4 </li><span class="divider"> / </span>
-                            <li><a href="Lv2-Saida.jsp" <%=link5%>> Resultados </a></li>
-                        </ul>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
-                                <span class="sr-only">80% Completo</span>
-                            </div>
-                        </div>
-                    </header>
-                </section><br/><br/>
+                    <div class="breadcrumb flat">
+                        <a href="AnoLv2.jsp"> Data </a>
+                        <a href="Lv2-Passo1.jsp"> Passo 1 </a>
+                        <a href="Lv2-Passo2.jsp"> Passo 2 </a>
+                        <a href="Lv2-Passo3.jsp"> Passo 3 </a>
+                        <a class="active"> Passo 4 </a>
+                        <a href="Lv2-Saida.jsp" <%=link5%>> Resultados </a>
+                    </div>
+
+                </section>                
+            </aside>
+
+            <aside class="span5">
+                <br/>
+                <br/>
+                <br/>
+                <div class="ficanaesquerda">
+                    <h4 >Propriedade: <%=pro.getNome()%></h4>
+                    <h4>Ano: <%=p.getAno()%></h4>
+                </div>
             </aside>
 
             <aside class="span1"></aside>
 
         </div>
     </div>
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+                <aside class="span11">
+                    <section id="breadcrumbs">
+                        <header class="page-header">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                                    <span class="sr-only">80% Completo</span>
+                                </div>
+                            </div>
+                        </header>
+                    </section><br/><br/>
+                </aside>
+
+                <aside class="span1"></aside>
+
+            </div>
+        </div>
 
     <div class="container-fluid">
         <div class="row-fluid">
@@ -423,14 +447,14 @@ Double mao_de_obra = graf.getMaodeobrafixa() + graf.getMaodeobravariavel() + gra
                     <div class="control-group">
                         <label class="control-label">Medicamentos e Vacinas:</label>
                         <div class="controls">
-                            <input type="text" name="medicamentos" id="medicamentos" placeholder="Valor em R$(ANO)" value="<%=medicamentos%>" required>
+                            <input type="number" name="medicamentos" id="medicamentos" placeholder="Valor em R$(ANO)" value="<%=medicamentos%>" required>
                             <span name="medicamentos2" id="medicamentos2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Carrapaticidas:</label>
                         <div class="controls">
-                            <input type="text" name="carrapaticidas" id="carrapaticidas" placeholder="Valor em R$(ANO)" value="<%=carrapaticidas%>" required>
+                            <input type="number" name="carrapaticidas" id="carrapaticidas" placeholder="Valor em R$(ANO)" value="<%=carrapaticidas%>" required>
                             <span name="carrapaticidas2" id="carrapaticidas2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
@@ -438,28 +462,28 @@ Double mao_de_obra = graf.getMaodeobrafixa() + graf.getMaodeobravariavel() + gra
                         <label class="control-label">Sal Comum e Mineral:</label>
                         <div class="controls">
 
-                            <input type="text" name="sal" id="sal" placeholder="Valor em R$(ANO)" value="<%=sal%>" required>
+                            <input type="number" name="sal" id="sal" placeholder="Valor em R$(ANO)" value="<%=sal%>" required>
                             <span name="sal2" id="sal2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Rações:</label>
                         <div class="controls">
-                            <input type="text" name="racoes" id="racoes" placeholder="Valor em R$(ANO)" value="<%=racoes%>" required>
+                            <input type="number" name="racoes" id="racoes" placeholder="Valor em R$(ANO)" value="<%=racoes%>" required>
                             <span name="racoes2" id="racoes2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Compra de Bovinos:</label>
                         <div class="controls">
-                            <input type="text" name="comprabovinos" id="comprabovinos"  placeholder="Valor em R$(ANO)" value="<%=comprabovinos%>" required>
+                            <input type="number" name="comprabovinos" id="comprabovinos"  placeholder="Valor em R$(ANO)" value="<%=comprabovinos%>" required>
                             <span name="comprabovinos2" id="comprabovinos2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Utensílios de uso geral:</label>
                         <div class="controls">
-                            <input type="text" name="utensilios" id="utensilios"  placeholder="Valor em R$(ANO)" value="<%=utensilios%>" required>
+                            <input type="number" name="utensilios" id="utensilios"  placeholder="Valor em R$(ANO)" value="<%=utensilios%>" required>
                             <span name="utensilios2" id="utensilios2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
@@ -467,28 +491,28 @@ Double mao_de_obra = graf.getMaodeobrafixa() + graf.getMaodeobravariavel() + gra
                         <label class="control-label">Sêmen e material para inseminação artificial:</label>
                         <div class="controls">
                             <br/>
-                            <input type="text" name="semen" id="semen"  placeholder="Valor em R$(ANO)" value="<%=semen%>" required>
+                            <input type="number" name="semen" id="semen"  placeholder="Valor em R$(ANO)" value="<%=semen%>" required>
                             <span name="semen2" id="semen2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Mão-de-obra Fixa:</label>
                         <div class="controls">
-                            <input type="text" name="maodeobrafixa" id="maodeobrafixa"  placeholder="Valor em R$(ANO)" value="<%=maodeobrafixa%>" required>
+                            <input type="number" name="maodeobrafixa" id="maodeobrafixa"  placeholder="Valor em R$(ANO)" value="<%=maodeobrafixa%>" required>
                             <span name="maodeobrafixa2" id="maodeobrafixa2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Mão-de-obra variável:</label>
                         <div class="controls">
-                            <input type="text" name="maodeobravariavel" id="maodeobravariavel" placeholder="Valor em R$(ANO)" value="<%=maodeobravariavel%>" required>
+                            <input type="number" name="maodeobravariavel" id="maodeobravariavel" placeholder="Valor em R$(ANO)" value="<%=maodeobravariavel%>" required>
                             <span name="maodeobravariavel2" id="maodeobravariavel2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Sementes:</label>
                         <div class="controls">
-                            <input type="text" name="sementes" id="sementes" placeholder="Valor em R$(ANO)" value="<%=sementes%>" required>
+                            <input type="number" name="sementes" id="sementes" placeholder="Valor em R$(ANO)" value="<%=sementes%>" required>
                             <span name="sementes2" id="sementes2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
@@ -496,14 +520,14 @@ Double mao_de_obra = graf.getMaodeobrafixa() + graf.getMaodeobravariavel() + gra
                         <label class="control-label">Defensivos agrícolas para pastagens:</label>
                         <div class="controls">
                             <br/>
-                            <input type="text" name="defensivospastagens" id="defensivospastagens"  placeholder="Valor em R$(ANO)" value="<%=defensivospastagem%>" required>
+                            <input type="number" name="defensivospastagens" id="defensivospastagens"  placeholder="Valor em R$(ANO)" value="<%=defensivospastagem%>" required>
                             <span name="defensivospastagens2" id="defensivospastagens2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Adubos para pastegens:</label>
                         <div class="controls">
-                            <input type="text" name="adubos" id="adubos" placeholder="Valor em R$(ANO)" value="<%=adubos%>" required>
+                            <input type="number" name="adubos" id="adubos" placeholder="Valor em R$(ANO)" value="<%=adubos%>" required>
                             <span name="adubos2" id="adubos2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
@@ -511,21 +535,21 @@ Double mao_de_obra = graf.getMaodeobrafixa() + graf.getMaodeobravariavel() + gra
                         <label class="control-label">Combustíveis e Lubrificantes:</label>
                         <div class="controls">
                             <br/>
-                            <input type="text" name="combustiveis" id="combustiveis"  placeholder="Valor em R$(ANO)" value="<%=combustiveis%>" required>
+                            <input type="number" name="combustiveis" id="combustiveis"  placeholder="Valor em R$(ANO)" value="<%=combustiveis%>" required>
                             <span name="combustiveis2" id="combustiveis2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Reparos de máquinas:</label>
                         <div class="controls">
-                            <input type="text" name="reparomaquinas" id="reparomaquinas" placeholder="Valor em R$(ANO)" value="<%=reparomaquinas%>" required>
+                            <input type="number" name="reparomaquinas" id="reparomaquinas" placeholder="Valor em R$(ANO)" value="<%=reparomaquinas%>" required>
                             <span name="reparomaquinas2" id="reparomaquinas2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Reparos de benfeitorias:</label>
                         <div class="controls">
-                            <input type="text" name="reparosbemfeitorias" id="reparosbemfeitorias" placeholder="Valor em R$(ANO)" value="<%=reparobemfeitorias%>" required>
+                            <input type="number" name="reparosbemfeitorias" id="reparosbemfeitorias" placeholder="Valor em R$(ANO)" value="<%=reparobemfeitorias%>" required>
                             <span name="reparosbemfeitorias2" id="reparosbemfeitorias2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
@@ -533,7 +557,7 @@ Double mao_de_obra = graf.getMaodeobrafixa() + graf.getMaodeobravariavel() + gra
                         <label class="control-label">Fretes, taxas e comissão na venda de animais:</label>
                         <div class="controls">
                             <br/>
-                            <input type="text" name="fretes" id="fretes" placeholder="Valor em R$(ANO)" value="<%=fretes%>" required>
+                            <input type="number" name="fretes" id="fretes" placeholder="Valor em R$(ANO)" value="<%=fretes%>" required>
                             <span name="fretes2" id="fretes2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
@@ -541,7 +565,7 @@ Double mao_de_obra = graf.getMaodeobrafixa() + graf.getMaodeobravariavel() + gra
                         <label class="control-label">Arrendamentos de campo nativo:</label>
                         <div class="controls">
                             <br/>
-                            <input type="text" name="arrendamentosnativo" id="arrendamentosnativo"  placeholder="Valor em R$(ANO)" value="<%=arrendamentosnativos%>" required>
+                            <input type="number" name="arrendamentosnativo" id="arrendamentosnativo"  placeholder="Valor em R$(ANO)" value="<%=arrendamentosnativos%>" required>
                             <span name="arrendamentosnativo2" id="arrendamentosnativo2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
@@ -549,21 +573,21 @@ Double mao_de_obra = graf.getMaodeobrafixa() + graf.getMaodeobravariavel() + gra
                         <label class="control-label">Arrendamentos de pastagens cultivadas:</label>
                         <div class="controls">
                             <br/>
-                            <input type="text" name="arrendamentoscultivadas" id="arrendamentoscultivadas" placeholder="Valor em R$(ANO)" value="<%=arrendamentoscultivadas%>" required>
+                            <input type="number" name="arrendamentoscultivadas" id="arrendamentoscultivadas" placeholder="Valor em R$(ANO)" value="<%=arrendamentoscultivadas%>" required>
                             <span name="arrendamentoscultivadas2" id="arrendamentoscultivadas2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Impostos e Taxas:</label>
                         <div class="controls">
-                            <input type="text" name="impostos" id="impostos" placeholder="Valor em R$(ANO)" value="<%=impostos%>" required>
+                            <input type="number" name="impostos" id="impostos" placeholder="Valor em R$(ANO)" value="<%=impostos%>" required>
                             <span name="impostos2" id="impostos2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Outras despesas:</label>
                         <div class="controls">
-                            <input type="text" name="outras" id="outras"  placeholder="Valor em R$(ANO)" value="<%=outras%>" required>
+                            <input type="number" name="outras" id="outras"  placeholder="Valor em R$(ANO)" value="<%=outras%>" required>
                             <span name="outras2" id="outras2" class="uneditable-input"></span><span class="help-inline">%</span>
                         </div>
                     </div>

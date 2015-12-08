@@ -473,29 +473,55 @@
     <div class="container-fluid">
         <div class="row-fluid">
 
-            <aside class="span11">
+            <aside class="span6">
                 <section id="breadcrumbs">
-                    <header class="page-header">
                         <h3> Progresso </h3>
 
-                        <ul class="breadcrumb">         
-                            <li><a href="AnoLv2.jsp"> Data </a><span class="divider"> / </span></li>
-                            <li><a href="Lv2-Passo1.jsp"> Passo 1 </a><span class="divider"> / </span></li>
-                            <li class="alert-info"> Passo 2 </li><span class="divider"> / </span>
-                            <li><a href="Lv2-Passo3.jsp" <%=link3%> > Passo 3 </a><span class="divider"> / </span></li>
-                            <li><a href="Lv2-Passo4.jsp" <%=link4%> > Passo 4 </a><span class="divider"> / </span></li>
-                            <li><a href="Lv2-Saida.jsp" <%=link5%> > Resultados </a></li>
-                        </ul>
+                        <div class="breadcrumb flat">
+                            <a href="AnoLv2.jsp"> Data </a>
+                            <a href="Lv2-Passo1.jsp"> Passo 1 </a>
+                            <a class="active"> Passo 2 </a>
+                            <a href="Lv2-Passo3.jsp" <%=link3%>> Passo 3 </a>
+                            <a href="Lv2-Passo4.jsp" <%=link4%>> Passo 4 </a>
+                            <a href="Lv2-Saida.jsp" <%=link5%>> Resultados </a>
+                        </div>
+                        
+                        </section>                
+            </aside>
+
+            <aside class="span5">
+                <br/>
+                <br/>
+                <br/>
+                <div class="ficanaesquerda">
+                    <h4 >Propriedade: <%=pro.getNome()%></h4>
+                    <h4>Ano: <%=p.getAno()%></h4>
+                </div>
+            </aside>
+
+            <aside class="span1"></aside>
+
+        </div>
+
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+                <aside class="span11">
+                    <section id="breadcrumbs">
+                        <header class="page-header">
+                        
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
                                 <span class="sr-only">40% Completo</span>
                             </div>
                         </div>
+
                     </header>
-                </section><br/>
+                </section><br/><br/>
             </aside>
 
-            <aside class="span1"></aside>
+            <aside class="span2"></aside>
 
         </div>
     </div>
@@ -513,91 +539,91 @@
                     <div class="control-group">
                         <label class="control-label">Vacas de Cria:</label>
                         <div class="controls">
-                            <input type="text" name="vacasdecria1" id="vacasdecria1" placeholder="Jan-Mar" value="<%=vacasdecria1%>">
-                            <input type="text" name="vacasdecria2" id="vacasdecria2" placeholder="Abr-Jun" value="<%=vacasdecria2%>">
-                            <input type="text" name="vacasdecria3" id="vacasdecria3" placeholder="Jul-Set" value="<%=vacasdecria3%>">
-                            <input type="text" name="vacasdecria4" id="vacasdecria4" placeholder="Out-Dez" value="<%=vacasdecria4%>">
+                            <input type="number" name="vacasdecria1" id="vacasdecria1" placeholder="Jan-Mar" value="<%=vacasdecria1%>">
+                            <input type="number" name="vacasdecria2" id="vacasdecria2" placeholder="Abr-Jun" value="<%=vacasdecria2%>">
+                            <input type="number" name="vacasdecria3" id="vacasdecria3" placeholder="Jul-Set" value="<%=vacasdecria3%>">
+                            <input type="number" name="vacasdecria4" id="vacasdecria4" placeholder="Out-Dez" value="<%=vacasdecria4%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Vacas de Descarte:</label>
                         <div class="controls">
-                            <input type="text" name="vacasdedescarte1" id="vacasdedescarte1" placeholder="Jan-Mar" value="<%=vacasdedescarte1%>">
-                            <input type="text" name="vacasdedescarte2" id="vacasdedescarte2" placeholder="Abr-Jun" value="<%=vacasdedescarte2%>">
-                            <input type="text" name="vacasdedescarte3" id="vacasdedescarte3" placeholder="Jul-Set" value="<%=vacasdedescarte3%>">
-                            <input type="text" name="vacasdedescarte4" id="vacasdedescarte4" placeholder="Out-Dez" value="<%=vacasdedescarte4%>">
+                            <input type="number" name="vacasdedescarte1" id="vacasdedescarte1" placeholder="Jan-Mar" value="<%=vacasdedescarte1%>">
+                            <input type="number" name="vacasdedescarte2" id="vacasdedescarte2" placeholder="Abr-Jun" value="<%=vacasdedescarte2%>">
+                            <input type="number" name="vacasdedescarte3" id="vacasdedescarte3" placeholder="Jul-Set" value="<%=vacasdedescarte3%>">
+                            <input type="number" name="vacasdedescarte4" id="vacasdedescarte4" placeholder="Out-Dez" value="<%=vacasdedescarte4%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Terneiros:</label>
                         <div class="controls">
-                            <input type="text" name="terneiros1" id="terneiros1" placeholder="Jan-Mar" value="<%=terneiros1%>">
-                            <input type="text" name="terneiros2" id="terneiros2" placeholder="Abr-Jun" value="<%=terneiros2%>">
-                            <input type="text" name="terneiros3" id="terneiros3" placeholder="Jul-Set" value="<%=terneiros3%>">
-                            <input type="text" name="terneiros4" id="terneiros4" placeholder="Out-Dez" value="<%=terneiros4%>">
+                            <input type="number" name="terneiros1" id="terneiros1" placeholder="Jan-Mar" value="<%=terneiros1%>">
+                            <input type="number" name="terneiros2" id="terneiros2" placeholder="Abr-Jun" value="<%=terneiros2%>">
+                            <input type="number" name="terneiros3" id="terneiros3" placeholder="Jul-Set" value="<%=terneiros3%>">
+                            <input type="number" name="terneiros4" id="terneiros4" placeholder="Out-Dez" value="<%=terneiros4%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Terneiras:</label>
                         <div class="controls">
-                            <input type="text" name="terneiras1" id="terneiras1" placeholder="Jan-Mar" value="<%=terneiras1%>">
-                            <input type="text" name="terneiras2" id="terneiras2" placeholder="Abr-Jun" value="<%=terneiras2%>">
-                            <input type="text" name="terneiras3" id="terneiras3" placeholder="Jul-Set" value="<%=terneiras3%>">
-                            <input type="text" name="terneiras4" id="terneiras4" placeholder="Out-Dez" value="<%=terneiras4%>">
+                            <input type="number" name="terneiras1" id="terneiras1" placeholder="Jan-Mar" value="<%=terneiras1%>">
+                            <input type="number" name="terneiras2" id="terneiras2" placeholder="Abr-Jun" value="<%=terneiras2%>">
+                            <input type="number" name="terneiras3" id="terneiras3" placeholder="Jul-Set" value="<%=terneiras3%>">
+                            <input type="number" name="terneiras4" id="terneiras4" placeholder="Out-Dez" value="<%=terneiras4%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Novilhos 13-24:</label>
                         <div class="controls">
-                            <input type="text" name="novilhos1" id="novilhos1" placeholder="Jan-Mar" value="<%=novilhos1%>">
-                            <input type="text" name="novilhos2" id="novilhos2" placeholder="Abr-Jun" value="<%=novilhos2%>">
-                            <input type="text" name="novilhos3" id="novilhos3" placeholder="Jul-Set" value="<%=novilhos3%>">
-                            <input type="text" name="novilhos4" id="novilhos4" placeholder="Out-Dez" value="<%=novilhos4%>">
+                            <input type="number" name="novilhos1" id="novilhos1" placeholder="Jan-Mar" value="<%=novilhos1%>">
+                            <input type="number" name="novilhos2" id="novilhos2" placeholder="Abr-Jun" value="<%=novilhos2%>">
+                            <input type="number" name="novilhos3" id="novilhos3" placeholder="Jul-Set" value="<%=novilhos3%>">
+                            <input type="number" name="novilhos4" id="novilhos4" placeholder="Out-Dez" value="<%=novilhos4%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Novilhas 13-24:</label>
                         <div class="controls">
-                            <input type="text" name="novilhas1" id="novilhas1" placeholder="Jan-Mar" value="<%=novilhas1%>">
-                            <input type="text" name="novilhas2" id="novilhas2" placeholder="Abr-Jun" value="<%=novilhas2%>">
-                            <input type="text" name="novilhas3" id="novilhas3" placeholder="Jul-Set" value="<%=novilhas3%>">
-                            <input type="text" name="novilhas4" id="novilhas4" placeholder="Out-Dez" value="<%=novilhas4%>">
+                            <input type="number" name="novilhas1" id="novilhas1" placeholder="Jan-Mar" value="<%=novilhas1%>">
+                            <input type="number" name="novilhas2" id="novilhas2" placeholder="Abr-Jun" value="<%=novilhas2%>">
+                            <input type="number" name="novilhas3" id="novilhas3" placeholder="Jul-Set" value="<%=novilhas3%>">
+                            <input type="number" name="novilhas4" id="novilhas4" placeholder="Out-Dez" value="<%=novilhas4%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Novilhos 25-36:</label>
                         <div class="controls">
-                            <input type="text" name="novilhos11" id="novilhos11" placeholder="Jan-Mar" value="<%=novilhos11%>">
-                            <input type="text" name="novilhos22" id="novilhos22" placeholder="Abr-Jun" value="<%=novilhos22%>">
-                            <input type="text" name="novilhos33" id="novilhos33" placeholder="Jul-Set" value="<%=novilhos33%>">
-                            <input type="text" name="novilhos44" id="novilhos44" placeholder="Out-Dez" value="<%=novilhos44%>">
+                            <input type="number" name="novilhos11" id="novilhos11" placeholder="Jan-Mar" value="<%=novilhos11%>">
+                            <input type="number" name="novilhos22" id="novilhos22" placeholder="Abr-Jun" value="<%=novilhos22%>">
+                            <input type="number" name="novilhos33" id="novilhos33" placeholder="Jul-Set" value="<%=novilhos33%>">
+                            <input type="number" name="novilhos44" id="novilhos44" placeholder="Out-Dez" value="<%=novilhos44%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Novilhas 25-36:</label>
                         <div class="controls">
-                            <input type="text" name="novilhas11" id="novilhas11" placeholder="Jan-Mar" value="<%=novilhas11%>">
-                            <input type="text" name="novilhas22" id="novilhas22" placeholder="Abr-Jun" value="<%=novilhas22%>">
-                            <input type="text" name="novilhas33" id="novilhas33" placeholder="Jul-Set" value="<%=novilhas33%>">
-                            <input type="text" name="novilhas44" id="novilhas44" placeholder="Out-Dez" value="<%=novilhas44%>">
+                            <input type="number" name="novilhas11" id="novilhas11" placeholder="Jan-Mar" value="<%=novilhas11%>">
+                            <input type="number" name="novilhas22" id="novilhas22" placeholder="Abr-Jun" value="<%=novilhas22%>">
+                            <input type="number" name="novilhas33" id="novilhas33" placeholder="Jul-Set" value="<%=novilhas33%>">
+                            <input type="number" name="novilhas44" id="novilhas44" placeholder="Out-Dez" value="<%=novilhas44%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Novilhos > 36:</label>
                         <div class="controls">
-                            <input type="text" name="novilhos111" id="novilhos111" placeholder="Jan-Mar" value="<%=novilhos111%>">
-                            <input type="text" name="novilhos222" id="novilhos222" placeholder="Abr-Jun" value="<%=novilhos222%>">
-                            <input type="text" name="novilhos333" id="novilhos333" placeholder="Jul-Set" value="<%=novilhos333%>">
-                            <input type="text" name="novilhos444" id="novilhos444" placeholder="Out-Dez" value="<%=novilhos444%>">
+                            <input type="number" name="novilhos111" id="novilhos111" placeholder="Jan-Mar" value="<%=novilhos111%>">
+                            <input type="number" name="novilhos222" id="novilhos222" placeholder="Abr-Jun" value="<%=novilhos222%>">
+                            <input type="number" name="novilhos333" id="novilhos333" placeholder="Jul-Set" value="<%=novilhos333%>">
+                            <input type="number" name="novilhos444" id="novilhos444" placeholder="Out-Dez" value="<%=novilhos444%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Touros:</label>
                         <div class="controls">
-                            <input type="text" name="touros1" id="touros1" placeholder="Jan-Mar" value="<%=touros1%>">
-                            <input type="text" name="touros2" id="touros2" placeholder="Abr-Jun" value="<%=touros2%>">
-                            <input type="text" name="touros3" id="touros3" placeholder="Jul-Set" value="<%=touros3%>">
-                            <input type="text" name="touros4" id="touros4" placeholder="Out-Dez" value="<%=touros4%>">
+                            <input type="number" name="touros1" id="touros1" placeholder="Jan-Mar" value="<%=touros1%>">
+                            <input type="number" name="touros2" id="touros2" placeholder="Abr-Jun" value="<%=touros2%>">
+                            <input type="number" name="touros3" id="touros3" placeholder="Jul-Set" value="<%=touros3%>">
+                            <input type="number" name="touros4" id="touros4" placeholder="Out-Dez" value="<%=touros4%>">
                         </div>
                     </div>
                     <div class="control-group">

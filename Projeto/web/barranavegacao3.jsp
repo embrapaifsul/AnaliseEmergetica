@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="navbar-inner">
         <div class="container">
@@ -15,23 +14,17 @@
                     <li><a></a></li>
                     <li><a></a></li>
                     <li><a></a></li>
+                    <li><a href="InicioPropriedade.jsp">Usuario: <%=u.getLogin()%></a></li>
                     <li><a></a></li>
-                    <li><a>Propriedade: </a></li>
                     <li><a></a></li>
-                    <li><a>Ano:<%=p.getAno()%> </a></li>
+                    <li><a></a></li>
                     <li><a></a></li>
                     <li><a>Nivel: 3</a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
-                    <li><a href="InicioPropriedade.jsp">Usuario: </a></li>
                 </ul>
             </div>
+            <form action="index.jsp" class="navbar-form pull-right">
+                <button class="btn btn-inverse"> Sair </button>
+            </form>
         </div>
     </div>
 </nav>

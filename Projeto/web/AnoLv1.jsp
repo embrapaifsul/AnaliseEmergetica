@@ -143,12 +143,6 @@
                         <ul class="nav">
                             <li><a></a></li>
                             <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a>Propriedade: <%=pro.getNome()%></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
                             <li><a>Nivel: 1</a></li>
                             <li><a></a></li>
                             <li><a></a></li>
@@ -161,6 +155,11 @@
                             <li><a href="InicioPropriedade.jsp">Usuario: <%=u.getLogin()%></a></li>
                         </ul>
                     </div>
+
+                    <form action="index.jsp" class="navbar-form pull-right">
+                        <button class="btn btn-inverse"> Sair </button>
+                    </form>
+
                 </div>
             </div>
         </nav>
@@ -168,37 +167,37 @@
         <header class="page-header"></header> 
 
         <div class="container-fluid">
-        <div class="row-fluid">
+            <div class="row-fluid">
 
-            <aside class="span6">
-                <section id="breadcrumbs">
-                    <h3> Progresso </h3>
+                <aside class="span6">
+                    <section id="breadcrumbs">
+                        <h3> Progresso </h3>
 
-                    <div class="breadcrumb flat">
-                        <a class="active"> Data </a>
-                        <a href="Lv1-Passo1.jsp" <%=link1%>> Passo 1 </a>
-                        <a href="Lv1-Passo2.jsp" <%=link2%>> Passo 2 </a>
-                        <a href="Lv1-Passo3.jsp" <%=link3%>> Passo 3 </a>
-                        <a href="Lv1-Passo4.jsp" <%=link4%>> Passo 4 </a>
-                        <a href="Lv1-Saida.jsp" <%=link5%>> Resultados </a>
+                        <div class="breadcrumb flat">
+                            <a class="active"> Data </a>
+                            <a href="Lv1-Passo1.jsp" <%=link1%>> Passo 1 </a>
+                            <a href="Lv1-Passo2.jsp" <%=link2%>> Passo 2 </a>
+                            <a href="Lv1-Passo3.jsp" <%=link3%>> Passo 3 </a>
+                            <a href="Lv1-Passo4.jsp" <%=link4%>> Passo 4 </a>
+                            <a href="Lv1-Saida.jsp" <%=link5%>> Resultados </a>
+                        </div>
+
+                    </section>                
+                </aside>
+
+                <aside class="span5">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div class="ficanaesquerda">
+                        <h4>Propriedade: <%=pro.getNome()%></h4>
                     </div>
+                </aside>
 
-                </section>                
-            </aside>
+                <aside class="span1"></aside>
 
-            <aside class="span5">
-                <br/>
-                <br/>
-                <br/>
-                <div class="ficanaesquerda">
-                    <h4>Propriedade: <%=pro.getNome()%></h4>
-                </div>
-            </aside>
-
-            <aside class="span1"></aside>
-
+            </div>
         </div>
-    </div>
 
         <div class="container-fluid">
             <div class="row-fluid">
@@ -230,7 +229,7 @@
                             <label class="control-label">Ano da Análise:</label>
                             <div class="controls">
 
-                                <input type="text" name="data" value="<%=ano%>" required>
+                                <input type="number" name="data" value="<%=ano%>" required>
                             </div>
                         </div>
                         <div class="control-group">

@@ -21,17 +21,11 @@
                     <li><a></a></li>
                     <li><a></a></li>
                     <li><a>Nivel: 1</a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
-                    <li><a></a></li>
-                    <li><a href="index.jsp" class="pull-right"> Sair </a></li>
                 </ul>
             </div>
+            <form action="index.jsp" class="navbar-form pull-right">
+                <button class="btn btn-inverse"> Sair </button>
+            </form>
         </div>
     </div>
 </nav>

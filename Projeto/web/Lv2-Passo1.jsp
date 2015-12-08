@@ -337,32 +337,59 @@
     <div class="container-fluid">
         <div class="row-fluid">
 
-            <aside class="span11">
+            <aside class="span6">
                 <section id="breadcrumbs">
-                    <header class="page-header">
-                        <h3> Progresso </h3>
+                    <h3> Progresso </h3>
 
-                        <ul class="breadcrumb">
-                            <li><a href="AnoLv2.jsp"> Data </a><span class="divider"> / </span></li>
-                            <li class="alert-info"> Passo 1 </li><span class="divider"> / </span>
-                            <li><a href="Lv2-Passo2.jsp" <%=link2%>> Passo 2 </a><span class="divider"> / </span></li>
-                            <li><a href="Lv2-Passo3.jsp" <%=link3%>> Passo 3 </a><span class="divider"> / </span></li>
-                            <li><a href="Lv2-Passo4.jsp" <%=link4%>> Passo 4 </a><span class="divider"> / </span></li>
-                            <li><a href="Lv2-Saida.jsp" <%=link5%>> Resultados </a></li>
-                        </ul>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
-                                <span class="sr-only">20% Completo</span>
-                            </div>
-                        </div>
-                    </header>
-                </section><br/><br/>
+                    <div class="breadcrumb flat">
+                        <a href="AnoLv2.jsp"> Data </a>
+                        <a class="active"> Passo 1 </a>
+                        <a href="Lv2-Passo2.jsp" <%=link2%>> Passo 2 </a>
+                        <a href="Lv2-Passo3.jsp" <%=link3%>> Passo 3 </a>
+                        <a href="Lv2-Passo4.jsp" <%=link4%>> Passo 4 </a>
+                        <a href="Lv2-Saida.jsp" <%=link5%>> Resultados </a>
+
+                    </div>
+
+
+
+                </section>                
+            </aside>
+
+            <aside class="span5">
+                <br/>
+                <br/>
+                <br/>
+                <div class="ficanaesquerda">
+                    <h4 >Propriedade: <%=pro.getNome()%></h4>
+                    <h4>Ano: <%=p.getAno()%></h4>
+                </div>
             </aside>
 
             <aside class="span1"></aside>
 
         </div>
-    </div>
+
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+                <aside class="span11">
+                    <section id="breadcrumbs">
+                        <header class="page-header">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
+                                    <span class="sr-only">20% Completo</span>
+                                </div>
+                            </div>
+                        </header>
+                    </section>                
+                </aside>
+
+                <aside class="span2"></aside>
+
+            </div>
+        </div>
 
     <div class="container-fluid">
         <div class="row-fluid">
@@ -376,35 +403,35 @@
                     <div class="control-group">
                         <label class="control-label">Pastagem Nativa:</label>
                         <div class="controls">
-                            <input type="text" name="pn" id="pn" value="<%=pn%>">
+                            <input type="number" name="pn" id="pn" value="<%=pn%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Pastagem Nativa Melhorada:</label>
                         <div class="controls">
                             <br/>
-                            <input type="text" name="pnm" id="pnm" value="<%=pnm%>">
+                            <input type="number" name="pnm" id="pnm" value="<%=pnm%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Pastagem Cultivada Perene:</label>
                         <div class="controls">
                             <br/>
-                            <input type="text" name="pcp" id="pcp" value="<%=pcp%>">
+                            <input type="number" name="pcp" id="pcp" value="<%=pcp%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Pastagem Anuais de Inverno:</label>
                         <div class="controls">
                             <br/>
-                            <input type="text" name="pai" id="pai" value="<%=pai%>">
+                            <input type="number" name="pai" id="pai" value="<%=pai%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Pastagem Anuais de Verão:</label>
                         <div class="controls">
                             <br/>
-                            <input type="text" name="pav" id="pav" value="<%=pav%>">
+                            <input type="number" name="pav" id="pav" value="<%=pav%>">
                         </div>
                     </div>
                     <div class="control-group">
@@ -417,20 +444,20 @@
                     <div class="control-group">
                         <label class="control-label">Agricultura:</label>
                         <div class="controls">
-                            <input type="text" name="agriV" placeholder="No Verão" id="agriV" value="<%=agriV%>">
-                            <input type="text" name="agriI" placeholder="No Inverno" id="agriI" value="<%=agriI%>">
+                            <input type="number" name="agriV" placeholder="No Verão" id="agriV" value="<%=agriV%>">
+                            <input type="number" name="agriI" placeholder="No Inverno" id="agriI" value="<%=agriI%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Florestas Plantadas:</label>
                         <div class="controls">
-                            <input type="text" name="florestas" id="florestas" value="<%=floresta%>">
+                            <input type="number" name="florestas" id="florestas" value="<%=floresta%>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Outras Culturas:</label>
                         <div class="controls">
-                            <input type="text" name="outras" id="outras" value="<%=outras%>">
+                            <input type="number" name="outras" id="outras" value="<%=outras%>">
                         </div>
                     </div>
                     <div class="control-group">
@@ -443,20 +470,20 @@
                     <div class="control-group">
                         <label class="control-label">Matas Nativas:</label>
                         <div class="controls">
-                            <input type="text" name="matasnativas" value="<%=matasnativas%>" id="matasnativas">
+                            <input type="number" name="matasnativas" value="<%=matasnativas%>" id="matasnativas">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Sede, estradas, Açudes:</label>
                         <div class="controls">
-                            <input type="text" name="sea" value="<%=sea%>" id="sea">
+                            <input type="number" name="sea" value="<%=sea%>" id="sea">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Inaproveitável (banhados, pedras, etc):</label>
                         <div class="controls">
                             <br/>
-                            <input type="text" name="inaproveitavel" value="<%=inaproveitavel%>" id="inaproveitavel">
+                            <input type="number" name="inaproveitavel" value="<%=inaproveitavel%>" id="inaproveitavel">
                         </div>
                     </div>
                     <div class="control-group">

@@ -67,6 +67,10 @@
                             <li><a>Usuario: <%=u.getLogin()%></a></li>
                         </ul>
                     </div>
+                        
+                    <form action="index.jsp" class="navbar-form pull-right">
+                        <button class="btn btn-inverse"> Sair </button>
+                    </form>
                 </div>
             </div>
         </nav>
