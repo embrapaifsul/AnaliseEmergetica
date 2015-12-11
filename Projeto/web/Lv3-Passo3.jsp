@@ -152,12 +152,17 @@
                         <div class="control-group">
 
                             <tr class="success">   
-                                <%
-                                if(lista==null){
-                                %>
+                                
                                 
                                 <%                              Integer posicao = 0;
                                     for (Produto produto : produtos) {
+                                        
+                                        
+                                        
+                                        
+                                        Lv3p3 lv3p3;
+                                        lv3p3 = dao3.buscar(p.getAno(), produto, pro);
+                                        
                                 %>
 
 
@@ -169,7 +174,13 @@
                                         
                                 </td>
                                 <td>
-                                    <input type="number" name="<%=produto.getId()%>" id="<%=produto.getNome()%>"/>
+                                    <%if(lv3p3!= null){%>
+                                    
+                                    <input type="number" name="<%=produto.getId()%>" id="<%=produto.getNome()%>" value="<%=lv3p3.getProdutividade()%>"/>
+                                    <%}else{%>
+                                    <input type="number" name="<%=produto.getId()%>" id="<%=produto.getNome()%>"/>                                        
+                                    
+                                    <%}%>
                                 </td>
                             </tr>
 
@@ -183,40 +194,8 @@
                             %>   
                             
                             
-                             <%}else{
-%>
 
-                         
-
-                         <%                              Integer posicao = 0;
-                                    for (Produto produto : produtos) {
-                                %>
-
-
-                            <tr class="success">                                  
-
-                                <td>
-                                    
-                                        <%=produto.getNome()%>
-                                        
-                                </td>
-                                <td>
-                                    <input type="number" name="<%=produto.getId()%>" id="<%=produto.getNome()%>"/>
-                                </td>
-                            </tr>
-
-
-                            <input type="hidden" name="id<%=produto.getId()%>" value="<%=produto.getId()%>" />
-
-
-                            <%
-                                    posicao++;
-                                }
-                            %>   
-
-
-<%
-                                }%>
+              
                             </tr>
 
 

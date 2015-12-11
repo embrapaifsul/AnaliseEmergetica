@@ -181,6 +181,38 @@ public Boolean atualizar(Lv3p3 lv3p3){
             }
         return lv3p3;
         }
+  
+   public Lv3p3 buscar2(String ano,Propriedade pro )
+    {
+        Lv3p3 lv3p3 = null;
+        
+       
+        String sql = "SELECT * FROM lv3p3 WHERE ano = ? AND propriedade_id = ?";
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        
+        try {
+            //Executo o aql e jogo em um resultSet
+            pst.setString(1, ano);           
+            pst.setInt(2, pro.getId());
+            ResultSet res = pst.executeQuery();
+           
+         
+            if(res.next())
+            {
+                lv3p3 = new Lv3p3();
+                lv3p3.setId(res.getInt("id"));
+                lv3p3.setProdutividade(res.getDouble("produtividade"));
+                lv3p3.setProduto_id(res.getInt("produto_id"));                                                
+                lv3p3.setAno(res.getString("ano"));
+                lv3p3.setPropriedade_id(res.getInt("propriedade_id"));                        
+                
+            }
+            } catch(SQLException ex){
+               
+               ex.printStackTrace();
+            }
+        return lv3p3;
+        }
  
  
     }

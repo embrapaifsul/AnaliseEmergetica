@@ -4,6 +4,8 @@
     Author     : Aluno
 --%>
 
+<%@page import="dao.Lv3p3DAO"%>
+<%@page import="modelo.Lv3p3"%>
 <%@page import="modelo.Lv3p2"%>
 <%@page import="modelo.Lv3p1"%>
 
@@ -24,10 +26,12 @@
 
         Lv3p1DAO dao = new Lv3p1DAO();
         Lv3p2DAO dao2 = new Lv3p2DAO();
+        Lv3p3DAO dao3 = new Lv3p3DAO();
         
 
         Lv3p1 n11 = dao.buscar(p.getAno(), pro);
         Lv3p2 n12 = dao2.buscar(p.getAno(), pro);
+        Lv3p3 n13 = dao3.buscar2(p.getAno(), pro);
         
 
       if (n11 != null) {
@@ -35,10 +39,24 @@
             p.setLv3p1(n11);
              
             if (n12 != null) {
+                
+                
                 p.setLv3p2(n12);
-               response.sendRedirect("Lv3-Passo1.jsp");
+                
+                
+                  if(n13 != null){
+                    
+                    
+                     p.setLv3p3(n13);
+                
+                     response.sendRedirect("Lv3-Passo4.jsp");
+                  }else{
+                      
+                    response.sendRedirect("Lv3-Passo3.jsp");
+                }
+               
             } else {
-                response.sendRedirect("Lv3-Passo1.jsp");
+                response.sendRedirect("Lv3-Passo2.jsp");
             }
     } else {
             response.sendRedirect("Lv3-Passo1.jsp");

@@ -26,6 +26,14 @@ public class Passos {
     private Lv3p2 lv3p2;
     private Lv3p3 lv3p3;
 
+    public Lv3p3 getLv3p3() {
+        return lv3p3;
+    }
+
+    public void setLv3p3(Lv3p3 lv3p3) {
+        this.lv3p3 = lv3p3;
+    }
+
     public Double getDepre() {
         return depre;
     }
