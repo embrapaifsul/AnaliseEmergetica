@@ -527,7 +527,7 @@
                     <script src="js/highcharts.js"></script>
                     <script src="js/modules/heatmap.js"></script>
                     <script src="js/modules/treemap.js"></script>
-                    <div id="container"></div>
+                    <div id="container" style="width: 450px; height: 320px; margin: 0 auto"></div>
                 </div>
 
 
